@@ -197,6 +197,13 @@ tr:last-child td{border-bottom:0}
   font:14px/1.55 var(--f-prose);color:var(--ink2)}
 .verdict b{color:var(--ink);font-weight:500;font-family:var(--f-ui)}
 
+/* возможные причины */
+.causes{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.causes li{position:relative;padding-left:24px;font:14px/1.55 var(--f-prose);color:var(--ink2)}
+.causes li::before{content:"?";position:absolute;left:0;top:0;width:16px;height:16px;
+  border-radius:50%;border:1px solid var(--warn);color:var(--warn);
+  font:700 10px/14px var(--f-mono);text-align:center}
+
 /* кадры-основания */
 .evidence{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
 .ev{appearance:none;border:0;background:transparent;padding:0;cursor:pointer;text-align:left;font:inherit;color:inherit}
@@ -627,7 +634,8 @@ const WORKS = {
     fact:55,status:'confirmed',bar:{pl:[12.24,32.65],fa:[12.24,24.49,'f-ok']},
     cam:'cam01_0409',
     ladder:[true,true,null,false],
-    expect:[['excavator','≥ 1','1',true],['dump_truck','≥ 1','1',true],['person','≥ 2','2',true],['дней с активностью','3 из 10','9 из 10',true]],
+    expect:[['excavator','≥ 1','1','10 ч из 10',true],['dump_truck','≥ 1','1','9 ч из 10',true],['person','≥ 2','2','10 ч из 10',true],['дней с активностью','3 из 10','9 из 10','—',true]],
+    causes:[],
     days:[['24',2],['25',2],['26',2],['27',1],['28',2],['29',null,true],['30',null,true],['31',2],['01',2],['02',2],['03',2],['04',2]],
     verdict:'Работа подтверждена: экскаватор и самосвал фиксируются ежедневно и меняют положение в течение смены. 27 августа техника на месте, но не двигается и в зоне один человек вместо двух — день простоя, на общий статус не влияет.',
     history:[['18 авг','работа добавлена: 24 авг — 8 сен','—'],['3 сен','факт 0 % → 55 %','СУ-7']],
@@ -644,7 +652,8 @@ const WORKS = {
     fact:100,status:'reported_mismatch',bar:{pl:[20.41,14.29],fa:[20.41,14.29,'f-bad']},
     cam:'cam02_0309',
     ladder:[false,false,null,true],
-    expect:[['crane','≥ 1','0',false],['person','≥ 4','0',false],['дней с активностью','4 из 5','0 из 5',false]],
+    expect:[['crane','≥ 1','0','0 ч из 10',false],['person','≥ 4','0','0 ч из 10',false],['дней с активностью','4 из 5','0 из 5','—',false]],
+    causes:['Техника не выходила в зону ни в один из пяти рабочих дней этапа','План этапа переносился дважды, последний раз без указания причины','Работы могли вестись вне поля зрения КАМ-02 — проверить зону обзора камеры'],
     days:[['28',0],['29',null,true],['30',null,true],['31',0],['01',0],['02',0],['03',0]],
     verdict:'Работа принята в отчётности, но не подтверждена ни одним наблюдаемым признаком. Камера отработала все пять рабочих дней этапа: кадры есть, объектов на них нет. Требуется проверка объёмов до подписания акта.',
     history:[['18 авг','работа добавлена: 26 авг — 31 авг','—'],['25 авг','начало +2 дня, окончание +2 дня: 28 авг — 2 сен','не подвезли арматуру'],['30 авг','окончание +1 день: 28 авг — 3 сен','не указана'],['3 сен','факт 0 % → 100 %','СтройМонтаж']],
@@ -653,7 +662,8 @@ const WORKS = {
     fact:0,status:'resources_only',bar:{pl:[34.69,10.2],fa:[34.69,2.04,'f-warn']},
     cam:'cam02_0409',
     ladder:[true,false,null,false],
-    expect:[['concrete_pump','≥ 1','1',true],['mixer_truck','≥ 1','0',false],['person','≥ 4','2',false],['дней с активностью','1 из 1','0 из 1',false]],
+    expect:[['concrete_pump','≥ 1','1','10 ч из 10',true],['mixer_truck','≥ 1','0','0 ч из 10',false],['person','≥ 4','2','10 ч из 10',false],['дней с активностью','1 из 1','0 из 1','—',false]],
+    causes:['Бетоновозы за смену не зафиксированы — вероятна задержка поставки смеси','В зоне двое рабочих вместо четырёх — возможен недобор бригады','Бетононасос не менял положение: подготовка под заливку могла не завершиться'],
     days:[['04',1]],
     verdict:'Бетононасос в кадре с 08:15, положение за смену не менялось. Бетоновозы не зафиксированы, в зоне два человека вместо четырёх. Ресурсы на месте, но бетонирование не идёт.',
     history:[['18 авг','работа добавлена: 4 сен — 8 сен','—']],
@@ -843,11 +853,14 @@ function work(){
   <div class="split">
     <div class="panel">
       <div class="panelh">ОЖИДАЛОСЬ И ОБНАРУЖЕНО</div>
-      <div class="panelb"><div class="scroll"><table style="min-width:280px">
-        <tr><th>ПРИЗНАК</th><th>ОЖИДАЛОСЬ</th><th>ОБНАРУЖЕНО</th></tr>
+      <div class="panelb"><div class="scroll"><table style="min-width:330px">
+        <tr><th>ПРИЗНАК</th><th>ОЖИДАЛОСЬ</th><th>ОБНАРУЖЕНО</th><th>В КАДРЕ</th></tr>
         ${w.expect.map(e => `<tr><td class="num">${e[0]}</td><td class="num">${e[1]}</td>
-          <td class="num" style="color:var(${e[3]?'--ok':'--bad'});font-weight:700">${e[2]}</td></tr>`).join('')}
-      </table></div></div>
+          <td class="num" style="color:var(${e[4]?'--ok':'--bad'});font-weight:700">${e[2]}</td>
+          <td class="num" style="color:var(--muted)">${e[3]}</td></tr>`).join('')}
+      </table></div>
+      <p style="margin:11px 0 0;font:12.5px/1.5 var(--f-prose);color:var(--muted)">
+        Длительность присутствия считается по ежечасным кадрам смены: техника может стоять на площадке весь день и не работать.</p></div>
     </div>
 
     <div class="panel">
@@ -869,6 +882,16 @@ function work(){
       </div>
     </div>
   </div>
+
+  ${w.causes && w.causes.length ? `
+  <div class="panel">
+    <div class="panelh">ВОЗМОЖНЫЕ ПРИЧИНЫ ОТКЛОНЕНИЯ · ГИПОТЕЗЫ ПО ДАННЫМ</div>
+    <div class="panelb">
+      <ul class="causes">${w.causes.map(c => `<li>${c}</li>`).join('')}</ul>
+      <p style="margin:11px 0 0;font:12.5px/1.5 var(--f-prose);color:var(--muted)">
+        Версии построены на наблюдениях и журнале изменений плана. Система их предлагает, а не утверждает: подтвердить или отклонить может только руководитель проекта.</p>
+    </div>
+  </div>` : ''}
 
   <div class="panel">
     <div class="panelh">ИСТОРИЯ ПЛАНА ПО ЭТОЙ РАБОТЕ · ${w.history.length}</div>
