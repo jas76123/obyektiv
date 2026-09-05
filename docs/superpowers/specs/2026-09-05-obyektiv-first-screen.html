@@ -285,6 +285,75 @@ td.n{font:500 13px/1.5 var(--f-mono);font-variant-numeric:tabular-nums;white-spa
 }
 .badge.zero{color:var(--muted);border-color:var(--rule);background:var(--surface2)}
 
+/* ---------- сводка портфеля ---------- */
+.portsum{
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 22px;
+  border:1px solid var(--rule);border-left:3px solid var(--bad);
+  background:var(--surface);padding:12px 15px;margin-top:14px;
+}
+.portsum b{font:700 21px/1 var(--f-mono);font-variant-numeric:tabular-nums;color:var(--bad)}
+.portsum span{font:400 14px/1.4 var(--f-prose);color:var(--ink2)}
+.portsum i{font-style:normal;font:500 10.5px/1 var(--f-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-left:auto}
+
+/* ---------- переключатель вида ---------- */
+.viewtog{display:flex;border:1px solid var(--rule)}
+.viewtog button{
+  font:600 10.5px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;
+  padding:7px 11px;border:0;background:var(--surface);color:var(--muted);cursor:pointer;
+}
+.viewtog button + button{border-left:1px solid var(--rule)}
+.viewtog button[aria-pressed="true"]{background:var(--ink);color:var(--surface)}
+
+/* ---------- табличный вид ---------- */
+.tbl{border:1px solid var(--rule);background:var(--surface);overflow-x:auto}
+.tbl table{min-width:900px}
+.tbl th{cursor:pointer;user-select:none;white-space:nowrap}
+.tbl th:hover{color:var(--ink)}
+.tbl th[aria-sort]{color:var(--accent)}
+.tbl th .arrow{font-size:9px;margin-left:3px}
+.tbl td{vertical-align:middle}
+.tbl tr.clickrow:hover td{background:var(--surface2)}
+.tbl .cellobj{font:600 13px/1.35 var(--f-ui);color:var(--ink)}
+.tbl .cellobj i{display:block;font:500 9.5px/1.3 var(--f-mono);font-style:normal;text-transform:uppercase;color:var(--muted);margin-top:2px}
+.minibar{display:block;width:52px;height:7px;background:var(--surface2);border:1px solid var(--rule2);position:relative}
+.minibar i{position:absolute;inset:0 auto 0 0;display:block}
+.minibar.plan i{background:repeating-linear-gradient(135deg,transparent,transparent 3px,var(--rule) 3px,var(--rule) 4px);border-right:1px solid var(--ink2)}
+.minibar.rep i{background:var(--faint)}
+.minibar.cnf i{background:var(--ok)}
+.minibar.cnf.bad i{background:var(--bad)}
+.minibar.cnf.warn i{background:var(--warn)}
+
+/* ---------- контакт ответственного ---------- */
+.contact{
+  grid-column:1/-1;border-top:1px solid var(--rule);
+  background:var(--accent-soft);padding:14px;
+  display:grid;grid-template-columns:minmax(210px,260px) 1fr;gap:16px;
+}
+.person{display:flex;flex-direction:column;gap:9px}
+.pline{display:flex;align-items:center;gap:9px}
+.pava{width:34px;height:34px;flex:0 0 34px;background:var(--ink);color:var(--surface);font:700 12px/34px var(--f-mono);text-align:center}
+.pname{font:600 14px/1.25 var(--f-ui);color:var(--ink)}
+.prole{font:500 10px/1.3 var(--f-mono);letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+.pcontacts{display:flex;flex-direction:column;gap:4px}
+.pc{font:500 12px/1.4 var(--f-mono);color:var(--ink2);display:flex;gap:7px;align-items:center}
+.pc span{color:var(--faint);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;min-width:44px}
+.msg{display:flex;flex-direction:column;gap:8px;min-width:0}
+.msgh{font:600 10px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.msgbox{
+  background:var(--surface);border:1px solid var(--rule);padding:11px 12px;
+  font:400 12.5px/1.55 var(--f-mono);color:var(--ink2);white-space:pre-wrap;
+}
+.msgacts{display:flex;flex-wrap:wrap;gap:7px;align-items:center}
+.escal{font:400 12px/1.45 var(--f-prose);color:var(--muted);margin:0;max-width:none}
+.nocontact{
+  grid-column:1/-1;border-top:1px solid var(--rule);background:var(--warn-soft);
+  padding:13px 15px;font:400 13.5px/1.5 var(--f-prose);color:var(--ink2);
+}
+.await{
+  display:flex;align-items:center;gap:7px;
+  font:500 10.5px/1.3 var(--f-mono);color:var(--accent);
+}
+
 /* ---------- сортировка ---------- */
 .sortbar{
   display:flex;flex-wrap:wrap;align-items:center;gap:9px;
@@ -439,7 +508,7 @@ footer p{font:500 11px/1.7 var(--f-mono);letter-spacing:.06em;text-transform:upp
 <header class="masthead">
   <div class="kicker">Объектив · макеты 0.3 · 5 сентября 2026</div>
   <h1>Первый экран Объектива</h1>
-  <p class="standfirst">Портфель вместо одного объекта, три процента вместо плитки со статистикой и владелец у каждого расхождения. Три варианта компоновки, собранные вживую на данных демо-набора — чтобы выбрать глазами, а не словами.</p>
+  <p class="standfirst">Сквозной свод по всем стройкам вместо одного объекта, три процента вместо плитки со статистикой и звонок ответственному вместо галочки «в работе». Три варианта компоновки, собранные вживую на данных демо-набора — чтобы выбрать глазами, а не словами.</p>
   <div class="byline">
     <span>Продакт · Ж. Агабабян</span>
     <span>Данные: data/demo/portfolio</span>
@@ -465,9 +534,14 @@ footer p{font:500 11px/1.7 var(--f-mono);letter-spacing:.06em;text-transform:upp
         <td class="n">триада процентов</td>
       </tr>
       <tr>
-        <td>Кто прочитал, кто взял в работу</td>
-        <td>Расхождение из вывода превращается в <b>задачу с владельцем</b>. У системы появляется исход, которого раньше не было.</td>
-        <td class="n">обработка, атрибуция</td>
+        <td>Кто прочитал, кто взял в работу — и звонок ответственному, а не отметка</td>
+        <td>Расхождение превращается в <b>обращение к конкретному человеку</b>: контакт прораба, готовый текст запроса, срок ответа, эскалация. Галочка «в работе» на стройке не меняет ничего — звонок меняет.</td>
+        <td class="n">обработка, атрибуция, справочник ответственных</td>
+      </tr>
+      <tr>
+        <td>Сквозной свод по всем объектам</td>
+        <td>Сортировка переупорядочивает <b>весь портфель целиком</b>, а не строки внутри объекта. Плюс табличный вид: объект, зона, работа, подрядчик и кому звонить в одной строке.</td>
+        <td class="n">режим таблицы, сводка портфеля</td>
       </tr>
       <tr>
         <td>Не переключаясь понять аналитику, но не перегрузить</td>
@@ -531,7 +605,17 @@ footer p{font:500 11px/1.7 var(--f-mono);letter-spacing:.06em;text-transform:upp
 
 <section>
   <h2><span class="no">03</span>Вариант А. Полоса объектов и лента</h2>
-  <p>Объекты живут отдельной полосой сверху, лента расхождений под ней — единая, без разделения. Клик по объекту фильтрует ленту, повторный клик снимает фильтр. <b>Макет рабочий: сортировка, фильтры, раскрытие карточек и «взять в работу» действительно работают.</b></p>
+  <p>Объекты живут отдельной полосой сверху, лента расхождений под ней — <b>сквозная по всему портфелю</b>, без разделения. Полоса объектов работает как фильтр, а не как группировка: по умолчанию не выбран никто и видно всё сразу. Клик по объекту сужает список, повторный клик снимает фильтр.</p>
+  <p><b>Макет рабочий</b>: переключение «лента / таблица», пять способов сортировки, фильтры, раскрытие карточек, контакт ответственного и отправка запроса действительно работают. Нажмите «Связаться» на первой карточке.</p>
+
+  <h3>Два вида одних и тех же данных</h3>
+  <p>Заказчику нужны оба, и они отвечают на разные вопросы.</p>
+  <ul>
+    <li><b>Лента</b> — «во что вникнуть». Несёт кадр-доказательство и формулировку вывода, читается медленно и убедительно. Дефолт.</li>
+    <li><b>Таблица</b> — «увидеть всё сразу». Объект, зона, работа, подрядчик, три процента, срок без реакции и кому звонить — в одной строке, сортировка кликом по заголовку. Это родной язык человека, который живёт в Excel, и именно она отвечает на вопрос «что и где у меня болит по всем объектам».</li>
+  </ul>
+  <p>Сортировка сквозная в обоих видах — она переупорядочивает <b>весь портфель целиком</b>, а не сортирует внутри объектов. Сортировка «по объекту» здесь тоже сквозная: она просто ставит рядом строки одного объекта, не создавая уровня вложенности.</p>
+  <p>Отдельно стоит сортировка <b>по разрыву «заявлено — подтверждено»</b>. Она отвечает на денежный вопрос напрямую: где расхождение между тем, за что выставлен счёт, и тем, что подтверждено наблюдением, максимально.</p>
 
   <div class="slab">
     <div class="slabhead"><b>Вариант А · экран портфеля</b><span>кликабельно</span></div>
@@ -546,13 +630,20 @@ footer p{font:500 11px/1.7 var(--f-mono);letter-spacing:.06em;text-transform:upp
       <div class="uibody">
         <div class="objstrip" id="strip"></div>
 
+        <div class="portsum" id="portsum"></div>
+
         <div class="sortbar">
+          <div class="viewtog">
+            <button id="vfeed" aria-pressed="true" type="button">Лента</button>
+            <button id="vtable" aria-pressed="false" type="button">Таблица</button>
+          </div>
           <span class="sortlbl">Сортировка</span>
           <select id="sort">
-            <option value="sev">по важности</option>
+            <option value="sev">по остроте</option>
             <option value="obj">по объекту</option>
             <option value="stale">по времени без реакции</option>
             <option value="contr">по подрядчику</option>
+            <option value="gap">по разрыву «заявлено — подтверждено»</option>
           </select>
           <button class="fbtn" id="fnew" aria-pressed="false">только непросмотренные</button>
           <button class="fbtn" id="fbad" aria-pressed="false">только расхождения</button>
@@ -560,6 +651,7 @@ footer p{font:500 11px/1.7 var(--f-mono);letter-spacing:.06em;text-transform:upp
         </div>
 
         <div class="feed" id="feed"></div>
+        <div class="tbl" id="tblwrap" hidden></div>
       </div>
     </div>
   </div>
@@ -677,7 +769,7 @@ footer p{font:500 11px/1.7 var(--f-mono);letter-spacing:.06em;text-transform:upp
             </div>
           </div>
           <div class="afoot" style="margin-top:12px">
-            <button class="act primary" type="button">Взять в работу</button>
+            <button class="act primary" type="button">Связаться · Сафин Р.</button>
             <button class="act" type="button">Подробно</button>
             <span class="stale">не просмотрено 2 дня</span>
           </div>
@@ -713,21 +805,21 @@ footer p{font:500 11px/1.7 var(--f-mono);letter-spacing:.06em;text-transform:upp
 </section>
 
 <section>
-  <h2><span class="no">07</span>Слой «кто взял в работу»</h2>
-  <p>До сих пор система заканчивалась выводом и оставляла пользователя с ним наедине. Четыре состояния превращают расхождение в задачу с владельцем и закрывают эту дыру.</p>
+  <h2><span class="no">07</span>Взять в работу — значит связаться с человеком</h2>
+  <p class="lead">Отметка «в работе» сама по себе ничего не меняет на стройке. Она перекладывает бумажку. Реальное действие ровно одно: <b>позвонить или написать тому, кто отвечает за эту работу на этом объекте</b>. Поэтому кнопка не ставит галочку, а открывает контакт и готовый текст запроса.</p>
 
   <div class="states">
     <div class="state s1">
       <b>Новое</b>
-      <p>Никто не открывал. На карточке счётчик суток без реакции — метрика бездействия, а не украшение.</p>
+      <p>Никто не открывал. Счётчик суток без реакции на карточке — метрика бездействия, а не украшение.</p>
     </div>
     <div class="state s2">
       <b>Просмотрено</b>
-      <p>Кто открыл и когда. Снимает главный риск портфеля: расхождение висит третий день и никто его не видел.</p>
+      <p>Кто открыл и когда. Снимает главный риск портфеля: расхождение висит третьи сутки, и никто его не видел.</p>
     </div>
     <div class="state s3">
-      <b>В работе</b>
-      <p>Владелец, время и комментарий свободным текстом: «запросил фотоотчёт до 8 сентября». Прекращает пинг-понг «я думал, ты звонишь».</p>
+      <b>Запрос отправлен</b>
+      <p>Кто, кому, каким каналом и к какому сроку ждём ответ. На карточке видно адресата, а не абстрактное «в работе».</p>
     </div>
     <div class="state s4">
       <b>Закрыто</b>
@@ -740,10 +832,44 @@ footer p{font:500 11px/1.7 var(--f-mono);letter-spacing:.06em;text-transform:upp
     </div>
   </div>
 
+  <h3>Что появляется в карточке при нажатии «Связаться»</h3>
+  <p>Три вещи, и все три экономят самое дорогое — время до звонка.</p>
+  <ul>
+    <li><b>Кто это.</b> ФИО, должность, подрядчик и зона ответственности: «Сафин Р. И., производитель работ, СтройМонтаж, фундамент секции 2». Не «подрядчик СтройМонтаж», а конкретный человек, который поднимет трубку.</li>
+    <li><b>Как связаться.</b> Телефон и мессенджер прямо в карточке. Не нужно идти в почту, договор или чей-то контакт-лист.</li>
+    <li><b>Что сказать.</b> Текст запроса <b>уже собран из фактов расхождения</b>: объект, зона, работа, что заявлено, сколько дней подтверждено, что требуется и к какому сроку. Человек не сочиняет формулировку — он нажимает.</li>
+  </ul>
+
+  <div class="note">
+    <p><b>Готовый текст — это не удобство, а качество коммуникации.</b> Когда формулировку пишут вручную и на эмоциях, разговор с подрядчиком начинается с обвинения. Собранный из данных запрос звучит как факт и просьба подтвердить, а не как претензия, — и на него отвечают охотнее.</p>
+  </div>
+
+  <h3>Эскалация</h3>
+  <p>У каждого контакта есть второй уровень: главный инженер или руководитель проекта со стороны подрядчика. Правило простое и написано прямо в карточке: <b>нет ответа двое суток — эскалация</b>. Это превращает «мне не перезвонили» из личной обиды в процедуру.</p>
+
+  <h3>Новая сущность в данных: справочник ответственных</h3>
+  <p>Слой требует того, чего в графике нет. В плане есть колонка <code>contractor</code> — название организации. Кому звонить, там не написано.</p>
+  <div class="tablewrap">
+    <table>
+      <tr><th style="width:180px">Поле</th><th>Что содержит</th><th style="width:200px">Кто заполняет</th></tr>
+      <tr><td class="n">contractor + object_id</td><td>ключ: один подрядчик на разных объектах — разные прорабы</td><td>—</td></tr>
+      <tr><td class="n">name, role</td><td>ФИО и должность: производитель работ, начальник участка</td><td>технический заказчик при запуске объекта</td></tr>
+      <tr><td class="n">phone, messenger</td><td>телефон и Telegram — оба канала, выбирает пользователь</td><td>то же</td></tr>
+      <tr><td class="n">scope</td><td>зона ответственности: «фундамент, секция 2»</td><td>то же</td></tr>
+      <tr><td class="n">escalation</td><td>второй контакт: главный инженер подрядчика</td><td>то же</td></tr>
+    </table>
+  </div>
+  <p>Заполняется один раз при подключении объекта, вместе с привязкой камер к зонам, и живёт в том же экране настройки.</p>
+
+  <div class="note warn">
+    <p><b>Незаполненный контакт — это состояние, а не пустое место.</b> В демонстрационных данных у «ГеоСтрой» ответственный не указан намеренно. Карточка честно говорит: обратиться не к кому, заполните контакт. Это единственный случай, когда система не может предложить действие, и прятать его нельзя — иначе расхождение будет висеть без адресата, а никто не поймёт почему.</p>
+  </div>
+
   <h3>Что это даёт кроме порядка</h3>
   <ul>
     <li><b>Ответ на возражение «а если модель ошибётся».</b> Исход «ложное срабатывание» — это размеченная обратная связь. Сто таких закрытий, и вы знаете, где детектор врёт и какие пороги двигать.</li>
-    <li><b>Три метрики бесплатно:</b> непросмотренных расхождений, среднее время до взятия в работу, доля ложных срабатываний в разрезе подрядчиков.</li>
+    <li><b>Четыре метрики бесплатно:</b> непросмотренных расхождений, среднее время от обнаружения до обращения, доля запросов без ответа в срок, доля ложных срабатываний в разрезе подрядчиков.</li>
+    <li><b>Переписка привязана к расхождению, а не к чату.</b> Сейчас запрос уходит в общую группу объекта и там тонет. Здесь видно: кому написали, когда, что ответили, чем закончилось.</li>
     <li><b>Заявка на второй продукт.</b> Последняя метрика — это рейтинг достоверности отчётности подрядчика, накопленный за месяцы. Стоит назвать на защите одной фразой.</li>
   </ul>
 
@@ -868,6 +994,8 @@ footer p{font:500 11px/1.7 var(--f-mono);letter-spacing:.06em;text-transform:upp
       <tr><th style="width:180px">Что</th><th style="width:190px">Было в спецификации 1.0</th><th style="width:190px">Стало</th><th>Цена</th></tr>
       <tr><td>Несколько объектов</td><td class="n">не входит</td><td class="n">ядро первого экрана</td><td><code>object_id</code> во всех сущностях, отдельный экран объекта, демо-набор на шесть объектов</td></tr>
       <tr><td>Роли и авторизация</td><td class="n">не входит</td><td class="n">атрибуция без паролей</td><td>список участников в настройке, подпись действий именем</td></tr>
+      <tr><td>Справочник ответственных</td><td class="n">не было</td><td class="n">обязателен для действия</td><td>таблица «подрядчик + объект → человек, телефон, мессенджер, эскалация», заполняется при подключении объекта</td></tr>
+      <tr><td>Табличный вид ленты</td><td class="n">не было</td><td class="n">второй режим первого экрана</td><td>сортировка кликом по заголовку, те же данные без кадров</td></tr>
       <tr><td>Триада процентов</td><td class="n">не было</td><td class="n">центральный элемент</td><td>три поля в ответе API, аккуратные подписи, знаменатель по прошедшим дням</td></tr>
       <tr><td>Кадр-основание</td><td class="n">только в разборе</td><td class="n">обязателен в списке</td><td><code>evidence_frame</code> отдаётся на уровне ленты, а не только по одной работе</td></tr>
       <tr><td>Диаграмма плана и факта</td><td class="n">половина экрана 1</td><td class="n">экран объекта</td><td>освобождает место, снимает необходимость объяснять её на защите</td></tr>
@@ -943,8 +1071,39 @@ const ALERTS = [
    hist:[['22 авг','работа добавлена: 2 сен — 15 сен',''],['29 авг','начало +5 дней','задержка поставки свай'],['4 сен','начало +4 дня','причина не указана']]}
 ];
 
-const S = {obj:null, sort:'sev', onlyNew:false, onlyBad:false, open:{}, state:{}};
+/* справочник ответственных: подрядчик на объекте → человек, которому звонят */
+const CONTACTS = {
+  'СтройМонтаж|OBJ-01':{name:'Сафин Р. И.', role:'производитель работ', phone:'+7 917 204-11-86', tg:'@safin_rr',
+    scope:'фундамент, секция 2', esc:'Гурьев Н. В., главный инженер СтройМонтаж, +7 495 640-22-08'},
+  'СтройМонтаж|OBJ-03':{name:'Дёмин П. А.', role:'начальник участка', phone:'+7 903 776-40-12', tg:'@demin_pa',
+    scope:'монолитный каркас, секции 1–3', esc:'Гурьев Н. В., главный инженер СтройМонтаж, +7 495 640-22-08'},
+  'МонолитСтрой|OBJ-06':{name:'Астахов В. С.', role:'производитель работ', phone:'+7 926 118-52-30', tg:'@astahov_vs',
+    scope:'нулевой цикл', esc:'Панина О. Л., руководитель проекта МонолитСтрой, +7 495 118-90-40'}
+};
+
+const S = {obj:null, sort:'sev', onlyNew:false, onlyBad:false, view:'feed', open:{}, contact:{}, state:{}};
 ALERTS.forEach(a => S.state[a.id] = {handling:a.handling, who:a.who, role:a.role, at:a.at, note:a.note});
+S.state['A-02'] = {handling:'contacted', who:'Ковалёв А.', role:'технадзор', at:'вчера 09:12',
+  target:'Дёмин П. А.', channel:'Telegram', due:'8 сентября'};
+
+function contactFor(a){ return CONTACTS[a.contr+'|'+a.obj] || null; }
+
+/* текст запроса собирается из фактов расхождения — человек нажимает, а не сочиняет */
+function requestText(a){
+  const c = a.days ? `${a.cnfd} из ${a.days}` : '0';
+  if(a.kind==='bad')
+    return `${a.objName}, ${a.zone}, ${a.work.toLowerCase()} (${a.id.replace('A-','W-')}).\n`
+      + `В графике работа закрыта на ${a.rep} %. По данным видеонаблюдения за период этапа `
+      + `подтверждено ${c} рабочих дней: ожидаемой техники и бригады в зоне не зафиксировано.\n`
+      + `Прошу до 8 сентября подтвердить объём фотоотчётом с привязкой к осям либо скорректировать факт в графике.`;
+  if(a.kind==='warn')
+    return `${a.objName}, ${a.zone}, ${a.work.toLowerCase()}.\n`
+      + `Техника в зоне присутствует, но за последние смены не меняет положения, состав бригады ниже нормативного.\n`
+      + `Прошу сообщить причину простоя и срок возобновления работ.`;
+  return `${a.objName}, ${a.zone}, ${a.work.toLowerCase()}.\n`
+    + `Сроки работы сдвигаются второй раз, последняя правка внесена без указания причины.\n`
+    + `Прошу указать причину переноса в графике и подтвердить новую дату начала.`;
+}
 
 const ZC = {ok:'var(--ok)', warn:'var(--warn)', bad:'var(--bad)', none:'var(--rule)'};
 
@@ -1024,17 +1183,60 @@ function initials(name){
 
 function handlingBlock(a){
   const st=S.state[a.id];
+  const c=contactFor(a);
+  const who = c ? c.name.split(' ')[0]+' '+(c.name.split(' ')[1]||'') : 'ответственному';
+  const detailBtn = `<button class="act" data-open="${a.id}" type="button">Подробно</button>`;
+
+  if(st.handling==='contacted')
+    return `${detailBtn}
+      <button class="act" data-close="${a.id}" type="button">Зафиксировать исход</button>
+      <span class="who"><i class="ava">${initials(st.who)}</i>${st.who} · ${st.role} · ${st.at}</span>
+      <span class="await">→ ${st.target}, ${st.channel} · ждём ответ до ${st.due}</span>`;
+
+  const contactBtn = `<button class="act primary" data-contact="${a.id}" type="button">
+      ${S.contact[a.id]?'Свернуть контакт':'Связаться · '+who}</button>`;
+
   if(st.handling==='new')
-    return `<button class="act primary" data-take="${a.id}" type="button">Взять в работу</button>
-            <button class="act" data-open="${a.id}" type="button">Подробно</button>
-            ${a.stale?`<span class="stale">не просмотрено ${a.stale} ${a.stale===1?'день':'дня'}</span>`:''}`;
-  if(st.handling==='seen')
-    return `<button class="act primary" data-take="${a.id}" type="button">Взять в работу</button>
-            <button class="act" data-open="${a.id}" type="button">Подробно</button>
-            <span class="who"><i class="ava">${initials(st.who)}</i>просмотрено · ${st.who} · ${st.role} · ${st.at}</span>`;
-  return `<button class="act" data-open="${a.id}" type="button">Подробно</button>
-          <button class="act" data-close="${a.id}" type="button">Закрыть с исходом</button>
-          <span class="who"><i class="ava">${initials(st.who)}</i>в работе · ${st.who} · ${st.role} · ${st.at}${st.note?' · «'+st.note+'»':''}</span>`;
+    return `${contactBtn}${detailBtn}
+      ${a.stale?`<span class="stale">не просмотрено ${a.stale} ${a.stale===1?'день':'дня'}</span>`:''}`;
+
+  return `${contactBtn}${detailBtn}
+    <span class="who"><i class="ava">${initials(st.who)}</i>просмотрено · ${st.who} · ${st.role} · ${st.at}</span>`;
+}
+
+function contactPanel(a){
+  const c=contactFor(a);
+  if(!c) return `<div class="nocontact">
+      <b>Ответственный по подрядчику «${a.contr}» на этом объекте не указан.</b>
+      Обратиться не к кому — заполните контакт в настройке объекта, иначе расхождение
+      останется висеть без адресата. Это единственный случай, когда система не может
+      предложить действие.
+      <div style="margin-top:10px"><button class="act" type="button">Заполнить контакт</button></div>
+    </div>`;
+  return `<div class="contact">
+    <div class="person">
+      <div class="pline">
+        <i class="pava">${initials(c.name)}</i>
+        <span><span class="pname">${c.name}</span><span class="prole">${c.role} · ${a.contr}</span></span>
+      </div>
+      <div class="pcontacts">
+        <span class="pc"><span>зона</span>${c.scope}</span>
+        <span class="pc"><span>телефон</span>${c.phone}</span>
+        <span class="pc"><span>telegram</span>${c.tg}</span>
+      </div>
+      <p class="escal">Если ответа нет двое суток — эскалация: ${c.esc}</p>
+    </div>
+    <div class="msg">
+      <span class="msgh">Запрос собран из фактов расхождения</span>
+      <div class="msgbox">${requestText(a)}</div>
+      <div class="msgacts">
+        <button class="act primary" data-send="${a.id}|звонок|${c.name}" type="button">Позвонить</button>
+        <button class="act primary" data-send="${a.id}|Telegram|${c.name}" type="button">Отправить в Telegram</button>
+        <button class="act" data-send="${a.id}|письмо|${c.name}" type="button">Письмом</button>
+        <span class="evlabel" style="margin-left:4px">действие фиксируется в карточке</span>
+      </div>
+    </div>
+  </div>`;
 }
 
 function detail(a){
@@ -1083,6 +1285,18 @@ function render(){
       </span>
     </button>`).join('');
 
+  const gap = a => a.rep - (a.days ? Math.round(a.cnfd/a.days*100) : 0);
+
+  /* сводка по всему портфелю — считается до фильтров */
+  const objsHit = new Set(ALERTS.map(a=>a.obj)).size;
+  const untouched = ALERTS.filter(a=>S.state[a.id].handling==='new').length;
+  const worst = ALERTS.slice().sort((x,y)=>y.sev-x.sev)[0];
+  document.getElementById('portsum').innerHTML =
+    `<b>${ALERTS.length}</b><span>расхождений на <b style="font-size:15px">${objsHit}</b> объектах из ${OBJECTS.length}</span>
+     <span>·</span><span>${untouched} не просмотрено</span>
+     <span>·</span><span>острее всего — ${worst.work.toLowerCase()}, ${worst.objName}</span>
+     <i>сквозной свод, без разделения по объектам</i>`;
+
   let list = ALERTS.slice();
   if(S.obj) list = list.filter(a=>a.obj===S.obj);
   if(S.onlyNew) list = list.filter(a=>S.state[a.id].handling==='new');
@@ -1091,14 +1305,58 @@ function render(){
     sev:(x,y)=>y.sev-x.sev,
     obj:(x,y)=>x.objName.localeCompare(y.objName,'ru') || y.sev-x.sev,
     stale:(x,y)=>y.stale-x.stale || y.sev-x.sev,
-    contr:(x,y)=>x.contr.localeCompare(y.contr,'ru') || y.sev-x.sev
+    contr:(x,y)=>x.contr.localeCompare(y.contr,'ru') || y.sev-x.sev,
+    gap:(x,y)=>gap(y)-gap(x) || y.sev-x.sev
   }[S.sort];
   list.sort(cmp);
 
   document.getElementById('count').textContent =
-    `показано ${list.length} из ${ALERTS.length}` + (S.obj ? ' · фильтр по объекту' : '');
+    `показано ${list.length} из ${ALERTS.length}` + (S.obj ? ' · фильтр по объекту' : ' · все объекты');
 
-  document.getElementById('feed').innerHTML = list.length ? list.map(a=>`
+  const feedEl = document.getElementById('feed');
+  const tblEl = document.getElementById('tblwrap');
+  feedEl.hidden = S.view!=='feed';
+  tblEl.hidden = S.view!=='table';
+
+  if(S.view==='table'){
+    const arrow = k => S.sort===k ? '<span class="arrow">▼</span>' : '';
+    const st = k => S.sort===k ? ' aria-sort="descending"' : '';
+    tblEl.innerHTML = `<table>
+      <tr>
+        <th data-sortk="sev"${st('sev')}>Острота${arrow('sev')}</th>
+        <th data-sortk="obj"${st('obj')}>Объект${arrow('obj')}</th>
+        <th>Зона</th>
+        <th>Работа</th>
+        <th data-sortk="contr"${st('contr')}>Подрядчик${arrow('contr')}</th>
+        <th>План</th><th>Заявлено</th>
+        <th data-sortk="gap"${st('gap')}>Подтверждено${arrow('gap')}</th>
+        <th data-sortk="stale"${st('stale')}>Без реакции${arrow('stale')}</th>
+        <th>Кому звонить</th>
+      </tr>
+      ${list.map(a=>{
+        const cnf = a.days ? Math.round(a.cnfd/a.days*100) : 0;
+        const c = contactFor(a);
+        const hst = S.state[a.id];
+        return `<tr class="clickrow">
+          <td><span class="chip ${a.kind}">${a.kind==='bad'?'расхождение':a.kind==='warn'?'не подтверждена':'перенос'}</span></td>
+          <td class="cellobj">${a.objName}</td>
+          <td class="n">${a.zone}</td>
+          <td>${a.work}</td>
+          <td class="n">${a.contr}</td>
+          <td class="n"><span class="minibar plan"><i style="width:${a.plan}%"></i></span> ${a.plan} %</td>
+          <td class="n"><span class="minibar rep"><i style="width:${a.rep}%"></i></span> ${a.rep} %</td>
+          <td class="n"><span class="minibar cnf ${a.kind==='bad'?'bad':a.kind==='warn'?'warn':''}"><i style="width:${cnf}%"></i></span>
+              ${cnf} % <em style="color:var(--faint);font-style:normal">${a.days?a.cnfd+'/'+a.days+' дн':'—'}</em></td>
+          <td class="n" style="color:${a.stale?'var(--bad)':'var(--faint)'}">${a.stale?a.stale+' сут':'—'}</td>
+          <td class="n">${c ? c.name+'<br><span style="color:var(--faint)">'+c.phone+'</span>'
+              : '<span style="color:var(--warn)">не указан</span>'}
+              ${hst.handling==='contacted'?'<br><span style="color:var(--accent)">запрос отправлен</span>':''}</td>
+        </tr>`;
+      }).join('')}
+    </table>`;
+  }
+
+  feedEl.innerHTML = list.length ? list.map(a=>`
     <div class="alert">
       <span class="stripe ${a.kind==='bad'?'':a.kind}"></span>
       <div class="abody">
@@ -1118,6 +1376,7 @@ function render(){
         ${frameSvg(a.frame)}
         <span class="evlabel">${a.frameSub}</span>
       </div>
+      ${S.contact[a.id]?contactPanel(a):''}
       ${S.open[a.id]?detail(a):''}
     </div>`).join('')
     : `<div style="border:1px solid var(--rule);background:var(--surface);padding:26px;text-align:center;
@@ -1128,14 +1387,42 @@ function render(){
 document.addEventListener('click', e=>{
   const o=e.target.closest('[data-obj]');
   if(o){ S.obj = S.obj===o.dataset.obj ? null : o.dataset.obj; render(); return; }
-  const t=e.target.closest('[data-take]');
-  if(t){ const id=t.dataset.take; S.state[id]={handling:'in_work', who:'Титова Е.', role:'руководитель проекта', at:'только что', note:''}; render(); return; }
+  const k=e.target.closest('[data-contact]');
+  if(k){
+    const id=k.dataset.contact;
+    S.contact[id]=!S.contact[id];
+    if(S.state[id].handling==='new')
+      S.state[id]={handling:'seen', who:'Титова Е.', role:'руководитель проекта', at:'только что'};
+    render(); return;
+  }
+  const s=e.target.closest('[data-send]');
+  if(s){
+    const [id,channel,target]=s.dataset.send.split('|');
+    S.state[id]={handling:'contacted', who:'Титова Е.', role:'руководитель проекта',
+                 at:'только что', target, channel, due:'8 сентября'};
+    S.contact[id]=false;
+    render(); return;
+  }
   const c=e.target.closest('[data-close]');
-  if(c){ const id=c.dataset.close; S.state[id]={...S.state[id], handling:'in_work', note:'ожидает исхода'}; render(); return; }
+  if(c){ const id=c.dataset.close; S.state[id]={...S.state[id], due:'исход не зафиксирован'}; render(); return; }
   const d=e.target.closest('[data-open]');
   if(d){ const id=d.dataset.open; S.open[id]=!S.open[id]; render(); return; }
+  const h=e.target.closest('[data-sortk]');
+  if(h){ S.sort=h.dataset.sortk; document.getElementById('sort').value=S.sort; render(); return; }
 });
 document.getElementById('sort').addEventListener('change', e=>{ S.sort=e.target.value; render(); });
+document.getElementById('vfeed').addEventListener('click', ()=>{
+  S.view='feed';
+  document.getElementById('vfeed').setAttribute('aria-pressed','true');
+  document.getElementById('vtable').setAttribute('aria-pressed','false');
+  render();
+});
+document.getElementById('vtable').addEventListener('click', ()=>{
+  S.view='table';
+  document.getElementById('vfeed').setAttribute('aria-pressed','false');
+  document.getElementById('vtable').setAttribute('aria-pressed','true');
+  render();
+});
 document.getElementById('fnew').addEventListener('click', e=>{
   S.onlyNew=!S.onlyNew; e.currentTarget.setAttribute('aria-pressed',S.onlyNew); render();
 });
