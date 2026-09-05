@@ -1,0 +1,6 @@
+alert_id,object_id,work_id,work_name,zone,contractor,status,plan_today_pct,reported_pct,confirmed_days,elapsed_days,severity,handling,handled_by,handled_role,handled_at,note,evidence_frame,untouched_days
+A-01,OBJ-01,W-07,Армирование фундамента,Секция 2,СтройМонтаж,reported_mismatch,100,100,0,5,95,new,,,,,cam02_20260903_0940,2
+A-02,OBJ-03,W-31,Монолитный каркас 3 этаж,Секция 1,СтройМонтаж,reported_mismatch,100,100,1,6,88,in_work,Ковалёв А.,технадзор,2026-09-05 09:12,запросил фотоотчёт у подрядчика до 8 сентября,cam11_20260904_1100,0
+A-03,OBJ-06,W-63,Устройство фундаментной плиты,Секция 1,МонолитСтрой,resources_only,64,40,2,6,71,new,,,,,cam21_20260904_1420,1
+A-04,OBJ-01,W-08,Бетонирование фундамента,Секция 2,СтройМонтаж,resources_only,20,0,0,1,58,seen,Титова Е.,руководитель проекта,2026-09-05 08:40,,cam02_20260904_1300,0
+A-05,OBJ-02,W-23,Свайные работы,Секция 1,ГеоСтрой,plan_churn,0,0,0,0,41,new,,,,,,3
