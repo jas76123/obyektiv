@@ -1,0 +1,4607 @@
+[
+  {
+    "frame": 0,
+    "class": "Bucket loader Standart",
+    "confidence": 0.66
+  },
+  {
+    "frame": 0,
+    "class": "Excavator",
+    "confidence": 0.47
+  },
+  {
+    "frame": 0,
+    "class": "Excavator",
+    "confidence": 0.36
+  },
+  {
+    "frame": 1,
+    "class": "Excavator",
+    "confidence": 0.75
+  },
+  {
+    "frame": 1,
+    "class": "Bucket loader Standart",
+    "confidence": 0.59
+  },
+  {
+    "frame": 2,
+    "class": "Excavator",
+    "confidence": 0.75
+  },
+  {
+    "frame": 2,
+    "class": "Bucket loader Standart",
+    "confidence": 0.6
+  },
+  {
+    "frame": 3,
+    "class": "Excavator",
+    "confidence": 0.73
+  },
+  {
+    "frame": 3,
+    "class": "Bucket loader Standart",
+    "confidence": 0.7
+  },
+  {
+    "frame": 3,
+    "class": "Excavator",
+    "confidence": 0.33
+  },
+  {
+    "frame": 4,
+    "class": "Bucket loader Standart",
+    "confidence": 0.71
+  },
+  {
+    "frame": 4,
+    "class": "Excavator",
+    "confidence": 0.48
+  },
+  {
+    "frame": 4,
+    "class": "Excavator",
+    "confidence": 0.34
+  },
+  {
+    "frame": 5,
+    "class": "Bucket loader Standart",
+    "confidence": 0.76
+  },
+  {
+    "frame": 5,
+    "class": "Excavator",
+    "confidence": 0.44
+  },
+  {
+    "frame": 5,
+    "class": "Excavator",
+    "confidence": 0.37
+  },
+  {
+    "frame": 6,
+    "class": "Excavator",
+    "confidence": 0.42
+  },
+  {
+    "frame": 6,
+    "class": "Excavator",
+    "confidence": 0.38
+  },
+  {
+    "frame": 7,
+    "class": "Excavator",
+    "confidence": 0.44
+  },
+  {
+    "frame": 7,
+    "class": "Excavator",
+    "confidence": 0.36
+  },
+  {
+    "frame": 8,
+    "class": "Excavator",
+    "confidence": 0.49
+  },
+  {
+    "frame": 8,
+    "class": "Excavator",
+    "confidence": 0.46
+  },
+  {
+    "frame": 9,
+    "class": "Excavator",
+    "confidence": 0.39
+  },
+  {
+    "frame": 10,
+    "class": "Forklift Giraffe",
+    "confidence": 0.59
+  },
+  {
+    "frame": 10,
+    "class": "Tanker",
+    "confidence": 0.33
+  },
+  {
+    "frame": 11,
+    "class": "Excavator",
+    "confidence": 0.68
+  },
+  {
+    "frame": 12,
+    "class": "Excavator",
+    "confidence": 0.68
+  },
+  {
+    "frame": 13,
+    "class": "Excavator",
+    "confidence": 0.76
+  },
+  {
+    "frame": 14,
+    "class": "Excavator",
+    "confidence": 0.28
+  },
+  {
+    "frame": 16,
+    "class": "Excavator",
+    "confidence": 0.68
+  },
+  {
+    "frame": 16,
+    "class": "Excavator",
+    "confidence": 0.49
+  },
+  {
+    "frame": 17,
+    "class": "Excavator",
+    "confidence": 0.68
+  },
+  {
+    "frame": 17,
+    "class": "Excavator",
+    "confidence": 0.49
+  },
+  {
+    "frame": 18,
+    "class": "Excavator",
+    "confidence": 0.56
+  },
+  {
+    "frame": 18,
+    "class": "Excavator",
+    "confidence": 0.37
+  },
+  {
+    "frame": 19,
+    "class": "Excavator",
+    "confidence": 0.69
+  },
+  {
+    "frame": 19,
+    "class": "Excavator",
+    "confidence": 0.3
+  },
+  {
+    "frame": 20,
+    "class": "Excavator",
+    "confidence": 0.26
+  },
+  {
+    "frame": 23,
+    "class": "Tanker",
+    "confidence": 0.79
+  },
+  {
+    "frame": 23,
+    "class": "Bucket loader Big",
+    "confidence": 0.46
+  },
+  {
+    "frame": 24,
+    "class": "Excavator",
+    "confidence": 0.55
+  },
+  {
+    "frame": 24,
+    "class": "Bucket loader Big",
+    "confidence": 0.34
+  },
+  {
+    "frame": 25,
+    "class": "Excavator",
+    "confidence": 0.7
+  },
+  {
+    "frame": 26,
+    "class": "Excavator",
+    "confidence": 0.42
+  },
+  {
+    "frame": 27,
+    "class": "Excavator",
+    "confidence": 0.42
+  },
+  {
+    "frame": 28,
+    "class": "Bucket loader Big",
+    "confidence": 0.7
+  },
+  {
+    "frame": 29,
+    "class": "Bucket loader Big",
+    "confidence": 0.64
+  },
+  {
+    "frame": 29,
+    "class": "Excavator",
+    "confidence": 0.38
+  },
+  {
+    "frame": 30,
+    "class": "Bucket loader Big",
+    "confidence": 0.76
+  },
+  {
+    "frame": 30,
+    "class": "Excavator",
+    "confidence": 0.4
+  },
+  {
+    "frame": 31,
+    "class": "Bucket loader Big",
+    "confidence": 0.64
+  },
+  {
+    "frame": 31,
+    "class": "Excavator",
+    "confidence": 0.37
+  },
+  {
+    "frame": 32,
+    "class": "Bucket loader Big",
+    "confidence": 0.64
+  },
+  {
+    "frame": 32,
+    "class": "Excavator",
+    "confidence": 0.36
+  },
+  {
+    "frame": 33,
+    "class": "Bucket loader Big",
+    "confidence": 0.78
+  },
+  {
+    "frame": 33,
+    "class": "Excavator",
+    "confidence": 0.49
+  },
+  {
+    "frame": 34,
+    "class": "Excavator",
+    "confidence": 0.58
+  },
+  {
+    "frame": 35,
+    "class": "Excavator",
+    "confidence": 0.68
+  },
+  {
+    "frame": 36,
+    "class": "Excavator",
+    "confidence": 0.54
+  },
+  {
+    "frame": 37,
+    "class": "Excavator",
+    "confidence": 0.55
+  },
+  {
+    "frame": 38,
+    "class": "Excavator",
+    "confidence": 0.74
+  },
+  {
+    "frame": 38,
+    "class": "Excavator",
+    "confidence": 0.49
+  },
+  {
+    "frame": 39,
+    "class": "Excavator",
+    "confidence": 0.89
+  },
+  {
+    "frame": 40,
+    "class": "Excavator",
+    "confidence": 0.34
+  },
+  {
+    "frame": 41,
+    "class": "Excavator",
+    "confidence": 0.82
+  },
+  {
+    "frame": 41,
+    "class": "Tanker",
+    "confidence": 0.75
+  },
+  {
+    "frame": 41,
+    "class": "Forklift Giraffe",
+    "confidence": 0.26
+  },
+  {
+    "frame": 42,
+    "class": "Excavator",
+    "confidence": 0.81
+  },
+  {
+    "frame": 42,
+    "class": "Tanker",
+    "confidence": 0.75
+  },
+  {
+    "frame": 42,
+    "class": "Forklift Giraffe",
+    "confidence": 0.27
+  },
+  {
+    "frame": 43,
+    "class": "Tanker",
+    "confidence": 0.49
+  },
+  {
+    "frame": 43,
+    "class": "Mixer",
+    "confidence": 0.27
+  },
+  {
+    "frame": 44,
+    "class": "Mixer",
+    "confidence": 0.41
+  },
+  {
+    "frame": 45,
+    "class": "Excavator",
+    "confidence": 0.88
+  },
+  {
+    "frame": 45,
+    "class": "Tanker",
+    "confidence": 0.35
+  },
+  {
+    "frame": 46,
+    "class": "Excavator",
+    "confidence": 0.9
+  },
+  {
+    "frame": 46,
+    "class": "Tanker",
+    "confidence": 0.71
+  },
+  {
+    "frame": 47,
+    "class": "Excavator",
+    "confidence": 0.9
+  },
+  {
+    "frame": 47,
+    "class": "Tanker",
+    "confidence": 0.72
+  },
+  {
+    "frame": 48,
+    "class": "Excavator",
+    "confidence": 0.8
+  },
+  {
+    "frame": 48,
+    "class": "Tanker",
+    "confidence": 0.52
+  },
+  {
+    "frame": 48,
+    "class": "Excavator",
+    "confidence": 0.41
+  },
+  {
+    "frame": 49,
+    "class": "Excavator",
+    "confidence": 0.85
+  },
+  {
+    "frame": 49,
+    "class": "Excavator",
+    "confidence": 0.66
+  },
+  {
+    "frame": 49,
+    "class": "Tanker",
+    "confidence": 0.58
+  },
+  {
+    "frame": 50,
+    "class": "Excavator",
+    "confidence": 0.91
+  },
+  {
+    "frame": 50,
+    "class": "Excavator",
+    "confidence": 0.72
+  },
+  {
+    "frame": 50,
+    "class": "Tanker",
+    "confidence": 0.53
+  },
+  {
+    "frame": 51,
+    "class": "Excavator",
+    "confidence": 0.79
+  },
+  {
+    "frame": 51,
+    "class": "Excavator",
+    "confidence": 0.52
+  },
+  {
+    "frame": 51,
+    "class": "Tanker",
+    "confidence": 0.47
+  },
+  {
+    "frame": 52,
+    "class": "Excavator",
+    "confidence": 0.8
+  },
+  {
+    "frame": 52,
+    "class": "Excavator",
+    "confidence": 0.52
+  },
+  {
+    "frame": 52,
+    "class": "Tanker",
+    "confidence": 0.47
+  },
+  {
+    "frame": 53,
+    "class": "Excavator",
+    "confidence": 0.85
+  },
+  {
+    "frame": 53,
+    "class": "Excavator",
+    "confidence": 0.48
+  },
+  {
+    "frame": 53,
+    "class": "Tanker",
+    "confidence": 0.27
+  },
+  {
+    "frame": 54,
+    "class": "Excavator",
+    "confidence": 0.9
+  },
+  {
+    "frame": 55,
+    "class": "Excavator",
+    "confidence": 0.9
+  },
+  {
+    "frame": 56,
+    "class": "Tanker",
+    "confidence": 0.47
+  },
+  {
+    "frame": 56,
+    "class": "Excavator",
+    "confidence": 0.29
+  },
+  {
+    "frame": 57,
+    "class": "Tanker",
+    "confidence": 0.44
+  },
+  {
+    "frame": 57,
+    "class": "Excavator",
+    "confidence": 0.29
+  },
+  {
+    "frame": 58,
+    "class": "Tanker",
+    "confidence": 0.32
+  },
+  {
+    "frame": 60,
+    "class": "Excavator",
+    "confidence": 0.71
+  },
+  {
+    "frame": 61,
+    "class": "Excavator",
+    "confidence": 0.71
+  },
+  {
+    "frame": 62,
+    "class": "Excavator",
+    "confidence": 0.71
+  },
+  {
+    "frame": 64,
+    "class": "Excavator",
+    "confidence": 0.59
+  },
+  {
+    "frame": 66,
+    "class": "Tanker",
+    "confidence": 0.32
+  },
+  {
+    "frame": 67,
+    "class": "Tanker",
+    "confidence": 0.3
+  },
+  {
+    "frame": 68,
+    "class": "Tanker",
+    "confidence": 0.3
+  },
+  {
+    "frame": 69,
+    "class": "Tanker",
+    "confidence": 0.49
+  },
+  {
+    "frame": 69,
+    "class": "Tanker",
+    "confidence": 0.34
+  },
+  {
+    "frame": 70,
+    "class": "Excavator",
+    "confidence": 0.39
+  },
+  {
+    "frame": 70,
+    "class": "Tanker",
+    "confidence": 0.34
+  },
+  {
+    "frame": 70,
+    "class": "Tanker",
+    "confidence": 0.28
+  },
+  {
+    "frame": 71,
+    "class": "Excavator",
+    "confidence": 0.57
+  },
+  {
+    "frame": 72,
+    "class": "Excavator",
+    "confidence": 0.57
+  },
+  {
+    "frame": 73,
+    "class": "Excavator",
+    "confidence": 0.71
+  },
+  {
+    "frame": 74,
+    "class": "Excavator",
+    "confidence": 0.56
+  },
+  {
+    "frame": 75,
+    "class": "Excavator",
+    "confidence": 0.66
+  },
+  {
+    "frame": 76,
+    "class": "Excavator",
+    "confidence": 0.56
+  },
+  {
+    "frame": 77,
+    "class": "Excavator",
+    "confidence": 0.56
+  },
+  {
+    "frame": 78,
+    "class": "Excavator",
+    "confidence": 0.75
+  },
+  {
+    "frame": 78,
+    "class": "Tanker",
+    "confidence": 0.41
+  },
+  {
+    "frame": 79,
+    "class": "Tanker",
+    "confidence": 0.33
+  },
+  {
+    "frame": 80,
+    "class": "Excavator",
+    "confidence": 0.78
+  },
+  {
+    "frame": 81,
+    "class": "Excavator",
+    "confidence": 0.45
+  },
+  {
+    "frame": 82,
+    "class": "Excavator",
+    "confidence": 0.46
+  },
+  {
+    "frame": 83,
+    "class": "Excavator",
+    "confidence": 0.86
+  },
+  {
+    "frame": 84,
+    "class": "Excavator",
+    "confidence": 0.75
+  },
+  {
+    "frame": 84,
+    "class": "Tanker",
+    "confidence": 0.33
+  },
+  {
+    "frame": 85,
+    "class": "Excavator",
+    "confidence": 0.53
+  },
+  {
+    "frame": 86,
+    "class": "Excavator",
+    "confidence": 0.79
+  },
+  {
+    "frame": 86,
+    "class": "Excavator",
+    "confidence": 0.49
+  },
+  {
+    "frame": 86,
+    "class": "Tanker",
+    "confidence": 0.27
+  },
+  {
+    "frame": 87,
+    "class": "Excavator",
+    "confidence": 0.79
+  },
+  {
+    "frame": 87,
+    "class": "Excavator",
+    "confidence": 0.48
+  },
+  {
+    "frame": 87,
+    "class": "Tanker",
+    "confidence": 0.27
+  },
+  {
+    "frame": 88,
+    "class": "Excavator",
+    "confidence": 0.42
+  },
+  {
+    "frame": 89,
+    "class": "Excavator",
+    "confidence": 0.85
+  },
+  {
+    "frame": 90,
+    "class": "Excavator",
+    "confidence": 0.71
+  },
+  {
+    "frame": 91,
+    "class": "Excavator",
+    "confidence": 0.89
+  },
+  {
+    "frame": 92,
+    "class": "Excavator",
+    "confidence": 0.89
+  },
+  {
+    "frame": 93,
+    "class": "Excavator",
+    "confidence": 0.94
+  },
+  {
+    "frame": 93,
+    "class": "Excavator",
+    "confidence": 0.47
+  },
+  {
+    "frame": 95,
+    "class": "Excavator",
+    "confidence": 0.36
+  },
+  {
+    "frame": 96,
+    "class": "Excavator",
+    "confidence": 0.34
+  },
+  {
+    "frame": 97,
+    "class": "Excavator",
+    "confidence": 0.32
+  },
+  {
+    "frame": 105,
+    "class": "Mixer",
+    "confidence": 0.3
+  },
+  {
+    "frame": 114,
+    "class": "Excavator",
+    "confidence": 0.3
+  },
+  {
+    "frame": 115,
+    "class": "Excavator",
+    "confidence": 0.45
+  },
+  {
+    "frame": 116,
+    "class": "Excavator",
+    "confidence": 0.5
+  },
+  {
+    "frame": 117,
+    "class": "Excavator",
+    "confidence": 0.48
+  },
+  {
+    "frame": 118,
+    "class": "Excavator",
+    "confidence": 0.27
+  },
+  {
+    "frame": 124,
+    "class": "Excavator",
+    "confidence": 0.37
+  },
+  {
+    "frame": 125,
+    "class": "Excavator",
+    "confidence": 0.33
+  },
+  {
+    "frame": 126,
+    "class": "Excavator",
+    "confidence": 0.34
+  },
+  {
+    "frame": 127,
+    "class": "Excavator",
+    "confidence": 0.34
+  },
+  {
+    "frame": 131,
+    "class": "Mixer",
+    "confidence": 0.54
+  },
+  {
+    "frame": 131,
+    "class": "Crane manipulator",
+    "confidence": 0.44
+  },
+  {
+    "frame": 132,
+    "class": "Mixer",
+    "confidence": 0.54
+  },
+  {
+    "frame": 132,
+    "class": "Crane manipulator",
+    "confidence": 0.44
+  },
+  {
+    "frame": 133,
+    "class": "Mixer",
+    "confidence": 0.7
+  },
+  {
+    "frame": 133,
+    "class": "Crane manipulator",
+    "confidence": 0.51
+  },
+  {
+    "frame": 134,
+    "class": "Mixer",
+    "confidence": 0.8
+  },
+  {
+    "frame": 134,
+    "class": "Crane manipulator",
+    "confidence": 0.45
+  },
+  {
+    "frame": 134,
+    "class": "Mixer",
+    "confidence": 0.32
+  },
+  {
+    "frame": 134,
+    "class": "Crane manipulator",
+    "confidence": 0.26
+  },
+  {
+    "frame": 135,
+    "class": "Crane manipulator",
+    "confidence": 0.77
+  },
+  {
+    "frame": 135,
+    "class": "Mixer",
+    "confidence": 0.67
+  },
+  {
+    "frame": 136,
+    "class": "Crane manipulator",
+    "confidence": 0.77
+  },
+  {
+    "frame": 136,
+    "class": "Mixer",
+    "confidence": 0.6
+  },
+  {
+    "frame": 137,
+    "class": "Crane manipulator",
+    "confidence": 0.78
+  },
+  {
+    "frame": 137,
+    "class": "Mixer",
+    "confidence": 0.57
+  },
+  {
+    "frame": 138,
+    "class": "Crane manipulator",
+    "confidence": 0.76
+  },
+  {
+    "frame": 138,
+    "class": "Mixer",
+    "confidence": 0.52
+  },
+  {
+    "frame": 139,
+    "class": "Tanker",
+    "confidence": 0.86
+  },
+  {
+    "frame": 139,
+    "class": "Crane manipulator",
+    "confidence": 0.71
+  },
+  {
+    "frame": 139,
+    "class": "Mixer",
+    "confidence": 0.44
+  },
+  {
+    "frame": 140,
+    "class": "Crane manipulator",
+    "confidence": 0.6
+  },
+  {
+    "frame": 140,
+    "class": "Mixer",
+    "confidence": 0.6
+  },
+  {
+    "frame": 141,
+    "class": "Crane manipulator",
+    "confidence": 0.69
+  },
+  {
+    "frame": 141,
+    "class": "Mixer",
+    "confidence": 0.46
+  },
+  {
+    "frame": 142,
+    "class": "Crane manipulator",
+    "confidence": 0.67
+  },
+  {
+    "frame": 142,
+    "class": "Mixer",
+    "confidence": 0.44
+  },
+  {
+    "frame": 143,
+    "class": "Crane manipulator",
+    "confidence": 0.72
+  },
+  {
+    "frame": 143,
+    "class": "Mixer",
+    "confidence": 0.5
+  },
+  {
+    "frame": 144,
+    "class": "Mixer",
+    "confidence": 0.69
+  },
+  {
+    "frame": 144,
+    "class": "Crane manipulator",
+    "confidence": 0.51
+  },
+  {
+    "frame": 145,
+    "class": "Mixer",
+    "confidence": 0.86
+  },
+  {
+    "frame": 145,
+    "class": "Mixer",
+    "confidence": 0.67
+  },
+  {
+    "frame": 145,
+    "class": "Crane manipulator",
+    "confidence": 0.61
+  },
+  {
+    "frame": 146,
+    "class": "Mixer",
+    "confidence": 0.87
+  },
+  {
+    "frame": 146,
+    "class": "Mixer",
+    "confidence": 0.74
+  },
+  {
+    "frame": 146,
+    "class": "Crane manipulator",
+    "confidence": 0.43
+  },
+  {
+    "frame": 147,
+    "class": "Mixer",
+    "confidence": 0.87
+  },
+  {
+    "frame": 147,
+    "class": "Mixer",
+    "confidence": 0.74
+  },
+  {
+    "frame": 147,
+    "class": "Crane manipulator",
+    "confidence": 0.43
+  },
+  {
+    "frame": 148,
+    "class": "Mixer",
+    "confidence": 0.91
+  },
+  {
+    "frame": 148,
+    "class": "Mixer",
+    "confidence": 0.66
+  },
+  {
+    "frame": 148,
+    "class": "Crane manipulator",
+    "confidence": 0.61
+  },
+  {
+    "frame": 149,
+    "class": "Mixer",
+    "confidence": 0.89
+  },
+  {
+    "frame": 149,
+    "class": "Crane manipulator",
+    "confidence": 0.64
+  },
+  {
+    "frame": 149,
+    "class": "Mixer",
+    "confidence": 0.61
+  },
+  {
+    "frame": 149,
+    "class": "Excavator",
+    "confidence": 0.37
+  },
+  {
+    "frame": 150,
+    "class": "Mixer",
+    "confidence": 0.9
+  },
+  {
+    "frame": 150,
+    "class": "Mixer",
+    "confidence": 0.46
+  },
+  {
+    "frame": 150,
+    "class": "Crane manipulator",
+    "confidence": 0.42
+  },
+  {
+    "frame": 151,
+    "class": "Mixer",
+    "confidence": 0.87
+  },
+  {
+    "frame": 151,
+    "class": "Mixer",
+    "confidence": 0.55
+  },
+  {
+    "frame": 151,
+    "class": "Mixer",
+    "confidence": 0.32
+  },
+  {
+    "frame": 152,
+    "class": "Mixer",
+    "confidence": 0.87
+  },
+  {
+    "frame": 152,
+    "class": "Mixer",
+    "confidence": 0.55
+  },
+  {
+    "frame": 152,
+    "class": "Mixer",
+    "confidence": 0.32
+  },
+  {
+    "frame": 153,
+    "class": "Mixer",
+    "confidence": 0.84
+  },
+  {
+    "frame": 153,
+    "class": "Tanker",
+    "confidence": 0.56
+  },
+  {
+    "frame": 153,
+    "class": "Mixer",
+    "confidence": 0.51
+  },
+  {
+    "frame": 153,
+    "class": "Mixer",
+    "confidence": 0.28
+  },
+  {
+    "frame": 154,
+    "class": "Tanker",
+    "confidence": 0.72
+  },
+  {
+    "frame": 154,
+    "class": "Mixer",
+    "confidence": 0.69
+  },
+  {
+    "frame": 154,
+    "class": "Mixer",
+    "confidence": 0.48
+  },
+  {
+    "frame": 154,
+    "class": "Excavator",
+    "confidence": 0.36
+  },
+  {
+    "frame": 155,
+    "class": "Mixer",
+    "confidence": 0.87
+  },
+  {
+    "frame": 155,
+    "class": "Mixer",
+    "confidence": 0.67
+  },
+  {
+    "frame": 155,
+    "class": "Mixer",
+    "confidence": 0.29
+  },
+  {
+    "frame": 155,
+    "class": "Excavator",
+    "confidence": 0.27
+  },
+  {
+    "frame": 156,
+    "class": "Mixer",
+    "confidence": 0.89
+  },
+  {
+    "frame": 156,
+    "class": "Mixer",
+    "confidence": 0.86
+  },
+  {
+    "frame": 156,
+    "class": "Mixer",
+    "confidence": 0.63
+  },
+  {
+    "frame": 156,
+    "class": "Mixer",
+    "confidence": 0.36
+  },
+  {
+    "frame": 157,
+    "class": "Mixer",
+    "confidence": 0.89
+  },
+  {
+    "frame": 157,
+    "class": "Mixer",
+    "confidence": 0.86
+  },
+  {
+    "frame": 157,
+    "class": "Mixer",
+    "confidence": 0.62
+  },
+  {
+    "frame": 157,
+    "class": "Mixer",
+    "confidence": 0.38
+  },
+  {
+    "frame": 158,
+    "class": "Mixer",
+    "confidence": 0.86
+  },
+  {
+    "frame": 158,
+    "class": "Mixer",
+    "confidence": 0.83
+  },
+  {
+    "frame": 158,
+    "class": "Mixer",
+    "confidence": 0.39
+  },
+  {
+    "frame": 158,
+    "class": "Mixer",
+    "confidence": 0.38
+  },
+  {
+    "frame": 159,
+    "class": "Mixer",
+    "confidence": 0.88
+  },
+  {
+    "frame": 159,
+    "class": "Mixer",
+    "confidence": 0.87
+  },
+  {
+    "frame": 159,
+    "class": "Mixer",
+    "confidence": 0.54
+  },
+  {
+    "frame": 159,
+    "class": "Mixer",
+    "confidence": 0.4
+  },
+  {
+    "frame": 160,
+    "class": "Mixer",
+    "confidence": 0.87
+  },
+  {
+    "frame": 160,
+    "class": "Mixer",
+    "confidence": 0.85
+  },
+  {
+    "frame": 160,
+    "class": "Mixer",
+    "confidence": 0.46
+  },
+  {
+    "frame": 160,
+    "class": "Mixer",
+    "confidence": 0.36
+  },
+  {
+    "frame": 161,
+    "class": "Mixer",
+    "confidence": 0.88
+  },
+  {
+    "frame": 161,
+    "class": "Mixer",
+    "confidence": 0.86
+  },
+  {
+    "frame": 161,
+    "class": "Mixer",
+    "confidence": 0.51
+  },
+  {
+    "frame": 161,
+    "class": "Excavator",
+    "confidence": 0.42
+  },
+  {
+    "frame": 162,
+    "class": "Mixer",
+    "confidence": 0.88
+  },
+  {
+    "frame": 162,
+    "class": "Mixer",
+    "confidence": 0.86
+  },
+  {
+    "frame": 162,
+    "class": "Mixer",
+    "confidence": 0.51
+  },
+  {
+    "frame": 162,
+    "class": "Excavator",
+    "confidence": 0.42
+  },
+  {
+    "frame": 163,
+    "class": "Mixer",
+    "confidence": 0.9
+  },
+  {
+    "frame": 163,
+    "class": "Mixer",
+    "confidence": 0.88
+  },
+  {
+    "frame": 163,
+    "class": "Mixer",
+    "confidence": 0.48
+  },
+  {
+    "frame": 163,
+    "class": "Mixer",
+    "confidence": 0.37
+  },
+  {
+    "frame": 164,
+    "class": "Mixer",
+    "confidence": 0.89
+  },
+  {
+    "frame": 164,
+    "class": "Mixer",
+    "confidence": 0.72
+  },
+  {
+    "frame": 164,
+    "class": "Mixer",
+    "confidence": 0.58
+  },
+  {
+    "frame": 164,
+    "class": "Mixer",
+    "confidence": 0.31
+  },
+  {
+    "frame": 165,
+    "class": "Mixer",
+    "confidence": 0.82
+  },
+  {
+    "frame": 165,
+    "class": "Mixer",
+    "confidence": 0.59
+  },
+  {
+    "frame": 166,
+    "class": "Mixer",
+    "confidence": 0.87
+  },
+  {
+    "frame": 166,
+    "class": "Mixer",
+    "confidence": 0.67
+  },
+  {
+    "frame": 166,
+    "class": "Tanker",
+    "confidence": 0.46
+  },
+  {
+    "frame": 166,
+    "class": "Mixer",
+    "confidence": 0.33
+  },
+  {
+    "frame": 167,
+    "class": "Mixer",
+    "confidence": 0.87
+  },
+  {
+    "frame": 167,
+    "class": "Mixer",
+    "confidence": 0.66
+  },
+  {
+    "frame": 167,
+    "class": "Tanker",
+    "confidence": 0.46
+  },
+  {
+    "frame": 167,
+    "class": "Mixer",
+    "confidence": 0.33
+  },
+  {
+    "frame": 168,
+    "class": "Mixer",
+    "confidence": 0.87
+  },
+  {
+    "frame": 168,
+    "class": "Mixer",
+    "confidence": 0.74
+  },
+  {
+    "frame": 168,
+    "class": "Mixer",
+    "confidence": 0.49
+  },
+  {
+    "frame": 169,
+    "class": "Mixer",
+    "confidence": 0.87
+  },
+  {
+    "frame": 169,
+    "class": "Mixer",
+    "confidence": 0.78
+  },
+  {
+    "frame": 169,
+    "class": "Mixer",
+    "confidence": 0.51
+  },
+  {
+    "frame": 169,
+    "class": "Mixer",
+    "confidence": 0.28
+  },
+  {
+    "frame": 170,
+    "class": "Mixer",
+    "confidence": 0.91
+  },
+  {
+    "frame": 170,
+    "class": "Mixer",
+    "confidence": 0.82
+  },
+  {
+    "frame": 170,
+    "class": "Mixer",
+    "confidence": 0.57
+  },
+  {
+    "frame": 170,
+    "class": "Mixer",
+    "confidence": 0.55
+  },
+  {
+    "frame": 171,
+    "class": "Mixer",
+    "confidence": 0.89
+  },
+  {
+    "frame": 171,
+    "class": "Mixer",
+    "confidence": 0.71
+  },
+  {
+    "frame": 171,
+    "class": "Mixer",
+    "confidence": 0.64
+  },
+  {
+    "frame": 172,
+    "class": "Mixer",
+    "confidence": 0.89
+  },
+  {
+    "frame": 172,
+    "class": "Mixer",
+    "confidence": 0.71
+  },
+  {
+    "frame": 172,
+    "class": "Mixer",
+    "confidence": 0.69
+  },
+  {
+    "frame": 173,
+    "class": "Mixer",
+    "confidence": 0.88
+  },
+  {
+    "frame": 173,
+    "class": "Mixer",
+    "confidence": 0.77
+  },
+  {
+    "frame": 173,
+    "class": "Mixer",
+    "confidence": 0.57
+  },
+  {
+    "frame": 174,
+    "class": "Mixer",
+    "confidence": 0.89
+  },
+  {
+    "frame": 174,
+    "class": "Mixer",
+    "confidence": 0.75
+  },
+  {
+    "frame": 174,
+    "class": "Mixer",
+    "confidence": 0.6
+  },
+  {
+    "frame": 175,
+    "class": "Mixer",
+    "confidence": 0.88
+  },
+  {
+    "frame": 175,
+    "class": "Mixer",
+    "confidence": 0.78
+  },
+  {
+    "frame": 175,
+    "class": "Mixer",
+    "confidence": 0.61
+  },
+  {
+    "frame": 175,
+    "class": "Mixer",
+    "confidence": 0.26
+  },
+  {
+    "frame": 176,
+    "class": "Tanker",
+    "confidence": 0.91
+  },
+  {
+    "frame": 176,
+    "class": "Mixer",
+    "confidence": 0.9
+  },
+  {
+    "frame": 176,
+    "class": "Mixer",
+    "confidence": 0.8
+  },
+  {
+    "frame": 176,
+    "class": "Mixer",
+    "confidence": 0.54
+  },
+  {
+    "frame": 176,
+    "class": "Mixer",
+    "confidence": 0.26
+  },
+  {
+    "frame": 177,
+    "class": "Tanker",
+    "confidence": 0.91
+  },
+  {
+    "frame": 177,
+    "class": "Mixer",
+    "confidence": 0.9
+  },
+  {
+    "frame": 177,
+    "class": "Mixer",
+    "confidence": 0.8
+  },
+  {
+    "frame": 177,
+    "class": "Mixer",
+    "confidence": 0.55
+  },
+  {
+    "frame": 177,
+    "class": "Mixer",
+    "confidence": 0.26
+  },
+  {
+    "frame": 178,
+    "class": "Mixer",
+    "confidence": 0.9
+  },
+  {
+    "frame": 178,
+    "class": "Mixer",
+    "confidence": 0.77
+  },
+  {
+    "frame": 178,
+    "class": "Tanker",
+    "confidence": 0.66
+  },
+  {
+    "frame": 178,
+    "class": "Mixer",
+    "confidence": 0.6
+  },
+  {
+    "frame": 179,
+    "class": "Mixer",
+    "confidence": 0.88
+  },
+  {
+    "frame": 179,
+    "class": "Mixer",
+    "confidence": 0.76
+  },
+  {
+    "frame": 179,
+    "class": "Mixer",
+    "confidence": 0.32
+  },
+  {
+    "frame": 179,
+    "class": "Mixer",
+    "confidence": 0.3
+  },
+  {
+    "frame": 180,
+    "class": "Mixer",
+    "confidence": 0.88
+  },
+  {
+    "frame": 180,
+    "class": "Mixer",
+    "confidence": 0.77
+  },
+  {
+    "frame": 180,
+    "class": "Tanker",
+    "confidence": 0.77
+  },
+  {
+    "frame": 180,
+    "class": "Mixer",
+    "confidence": 0.62
+  },
+  {
+    "frame": 180,
+    "class": "Mixer",
+    "confidence": 0.28
+  },
+  {
+    "frame": 181,
+    "class": "Tanker",
+    "confidence": 0.95
+  },
+  {
+    "frame": 181,
+    "class": "Mixer",
+    "confidence": 0.61
+  },
+  {
+    "frame": 181,
+    "class": "Mixer",
+    "confidence": 0.55
+  },
+  {
+    "frame": 181,
+    "class": "Mixer",
+    "confidence": 0.38
+  },
+  {
+    "frame": 182,
+    "class": "Tanker",
+    "confidence": 0.95
+  },
+  {
+    "frame": 182,
+    "class": "Mixer",
+    "confidence": 0.6
+  },
+  {
+    "frame": 182,
+    "class": "Mixer",
+    "confidence": 0.56
+  },
+  {
+    "frame": 182,
+    "class": "Mixer",
+    "confidence": 0.36
+  },
+  {
+    "frame": 183,
+    "class": "Tanker",
+    "confidence": 0.65
+  },
+  {
+    "frame": 183,
+    "class": "Mixer",
+    "confidence": 0.6
+  },
+  {
+    "frame": 184,
+    "class": "Mixer",
+    "confidence": 0.9
+  },
+  {
+    "frame": 184,
+    "class": "Mixer",
+    "confidence": 0.7
+  },
+  {
+    "frame": 184,
+    "class": "Tanker",
+    "confidence": 0.68
+  },
+  {
+    "frame": 185,
+    "class": "Mixer",
+    "confidence": 0.9
+  },
+  {
+    "frame": 185,
+    "class": "Mixer",
+    "confidence": 0.63
+  },
+  {
+    "frame": 186,
+    "class": "Mixer",
+    "confidence": 0.91
+  },
+  {
+    "frame": 186,
+    "class": "Mixer",
+    "confidence": 0.67
+  },
+  {
+    "frame": 187,
+    "class": "Mixer",
+    "confidence": 0.91
+  },
+  {
+    "frame": 187,
+    "class": "Mixer",
+    "confidence": 0.69
+  },
+  {
+    "frame": 188,
+    "class": "Mixer",
+    "confidence": 0.91
+  },
+  {
+    "frame": 188,
+    "class": "Mixer",
+    "confidence": 0.74
+  },
+  {
+    "frame": 189,
+    "class": "Mixer",
+    "confidence": 0.91
+  },
+  {
+    "frame": 189,
+    "class": "Mixer",
+    "confidence": 0.7
+  },
+  {
+    "frame": 190,
+    "class": "Mixer",
+    "confidence": 0.91
+  },
+  {
+    "frame": 190,
+    "class": "Mixer",
+    "confidence": 0.67
+  },
+  {
+    "frame": 191,
+    "class": "Mixer",
+    "confidence": 0.89
+  },
+  {
+    "frame": 191,
+    "class": "Mixer",
+    "confidence": 0.62
+  },
+  {
+    "frame": 192,
+    "class": "Mixer",
+    "confidence": 0.89
+  },
+  {
+    "frame": 192,
+    "class": "Mixer",
+    "confidence": 0.63
+  },
+  {
+    "frame": 193,
+    "class": "Mixer",
+    "confidence": 0.65
+  },
+  {
+    "frame": 193,
+    "class": "Tanker",
+    "confidence": 0.59
+  },
+  {
+    "frame": 194,
+    "class": "Mixer",
+    "confidence": 0.58
+  },
+  {
+    "frame": 195,
+    "class": "Mixer",
+    "confidence": 0.58
+  },
+  {
+    "frame": 196,
+    "class": "Mixer",
+    "confidence": 0.5
+  },
+  {
+    "frame": 196,
+    "class": "Crane manipulator",
+    "confidence": 0.29
+  },
+  {
+    "frame": 197,
+    "class": "Mixer",
+    "confidence": 0.49
+  },
+  {
+    "frame": 197,
+    "class": "Crane manipulator",
+    "confidence": 0.3
+  },
+  {
+    "frame": 198,
+    "class": "Mixer",
+    "confidence": 0.74
+  },
+  {
+    "frame": 199,
+    "class": "Mixer",
+    "confidence": 0.67
+  },
+  {
+    "frame": 199,
+    "class": "Tanker",
+    "confidence": 0.61
+  },
+  {
+    "frame": 200,
+    "class": "Mixer",
+    "confidence": 0.83
+  },
+  {
+    "frame": 201,
+    "class": "Mixer",
+    "confidence": 0.82
+  },
+  {
+    "frame": 202,
+    "class": "Mixer",
+    "confidence": 0.82
+  },
+  {
+    "frame": 203,
+    "class": "Mixer",
+    "confidence": 0.82
+  },
+  {
+    "frame": 204,
+    "class": "Mixer",
+    "confidence": 0.81
+  },
+  {
+    "frame": 205,
+    "class": "Mixer",
+    "confidence": 0.84
+  },
+  {
+    "frame": 206,
+    "class": "Mixer",
+    "confidence": 0.83
+  },
+  {
+    "frame": 207,
+    "class": "Mixer",
+    "confidence": 0.83
+  },
+  {
+    "frame": 208,
+    "class": "Mixer",
+    "confidence": 0.82
+  },
+  {
+    "frame": 209,
+    "class": "Mixer",
+    "confidence": 0.79
+  },
+  {
+    "frame": 210,
+    "class": "Mixer",
+    "confidence": 0.81
+  },
+  {
+    "frame": 213,
+    "class": "Mixer",
+    "confidence": 0.25
+  },
+  {
+    "frame": 215,
+    "class": "Mixer",
+    "confidence": 0.28
+  },
+  {
+    "frame": 225,
+    "class": "Mixer",
+    "confidence": 0.32
+  },
+  {
+    "frame": 226,
+    "class": "Mixer",
+    "confidence": 0.39
+  },
+  {
+    "frame": 226,
+    "class": "Excavator",
+    "confidence": 0.32
+  },
+  {
+    "frame": 227,
+    "class": "Mixer",
+    "confidence": 0.38
+  },
+  {
+    "frame": 227,
+    "class": "Excavator",
+    "confidence": 0.35
+  },
+  {
+    "frame": 228,
+    "class": "Mixer",
+    "confidence": 0.41
+  },
+  {
+    "frame": 228,
+    "class": "Excavator",
+    "confidence": 0.28
+  },
+  {
+    "frame": 229,
+    "class": "Mixer",
+    "confidence": 0.63
+  },
+  {
+    "frame": 229,
+    "class": "Excavator",
+    "confidence": 0.32
+  },
+  {
+    "frame": 230,
+    "class": "Mixer",
+    "confidence": 0.61
+  },
+  {
+    "frame": 231,
+    "class": "Mixer",
+    "confidence": 0.6
+  },
+  {
+    "frame": 232,
+    "class": "Mixer",
+    "confidence": 0.61
+  },
+  {
+    "frame": 233,
+    "class": "Mixer",
+    "confidence": 0.58
+  },
+  {
+    "frame": 234,
+    "class": "Mixer",
+    "confidence": 0.52
+  },
+  {
+    "frame": 235,
+    "class": "Mixer",
+    "confidence": 0.52
+  },
+  {
+    "frame": 236,
+    "class": "Mixer",
+    "confidence": 0.52
+  },
+  {
+    "frame": 237,
+    "class": "Mixer",
+    "confidence": 0.53
+  },
+  {
+    "frame": 238,
+    "class": "Mixer",
+    "confidence": 0.52
+  },
+  {
+    "frame": 239,
+    "class": "Mixer",
+    "confidence": 0.51
+  },
+  {
+    "frame": 240,
+    "class": "Excavator",
+    "confidence": 0.75
+  },
+  {
+    "frame": 240,
+    "class": "Forklift Giraffe",
+    "confidence": 0.64
+  },
+  {
+    "frame": 241,
+    "class": "Excavator",
+    "confidence": 0.88
+  },
+  {
+    "frame": 241,
+    "class": "Forklift Giraffe",
+    "confidence": 0.34
+  },
+  {
+    "frame": 242,
+    "class": "Excavator",
+    "confidence": 0.88
+  },
+  {
+    "frame": 242,
+    "class": "Forklift Giraffe",
+    "confidence": 0.34
+  },
+  {
+    "frame": 243,
+    "class": "Forklift Giraffe",
+    "confidence": 0.44
+  },
+  {
+    "frame": 243,
+    "class": "Bucket loader Standart",
+    "confidence": 0.3
+  },
+  {
+    "frame": 243,
+    "class": "Forklift Giraffe",
+    "confidence": 0.27
+  },
+  {
+    "frame": 244,
+    "class": "Forklift Giraffe",
+    "confidence": 0.55
+  },
+  {
+    "frame": 245,
+    "class": "Bucket loader Standart",
+    "confidence": 0.71
+  },
+  {
+    "frame": 245,
+    "class": "Forklift Giraffe",
+    "confidence": 0.4
+  },
+  {
+    "frame": 246,
+    "class": "Bucket loader Standart",
+    "confidence": 0.71
+  },
+  {
+    "frame": 246,
+    "class": "Forklift Giraffe",
+    "confidence": 0.52
+  },
+  {
+    "frame": 247,
+    "class": "Bucket loader Standart",
+    "confidence": 0.71
+  },
+  {
+    "frame": 247,
+    "class": "Forklift Giraffe",
+    "confidence": 0.53
+  },
+  {
+    "frame": 248,
+    "class": "Forklift Giraffe",
+    "confidence": 0.38
+  },
+  {
+    "frame": 248,
+    "class": "Bucket loader Standart",
+    "confidence": 0.34
+  },
+  {
+    "frame": 248,
+    "class": "Bucket loader Big",
+    "confidence": 0.33
+  },
+  {
+    "frame": 249,
+    "class": "Forklift Giraffe",
+    "confidence": 0.39
+  },
+  {
+    "frame": 251,
+    "class": "Excavator",
+    "confidence": 0.53
+  },
+  {
+    "frame": 251,
+    "class": "Forklift Giraffe",
+    "confidence": 0.28
+  },
+  {
+    "frame": 252,
+    "class": "Excavator",
+    "confidence": 0.55
+  },
+  {
+    "frame": 252,
+    "class": "Forklift Giraffe",
+    "confidence": 0.3
+  },
+  {
+    "frame": 253,
+    "class": "Excavator",
+    "confidence": 0.73
+  },
+  {
+    "frame": 253,
+    "class": "Excavator",
+    "confidence": 0.48
+  },
+  {
+    "frame": 254,
+    "class": "Excavator",
+    "confidence": 0.79
+  },
+  {
+    "frame": 254,
+    "class": "Excavator",
+    "confidence": 0.72
+  },
+  {
+    "frame": 255,
+    "class": "Excavator",
+    "confidence": 0.76
+  },
+  {
+    "frame": 255,
+    "class": "Excavator",
+    "confidence": 0.63
+  },
+  {
+    "frame": 256,
+    "class": "Excavator",
+    "confidence": 0.8
+  },
+  {
+    "frame": 256,
+    "class": "Excavator",
+    "confidence": 0.8
+  },
+  {
+    "frame": 257,
+    "class": "Excavator",
+    "confidence": 0.81
+  },
+  {
+    "frame": 257,
+    "class": "Excavator",
+    "confidence": 0.79
+  },
+  {
+    "frame": 258,
+    "class": "Excavator",
+    "confidence": 0.79
+  },
+  {
+    "frame": 258,
+    "class": "Excavator",
+    "confidence": 0.35
+  },
+  {
+    "frame": 259,
+    "class": "Excavator",
+    "confidence": 0.88
+  },
+  {
+    "frame": 260,
+    "class": "Excavator",
+    "confidence": 0.89
+  },
+  {
+    "frame": 260,
+    "class": "Excavator",
+    "confidence": 0.47
+  },
+  {
+    "frame": 261,
+    "class": "Excavator",
+    "confidence": 0.85
+  },
+  {
+    "frame": 261,
+    "class": "Excavator",
+    "confidence": 0.69
+  },
+  {
+    "frame": 262,
+    "class": "Excavator",
+    "confidence": 0.85
+  },
+  {
+    "frame": 262,
+    "class": "Excavator",
+    "confidence": 0.7
+  },
+  {
+    "frame": 263,
+    "class": "Excavator",
+    "confidence": 0.81
+  },
+  {
+    "frame": 263,
+    "class": "Excavator",
+    "confidence": 0.5
+  },
+  {
+    "frame": 264,
+    "class": "Excavator",
+    "confidence": 0.89
+  },
+  {
+    "frame": 264,
+    "class": "Excavator",
+    "confidence": 0.63
+  },
+  {
+    "frame": 265,
+    "class": "Excavator",
+    "confidence": 0.8
+  },
+  {
+    "frame": 265,
+    "class": "Excavator",
+    "confidence": 0.67
+  },
+  {
+    "frame": 266,
+    "class": "Excavator",
+    "confidence": 0.83
+  },
+  {
+    "frame": 266,
+    "class": "Excavator",
+    "confidence": 0.7
+  },
+  {
+    "frame": 267,
+    "class": "Excavator",
+    "confidence": 0.83
+  },
+  {
+    "frame": 267,
+    "class": "Excavator",
+    "confidence": 0.68
+  },
+  {
+    "frame": 268,
+    "class": "Excavator",
+    "confidence": 0.84
+  },
+  {
+    "frame": 269,
+    "class": "Excavator",
+    "confidence": 0.64
+  },
+  {
+    "frame": 270,
+    "class": "Excavator",
+    "confidence": 0.85
+  },
+  {
+    "frame": 270,
+    "class": "Excavator",
+    "confidence": 0.46
+  },
+  {
+    "frame": 271,
+    "class": "Excavator",
+    "confidence": 0.86
+  },
+  {
+    "frame": 271,
+    "class": "Excavator",
+    "confidence": 0.44
+  },
+  {
+    "frame": 272,
+    "class": "Excavator",
+    "confidence": 0.87
+  },
+  {
+    "frame": 272,
+    "class": "Excavator",
+    "confidence": 0.45
+  },
+  {
+    "frame": 273,
+    "class": "Excavator",
+    "confidence": 0.59
+  },
+  {
+    "frame": 273,
+    "class": "Excavator",
+    "confidence": 0.31
+  },
+  {
+    "frame": 274,
+    "class": "Excavator",
+    "confidence": 0.7
+  },
+  {
+    "frame": 274,
+    "class": "Excavator",
+    "confidence": 0.36
+  },
+  {
+    "frame": 275,
+    "class": "Excavator",
+    "confidence": 0.66
+  },
+  {
+    "frame": 275,
+    "class": "Excavator",
+    "confidence": 0.49
+  },
+  {
+    "frame": 276,
+    "class": "Excavator",
+    "confidence": 0.71
+  },
+  {
+    "frame": 277,
+    "class": "Excavator",
+    "confidence": 0.71
+  },
+  {
+    "frame": 278,
+    "class": "Excavator",
+    "confidence": 0.73
+  },
+  {
+    "frame": 278,
+    "class": "Excavator",
+    "confidence": 0.58
+  },
+  {
+    "frame": 279,
+    "class": "Excavator",
+    "confidence": 0.69
+  },
+  {
+    "frame": 279,
+    "class": "Excavator",
+    "confidence": 0.68
+  },
+  {
+    "frame": 280,
+    "class": "Excavator",
+    "confidence": 0.67
+  },
+  {
+    "frame": 281,
+    "class": "Crane manipulator",
+    "confidence": 0.44
+  },
+  {
+    "frame": 282,
+    "class": "Crane manipulator",
+    "confidence": 0.43
+  },
+  {
+    "frame": 285,
+    "class": "Excavator",
+    "confidence": 0.67
+  },
+  {
+    "frame": 286,
+    "class": "Excavator",
+    "confidence": 0.56
+  },
+  {
+    "frame": 286,
+    "class": "Excavator",
+    "confidence": 0.31
+  },
+  {
+    "frame": 287,
+    "class": "Excavator",
+    "confidence": 0.58
+  },
+  {
+    "frame": 287,
+    "class": "Excavator",
+    "confidence": 0.29
+  },
+  {
+    "frame": 288,
+    "class": "Excavator",
+    "confidence": 0.78
+  },
+  {
+    "frame": 288,
+    "class": "Excavator",
+    "confidence": 0.4
+  },
+  {
+    "frame": 293,
+    "class": "Excavator",
+    "confidence": 0.8
+  },
+  {
+    "frame": 294,
+    "class": "Excavator",
+    "confidence": 0.86
+  },
+  {
+    "frame": 294,
+    "class": "Tanker",
+    "confidence": 0.32
+  },
+  {
+    "frame": 295,
+    "class": "Excavator",
+    "confidence": 0.61
+  },
+  {
+    "frame": 296,
+    "class": "Excavator",
+    "confidence": 0.79
+  },
+  {
+    "frame": 297,
+    "class": "Excavator",
+    "confidence": 0.79
+  },
+  {
+    "frame": 298,
+    "class": "Excavator",
+    "confidence": 0.87
+  },
+  {
+    "frame": 299,
+    "class": "Excavator",
+    "confidence": 0.84
+  },
+  {
+    "frame": 300,
+    "class": "Excavator",
+    "confidence": 0.64
+  },
+  {
+    "frame": 300,
+    "class": "Excavator",
+    "confidence": 0.42
+  },
+  {
+    "frame": 301,
+    "class": "Excavator",
+    "confidence": 0.81
+  },
+  {
+    "frame": 302,
+    "class": "Excavator",
+    "confidence": 0.81
+  },
+  {
+    "frame": 304,
+    "class": "Forklift Giraffe",
+    "confidence": 0.45
+  },
+  {
+    "frame": 305,
+    "class": "Forklift Giraffe",
+    "confidence": 0.32
+  },
+  {
+    "frame": 306,
+    "class": "Forklift Giraffe",
+    "confidence": 0.26
+  },
+  {
+    "frame": 307,
+    "class": "Forklift Giraffe",
+    "confidence": 0.25
+  },
+  {
+    "frame": 311,
+    "class": "Excavator",
+    "confidence": 0.36
+  },
+  {
+    "frame": 312,
+    "class": "Excavator",
+    "confidence": 0.36
+  },
+  {
+    "frame": 319,
+    "class": "Forklift Giraffe",
+    "confidence": 0.48
+  },
+  {
+    "frame": 321,
+    "class": "Bucket loader Standart",
+    "confidence": 0.46
+  },
+  {
+    "frame": 322,
+    "class": "Bucket loader Standart",
+    "confidence": 0.46
+  },
+  {
+    "frame": 323,
+    "class": "Bucket loader Standart",
+    "confidence": 0.59
+  },
+  {
+    "frame": 324,
+    "class": "Bucket loader Standart",
+    "confidence": 0.58
+  },
+  {
+    "frame": 325,
+    "class": "Bucket loader Standart",
+    "confidence": 0.52
+  },
+  {
+    "frame": 326,
+    "class": "Tanker",
+    "confidence": 0.72
+  },
+  {
+    "frame": 326,
+    "class": "Bucket loader Standart",
+    "confidence": 0.4
+  },
+  {
+    "frame": 327,
+    "class": "Tanker",
+    "confidence": 0.72
+  },
+  {
+    "frame": 327,
+    "class": "Bucket loader Standart",
+    "confidence": 0.41
+  },
+  {
+    "frame": 328,
+    "class": "Bucket loader Standart",
+    "confidence": 0.48
+  },
+  {
+    "frame": 328,
+    "class": "Tanker",
+    "confidence": 0.42
+  },
+  {
+    "frame": 329,
+    "class": "Tanker",
+    "confidence": 0.4
+  },
+  {
+    "frame": 330,
+    "class": "Bucket loader Standart",
+    "confidence": 0.37
+  },
+  {
+    "frame": 330,
+    "class": "Tanker",
+    "confidence": 0.37
+  },
+  {
+    "frame": 331,
+    "class": "Crane manipulator",
+    "confidence": 0.59
+  },
+  {
+    "frame": 332,
+    "class": "Crane manipulator",
+    "confidence": 0.6
+  },
+  {
+    "frame": 333,
+    "class": "Bucket loader Standart",
+    "confidence": 0.55
+  },
+  {
+    "frame": 333,
+    "class": "Crane manipulator",
+    "confidence": 0.37
+  },
+  {
+    "frame": 333,
+    "class": "Tanker",
+    "confidence": 0.33
+  },
+  {
+    "frame": 334,
+    "class": "Tanker",
+    "confidence": 0.41
+  },
+  {
+    "frame": 334,
+    "class": "Bucket loader Standart",
+    "confidence": 0.32
+  },
+  {
+    "frame": 334,
+    "class": "Crane manipulator",
+    "confidence": 0.31
+  },
+  {
+    "frame": 336,
+    "class": "Mixer",
+    "confidence": 0.93
+  },
+  {
+    "frame": 337,
+    "class": "Mixer",
+    "confidence": 0.93
+  },
+  {
+    "frame": 338,
+    "class": "Mixer",
+    "confidence": 0.93
+  },
+  {
+    "frame": 338,
+    "class": "Bucket loader Standart",
+    "confidence": 0.29
+  },
+  {
+    "frame": 339,
+    "class": "Mixer",
+    "confidence": 0.93
+  },
+  {
+    "frame": 339,
+    "class": "Bucket loader Standart",
+    "confidence": 0.32
+  },
+  {
+    "frame": 340,
+    "class": "Mixer",
+    "confidence": 0.93
+  },
+  {
+    "frame": 343,
+    "class": "Mixer",
+    "confidence": 0.57
+  },
+  {
+    "frame": 344,
+    "class": "Excavator",
+    "confidence": 0.38
+  },
+  {
+    "frame": 345,
+    "class": "Excavator",
+    "confidence": 0.9
+  },
+  {
+    "frame": 346,
+    "class": "Excavator",
+    "confidence": 0.9
+  },
+  {
+    "frame": 347,
+    "class": "Excavator",
+    "confidence": 0.9
+  },
+  {
+    "frame": 348,
+    "class": "Excavator",
+    "confidence": 0.9
+  },
+  {
+    "frame": 348,
+    "class": "Tanker",
+    "confidence": 0.3
+  },
+  {
+    "frame": 348,
+    "class": "Crane manipulator",
+    "confidence": 0.27
+  },
+  {
+    "frame": 349,
+    "class": "Excavator",
+    "confidence": 0.91
+  },
+  {
+    "frame": 350,
+    "class": "Excavator",
+    "confidence": 0.87
+  },
+  {
+    "frame": 361,
+    "class": "Mixer",
+    "confidence": 0.34
+  },
+  {
+    "frame": 362,
+    "class": "Mixer",
+    "confidence": 0.34
+  },
+  {
+    "frame": 363,
+    "class": "Mixer",
+    "confidence": 0.71
+  },
+  {
+    "frame": 363,
+    "class": "Tanker",
+    "confidence": 0.47
+  },
+  {
+    "frame": 364,
+    "class": "Mixer",
+    "confidence": 0.79
+  },
+  {
+    "frame": 365,
+    "class": "Mixer",
+    "confidence": 0.59
+  },
+  {
+    "frame": 366,
+    "class": "Mixer",
+    "confidence": 0.66
+  },
+  {
+    "frame": 366,
+    "class": "Mixer",
+    "confidence": 0.36
+  },
+  {
+    "frame": 367,
+    "class": "Mixer",
+    "confidence": 0.67
+  },
+  {
+    "frame": 367,
+    "class": "Mixer",
+    "confidence": 0.37
+  },
+  {
+    "frame": 368,
+    "class": "Mixer",
+    "confidence": 0.53
+  },
+  {
+    "frame": 368,
+    "class": "Mixer",
+    "confidence": 0.37
+  },
+  {
+    "frame": 369,
+    "class": "Mixer",
+    "confidence": 0.67
+  },
+  {
+    "frame": 369,
+    "class": "Tanker",
+    "confidence": 0.35
+  },
+  {
+    "frame": 370,
+    "class": "Mixer",
+    "confidence": 0.57
+  },
+  {
+    "frame": 371,
+    "class": "Tanker",
+    "confidence": 0.33
+  },
+  {
+    "frame": 372,
+    "class": "Tanker",
+    "confidence": 0.33
+  },
+  {
+    "frame": 373,
+    "class": "Tanker",
+    "confidence": 0.3
+  },
+  {
+    "frame": 374,
+    "class": "Tanker",
+    "confidence": 0.5
+  },
+  {
+    "frame": 375,
+    "class": "Tanker",
+    "confidence": 0.44
+  },
+  {
+    "frame": 376,
+    "class": "Tanker",
+    "confidence": 0.36
+  },
+  {
+    "frame": 377,
+    "class": "Tanker",
+    "confidence": 0.36
+  },
+  {
+    "frame": 378,
+    "class": "Tanker",
+    "confidence": 0.31
+  },
+  {
+    "frame": 379,
+    "class": "Tanker",
+    "confidence": 0.39
+  },
+  {
+    "frame": 380,
+    "class": "Tanker",
+    "confidence": 0.44
+  },
+  {
+    "frame": 381,
+    "class": "Tanker",
+    "confidence": 0.39
+  },
+  {
+    "frame": 382,
+    "class": "Tanker",
+    "confidence": 0.39
+  },
+  {
+    "frame": 383,
+    "class": "Tanker",
+    "confidence": 0.33
+  },
+  {
+    "frame": 383,
+    "class": "Forklift Giraffe",
+    "confidence": 0.28
+  },
+  {
+    "frame": 388,
+    "class": "Mixer",
+    "confidence": 0.25
+  },
+  {
+    "frame": 389,
+    "class": "Tanker",
+    "confidence": 0.38
+  },
+  {
+    "frame": 390,
+    "class": "Forklift Giraffe",
+    "confidence": 0.43
+  },
+  {
+    "frame": 390,
+    "class": "Tanker",
+    "confidence": 0.4
+  },
+  {
+    "frame": 391,
+    "class": "Tanker",
+    "confidence": 0.44
+  },
+  {
+    "frame": 392,
+    "class": "Tanker",
+    "confidence": 0.44
+  },
+  {
+    "frame": 393,
+    "class": "Tanker",
+    "confidence": 0.47
+  },
+  {
+    "frame": 394,
+    "class": "Tanker",
+    "confidence": 0.48
+  },
+  {
+    "frame": 395,
+    "class": "Tanker",
+    "confidence": 0.41
+  },
+  {
+    "frame": 396,
+    "class": "Tanker",
+    "confidence": 0.37
+  },
+  {
+    "frame": 397,
+    "class": "Tanker",
+    "confidence": 0.38
+  },
+  {
+    "frame": 398,
+    "class": "Tanker",
+    "confidence": 0.36
+  },
+  {
+    "frame": 399,
+    "class": "Tanker",
+    "confidence": 0.35
+  },
+  {
+    "frame": 404,
+    "class": "Crane manipulator",
+    "confidence": 0.29
+  },
+  {
+    "frame": 404,
+    "class": "Forklift Giraffe",
+    "confidence": 0.26
+  },
+  {
+    "frame": 405,
+    "class": "Forklift Giraffe",
+    "confidence": 0.54
+  },
+  {
+    "frame": 406,
+    "class": "Forklift Giraffe",
+    "confidence": 0.38
+  },
+  {
+    "frame": 406,
+    "class": "Crane manipulator",
+    "confidence": 0.27
+  },
+  {
+    "frame": 407,
+    "class": "Forklift Giraffe",
+    "confidence": 0.36
+  },
+  {
+    "frame": 407,
+    "class": "Crane manipulator",
+    "confidence": 0.27
+  },
+  {
+    "frame": 418,
+    "class": "Forklift Giraffe",
+    "confidence": 0.44
+  },
+  {
+    "frame": 419,
+    "class": "Forklift Giraffe",
+    "confidence": 0.27
+  },
+  {
+    "frame": 420,
+    "class": "Forklift Giraffe",
+    "confidence": 0.28
+  },
+  {
+    "frame": 421,
+    "class": "Forklift Giraffe",
+    "confidence": 0.61
+  },
+  {
+    "frame": 422,
+    "class": "Forklift Giraffe",
+    "confidence": 0.61
+  },
+  {
+    "frame": 423,
+    "class": "Forklift Giraffe",
+    "confidence": 0.75
+  },
+  {
+    "frame": 424,
+    "class": "Forklift Giraffe",
+    "confidence": 0.72
+  },
+  {
+    "frame": 425,
+    "class": "Forklift Giraffe",
+    "confidence": 0.56
+  },
+  {
+    "frame": 425,
+    "class": "Mixer",
+    "confidence": 0.36
+  },
+  {
+    "frame": 426,
+    "class": "Mixer",
+    "confidence": 0.3
+  },
+  {
+    "frame": 427,
+    "class": "Mixer",
+    "confidence": 0.3
+  },
+  {
+    "frame": 428,
+    "class": "Mixer",
+    "confidence": 0.43
+  },
+  {
+    "frame": 428,
+    "class": "Excavator",
+    "confidence": 0.28
+  },
+  {
+    "frame": 430,
+    "class": "Excavator",
+    "confidence": 0.27
+  },
+  {
+    "frame": 431,
+    "class": "Excavator",
+    "confidence": 0.26
+  },
+  {
+    "frame": 432,
+    "class": "Excavator",
+    "confidence": 0.26
+  },
+  {
+    "frame": 433,
+    "class": "Excavator",
+    "confidence": 0.32
+  },
+  {
+    "frame": 438,
+    "class": "Mixer",
+    "confidence": 0.25
+  },
+  {
+    "frame": 439,
+    "class": "Mixer",
+    "confidence": 0.46
+  },
+  {
+    "frame": 440,
+    "class": "Mixer",
+    "confidence": 0.47
+  },
+  {
+    "frame": 440,
+    "class": "Forklift Giraffe",
+    "confidence": 0.4
+  },
+  {
+    "frame": 441,
+    "class": "Mixer",
+    "confidence": 0.43
+  },
+  {
+    "frame": 442,
+    "class": "Mixer",
+    "confidence": 0.42
+  },
+  {
+    "frame": 443,
+    "class": "Mixer",
+    "confidence": 0.32
+  },
+  {
+    "frame": 444,
+    "class": "Mixer",
+    "confidence": 0.26
+  },
+  {
+    "frame": 445,
+    "class": "Forklift Giraffe",
+    "confidence": 0.41
+  },
+  {
+    "frame": 449,
+    "class": "Forklift Giraffe",
+    "confidence": 0.32
+  },
+  {
+    "frame": 450,
+    "class": "Forklift Giraffe",
+    "confidence": 0.41
+  },
+  {
+    "frame": 454,
+    "class": "Dump truck",
+    "confidence": 0.26
+  },
+  {
+    "frame": 455,
+    "class": "Forklift Giraffe",
+    "confidence": 0.68
+  },
+  {
+    "frame": 456,
+    "class": "Forklift Giraffe",
+    "confidence": 0.67
+  },
+  {
+    "frame": 457,
+    "class": "Forklift Giraffe",
+    "confidence": 0.67
+  },
+  {
+    "frame": 458,
+    "class": "Forklift Giraffe",
+    "confidence": 0.59
+  },
+  {
+    "frame": 460,
+    "class": "Mixer",
+    "confidence": 0.27
+  },
+  {
+    "frame": 463,
+    "class": "Tanker",
+    "confidence": 0.32
+  },
+  {
+    "frame": 464,
+    "class": "Tanker",
+    "confidence": 0.36
+  },
+  {
+    "frame": 465,
+    "class": "Tanker",
+    "confidence": 0.28
+  },
+  {
+    "frame": 474,
+    "class": "Mixer",
+    "confidence": 0.27
+  },
+  {
+    "frame": 481,
+    "class": "Forklift Giraffe",
+    "confidence": 0.71
+  },
+  {
+    "frame": 482,
+    "class": "Forklift Giraffe",
+    "confidence": 0.7
+  },
+  {
+    "frame": 483,
+    "class": "Forklift Giraffe",
+    "confidence": 0.68
+  },
+  {
+    "frame": 483,
+    "class": "Excavator",
+    "confidence": 0.32
+  },
+  {
+    "frame": 483,
+    "class": "Bucket loader Standart",
+    "confidence": 0.29
+  },
+  {
+    "frame": 484,
+    "class": "Forklift Giraffe",
+    "confidence": 0.66
+  },
+  {
+    "frame": 484,
+    "class": "Excavator",
+    "confidence": 0.32
+  },
+  {
+    "frame": 485,
+    "class": "Excavator",
+    "confidence": 0.76
+  },
+  {
+    "frame": 486,
+    "class": "Excavator",
+    "confidence": 0.6
+  },
+  {
+    "frame": 487,
+    "class": "Excavator",
+    "confidence": 0.59
+  },
+  {
+    "frame": 488,
+    "class": "Excavator",
+    "confidence": 0.57
+  },
+  {
+    "frame": 489,
+    "class": "Excavator",
+    "confidence": 0.45
+  },
+  {
+    "frame": 489,
+    "class": "Forklift Giraffe",
+    "confidence": 0.27
+  },
+  {
+    "frame": 491,
+    "class": "Excavator",
+    "confidence": 0.64
+  },
+  {
+    "frame": 492,
+    "class": "Excavator",
+    "confidence": 0.64
+  },
+  {
+    "frame": 493,
+    "class": "Excavator",
+    "confidence": 0.46
+  },
+  {
+    "frame": 494,
+    "class": "Excavator",
+    "confidence": 0.78
+  },
+  {
+    "frame": 495,
+    "class": "Tanker",
+    "confidence": 0.38
+  },
+  {
+    "frame": 495,
+    "class": "Forklift Giraffe",
+    "confidence": 0.31
+  },
+  {
+    "frame": 496,
+    "class": "Tanker",
+    "confidence": 0.56
+  },
+  {
+    "frame": 497,
+    "class": "Tanker",
+    "confidence": 0.55
+  },
+  {
+    "frame": 498,
+    "class": "Mixer",
+    "confidence": 0.87
+  },
+  {
+    "frame": 499,
+    "class": "Forklift Giraffe",
+    "confidence": 0.28
+  },
+  {
+    "frame": 500,
+    "class": "Excavator",
+    "confidence": 0.71
+  },
+  {
+    "frame": 500,
+    "class": "Tanker",
+    "confidence": 0.47
+  },
+  {
+    "frame": 500,
+    "class": "Forklift Giraffe",
+    "confidence": 0.33
+  },
+  {
+    "frame": 501,
+    "class": "Excavator",
+    "confidence": 0.47
+  },
+  {
+    "frame": 502,
+    "class": "Excavator",
+    "confidence": 0.46
+  },
+  {
+    "frame": 503,
+    "class": "Excavator",
+    "confidence": 0.48
+  },
+  {
+    "frame": 503,
+    "class": "Excavator",
+    "confidence": 0.35
+  },
+  {
+    "frame": 503,
+    "class": "Excavator",
+    "confidence": 0.3
+  },
+  {
+    "frame": 504,
+    "class": "Excavator",
+    "confidence": 0.7
+  },
+  {
+    "frame": 504,
+    "class": "Tanker",
+    "confidence": 0.47
+  },
+  {
+    "frame": 504,
+    "class": "Tanker",
+    "confidence": 0.44
+  },
+  {
+    "frame": 504,
+    "class": "Excavator",
+    "confidence": 0.28
+  },
+  {
+    "frame": 505,
+    "class": "Excavator",
+    "confidence": 0.83
+  },
+  {
+    "frame": 505,
+    "class": "Tanker",
+    "confidence": 0.7
+  },
+  {
+    "frame": 505,
+    "class": "Excavator",
+    "confidence": 0.26
+  },
+  {
+    "frame": 506,
+    "class": "Tanker",
+    "confidence": 0.75
+  },
+  {
+    "frame": 506,
+    "class": "Excavator",
+    "confidence": 0.65
+  },
+  {
+    "frame": 507,
+    "class": "Tanker",
+    "confidence": 0.75
+  },
+  {
+    "frame": 507,
+    "class": "Excavator",
+    "confidence": 0.66
+  },
+  {
+    "frame": 508,
+    "class": "Excavator",
+    "confidence": 0.74
+  },
+  {
+    "frame": 508,
+    "class": "Excavator",
+    "confidence": 0.41
+  },
+  {
+    "frame": 509,
+    "class": "Excavator",
+    "confidence": 0.67
+  },
+  {
+    "frame": 509,
+    "class": "Excavator",
+    "confidence": 0.54
+  },
+  {
+    "frame": 510,
+    "class": "Excavator",
+    "confidence": 0.42
+  },
+  {
+    "frame": 510,
+    "class": "Excavator",
+    "confidence": 0.35
+  },
+  {
+    "frame": 511,
+    "class": "Excavator",
+    "confidence": 0.36
+  },
+  {
+    "frame": 511,
+    "class": "Excavator",
+    "confidence": 0.3
+  },
+  {
+    "frame": 512,
+    "class": "Excavator",
+    "confidence": 0.35
+  },
+  {
+    "frame": 512,
+    "class": "Excavator",
+    "confidence": 0.33
+  },
+  {
+    "frame": 513,
+    "class": "Excavator",
+    "confidence": 0.26
+  },
+  {
+    "frame": 515,
+    "class": "Excavator",
+    "confidence": 0.4
+  },
+  {
+    "frame": 516,
+    "class": "Excavator",
+    "confidence": 0.38
+  },
+  {
+    "frame": 517,
+    "class": "Excavator",
+    "confidence": 0.35
+  },
+  {
+    "frame": 518,
+    "class": "Excavator",
+    "confidence": 0.8
+  },
+  {
+    "frame": 518,
+    "class": "Motor grader",
+    "confidence": 0.44
+  },
+  {
+    "frame": 519,
+    "class": "Motor grader",
+    "confidence": 0.52
+  },
+  {
+    "frame": 520,
+    "class": "Motor grader",
+    "confidence": 0.58
+  },
+  {
+    "frame": 521,
+    "class": "Motor grader",
+    "confidence": 0.51
+  },
+  {
+    "frame": 522,
+    "class": "Motor grader",
+    "confidence": 0.49
+  },
+  {
+    "frame": 523,
+    "class": "Motor grader",
+    "confidence": 0.62
+  },
+  {
+    "frame": 528,
+    "class": "Motor grader",
+    "confidence": 0.46
+  },
+  {
+    "frame": 529,
+    "class": "Excavator",
+    "confidence": 0.39
+  },
+  {
+    "frame": 529,
+    "class": "Forklift Giraffe",
+    "confidence": 0.33
+  },
+  {
+    "frame": 530,
+    "class": "Excavator",
+    "confidence": 0.33
+  },
+  {
+    "frame": 530,
+    "class": "Motor grader",
+    "confidence": 0.28
+  },
+  {
+    "frame": 533,
+    "class": "Forklift Giraffe",
+    "confidence": 0.63
+  },
+  {
+    "frame": 534,
+    "class": "Excavator",
+    "confidence": 0.9
+  },
+  {
+    "frame": 534,
+    "class": "Forklift Giraffe",
+    "confidence": 0.58
+  },
+  {
+    "frame": 535,
+    "class": "Excavator",
+    "confidence": 0.92
+  },
+  {
+    "frame": 535,
+    "class": "Forklift Giraffe",
+    "confidence": 0.55
+  },
+  {
+    "frame": 535,
+    "class": "Excavator",
+    "confidence": 0.5
+  },
+  {
+    "frame": 535,
+    "class": "Excavator",
+    "confidence": 0.3
+  },
+  {
+    "frame": 536,
+    "class": "Excavator",
+    "confidence": 0.92
+  },
+  {
+    "frame": 536,
+    "class": "Excavator",
+    "confidence": 0.54
+  },
+  {
+    "frame": 536,
+    "class": "Forklift Giraffe",
+    "confidence": 0.29
+  },
+  {
+    "frame": 537,
+    "class": "Excavator",
+    "confidence": 0.92
+  },
+  {
+    "frame": 537,
+    "class": "Excavator",
+    "confidence": 0.55
+  },
+  {
+    "frame": 537,
+    "class": "Forklift Giraffe",
+    "confidence": 0.28
+  },
+  {
+    "frame": 538,
+    "class": "Excavator",
+    "confidence": 0.9
+  },
+  {
+    "frame": 538,
+    "class": "Tanker",
+    "confidence": 0.28
+  },
+  {
+    "frame": 539,
+    "class": "Excavator",
+    "confidence": 0.92
+  },
+  {
+    "frame": 539,
+    "class": "Excavator",
+    "confidence": 0.68
+  },
+  {
+    "frame": 540,
+    "class": "Excavator",
+    "confidence": 0.93
+  },
+  {
+    "frame": 540,
+    "class": "Excavator",
+    "confidence": 0.79
+  },
+  {
+    "frame": 541,
+    "class": "Excavator",
+    "confidence": 0.89
+  },
+  {
+    "frame": 541,
+    "class": "Excavator",
+    "confidence": 0.78
+  },
+  {
+    "frame": 541,
+    "class": "Tanker",
+    "confidence": 0.37
+  },
+  {
+    "frame": 542,
+    "class": "Excavator",
+    "confidence": 0.89
+  },
+  {
+    "frame": 542,
+    "class": "Excavator",
+    "confidence": 0.77
+  },
+  {
+    "frame": 542,
+    "class": "Tanker",
+    "confidence": 0.38
+  },
+  {
+    "frame": 543,
+    "class": "Excavator",
+    "confidence": 0.86
+  },
+  {
+    "frame": 544,
+    "class": "Excavator",
+    "confidence": 0.91
+  },
+  {
+    "frame": 545,
+    "class": "Excavator",
+    "confidence": 0.92
+  },
+  {
+    "frame": 546,
+    "class": "Excavator",
+    "confidence": 0.9
+  },
+  {
+    "frame": 547,
+    "class": "Excavator",
+    "confidence": 0.9
+  },
+  {
+    "frame": 548,
+    "class": "Excavator",
+    "confidence": 0.88
+  },
+  {
+    "frame": 549,
+    "class": "Excavator",
+    "confidence": 0.92
+  },
+  {
+    "frame": 550,
+    "class": "Excavator",
+    "confidence": 0.9
+  },
+  {
+    "frame": 551,
+    "class": "Excavator",
+    "confidence": 0.89
+  },
+  {
+    "frame": 552,
+    "class": "Excavator",
+    "confidence": 0.89
+  },
+  {
+    "frame": 553,
+    "class": "Excavator",
+    "confidence": 0.9
+  },
+  {
+    "frame": 553,
+    "class": "Mixer",
+    "confidence": 0.35
+  },
+  {
+    "frame": 554,
+    "class": "Excavator",
+    "confidence": 0.93
+  },
+  {
+    "frame": 554,
+    "class": "Mixer",
+    "confidence": 0.29
+  },
+  {
+    "frame": 555,
+    "class": "Excavator",
+    "confidence": 0.9
+  },
+  {
+    "frame": 556,
+    "class": "Excavator",
+    "confidence": 0.89
+  },
+  {
+    "frame": 557,
+    "class": "Excavator",
+    "confidence": 0.89
+  },
+  {
+    "frame": 557,
+    "class": "Mixer",
+    "confidence": 0.25
+  },
+  {
+    "frame": 558,
+    "class": "Excavator",
+    "confidence": 0.91
+  },
+  {
+    "frame": 558,
+    "class": "Mixer",
+    "confidence": 0.37
+  },
+  {
+    "frame": 559,
+    "class": "Excavator",
+    "confidence": 0.89
+  },
+  {
+    "frame": 559,
+    "class": "Mixer",
+    "confidence": 0.29
+  },
+  {
+    "frame": 560,
+    "class": "Excavator",
+    "confidence": 0.9
+  },
+  {
+    "frame": 561,
+    "class": "Excavator",
+    "confidence": 0.9
+  },
+  {
+    "frame": 562,
+    "class": "Excavator",
+    "confidence": 0.9
+  },
+  {
+    "frame": 568,
+    "class": "Excavator",
+    "confidence": 0.43
+  },
+  {
+    "frame": 569,
+    "class": "Excavator",
+    "confidence": 0.3
+  },
+  {
+    "frame": 571,
+    "class": "Excavator",
+    "confidence": 0.28
+  },
+  {
+    "frame": 572,
+    "class": "Excavator",
+    "confidence": 0.3
+  },
+  {
+    "frame": 573,
+    "class": "Excavator",
+    "confidence": 0.39
+  },
+  {
+    "frame": 574,
+    "class": "Excavator",
+    "confidence": 0.77
+  },
+  {
+    "frame": 574,
+    "class": "Excavator",
+    "confidence": 0.59
+  },
+  {
+    "frame": 575,
+    "class": "Excavator",
+    "confidence": 0.8
+  },
+  {
+    "frame": 575,
+    "class": "Forklift Giraffe",
+    "confidence": 0.61
+  },
+  {
+    "frame": 576,
+    "class": "Excavator",
+    "confidence": 0.43
+  },
+  {
+    "frame": 576,
+    "class": "Excavator",
+    "confidence": 0.31
+  },
+  {
+    "frame": 577,
+    "class": "Excavator",
+    "confidence": 0.43
+  },
+  {
+    "frame": 577,
+    "class": "Excavator",
+    "confidence": 0.3
+  },
+  {
+    "frame": 580,
+    "class": "Excavator",
+    "confidence": 0.71
+  },
+  {
+    "frame": 581,
+    "class": "Excavator",
+    "confidence": 0.7
+  },
+  {
+    "frame": 582,
+    "class": "Excavator",
+    "confidence": 0.7
+  },
+  {
+    "frame": 583,
+    "class": "Excavator",
+    "confidence": 0.8
+  },
+  {
+    "frame": 584,
+    "class": "Excavator",
+    "confidence": 0.75
+  },
+  {
+    "frame": 586,
+    "class": "Excavator",
+    "confidence": 0.59
+  },
+  {
+    "frame": 586,
+    "class": "Excavator",
+    "confidence": 0.55
+  },
+  {
+    "frame": 587,
+    "class": "Excavator",
+    "confidence": 0.59
+  },
+  {
+    "frame": 587,
+    "class": "Excavator",
+    "confidence": 0.55
+  },
+  {
+    "frame": 588,
+    "class": "Excavator",
+    "confidence": 0.68
+  },
+  {
+    "frame": 588,
+    "class": "Excavator",
+    "confidence": 0.53
+  },
+  {
+    "frame": 589,
+    "class": "Excavator",
+    "confidence": 0.78
+  },
+  {
+    "frame": 590,
+    "class": "Excavator",
+    "confidence": 0.77
+  },
+  {
+    "frame": 591,
+    "class": "Excavator",
+    "confidence": 0.81
+  },
+  {
+    "frame": 592,
+    "class": "Excavator",
+    "confidence": 0.82
+  },
+  {
+    "frame": 593,
+    "class": "Excavator",
+    "confidence": 0.84
+  },
+  {
+    "frame": 595,
+    "class": "Forklift Giraffe",
+    "confidence": 0.39
+  },
+  {
+    "frame": 595,
+    "class": "Excavator",
+    "confidence": 0.35
+  },
+  {
+    "frame": 599,
+    "class": "Forklift Giraffe",
+    "confidence": 0.34
+  },
+  {
+    "frame": 604,
+    "class": "Forklift Giraffe",
+    "confidence": 0.34
+  },
+  {
+    "frame": 605,
+    "class": "Motor grader",
+    "confidence": 0.68
+  },
+  {
+    "frame": 610,
+    "class": "Forklift Giraffe",
+    "confidence": 0.34
+  },
+  {
+    "frame": 611,
+    "class": "Motor grader",
+    "confidence": 0.38
+  },
+  {
+    "frame": 612,
+    "class": "Motor grader",
+    "confidence": 0.38
+  },
+  {
+    "frame": 613,
+    "class": "Forklift Giraffe",
+    "confidence": 0.58
+  },
+  {
+    "frame": 613,
+    "class": "Motor grader",
+    "confidence": 0.32
+  },
+  {
+    "frame": 615,
+    "class": "Excavator",
+    "confidence": 0.7
+  },
+  {
+    "frame": 615,
+    "class": "Forklift Giraffe",
+    "confidence": 0.33
+  },
+  {
+    "frame": 616,
+    "class": "Excavator",
+    "confidence": 0.51
+  },
+  {
+    "frame": 616,
+    "class": "Forklift Giraffe",
+    "confidence": 0.28
+  },
+  {
+    "frame": 617,
+    "class": "Excavator",
+    "confidence": 0.48
+  },
+  {
+    "frame": 617,
+    "class": "Forklift Giraffe",
+    "confidence": 0.28
+  },
+  {
+    "frame": 618,
+    "class": "Excavator",
+    "confidence": 0.44
+  },
+  {
+    "frame": 619,
+    "class": "Forklift Giraffe",
+    "confidence": 0.41
+  },
+  {
+    "frame": 636,
+    "class": "Motor grader",
+    "confidence": 0.43
+  },
+  {
+    "frame": 637,
+    "class": "Motor grader",
+    "confidence": 0.49
+  },
+  {
+    "frame": 638,
+    "class": "Motor grader",
+    "confidence": 0.3
+  },
+  {
+    "frame": 640,
+    "class": "Motor grader",
+    "confidence": 0.3
+  },
+  {
+    "frame": 641,
+    "class": "Motor grader",
+    "confidence": 0.42
+  },
+  {
+    "frame": 641,
+    "class": "Forklift Giraffe",
+    "confidence": 0.3
+  },
+  {
+    "frame": 642,
+    "class": "Motor grader",
+    "confidence": 0.48
+  },
+  {
+    "frame": 642,
+    "class": "Forklift Giraffe",
+    "confidence": 0.31
+  },
+  {
+    "frame": 643,
+    "class": "Motor grader",
+    "confidence": 0.61
+  },
+  {
+    "frame": 643,
+    "class": "Forklift Giraffe",
+    "confidence": 0.28
+  },
+  {
+    "frame": 644,
+    "class": "Motor grader",
+    "confidence": 0.43
+  },
+  {
+    "frame": 645,
+    "class": "Motor grader",
+    "confidence": 0.69
+  },
+  {
+    "frame": 646,
+    "class": "Motor grader",
+    "confidence": 0.46
+  },
+  {
+    "frame": 647,
+    "class": "Motor grader",
+    "confidence": 0.46
+  },
+  {
+    "frame": 648,
+    "class": "Excavator",
+    "confidence": 0.63
+  },
+  {
+    "frame": 648,
+    "class": "Excavator",
+    "confidence": 0.3
+  },
+  {
+    "frame": 649,
+    "class": "Excavator",
+    "confidence": 0.45
+  },
+  {
+    "frame": 650,
+    "class": "Excavator",
+    "confidence": 0.39
+  },
+  {
+    "frame": 655,
+    "class": "Motor grader",
+    "confidence": 0.63
+  },
+  {
+    "frame": 658,
+    "class": "Motor grader",
+    "confidence": 0.73
+  },
+  {
+    "frame": 659,
+    "class": "Forklift Giraffe",
+    "confidence": 0.44
+  },
+  {
+    "frame": 659,
+    "class": "Motor grader",
+    "confidence": 0.25
+  },
+  {
+    "frame": 661,
+    "class": "Forklift Giraffe",
+    "confidence": 0.54
+  },
+  {
+    "frame": 662,
+    "class": "Forklift Giraffe",
+    "confidence": 0.54
+  },
+  {
+    "frame": 663,
+    "class": "Motor grader",
+    "confidence": 0.78
+  },
+  {
+    "frame": 670,
+    "class": "Excavator",
+    "confidence": 0.26
+  },
+  {
+    "frame": 674,
+    "class": "Excavator",
+    "confidence": 0.36
+  },
+  {
+    "frame": 678,
+    "class": "Excavator",
+    "confidence": 0.58
+  },
+  {
+    "frame": 679,
+    "class": "Excavator",
+    "confidence": 0.61
+  },
+  {
+    "frame": 680,
+    "class": "Excavator",
+    "confidence": 0.81
+  },
+  {
+    "frame": 681,
+    "class": "Excavator",
+    "confidence": 0.74
+  },
+  {
+    "frame": 682,
+    "class": "Excavator",
+    "confidence": 0.75
+  },
+  {
+    "frame": 683,
+    "class": "Excavator",
+    "confidence": 0.68
+  },
+  {
+    "frame": 684,
+    "class": "Excavator",
+    "confidence": 0.66
+  },
+  {
+    "frame": 685,
+    "class": "Excavator",
+    "confidence": 0.75
+  },
+  {
+    "frame": 685,
+    "class": "Motor grader",
+    "confidence": 0.29
+  },
+  {
+    "frame": 685,
+    "class": "Forklift Giraffe",
+    "confidence": 0.26
+  },
+  {
+    "frame": 686,
+    "class": "Excavator",
+    "confidence": 0.72
+  },
+  {
+    "frame": 686,
+    "class": "Forklift Giraffe",
+    "confidence": 0.32
+  },
+  {
+    "frame": 687,
+    "class": "Excavator",
+    "confidence": 0.72
+  },
+  {
+    "frame": 687,
+    "class": "Forklift Giraffe",
+    "confidence": 0.32
+  },
+  {
+    "frame": 688,
+    "class": "Excavator",
+    "confidence": 0.64
+  },
+  {
+    "frame": 688,
+    "class": "Excavator",
+    "confidence": 0.62
+  },
+  {
+    "frame": 689,
+    "class": "Excavator",
+    "confidence": 0.57
+  },
+  {
+    "frame": 689,
+    "class": "Excavator",
+    "confidence": 0.53
+  },
+  {
+    "frame": 689,
+    "class": "Forklift Giraffe",
+    "confidence": 0.4
+  },
+  {
+    "frame": 690,
+    "class": "Excavator",
+    "confidence": 0.64
+  },
+  {
+    "frame": 690,
+    "class": "Forklift Giraffe",
+    "confidence": 0.38
+  },
+  {
+    "frame": 691,
+    "class": "Excavator",
+    "confidence": 0.66
+  },
+  {
+    "frame": 691,
+    "class": "Forklift Giraffe",
+    "confidence": 0.43
+  },
+  {
+    "frame": 692,
+    "class": "Excavator",
+    "confidence": 0.66
+  },
+  {
+    "frame": 692,
+    "class": "Forklift Giraffe",
+    "confidence": 0.43
+  },
+  {
+    "frame": 693,
+    "class": "Excavator",
+    "confidence": 0.7
+  },
+  {
+    "frame": 693,
+    "class": "Forklift Giraffe",
+    "confidence": 0.5
+  },
+  {
+    "frame": 694,
+    "class": "Forklift Giraffe",
+    "confidence": 0.32
+  },
+  {
+    "frame": 694,
+    "class": "Mixer",
+    "confidence": 0.27
+  },
+  {
+    "frame": 699,
+    "class": "Forklift Giraffe",
+    "confidence": 0.32
+  },
+  {
+    "frame": 701,
+    "class": "Forklift Giraffe",
+    "confidence": 0.45
+  },
+  {
+    "frame": 702,
+    "class": "Forklift Giraffe",
+    "confidence": 0.45
+  },
+  {
+    "frame": 703,
+    "class": "Forklift Giraffe",
+    "confidence": 0.41
+  },
+  {
+    "frame": 704,
+    "class": "Motor grader",
+    "confidence": 0.83
+  },
+  {
+    "frame": 704,
+    "class": "Forklift Giraffe",
+    "confidence": 0.4
+  },
+  {
+    "frame": 705,
+    "class": "Motor grader",
+    "confidence": 0.59
+  },
+  {
+    "frame": 714,
+    "class": "Excavator",
+    "confidence": 0.6
+  },
+  {
+    "frame": 715,
+    "class": "Excavator",
+    "confidence": 0.3
+  },
+  {
+    "frame": 716,
+    "class": "Excavator",
+    "confidence": 0.32
+  },
+  {
+    "frame": 717,
+    "class": "Excavator",
+    "confidence": 0.44
+  },
+  {
+    "frame": 718,
+    "class": "Excavator",
+    "confidence": 0.38
+  },
+  {
+    "frame": 719,
+    "class": "Excavator",
+    "confidence": 0.31
+  },
+  {
+    "frame": 865,
+    "class": "Excavator",
+    "confidence": 0.31
+  },
+  {
+    "frame": 866,
+    "class": "Excavator",
+    "confidence": 0.3
+  },
+  {
+    "frame": 867,
+    "class": "Excavator",
+    "confidence": 0.33
+  },
+  {
+    "frame": 1123,
+    "class": "Tanker",
+    "confidence": 0.29
+  },
+  {
+    "frame": 1131,
+    "class": "Tanker",
+    "confidence": 0.35
+  },
+  {
+    "frame": 1132,
+    "class": "Tanker",
+    "confidence": 0.33
+  },
+  {
+    "frame": 1133,
+    "class": "Tanker",
+    "confidence": 0.29
+  },
+  {
+    "frame": 1135,
+    "class": "Tanker",
+    "confidence": 0.35
+  },
+  {
+    "frame": 1136,
+    "class": "Tanker",
+    "confidence": 0.37
+  },
+  {
+    "frame": 1137,
+    "class": "Tanker",
+    "confidence": 0.4
+  },
+  {
+    "frame": 1140,
+    "class": "Tanker",
+    "confidence": 0.45
+  },
+  {
+    "frame": 1141,
+    "class": "Tanker",
+    "confidence": 0.62
+  },
+  {
+    "frame": 1142,
+    "class": "Tanker",
+    "confidence": 0.63
+  },
+  {
+    "frame": 1143,
+    "class": "Tanker",
+    "confidence": 0.48
+  },
+  {
+    "frame": 1144,
+    "class": "Tanker",
+    "confidence": 0.55
+  },
+  {
+    "frame": 1145,
+    "class": "Tanker",
+    "confidence": 0.67
+  },
+  {
+    "frame": 1146,
+    "class": "Tanker",
+    "confidence": 0.34
+  },
+  {
+    "frame": 1146,
+    "class": "Tanker",
+    "confidence": 0.31
+  },
+  {
+    "frame": 1147,
+    "class": "Tanker",
+    "confidence": 0.34
+  },
+  {
+    "frame": 1147,
+    "class": "Tanker",
+    "confidence": 0.33
+  },
+  {
+    "frame": 1148,
+    "class": "Tanker",
+    "confidence": 0.32
+  },
+  {
+    "frame": 1148,
+    "class": "Tanker",
+    "confidence": 0.31
+  },
+  {
+    "frame": 1149,
+    "class": "Tanker",
+    "confidence": 0.43
+  },
+  {
+    "frame": 1180,
+    "class": "Tanker",
+    "confidence": 0.29
+  },
+  {
+    "frame": 1181,
+    "class": "Tanker",
+    "confidence": 0.29
+  },
+  {
+    "frame": 1182,
+    "class": "Tanker",
+    "confidence": 0.27
+  },
+  {
+    "frame": 1185,
+    "class": "Tanker",
+    "confidence": 0.44
+  },
+  {
+    "frame": 1188,
+    "class": "Tanker",
+    "confidence": 0.46
+  },
+  {
+    "frame": 1189,
+    "class": "Tanker",
+    "confidence": 0.29
+  },
+  {
+    "frame": 1191,
+    "class": "Tanker",
+    "confidence": 0.34
+  },
+  {
+    "frame": 1192,
+    "class": "Tanker",
+    "confidence": 0.36
+  },
+  {
+    "frame": 1193,
+    "class": "Tanker",
+    "confidence": 0.33
+  },
+  {
+    "frame": 1194,
+    "class": "Tanker",
+    "confidence": 0.29
+  },
+  {
+    "frame": 1195,
+    "class": "Tanker",
+    "confidence": 0.3
+  },
+  {
+    "frame": 1196,
+    "class": "Tanker",
+    "confidence": 0.3
+  },
+  {
+    "frame": 1197,
+    "class": "Tanker",
+    "confidence": 0.3
+  },
+  {
+    "frame": 1198,
+    "class": "Tanker",
+    "confidence": 0.28
+  },
+  {
+    "frame": 1199,
+    "class": "Tanker",
+    "confidence": 0.28
+  },
+  {
+    "frame": 1324,
+    "class": "Forklift Giraffe",
+    "confidence": 0.44
+  },
+  {
+    "frame": 1361,
+    "class": "Mixer",
+    "confidence": 0.42
+  },
+  {
+    "frame": 1362,
+    "class": "Mixer",
+    "confidence": 0.44
+  },
+  {
+    "frame": 1405,
+    "class": "Excavator",
+    "confidence": 0.91
+  },
+  {
+    "frame": 1406,
+    "class": "Excavator",
+    "confidence": 0.91
+  },
+  {
+    "frame": 1407,
+    "class": "Excavator",
+    "confidence": 0.88
+  },
+  {
+    "frame": 1408,
+    "class": "Excavator",
+    "confidence": 0.89
+  },
+  {
+    "frame": 1413,
+    "class": "Motor grader",
+    "confidence": 0.49
+  },
+  {
+    "frame": 1415,
+    "class": "Excavator",
+    "confidence": 0.48
+  },
+  {
+    "frame": 1415,
+    "class": "Mixer",
+    "confidence": 0.27
+  },
+  {
+    "frame": 1416,
+    "class": "Excavator",
+    "confidence": 0.61
+  },
+  {
+    "frame": 1417,
+    "class": "Excavator",
+    "confidence": 0.59
+  },
+  {
+    "frame": 1418,
+    "class": "Excavator",
+    "confidence": 0.52
+  },
+  {
+    "frame": 1418,
+    "class": "Forklift Giraffe",
+    "confidence": 0.35
+  },
+  {
+    "frame": 1419,
+    "class": "Excavator",
+    "confidence": 0.56
+  },
+  {
+    "frame": 1420,
+    "class": "Excavator",
+    "confidence": 0.56
+  },
+  {
+    "frame": 1431,
+    "class": "Mixer",
+    "confidence": 0.28
+  },
+  {
+    "frame": 1432,
+    "class": "Mixer",
+    "confidence": 0.39
+  },
+  {
+    "frame": 1433,
+    "class": "Mixer",
+    "confidence": 0.64
+  },
+  {
+    "frame": 1434,
+    "class": "Mixer",
+    "confidence": 0.75
+  },
+  {
+    "frame": 1435,
+    "class": "Mixer",
+    "confidence": 0.71
+  },
+  {
+    "frame": 1436,
+    "class": "Mixer",
+    "confidence": 0.37
+  },
+  {
+    "frame": 1437,
+    "class": "Mixer",
+    "confidence": 0.56
+  },
+  {
+    "frame": 1438,
+    "class": "Mixer",
+    "confidence": 0.48
+  },
+  {
+    "frame": 1439,
+    "class": "Mixer",
+    "confidence": 0.4
+  },
+  {
+    "frame": 1445,
+    "class": "Bucket loader Standart",
+    "confidence": 0.32
+  }
+]
