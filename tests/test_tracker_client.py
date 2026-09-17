@@ -17,7 +17,7 @@ class FakeTransport:
     def __call__(self, method, url, headers, data):
         self.calls.append((method, url, headers, json.loads(data) if data else None))
         status, body = self.responses.pop(0)
-        return status, json.dumps(body).encode("utf-8") if body is not None else b""
+        return status, json.dumps(body, ensure_ascii=False).encode("utf-8") if body is not None else b""
 
 
 class HeadersTest(unittest.TestCase):
