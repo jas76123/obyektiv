@@ -71,6 +71,18 @@ class HelpersTest(unittest.TestCase):
         self.assertIn("Критерий готовности", text)
         self.assertIn("npm run dev открывает экраны", text)
         self.assertIn("FE-01", text)
+        self.assertNotIn("Цель", text)
+
+    def test_description_starts_with_goal_when_present(self):
+        task = PlanTask("FE-01", "Фронт", "Каркас", "Жасмина", "2026-09-18",
+                        "2026-09-18", [], None, "critical", "экраны открываются", goal="основа для экранов")
+        text = description_for(task)
+        self.assertTrue(text.startswith("**Цель:** основа для экранов"))
+        self.assertIn("**Критерий готовности:** экраны открываются", text)
+
+    def test_real_plan_has_goal_for_every_task(self):
+        real = Path(__file__).resolve().parent.parent / "docs" / "superpowers" / "specs" / "2026-09-17-obyektiv-work-plan.csv"
+        self.assertTrue(all(t.goal for t in load_plan(real)))
 
 
 if __name__ == "__main__":

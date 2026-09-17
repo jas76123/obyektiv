@@ -31,6 +31,7 @@ class PlanTask:
     blocks: str | None = None
     priority: str = "normal"
     done_criterion: str = ""
+    goal: str = ""
 
 
 def load_plan(path: Path = PLAN_CSV) -> list[PlanTask]:
@@ -51,6 +52,7 @@ def load_plan(path: Path = PLAN_CSV) -> list[PlanTask]:
                 blocks=blocks,
                 priority=row["priority"].strip(),
                 done_criterion=(row.get("done_criterion") or "").strip(),
+                goal=(row.get("goal") or "").strip(),
             ))
     return tasks
 
@@ -88,8 +90,11 @@ def unique_id(key: str) -> str:
 
 
 def description_for(task: PlanTask) -> str:
-    """Описание задачи в Tracker: критерий готовности и ключ из плана."""
-    lines = [f"**Критерий готовности:** {task.done_criterion}", ""]
+    """Описание задачи в Tracker: цель, критерий готовности и ключ из плана."""
+    lines = []
+    if task.goal:
+        lines += [f"**Цель:** {task.goal}", ""]
+    lines += [f"**Критерий готовности:** {task.done_criterion}", ""]
     if task.blocks:
         lines.append(f"Блокирует веху {task.blocks}.")
         lines.append("")
