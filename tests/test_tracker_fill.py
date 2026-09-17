@@ -145,6 +145,16 @@ class SyncTest(unittest.TestCase):
         self.assertEqual(report["skipped_links"], [("ML-02", "M-1")])
         self.assertEqual(report["updated"], ["M-1", "ML-02"])
 
+    def test_dry_run_without_queue_does_not_touch_components(self):
+        client = FakeClient()
+        client.get_queue = lambda key: None
+
+        def boom(queue):
+            raise AssertionError("в сухом прогоне без очереди компоненты не запрашиваются")
+        client.list_components = boom
+        report = sync(client, [task(key="M-1", blocks=None, component="Лид")], USERS, apply=False, log=lambda *a: None)
+        self.assertEqual(report["created"], ["M-1"])
+
     def test_creates_queue_when_missing(self):
         client = FakeClient()
         client.get_queue = lambda key: None

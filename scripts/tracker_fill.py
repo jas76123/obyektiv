@@ -66,17 +66,21 @@ def plan_actions(tasks: list[PlanTask], existing: list[dict]):
     return create, update, extra
 
 
-def _ensure_queue(client, apply: bool, log: Callable) -> None:
+def _ensure_queue(client, apply: bool, log: Callable) -> bool:
+    """Возвращает True, если очередь существует после вызова (в сухом прогоне может не существовать)."""
     if client.get_queue(QUEUE_KEY):
-        return
+        return True
     lead = client.myself()["login"]
     log(f"очередь {QUEUE_KEY} отсутствует → создать (владелец {lead})")
     if apply:
         client.create_queue(QUEUE_KEY, QUEUE_NAME, lead)
+        return True
+    return False
 
 
-def _ensure_components(client, tasks: list[PlanTask], apply: bool, log: Callable) -> dict[str, int]:
-    have = {c["name"]: c["id"] for c in client.list_components(QUEUE_KEY)}
+def _ensure_components(client, tasks: list[PlanTask], apply: bool, log: Callable,
+                       queue_exists: bool = True) -> dict[str, int]:
+    have = {c["name"]: c["id"] for c in client.list_components(QUEUE_KEY)} if queue_exists else {}
     needed = [n for n in COMPONENT_ORDER if n in {t.component for t in tasks}]
     for name in needed:
         if name in have:
@@ -100,9 +104,9 @@ def sync(client, tasks: list[PlanTask], users: dict[str, str], queue: str = QUEU
          apply: bool = False, log: Callable = print) -> dict:
     """Сводит план с очередью. apply=False только печатает, что сделал бы."""
     report = {"created": [], "updated": [], "linked": [], "skipped_links": [], "extra": [], "key_map": {}}
-    _ensure_queue(client, apply, log)
-    components = _ensure_components(client, tasks, apply, log)
-    existing = client.search_issues(queue) if client.get_queue(queue) else []
+    queue_exists = _ensure_queue(client, apply, log)
+    components = _ensure_components(client, tasks, apply, log, queue_exists)
+    existing = client.search_issues(queue) if queue_exists else []
     create, update, extra = plan_actions(tasks, existing)
 
     for t in create:
