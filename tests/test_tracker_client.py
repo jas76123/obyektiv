@@ -65,12 +65,17 @@ class MethodsTest(unittest.TestCase):
 
     def test_create_queue_body(self):
         self.t.responses = [(201, {"key": "OBJ"})]
-        self.client.create_queue("OBJ", "Объектив", lead="jas")
+        self.client.create_queue("OBJ", "Объектив", lead="jas", workflow="unrestricted_1")
         method, url, _, body = self.t.calls[0]
         self.assertEqual((method, url), ("POST", "https://api.tracker.yandex.net/v2/queues/"))
         self.assertEqual(body["key"], "OBJ")
         self.assertEqual(body["lead"], "jas")
-        self.assertEqual(body["issueTypesConfig"][0]["workflow"], "oicn")
+        self.assertEqual(body["issueTypesConfig"][0]["workflow"], "unrestricted_1")
+
+    def test_list_workflows(self):
+        self.t.responses = [(200, [{"id": "w1", "name": "Свободный"}])]
+        self.assertEqual(self.client.list_workflows()[0]["id"], "w1")
+        self.assertEqual(self.t.calls[0][1], "https://api.tracker.yandex.net/v2/workflows")
 
     def test_create_component_body(self):
         self.t.responses = [(201, {"id": 7, "name": "ML"})]

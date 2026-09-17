@@ -66,14 +66,26 @@ def plan_actions(tasks: list[PlanTask], existing: list[dict]):
     return create, update, extra
 
 
+def pick_workflow(workflows: list[dict]) -> str:
+    """Простой процесс из спеки: «Свободный (Новый, В работе, Готово)», иначе Quick start."""
+    for w in workflows:
+        if str(w.get("name", "")).startswith("Свободный"):
+            return w["id"]
+    for w in workflows:
+        if w.get("id") == "quickStartV2PresetWorkflow":
+            return w["id"]
+    raise LookupError("не нашла ни «Свободный», ни quickStartV2PresetWorkflow среди воркфлоу организации")
+
+
 def _ensure_queue(client, apply: bool, log: Callable) -> bool:
     """Возвращает True, если очередь существует после вызова (в сухом прогоне может не существовать)."""
     if client.get_queue(QUEUE_KEY):
         return True
     lead = client.myself()["login"]
-    log(f"очередь {QUEUE_KEY} отсутствует → создать (владелец {lead})")
+    workflow = pick_workflow(client.list_workflows())
+    log(f"очередь {QUEUE_KEY} отсутствует → создать (владелец {lead}, воркфлоу {workflow})")
     if apply:
-        client.create_queue(QUEUE_KEY, QUEUE_NAME, lead)
+        client.create_queue(QUEUE_KEY, QUEUE_NAME, lead, workflow)
         return True
     return False
 

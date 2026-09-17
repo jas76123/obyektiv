@@ -4,7 +4,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from scripts.tracker_fill import check, issue_fields, load_users, main, plan_actions, sync
+from scripts.tracker_fill import check, issue_fields, load_users, main, pick_workflow, plan_actions, sync
 from scripts.tracker_plan import PlanTask
 
 USERS = {"Жасмина": "jas", "Георгий": "geo", "Денис": "den"}
@@ -32,8 +32,12 @@ class FakeClient:
     def get_queue(self, key):
         return {"key": key}
 
-    def create_queue(self, key, name, lead):
-        self.calls.append(("create_queue", key))
+    def list_workflows(self):
+        return [{"id": "quickStartV2PresetWorkflow", "name": "Quick start"},
+                {"id": "unrestricted_abc", "name": "Свободный (Новый, В работе, Готово)"}]
+
+    def create_queue(self, key, name, lead, workflow):
+        self.calls.append(("create_queue", key, workflow))
         return {"key": key}
 
     def list_components(self, queue):
@@ -159,7 +163,20 @@ class SyncTest(unittest.TestCase):
         client = FakeClient()
         client.get_queue = lambda key: None
         sync(client, [], USERS, apply=True, log=lambda *a: None)
-        self.assertIn(("create_queue", "OBJ"), client.calls)
+        self.assertIn(("create_queue", "OBJ", "unrestricted_abc"), client.calls)
+
+
+class WorkflowTest(unittest.TestCase):
+    def test_prefers_free_workflow(self):
+        self.assertEqual(pick_workflow([{"id": "quickStartV2PresetWorkflow", "name": "Quick start"},
+                                        {"id": "unrestricted_1", "name": "Свободный (Новый, В работе, Готово)"}]), "unrestricted_1")
+
+    def test_falls_back_to_quick_start(self):
+        self.assertEqual(pick_workflow([{"id": "quickStartV2PresetWorkflow", "name": "Quick start"}]), "quickStartV2PresetWorkflow")
+
+    def test_raises_when_nothing_fits(self):
+        with self.assertRaises(LookupError):
+            pick_workflow([{"id": "hrPresetWorkflow", "name": "HR"}])
 
 
 class CheckTest(unittest.TestCase):

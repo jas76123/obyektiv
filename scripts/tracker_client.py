@@ -81,11 +81,15 @@ class TrackerClient:
                 return None
             raise
 
-    def create_queue(self, key: str, name: str, lead: str) -> dict:
+    def list_workflows(self) -> list[dict]:
+        """Воркфлоу организации: id и name; id пресетов свои в каждой организации."""
+        return self.request("GET", "/v2/workflows") or []
+
+    def create_queue(self, key: str, name: str, lead: str, workflow: str) -> dict:
         body = {
             "key": key, "name": name, "lead": lead,
             "defaultType": "task", "defaultPriority": "normal",
-            "issueTypesConfig": [{"issueType": "task", "workflow": "oicn", "resolutions": ["wontFix"]}],
+            "issueTypesConfig": [{"issueType": "task", "workflow": workflow, "resolutions": ["fixed", "wontFix"]}],
         }
         return self.request("POST", "/v2/queues/", body)
 
