@@ -50,7 +50,7 @@ class LoadPlanTest(unittest.TestCase):
         real = Path(__file__).resolve().parent.parent / "docs" / "superpowers" / "specs" / "2026-09-17-obyektiv-work-plan.csv"
         tasks = load_plan(real)
         self.assertEqual(validate_plan(tasks), [])
-        self.assertEqual(len(tasks), 44)
+        self.assertEqual(len(tasks), 43)
 
 
 class HelpersTest(unittest.TestCase):
