@@ -77,3 +77,8 @@ export function fmtStamp(date: Date): string {
   const mm = String(date.getMinutes()).padStart(2, '0');
   return `${date.getDate()} ${MONTHS[date.getMonth()]} ${hh}:${mm}`;
 }
+/** Инициалы из имени: «Иван Петров» → «ИП». */
+export function initials(name: string): string {
+  const p = name.replace(/\./g, '').split(' ');
+  return (p[0]?.[0] ?? '') + (p[1]?.[0] ?? '');
+}

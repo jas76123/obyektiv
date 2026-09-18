@@ -1,14 +1,10 @@
 'use client';
 import { useState } from 'react';
 import type { Alert, Contact } from '@/contract';
+import { initials } from '@/lib/format';
 import { buildRequestText } from '@/store/requestText';
 import { telLink, telegramLink, maxLink, mailLink } from '@/store/links';
 import { AddContactForm } from './AddContactForm';
-
-function initials(name: string): string {
-  const p = name.replace(/\./g, '').split(' ');
-  return (p[0]?.[0] ?? '') + (p[1]?.[0] ?? '');
-}
 
 async function copy(text: string): Promise<boolean> {
   try { await navigator.clipboard.writeText(text); return true; } catch { return false; }

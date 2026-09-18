@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { fmt, fmtFull, isWeekend, workdays, addWorkdays, addMonth, ymLabel, ymOf, plural, toN, isoOf, fmtDayMonth, fmtStamp } from '@/lib/format';
+import { fmt, fmtFull, isWeekend, workdays, addWorkdays, addMonth, ymLabel, ymOf, plural, toN, isoOf, fmtDayMonth, fmtStamp, initials } from '@/lib/format';
 
 describe('format', () => {
   it('короткая и полная дата', () => {
@@ -37,5 +37,11 @@ describe('format', () => {
   it('день и месяц без года, отметка времени', () => {
     expect(fmtDayMonth('2026-09-08')).toBe('8 сентября');
     expect(fmtStamp(new Date(2026, 8, 4, 8, 5))).toBe('4 сен 08:05');
+  });
+  it('инициалы из имени', () => {
+    expect(initials('Иван Петров')).toBe('ИП');
+    expect(initials('Мария')).toBe('М');
+    expect(initials('И. П. Сидоров')).toBe('ИП');
+    expect(initials('')).toBe('');
   });
 });
