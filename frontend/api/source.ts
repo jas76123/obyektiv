@@ -3,7 +3,7 @@ import type { PlanUpload } from '@/contract';
 export type FetchFn = (url: string, init?: RequestInit) => Promise<Response>;
 
 export class ApiError extends Error {
-  constructor(public kind: 'network' | 'not_found' | 'http' | 'schema', message: string, public details: string[] = []) {
+  constructor(public kind: 'network' | 'not_found' | 'http' | 'schema', message: string, public details: string[] = [], public status?: number) {
     super(message);
     this.name = 'ApiError';
   }
@@ -27,7 +27,7 @@ export async function getJson(fetchFn: FetchFn, url: string, init?: RequestInit)
   } catch (e) {
     throw new ApiError('network', `Источник данных недоступен: ${url}`, [String(e)]);
   }
-  if (res.status === 404) throw new ApiError('not_found', `Не найдено: ${url}`);
-  if (!res.ok) throw new ApiError('http', `Ошибка ${res.status}: ${url}`);
+  if (res.status === 404) throw new ApiError('not_found', `Не найдено: ${url}`, [], 404);
+  if (!res.ok) throw new ApiError('http', `Ошибка ${res.status}: ${url}`, [], res.status);
   return res.json();
 }

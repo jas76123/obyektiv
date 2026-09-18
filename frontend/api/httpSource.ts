@@ -15,7 +15,7 @@ export function makeHttpSource(fetchFn: FetchFn, apiBase: string): Source {
         return await getJson(fetchFn, `${base}/api/plan`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
       } catch (e) {
         if (e instanceof ApiError && e.kind === 'not_found') return null;
-        if (e instanceof ApiError && e.kind === 'http' && e.message.startsWith('Ошибка 405')) return null;
+        if (e instanceof ApiError && e.kind === 'http' && e.status === 405) return null;
         throw e;
       }
     },

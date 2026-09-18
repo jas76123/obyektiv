@@ -55,9 +55,36 @@ describe('httpSource', () => {
       'GET http://api/api/settings?object=sev',
     ]);
   });
+  it('HTTP ошибка содержит status поле', async () => {
+    const src = makeHttpSource(fakeFetch({ 'http://api/api/objects/sev/gantt': { status: 500 } }), 'http://api');
+    try {
+      await src.gantt('sev');
+      expect.unreachable();
+    } catch (e) {
+      expect(e).toBeInstanceOf(ApiError);
+      expect((e as ApiError).status).toBe(500);
+      expect((e as ApiError).kind).toBe('http');
+    }
+  });
   it('POST /api/plan: 404 и 405 означают «эндпоинта нет», а не ошибку', async () => {
     const src = makeHttpSource(fakeFetch({ 'http://api/api/plan': { status: 405 } }), 'http://api');
     expect(await src.uploadPlan({ object_id: 'sev', source_name: 'x.csv', works: [] })).toBeNull();
+  });
+  it('POST /api/plan: 405 с проверкой статуса возвращает null', async () => {
+    const src = makeHttpSource(fakeFetch({ 'http://api/api/plan': { status: 405 } }), 'http://api');
+    const result = await src.uploadPlan({ object_id: 'sev', source_name: 'x.csv', works: [] });
+    expect(result).toBeNull();
+  });
+  it('POST /api/plan: 500 бросает ApiError с status: 500', async () => {
+    const src = makeHttpSource(fakeFetch({ 'http://api/api/plan': { status: 500 } }), 'http://api');
+    try {
+      await src.uploadPlan({ object_id: 'sev', source_name: 'x.csv', works: [] });
+      expect.unreachable();
+    } catch (e) {
+      expect(e).toBeInstanceOf(ApiError);
+      expect((e as ApiError).status).toBe(500);
+      expect((e as ApiError).kind).toBe('http');
+    }
   });
 });
 
