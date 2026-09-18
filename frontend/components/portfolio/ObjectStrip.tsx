@@ -27,7 +27,7 @@ export function ObjectStrip({ objects, badge, selected, onSelect }: {
                 <span className="objstage">{o.stage}{o.not_checked_count ? ` · ${o.not_checked_count} не пров.` : ''}</span>
                 {o.delay_days !== null && o.cameras_count > 0 ? <span className="objlag">+{o.delay_days} дн к сроку</span> : null}
               </span>
-              <Bars bars={o.bars} />
+              <Bars bars={o.bars} tone={o.worst === 'none' ? undefined : o.worst} />
             </button>
           );
         })}

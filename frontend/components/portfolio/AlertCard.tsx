@@ -8,6 +8,15 @@ import { FrameView } from '@/components/FrameView';
 
 const STRIPE_CLASS: Partial<Record<Tone, string>> = { warn: 'warn', ok: 'ok', grey: 'acc' };
 
+/** Formats the alert path with optional suffix for setup alerts. */
+export function formatAlertPath(alert: Alert): string {
+  const basePath = `${alert.object_name} · ${alert.zone} · ${alert.contractor}`;
+  if (alert.kind === 'setup') {
+    return `${basePath} · закрыто на ${alert.triad.declared.percent} %`;
+  }
+  return basePath;
+}
+
 /** Карточка замечания в ленте (мокап 0.4, строки 1013–1025). footer и panels заполняет задача 7. */
 export function AlertCard({ alert, extraTag, footer, panels }: { alert: Alert; extraTag?: Tag | null; footer?: ReactNode; panels?: ReactNode }) {
   const stripeCls = STRIPE_CLASS[alert.tone];
@@ -24,7 +33,7 @@ export function AlertCard({ alert, extraTag, footer, panels }: { alert: Alert; e
           <span className="atitle">{alert.work_name}</span>
           <Tags tags={alert.tags} extra={extraTag} />
         </div>
-        <span className="apath">{alert.object_name} · {alert.zone} · {alert.contractor}</span>
+        <span className="apath">{formatAlertPath(alert)}</span>
         <div className="arow">
           <p className="averdict">{alert.verdict}</p>
           <Triad triad={alert.triad} tone={alert.tone} />
