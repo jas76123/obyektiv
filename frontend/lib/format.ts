@@ -66,3 +66,14 @@ export function plural(n: number, forms: [string, string, string]): string {
   if (b >= 2 && b <= 4) return forms[1];
   return forms[2];
 }
+/** «8 сентября» */
+export function fmtDayMonth(iso: string): string {
+  const [, m, d] = parts(iso);
+  return `${d} ${MONTHS_GEN[m - 1]}`;
+}
+/** Отметка действия в карточке: «4 сен 17:05», по местному времени браузера. */
+export function fmtStamp(date: Date): string {
+  const hh = String(date.getHours()).padStart(2, '0');
+  const mm = String(date.getMinutes()).padStart(2, '0');
+  return `${date.getDate()} ${MONTHS[date.getMonth()]} ${hh}:${mm}`;
+}
