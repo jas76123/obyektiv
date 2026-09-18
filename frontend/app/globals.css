@@ -360,6 +360,17 @@ tr:last-child td{border-bottom:0}
 .tick:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
 .legend-inline{font:10px/1.9 var(--f-mono);color:var(--muted)}
 
+/* ---------- вне макета: кадр с рамками ---------- */
+.fv{position:relative;width:100%;overflow:hidden;border:1px solid var(--rule);background:var(--paper2)}
+.fv-none{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center}
+.fv-img,.fv-scene{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover}
+.fv-demo{position:absolute;right:6px;top:6px;font:700 9px var(--f-mono);letter-spacing:.05em;color:var(--muted);background:var(--paper);border:1px solid var(--rule);padding:2px 5px}
+.fv-msg{position:absolute;left:0;right:0;bottom:8%;text-align:center;font:700 10px var(--f-mono);color:var(--muted)}
+.fv-msg.bad{color:var(--bad)}
+.fv-none .fv-msg{position:static}
+.bx.off{border-color:var(--warn);background:rgba(160,103,18,.16)}
+.bx.off b{background:var(--warn)}
+
 .field{margin-bottom:12px}
 .field label{display:block;font:10px var(--f-mono);color:var(--muted);margin-bottom:5px;letter-spacing:.04em}
 .box{border:1px solid var(--rule);background:var(--paper2);padding:9px 12px;font-size:13px;color:var(--ink2)}
