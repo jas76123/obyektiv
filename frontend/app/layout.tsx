@@ -1,18 +1,11 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import { AppNav } from '@/components/AppNav';
 import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Объектив',
   description: 'Контроль хода строительства по камерам: сверка наблюдения с графиком',
 };
-
-const NAV: Array<[string, string]> = [
-  ['/', 'Портфель'],
-  ['/work/', 'Разбор работы'],
-  ['/camera/', 'Камера'],
-  ['/settings/', 'Настройка'],
-];
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -28,11 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className="app">
           <div className="appbar">
             <span className="logo">ОБЪ<em>Е</em>КТИВ</span>
-            <nav className="appnav">
-              {NAV.map(([href, label]) => (
-                <Link key={href} href={href}>{label}</Link>
-              ))}
-            </nav>
+            <AppNav />
           </div>
           <div className="screen">{children}</div>
         </div>
