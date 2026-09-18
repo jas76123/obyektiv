@@ -13,11 +13,13 @@ import { SetupBlock } from '@/components/portfolio/SetupBlock';
 import { HandlingLine } from '@/components/alert/HandlingLine';
 import { ContactPanel } from '@/components/alert/ContactPanel';
 import { OutcomePanel } from '@/components/alert/OutcomePanel';
+import { ObjectBlock } from '@/components/gantt/ObjectBlock';
 import { feedList, feedCounts, setupList, type FeedState } from '@/components/portfolio/feedLogic';
 import { useHandling } from '@/store/useHandling';
-import { manualTag } from '@/store/handling';
+import { manualTag, resolvesWork } from '@/store/handling';
 import { summarize, badgeOf } from '@/store/summary';
 import { loadContacts, contactFor, addContact } from '@/store/contacts';
+import { OUTCOMES } from '@/contract/labels';
 import { fmtFull } from '@/lib/format';
 import type { Contact } from '@/contract';
 
@@ -46,6 +48,11 @@ export default function PortfolioPage() {
   if (error || !data) return <ErrorBox error={error} onRetry={reload} />;
 
   const scope = feed.objectId ? data.objects.find((o) => o.id === feed.objectId)?.short_name ?? feed.objectId : 'все объекты';
+  const resolvedWorks: Record<string, string> = {};
+  for (const a of data.alerts) {
+    const h = handling.of(a);
+    if (resolvesWork(h)) resolvedWorks[a.work_id] = OUTCOMES.find((o) => o.code === h.outcome)?.tag ?? '';
+  }
   return (
     <>
       <div className="asof">ДАННЫЕ НА {fmtFull(data.as_of).toUpperCase()}</div>
@@ -90,6 +97,7 @@ export default function PortfolioPage() {
         </div>
       )}
       <SetupBlock alerts={setupList(data.alerts, feed.objectId)} />
+      {feed.objectId ? <ObjectBlock objectId={feed.objectId} resolved={resolvedWorks} /> : null}
     </>
   );
 }
