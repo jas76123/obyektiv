@@ -1,0 +1,56 @@
+{
+ "as_of": "2026-09-04",
+ "object": {
+  "id": "rech",
+  "name": "ЖК «Речной», корпус 1",
+  "short_name": "Речной к.1"
+ },
+ "work": {
+  "id": "C-01",
+  "name": "Подготовка территории",
+  "zone": "Котлован",
+  "contractor": "СУ-7",
+  "plan_start": "2026-08-10",
+  "plan_end": "2026-08-14",
+  "declared": {
+   "percent": 100
+  },
+  "status": "in_progress",
+  "status_reason": null,
+  "tags": []
+ },
+ "mode": "done",
+ "ladder": [
+  true,
+  true,
+  null,
+  true
+ ],
+ "verdict": "Работа завершена и подтверждена наблюдением: 5 из 5 рабочих дней этапа.",
+ "expected": [],
+ "triad": {
+  "plan_today": 100,
+  "declared": {
+   "percent": 100
+  },
+  "confirmed": 100,
+  "confirmed_days": 5,
+  "elapsed_days": 5,
+  "note": "5 из 5 дней"
+ },
+ "calendar": {
+  "days": {
+   "2026-08-10": 2,
+   "2026-08-11": 2,
+   "2026-08-12": 2,
+   "2026-08-13": 2,
+   "2026-08-14": 2
+  },
+  "acts": [],
+  "confirmed_days": 5,
+  "elapsed_days": 5
+ },
+ "shifts": {},
+ "causes": [],
+ "history": []
+}

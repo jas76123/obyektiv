@@ -1,0 +1,362 @@
+{
+ "as_of": "2026-09-04",
+ "object": {
+  "id": "rom",
+  "name": "Детский сад «Ромашка»",
+  "short_name": "ДС «Ромашка»"
+ },
+ "work": {
+  "id": "R-03",
+  "name": "Армирование ростверка",
+  "zone": "Ростверк",
+  "contractor": "ФундаментСтрой",
+  "plan_start": "2026-08-26",
+  "plan_end": "2026-09-04",
+  "declared": {
+   "percent": 60
+  },
+  "status": "in_progress",
+  "status_reason": null,
+  "tags": [
+   {
+    "kind": "sched",
+    "text": "+3 ДНЯ К ПЛАНУ"
+   }
+  ]
+ },
+ "mode": "full",
+ "ladder": [
+  true,
+  true,
+  null,
+  false
+ ],
+ "verdict": "Работа идёт с опозданием, а не отсутствует. Первые три рабочих дня плана зона пуста, с 31 августа кран и бригада из пяти человек в кадре ежедневно и меняют положение. Заявленные 60 % совпадают с наблюдением. Отставание три дня, сдвиг бетонирования ростверка неизбежен.",
+ "expected": [
+  {
+   "label": "crane",
+   "expected": "≥ 1",
+   "found": "1",
+   "in_frame": "9 ч из 10",
+   "ok": true
+  },
+  {
+   "label": "person",
+   "expected": "≥ 4",
+   "found": "5",
+   "in_frame": "10 ч из 10",
+   "ok": true
+  },
+  {
+   "label": "перемещение техники за смену",
+   "expected": "есть",
+   "found": "есть · кран в 4 позициях",
+   "in_frame": "по 4 кадрам",
+   "ok": true
+  },
+  {
+   "label": "дней с активностью",
+   "expected": "7 из 8 (80 %)",
+   "found": "5 из 8",
+   "in_frame": "—",
+   "ok": false
+  }
+ ],
+ "triad": {
+  "plan_today": 100,
+  "declared": {
+   "percent": 60
+  },
+  "confirmed": 63,
+  "confirmed_days": 5,
+  "elapsed_days": 8,
+  "note": "5 из 8 дней"
+ },
+ "calendar": {
+  "days": {
+   "2026-08-17": 0,
+   "2026-08-18": 0,
+   "2026-08-19": 0,
+   "2026-08-20": 0,
+   "2026-08-21": 0,
+   "2026-08-24": 0,
+   "2026-08-25": 0,
+   "2026-08-26": 0,
+   "2026-08-27": 0,
+   "2026-08-28": 0,
+   "2026-08-31": 2,
+   "2026-09-01": 2,
+   "2026-09-02": 2,
+   "2026-09-03": 2,
+   "2026-09-04": 2
+  },
+  "acts": [],
+  "confirmed_days": 5,
+  "elapsed_days": 8
+ },
+ "shifts": {
+  "2026-09-04": {
+   "camera_id": "КАМ-Р2",
+   "frames": [
+    {
+     "frame_id": "КАМ-Р2_20260904_0830",
+     "camera_id": "КАМ-Р2",
+     "captured_at": "2026-09-04T08:30:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "crane",
+       "confidence": 0.88,
+       "bbox": [
+        269,
+        86,
+        269,
+        648
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.8,
+       "bbox": [
+        768,
+        594,
+        96,
+        151
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        902,
+        605,
+        96,
+        140
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.74,
+       "bbox": [
+        1152,
+        583,
+        96,
+        151
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1306,
+        605,
+        96,
+        140
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-Р2_20260904_1100",
+     "camera_id": "КАМ-Р2",
+     "captured_at": "2026-09-04T11:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "crane",
+       "confidence": 0.9,
+       "bbox": [
+        576,
+        86,
+        269,
+        648
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.81,
+       "bbox": [
+        806,
+        594,
+        96,
+        151
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.79,
+       "bbox": [
+        960,
+        605,
+        96,
+        140
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.76,
+       "bbox": [
+        1114,
+        583,
+        96,
+        151
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.73,
+       "bbox": [
+        1267,
+        605,
+        96,
+        140
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.7,
+       "bbox": [
+        1440,
+        594,
+        96,
+        140
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-Р2_20260904_1340",
+     "camera_id": "КАМ-Р2",
+     "captured_at": "2026-09-04T13:40:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "crane",
+       "confidence": 0.89,
+       "bbox": [
+        922,
+        86,
+        269,
+        648
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.82,
+       "bbox": [
+        730,
+        594,
+        96,
+        151
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.77,
+       "bbox": [
+        998,
+        605,
+        96,
+        140
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1210,
+        583,
+        96,
+        151
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.71,
+       "bbox": [
+        1382,
+        605,
+        96,
+        140
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-Р2_20260904_1610",
+     "camera_id": "КАМ-Р2",
+     "captured_at": "2026-09-04T16:10:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "crane",
+       "confidence": 0.86,
+       "bbox": [
+        422,
+        86,
+        269,
+        648
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        845,
+        594,
+        96,
+        151
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.74,
+       "bbox": [
+        1075,
+        605,
+        96,
+        140
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1344,
+        594,
+        96,
+        140
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "causes": [
+  "Начало сдвинулось на три рабочих дня, причина в графике не указана",
+  "Темп после выхода бригады соответствует плановому: отставание не растёт"
+ ],
+ "history": [
+  {
+   "when": "30 июл",
+   "what": "работа добавлена: 26 авг — 4 сен",
+   "who": "руководитель проекта",
+   "reason": "—"
+  },
+  {
+   "when": "2 сен",
+   "what": "факт 0 % → 60 %",
+   "who": "ФундаментСтрой",
+   "reason": "—"
+  }
+ ]
+}

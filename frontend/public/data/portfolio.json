@@ -1,0 +1,810 @@
+{
+ "as_of": "2026-09-04",
+ "objects": [
+  {
+   "id": "sev",
+   "name": "ЖК «Северный», корпус 2",
+   "short_name": "Северный к.2",
+   "stage": "нулевой цикл",
+   "zone_type": "area",
+   "cameras_count": 3,
+   "worst": "bad",
+   "not_checked_count": 1,
+   "delay_days": 2,
+   "bars": {
+    "plan_today": 71,
+    "declared": 68,
+    "confirmed": 54
+   }
+  },
+  {
+   "id": "park",
+   "name": "ЖК «Парковый», корпус 4",
+   "short_name": "Парковый к.4",
+   "stage": "монолитный каркас",
+   "zone_type": "area",
+   "cameras_count": 4,
+   "worst": "bad",
+   "not_checked_count": 0,
+   "delay_days": null,
+   "bars": {
+    "plan_today": 88,
+    "declared": 90,
+    "confirmed": 62
+   }
+  },
+  {
+   "id": "rom",
+   "name": "Детский сад «Ромашка»",
+   "short_name": "ДС «Ромашка»",
+   "stage": "фундамент",
+   "zone_type": "area",
+   "cameras_count": 2,
+   "worst": "ok",
+   "not_checked_count": 0,
+   "delay_days": 3,
+   "bars": {
+    "plan_today": 64,
+    "declared": 60,
+    "confirmed": 50
+   }
+  },
+  {
+   "id": "rech",
+   "name": "ЖК «Речной», корпус 1",
+   "short_name": "Речной к.1",
+   "stage": "котлован",
+   "zone_type": "area",
+   "cameras_count": 2,
+   "worst": "warn",
+   "not_checked_count": 0,
+   "delay_days": 2,
+   "bars": {
+    "plan_today": 44,
+    "declared": 44,
+    "confirmed": 41
+   }
+  },
+  {
+   "id": "school",
+   "name": "Школа на ул. Ленина",
+   "short_name": "Школа Ленина",
+   "stage": "фасад и отделка",
+   "zone_type": "area",
+   "cameras_count": 3,
+   "worst": "ok",
+   "not_checked_count": 2,
+   "delay_days": null,
+   "bars": {
+    "plan_today": 95,
+    "declared": 95,
+    "confirmed": 93
+   }
+  },
+  {
+   "id": "metro",
+   "name": "Перегон «Парковая» — «Заречная»",
+   "short_name": "Перегон Парковая",
+   "stage": "проходка · линейный",
+   "zone_type": "linear",
+   "cameras_count": 0,
+   "worst": "none",
+   "not_checked_count": 3,
+   "delay_days": null,
+   "bars": {
+    "plan_today": 35,
+    "declared": 35,
+    "confirmed": null
+   }
+  }
+ ],
+ "summary": {
+  "open_alerts": 6,
+  "objects_with_alerts": 4,
+  "untouched_alerts": 4,
+  "setup_tasks": 1,
+  "sharpest": {
+   "alert_id": "A-01",
+   "text": "Армирование фундамента · Северный к.2"
+  }
+ },
+ "alerts": [
+  {
+   "id": "A-01",
+   "object_id": "sev",
+   "object_name": "ЖК «Северный», корпус 2",
+   "object_short": "Северный к.2",
+   "work_id": "W-07",
+   "work_name": "Армирование фундамента",
+   "zone": "Секция 2",
+   "contractor": "СтройМонтаж",
+   "kind": "claim",
+   "status": "false_completion",
+   "status_reason": null,
+   "tags": [
+    {
+     "kind": "rep",
+     "text": "ЗАЯВЛЕНО 100 % · В КАДРЕ 0 ДН ИЗ 5"
+    }
+   ],
+   "severity": 95,
+   "tone": "bad",
+   "verdict": "Закрыто подрядчиком на 100 % третьего сентября. Камера КАМ-02 отработала все пять рабочих дней этапа: ни крана, ни бригады в зоне не обнаружено.",
+   "triad": {
+    "plan_today": 100,
+    "declared": {
+     "percent": 100
+    },
+    "confirmed": 0,
+    "confirmed_days": 0,
+    "elapsed_days": 5,
+    "note": "0 из 5 дней"
+   },
+   "schedule": {
+    "plan_start": "2026-08-28",
+    "plan_end": "2026-09-03",
+    "fact_start": "2026-08-28",
+    "forecast_end": null
+   },
+   "evidence": {
+    "frame": {
+     "frame_id": "КАМ-02_20260903_1000",
+     "camera_id": "КАМ-02",
+     "captured_at": "2026-09-03T10:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": []
+    },
+    "label": "КАМ-02 · 3 СЕН, 10:00",
+    "sub": "техника 0 · люди 0",
+    "camera_id": "КАМ-02",
+    "date": "2026-09-03"
+   },
+   "untouched_days": 1,
+   "handling": {
+    "state": "new",
+    "by": null,
+    "role": null,
+    "at": null,
+    "target": null,
+    "channel": null,
+    "due": null,
+    "outcome": null,
+    "comment": null
+   },
+   "contact": {
+    "contractor": "СтройМонтаж",
+    "object_id": "sev",
+    "name": "Сафин Р. И.",
+    "role": "производитель работ",
+    "phone": "+7 917 204-11-86",
+    "telegram": "@safin_rr",
+    "max": null,
+    "email": null,
+    "scope": "фундамент, секция 2",
+    "escalation": "Гурьев Н. В., главный инженер СтройМонтаж, +7 495 640-22-08"
+   }
+  },
+  {
+   "id": "A-02",
+   "object_id": "park",
+   "object_name": "ЖК «Парковый», корпус 4",
+   "object_short": "Парковый к.4",
+   "work_id": "P-03",
+   "work_name": "Монолитный каркас 3 этаж",
+   "zone": "Секция А · 3 этаж",
+   "contractor": "СтройМонтаж",
+   "kind": "claim",
+   "status": "false_completion",
+   "status_reason": null,
+   "tags": [
+    {
+     "kind": "rep",
+     "text": "ЗАЯВЛЕНО 100 % · В КАДРЕ 2 ДН ИЗ 10"
+    }
+   ],
+   "severity": 88,
+   "tone": "bad",
+   "verdict": "Заявлено полное выполнение этажа. Кран и бригада зафиксированы только 24 и 25 августа, остальные восемь рабочих дней этапа зона пуста. Тот же подрядчик, что на «Северном».",
+   "triad": {
+    "plan_today": 100,
+    "declared": {
+     "percent": 100
+    },
+    "confirmed": 20,
+    "confirmed_days": 2,
+    "elapsed_days": 10,
+    "note": "2 из 10 дней"
+   },
+   "schedule": {
+    "plan_start": "2026-08-24",
+    "plan_end": "2026-09-04",
+    "fact_start": "2026-08-24",
+    "forecast_end": null
+   },
+   "evidence": {
+    "frame": {
+     "frame_id": "КАМ-П1_20260903_1130",
+     "camera_id": "КАМ-П1",
+     "captured_at": "2026-09-03T11:30:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": []
+    },
+    "label": "КАМ-П1 · 3 СЕН, 11:30",
+    "sub": "техника 0 · люди 0",
+    "camera_id": "КАМ-П1",
+    "date": "2026-09-03"
+   },
+   "untouched_days": 0,
+   "handling": {
+    "state": "contacted",
+    "by": "Ковалёв А.",
+    "role": "технадзор",
+    "at": "вчера 09:12",
+    "target": "Дёмин П. А.",
+    "channel": "Telegram",
+    "due": "8 сентября",
+    "outcome": null,
+    "comment": null
+   },
+   "contact": {
+    "contractor": "СтройМонтаж",
+    "object_id": "park",
+    "name": "Дёмин П. А.",
+    "role": "начальник участка",
+    "phone": "+7 903 776-40-12",
+    "telegram": "@demin_pa",
+    "max": null,
+    "email": null,
+    "scope": "монолитный каркас, секции А и Б",
+    "escalation": "Гурьев Н. В., главный инженер СтройМонтаж, +7 495 640-22-08"
+   }
+  },
+  {
+   "id": "A-03",
+   "object_id": "rom",
+   "object_name": "Детский сад «Ромашка»",
+   "object_short": "ДС «Ромашка»",
+   "work_id": "R-03",
+   "work_name": "Армирование ростверка",
+   "zone": "Ростверк",
+   "contractor": "ФундаментСтрой",
+   "kind": "claim",
+   "status": "in_progress",
+   "status_reason": null,
+   "tags": [
+    {
+     "kind": "sched",
+     "text": "+3 ДНЯ К ПЛАНУ · ПРОГНОЗ 9 СЕН"
+    }
+   ],
+   "severity": 60,
+   "tone": "ok",
+   "verdict": "По графику должна закончиться сегодня. Кран и бригада вышли в зону 31 августа, на три рабочих дня позже плана, и с тех пор работают ежедневно. Заявленные 60 % совпадают с наблюдением. Прогноз завершения 9 сентября.",
+   "triad": {
+    "plan_today": 100,
+    "declared": {
+     "percent": 60
+    },
+    "confirmed": 63,
+    "confirmed_days": 5,
+    "elapsed_days": 8,
+    "note": "5 из 8 дней"
+   },
+   "schedule": {
+    "plan_start": "2026-08-26",
+    "plan_end": "2026-09-04",
+    "fact_start": "2026-08-31",
+    "forecast_end": "2026-09-09"
+   },
+   "evidence": {
+    "frame": {
+     "frame_id": "КАМ-Р2_20260904_1340",
+     "camera_id": "КАМ-Р2",
+     "captured_at": "2026-09-04T13:40:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "crane",
+       "confidence": 0.89,
+       "bbox": [
+        922,
+        86,
+        269,
+        648
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.82,
+       "bbox": [
+        730,
+        594,
+        96,
+        151
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.77,
+       "bbox": [
+        998,
+        605,
+        96,
+        140
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1210,
+        583,
+        96,
+        151
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.71,
+       "bbox": [
+        1382,
+        605,
+        96,
+        140
+       ]
+      }
+     ]
+    },
+    "label": "КАМ-Р2 · 4 СЕН, 13:40",
+    "sub": "техника 1 · люди 4",
+    "camera_id": "КАМ-Р2",
+    "date": "2026-09-04"
+   },
+   "untouched_days": 0,
+   "handling": {
+    "state": "seen",
+    "by": "Титова Е.",
+    "role": "руководитель проекта",
+    "at": "сегодня 08:40",
+    "target": null,
+    "channel": null,
+    "due": null,
+    "outcome": null,
+    "comment": null
+   },
+   "contact": {
+    "contractor": "ФундаментСтрой",
+    "object_id": "rom",
+    "name": "Астахов В. С.",
+    "role": "производитель работ",
+    "phone": "+7 926 118-52-30",
+    "telegram": "@astahov_vs",
+    "max": null,
+    "email": null,
+    "scope": "нулевой цикл",
+    "escalation": "Панина О. Л., руководитель проекта ФундаментСтрой, +7 495 118-90-40"
+   }
+  },
+  {
+   "id": "A-04",
+   "object_id": "sev",
+   "object_name": "ЖК «Северный», корпус 2",
+   "object_short": "Северный к.2",
+   "work_id": "W-08",
+   "work_name": "Бетонирование фундамента",
+   "zone": "Секция 2",
+   "contractor": "СтройМонтаж",
+   "kind": "claim",
+   "status": "resources_only",
+   "status_reason": null,
+   "tags": [],
+   "severity": 58,
+   "tone": "warn",
+   "verdict": "Бетононасос стоит в кадре весь день не двигаясь, бетоновозов нет, людей двое вместо четырёх. Обвинять пока не в чем, но этап не идёт.",
+   "triad": {
+    "plan_today": 33,
+    "declared": {
+     "percent": 0
+    },
+    "confirmed": 0,
+    "confirmed_days": 0,
+    "elapsed_days": 1,
+    "note": "0 из 1 дней"
+   },
+   "schedule": {
+    "plan_start": "2026-09-04",
+    "plan_end": "2026-09-08",
+    "fact_start": "2026-09-04",
+    "forecast_end": "2026-09-10"
+   },
+   "evidence": {
+    "frame": {
+     "frame_id": "КАМ-02_20260904_1400",
+     "camera_id": "КАМ-02",
+     "captured_at": "2026-09-04T14:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "concrete_pump",
+       "confidence": 0.86,
+       "bbox": [
+        120,
+        390,
+        460,
+        360
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    "label": "КАМ-02 · 4 СЕН, 14:00",
+    "sub": "техника 1 · люди 2",
+    "camera_id": "КАМ-02",
+    "date": "2026-09-04"
+   },
+   "untouched_days": 0,
+   "handling": {
+    "state": "new",
+    "by": null,
+    "role": null,
+    "at": null,
+    "target": null,
+    "channel": null,
+    "due": null,
+    "outcome": null,
+    "comment": null
+   },
+   "contact": {
+    "contractor": "СтройМонтаж",
+    "object_id": "sev",
+    "name": "Сафин Р. И.",
+    "role": "производитель работ",
+    "phone": "+7 917 204-11-86",
+    "telegram": "@safin_rr",
+    "max": null,
+    "email": null,
+    "scope": "фундамент, секция 2",
+    "escalation": "Гурьев Н. В., главный инженер СтройМонтаж, +7 495 640-22-08"
+   }
+  },
+  {
+   "id": "A-05",
+   "object_id": "rech",
+   "object_name": "ЖК «Речной», корпус 1",
+   "object_short": "Речной к.1",
+   "work_id": "C-02",
+   "work_name": "Разработка котлована",
+   "zone": "Котлован",
+   "contractor": "СУ-7",
+   "kind": "claim",
+   "status": "resources_only",
+   "status_reason": null,
+   "tags": [
+    {
+     "kind": "lag",
+     "text": "ЗАЯВЛЕНО 40 % · В КАДРЕ 8 ДН ИЗ 10"
+    }
+   ],
+   "severity": 52,
+   "tone": "warn",
+   "verdict": "Котлован шёл в темпе плана до 2 сентября. 3 и 4 сентября экскаватор в кадре, но не двигается, самосвалов нет. Два дня простоя подряд.",
+   "triad": {
+    "plan_today": 67,
+    "declared": {
+     "percent": 40
+    },
+    "confirmed": 80,
+    "confirmed_days": 8,
+    "elapsed_days": 10,
+    "note": "8 из 10 дней"
+   },
+   "schedule": {
+    "plan_start": "2026-08-24",
+    "plan_end": "2026-09-11",
+    "fact_start": "2026-08-24",
+    "forecast_end": "2026-09-15"
+   },
+   "evidence": {
+    "frame": {
+     "frame_id": "КАМ-В1_20260904_1600",
+     "camera_id": "КАМ-В1",
+     "captured_at": "2026-09-04T16:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.9,
+       "bbox": [
+        653,
+        410,
+        480,
+        356
+       ]
+      }
+     ]
+    },
+    "label": "КАМ-В1 · 4 СЕН, 16:00",
+    "sub": "техника 1 · люди 0",
+    "camera_id": "КАМ-В1",
+    "date": "2026-09-04"
+   },
+   "untouched_days": 1,
+   "handling": {
+    "state": "new",
+    "by": null,
+    "role": null,
+    "at": null,
+    "target": null,
+    "channel": null,
+    "due": null,
+    "outcome": null,
+    "comment": null
+   },
+   "contact": null
+  },
+  {
+   "id": "A-06",
+   "object_id": "sev",
+   "object_name": "ЖК «Северный», корпус 2",
+   "object_short": "Северный к.2",
+   "work_id": "W-12",
+   "work_name": "Монтаж башенного крана",
+   "zone": "Секция 1",
+   "contractor": "КранСервис",
+   "kind": "setup",
+   "status": "not_checked",
+   "status_reason": "no_catalog",
+   "tags": [],
+   "severity": 30,
+   "tone": "grey",
+   "verdict": "Подрядчик «КранСервис» закрыл монтаж башенного крана на 100 %. Вида работ нет в справочнике признаков: система его не проверяет и ничего о нём не утверждает. Проверить вручную либо описать признаки.",
+   "triad": {
+    "plan_today": 100,
+    "declared": {
+     "percent": 100
+    },
+    "confirmed": null,
+    "confirmed_days": 0,
+    "elapsed_days": 0,
+    "note": "не проверяется"
+   },
+   "schedule": {
+    "plan_start": "2026-08-31",
+    "plan_end": "2026-09-02",
+    "fact_start": "2026-08-31",
+    "forecast_end": null
+   },
+   "evidence": {
+    "frame": null,
+    "label": "НАБЛЮДЕНИЙ НЕТ",
+    "sub": "признаки не описаны",
+    "camera_id": null,
+    "date": null
+   },
+   "untouched_days": 0,
+   "handling": {
+    "state": "new",
+    "by": null,
+    "role": null,
+    "at": null,
+    "target": null,
+    "channel": null,
+    "due": null,
+    "outcome": null,
+    "comment": null
+   },
+   "contact": {
+    "contractor": "КранСервис",
+    "object_id": "sev",
+    "name": "Лапин Д. Ю.",
+    "role": "инженер по монтажу",
+    "phone": "+7 916 402-77-19",
+    "telegram": "@lapin_kran",
+    "max": null,
+    "email": null,
+    "scope": "башенный кран КБ-408",
+    "escalation": "диспетчер КранСервис, +7 495 227-40-00"
+   }
+  },
+  {
+   "id": "A-07",
+   "object_id": "park",
+   "object_name": "ЖК «Парковый», корпус 4",
+   "object_short": "Парковый к.4",
+   "work_id": "P-06",
+   "work_name": "Демонтаж опалубки 2 этаж",
+   "zone": "Секция А",
+   "contractor": "СтройМонтаж",
+   "kind": "claim",
+   "status": "insufficient",
+   "status_reason": null,
+   "tags": [],
+   "severity": 35,
+   "tone": "grey",
+   "verdict": "Закрыто на 100 %. Камера КАМ-П1 не отдавала кадры 31 августа и 1 сентября: покрытие один день из трёх при пороге 60 %. Вердикт не выставлен: наблюдений мало и для подтверждения, и для претензии. Проверить вручную и камеру.",
+   "triad": {
+    "plan_today": 100,
+    "declared": {
+     "percent": 100
+    },
+    "confirmed": null,
+    "confirmed_days": 0,
+    "elapsed_days": 3,
+    "note": "кадры за 1 из 3 дней"
+   },
+   "schedule": {
+    "plan_start": "2026-08-31",
+    "plan_end": "2026-09-02",
+    "fact_start": null,
+    "forecast_end": null
+   },
+   "evidence": {
+    "frame": null,
+    "label": "КАМ-П1 · КАДРОВ НЕТ",
+    "sub": "покрытие 1 из 3 дней",
+    "camera_id": null,
+    "date": null
+   },
+   "untouched_days": 1,
+   "handling": {
+    "state": "new",
+    "by": null,
+    "role": null,
+    "at": null,
+    "target": null,
+    "channel": null,
+    "due": null,
+    "outcome": null,
+    "comment": null
+   },
+   "contact": {
+    "contractor": "СтройМонтаж",
+    "object_id": "park",
+    "name": "Дёмин П. А.",
+    "role": "начальник участка",
+    "phone": "+7 903 776-40-12",
+    "telegram": "@demin_pa",
+    "max": null,
+    "email": null,
+    "scope": "монолитный каркас, секции А и Б",
+    "escalation": "Гурьев Н. В., главный инженер СтройМонтаж, +7 495 640-22-08"
+   }
+  },
+  {
+   "id": "A-08",
+   "object_id": "sev",
+   "object_name": "ЖК «Северный», корпус 2",
+   "object_short": "Северный к.2",
+   "work_id": "W-05",
+   "work_name": "Разработка котлована",
+   "zone": "Секция 2",
+   "contractor": "СУ-7",
+   "kind": "claim",
+   "status": "in_progress",
+   "status_reason": null,
+   "tags": [
+    {
+     "kind": "rep",
+     "text": "ЗАЯВЛЕНО 40 % · В КАДРЕ 0 ДН ИЗ 3"
+    }
+   ],
+   "severity": 70,
+   "tone": "bad",
+   "verdict": "19–21 августа модель три дня подряд не находила экскаватор на КАМ-02, хотя котлован копали. При разборе выяснилось: технику с этого ракурса модель принимала за автобус. Кадры ушли в датасет, замечание закрыто как ложное.",
+   "triad": {
+    "plan_today": 38,
+    "declared": {
+     "percent": 40
+    },
+    "confirmed": 0,
+    "confirmed_days": 0,
+    "elapsed_days": 3,
+    "note": "0 из 3 дней"
+   },
+   "schedule": {
+    "plan_start": "2026-08-19",
+    "plan_end": "2026-08-26",
+    "fact_start": "2026-08-19",
+    "forecast_end": null
+   },
+   "evidence": {
+    "frame": {
+     "frame_id": "КАМ-02_20260820_1000",
+     "camera_id": "КАМ-02",
+     "captured_at": "2026-08-20T10:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        460,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        1080,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    "label": "КАМ-02 · 20 АВГ, 10:00",
+    "sub": "техника 2 · люди 2",
+    "camera_id": "КАМ-02",
+    "date": "2026-08-20"
+   },
+   "untouched_days": 0,
+   "handling": {
+    "state": "closed",
+    "by": "Ковалёв А.",
+    "role": "технадзор",
+    "at": "26 авг 11:05",
+    "target": null,
+    "channel": null,
+    "due": null,
+    "outcome": "false_alarm",
+    "comment": null
+   },
+   "contact": null
+  }
+ ]
+}

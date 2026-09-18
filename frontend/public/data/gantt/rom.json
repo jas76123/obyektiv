@@ -1,0 +1,152 @@
+{
+ "as_of": "2026-09-04",
+ "object": {
+  "id": "rom",
+  "name": "Детский сад «Ромашка»",
+  "short_name": "ДС «Ромашка»",
+  "stage": "фундамент",
+  "zone_type": "area",
+  "cameras_count": 2,
+  "worst": "ok",
+  "not_checked_count": 0,
+  "delay_days": 3,
+  "bars": {
+   "plan_today": 64,
+   "declared": 60,
+   "confirmed": 50
+  },
+  "zones_label": "Полигоны на стройгенплане · 2 зоны"
+ },
+ "cameras": [
+  {
+   "id": "КАМ-Р1",
+   "zone": "Ростверк",
+   "description": "Ростверк · общий план",
+   "state": "ok",
+   "last_frame": "4 сен 17:00"
+  },
+  {
+   "id": "КАМ-Р2",
+   "zone": "Ростверк",
+   "description": "Ростверк · вид с бытового городка",
+   "state": "ok",
+   "last_frame": "4 сен 16:10"
+  }
+ ],
+ "counts": {
+  "total": 5,
+  "ok": 3,
+  "warn": 0,
+  "bad": 0,
+  "none": 0
+ },
+ "forecast": {
+  "text": "Прогноз сроков. Худшая работа «Армирование ростверка»: по темпу наблюдения окончание 9 сен вместо 4 сен, это +3 раб. дня к сроку следующего этапа.",
+  "delay_days": 3
+ },
+ "acts": [],
+ "works": [
+  {
+   "id": "R-01",
+   "name": "Разработка котлована",
+   "zone": "Ростверк",
+   "contractor": "СУ-7",
+   "plan_start": "2026-08-04",
+   "plan_end": "2026-08-14",
+   "plan_v1": null,
+   "declared": {
+    "percent": 100
+   },
+   "status": "in_progress",
+   "status_reason": null,
+   "tags": [],
+   "fact": {
+    "start": "2026-08-04",
+    "end": "2026-08-14",
+    "tone": "done"
+   },
+   "forecast_end": null
+  },
+  {
+   "id": "R-02",
+   "name": "Свайное поле",
+   "zone": "Ростверк",
+   "contractor": "ГеоСтрой",
+   "plan_start": "2026-08-17",
+   "plan_end": "2026-08-25",
+   "plan_v1": null,
+   "declared": {
+    "percent": 100
+   },
+   "status": "in_progress",
+   "status_reason": null,
+   "tags": [],
+   "fact": {
+    "start": "2026-08-17",
+    "end": "2026-08-25",
+    "tone": "done"
+   },
+   "forecast_end": null
+  },
+  {
+   "id": "R-03",
+   "name": "Армирование ростверка",
+   "zone": "Ростверк",
+   "contractor": "ФундаментСтрой",
+   "plan_start": "2026-08-26",
+   "plan_end": "2026-09-04",
+   "plan_v1": null,
+   "declared": {
+    "percent": 60
+   },
+   "status": "in_progress",
+   "status_reason": null,
+   "tags": [
+    {
+     "kind": "sched",
+     "text": "+3 ДНЯ К ПЛАНУ"
+    }
+   ],
+   "fact": {
+    "start": "2026-08-31",
+    "end": "2026-09-04",
+    "tone": "ok"
+   },
+   "forecast_end": "2026-09-09"
+  },
+  {
+   "id": "R-04",
+   "name": "Бетонирование ростверка",
+   "zone": "Ростверк",
+   "contractor": "ФундаментСтрой",
+   "plan_start": "2026-09-07",
+   "plan_end": "2026-09-09",
+   "plan_v1": null,
+   "declared": {
+    "percent": 0
+   },
+   "status": "not_started",
+   "status_reason": null,
+   "tags": [],
+   "fact": null,
+   "forecast_end": null
+  },
+  {
+   "id": "R-05",
+   "name": "Обратная засыпка",
+   "zone": "Ростверк",
+   "contractor": "СУ-7",
+   "plan_start": "2026-09-10",
+   "plan_end": "2026-09-16",
+   "plan_v1": null,
+   "declared": {
+    "percent": 0
+   },
+   "status": "not_started",
+   "status_reason": null,
+   "tags": [],
+   "fact": null,
+   "forecast_end": null
+  }
+ ]
+}

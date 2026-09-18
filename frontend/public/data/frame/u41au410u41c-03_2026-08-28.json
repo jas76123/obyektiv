@@ -1,0 +1,381 @@
+{
+ "as_of": "2026-09-04",
+ "object": {
+  "id": "sev",
+  "short_name": "Северный к.2"
+ },
+ "camera": {
+  "id": "КАМ-03",
+  "zone": "Секция 1",
+  "description": "Секция 1 · общий план",
+  "state": "ok",
+  "last_frame": "4 сен 16:00"
+ },
+ "date": "2026-08-28",
+ "dates": [
+  "2026-08-18",
+  "2026-08-19",
+  "2026-08-20",
+  "2026-08-21",
+  "2026-08-24",
+  "2026-08-25",
+  "2026-08-26",
+  "2026-08-27",
+  "2026-08-28",
+  "2026-08-31",
+  "2026-09-01",
+  "2026-09-02",
+  "2026-09-03",
+  "2026-09-04"
+ ],
+ "link": {
+  "work_id": "W-02",
+  "work_name": "Разработка котлована",
+  "note": "По графику в этой зоне: Разработка котлована, 24 авг — 8 сен. Ожидалось: экскаватор ≥1, самосвал ≥1, людей ≥2.",
+  "step01": true,
+  "step02": true
+ },
+ "frames": [
+  {
+   "frame_id": "КАМ-03_20260828_0800",
+   "camera_id": "КАМ-03",
+   "captured_at": "2026-08-28T08:00:00+03:00",
+   "image_path": null,
+   "width": 1920,
+   "height": 1080,
+   "detections": [
+    {
+     "class": "person",
+     "confidence": 0.78,
+     "bbox": [
+      1420,
+      540,
+      70,
+      190
+     ]
+    },
+    {
+     "class": "person",
+     "confidence": 0.75,
+     "bbox": [
+      1510,
+      540,
+      70,
+      190
+     ]
+    }
+   ],
+   "expected_found": false
+  },
+  {
+   "frame_id": "КАМ-03_20260828_0900",
+   "camera_id": "КАМ-03",
+   "captured_at": "2026-08-28T09:00:00+03:00",
+   "image_path": null,
+   "width": 1920,
+   "height": 1080,
+   "detections": [
+    {
+     "class": "person",
+     "confidence": 0.78,
+     "bbox": [
+      1420,
+      540,
+      70,
+      190
+     ]
+    },
+    {
+     "class": "person",
+     "confidence": 0.75,
+     "bbox": [
+      1510,
+      540,
+      70,
+      190
+     ]
+    }
+   ],
+   "expected_found": false
+  },
+  {
+   "frame_id": "КАМ-03_20260828_1000",
+   "camera_id": "КАМ-03",
+   "captured_at": "2026-08-28T10:00:00+03:00",
+   "image_path": null,
+   "width": 1920,
+   "height": 1080,
+   "detections": [
+    {
+     "class": "person",
+     "confidence": 0.78,
+     "bbox": [
+      1420,
+      540,
+      70,
+      190
+     ]
+    },
+    {
+     "class": "person",
+     "confidence": 0.75,
+     "bbox": [
+      1510,
+      540,
+      70,
+      190
+     ]
+    }
+   ],
+   "expected_found": false
+  },
+  {
+   "frame_id": "КАМ-03_20260828_1100",
+   "camera_id": "КАМ-03",
+   "captured_at": "2026-08-28T11:00:00+03:00",
+   "image_path": null,
+   "width": 1920,
+   "height": 1080,
+   "detections": [
+    {
+     "class": "person",
+     "confidence": 0.78,
+     "bbox": [
+      1420,
+      540,
+      70,
+      190
+     ]
+    },
+    {
+     "class": "person",
+     "confidence": 0.75,
+     "bbox": [
+      1510,
+      540,
+      70,
+      190
+     ]
+    }
+   ],
+   "expected_found": false
+  },
+  {
+   "frame_id": "КАМ-03_20260828_1200",
+   "camera_id": "КАМ-03",
+   "captured_at": "2026-08-28T12:00:00+03:00",
+   "image_path": null,
+   "width": 1920,
+   "height": 1080,
+   "detections": [
+    {
+     "class": "person",
+     "confidence": 0.78,
+     "bbox": [
+      1420,
+      540,
+      70,
+      190
+     ]
+    },
+    {
+     "class": "person",
+     "confidence": 0.75,
+     "bbox": [
+      1510,
+      540,
+      70,
+      190
+     ]
+    }
+   ],
+   "expected_found": false
+  },
+  {
+   "frame_id": "КАМ-03_20260828_1300",
+   "camera_id": "КАМ-03",
+   "captured_at": "2026-08-28T13:00:00+03:00",
+   "image_path": null,
+   "width": 1920,
+   "height": 1080,
+   "detections": [
+    {
+     "class": "person",
+     "confidence": 0.78,
+     "bbox": [
+      1420,
+      540,
+      70,
+      190
+     ]
+    },
+    {
+     "class": "person",
+     "confidence": 0.75,
+     "bbox": [
+      1510,
+      540,
+      70,
+      190
+     ]
+    }
+   ],
+   "expected_found": false
+  },
+  {
+   "frame_id": "КАМ-03_20260828_1400",
+   "camera_id": "КАМ-03",
+   "captured_at": "2026-08-28T14:00:00+03:00",
+   "image_path": null,
+   "width": 1920,
+   "height": 1080,
+   "detections": [
+    {
+     "class": "person",
+     "confidence": 0.78,
+     "bbox": [
+      1420,
+      540,
+      70,
+      190
+     ]
+    },
+    {
+     "class": "person",
+     "confidence": 0.75,
+     "bbox": [
+      1510,
+      540,
+      70,
+      190
+     ]
+    }
+   ],
+   "expected_found": false
+  },
+  {
+   "frame_id": "КАМ-03_20260828_1500",
+   "camera_id": "КАМ-03",
+   "captured_at": "2026-08-28T15:00:00+03:00",
+   "image_path": null,
+   "width": 1920,
+   "height": 1080,
+   "detections": [
+    {
+     "class": "person",
+     "confidence": 0.78,
+     "bbox": [
+      1420,
+      540,
+      70,
+      190
+     ]
+    },
+    {
+     "class": "person",
+     "confidence": 0.75,
+     "bbox": [
+      1510,
+      540,
+      70,
+      190
+     ]
+    }
+   ],
+   "expected_found": false
+  },
+  {
+   "frame_id": "КАМ-03_20260828_1600",
+   "camera_id": "КАМ-03",
+   "captured_at": "2026-08-28T16:00:00+03:00",
+   "image_path": null,
+   "width": 1920,
+   "height": 1080,
+   "detections": [
+    {
+     "class": "person",
+     "confidence": 0.78,
+     "bbox": [
+      1420,
+      540,
+      70,
+      190
+     ]
+    },
+    {
+     "class": "person",
+     "confidence": 0.75,
+     "bbox": [
+      1510,
+      540,
+      70,
+      190
+     ]
+    }
+   ],
+   "expected_found": false
+  },
+  {
+   "frame_id": "КАМ-03_20260828_1700",
+   "camera_id": "КАМ-03",
+   "captured_at": "2026-08-28T17:00:00+03:00",
+   "image_path": null,
+   "width": 1920,
+   "height": 1080,
+   "detections": [
+    {
+     "class": "person",
+     "confidence": 0.78,
+     "bbox": [
+      1420,
+      540,
+      70,
+      190
+     ]
+    },
+    {
+     "class": "person",
+     "confidence": 0.75,
+     "bbox": [
+      1510,
+      540,
+      70,
+      190
+     ]
+    }
+   ],
+   "expected_found": false
+  },
+  {
+   "frame_id": "КАМ-03_20260828_1800",
+   "camera_id": "КАМ-03",
+   "captured_at": "2026-08-28T18:00:00+03:00",
+   "image_path": null,
+   "width": 1920,
+   "height": 1080,
+   "detections": [
+    {
+     "class": "person",
+     "confidence": 0.78,
+     "bbox": [
+      1420,
+      540,
+      70,
+      190
+     ]
+    },
+    {
+     "class": "person",
+     "confidence": 0.75,
+     "bbox": [
+      1510,
+      540,
+      70,
+      190
+     ]
+    }
+   ],
+   "expected_found": false
+  }
+ ]
+}

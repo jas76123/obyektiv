@@ -1,0 +1,60 @@
+{
+ "as_of": "2026-09-04",
+ "object": {
+  "id": "rom",
+  "name": "Детский сад «Ромашка»",
+  "short_name": "ДС «Ромашка»"
+ },
+ "work": {
+  "id": "R-01",
+  "name": "Разработка котлована",
+  "zone": "Ростверк",
+  "contractor": "СУ-7",
+  "plan_start": "2026-08-04",
+  "plan_end": "2026-08-14",
+  "declared": {
+   "percent": 100
+  },
+  "status": "in_progress",
+  "status_reason": null,
+  "tags": []
+ },
+ "mode": "done",
+ "ladder": [
+  true,
+  true,
+  null,
+  true
+ ],
+ "verdict": "Работа завершена и подтверждена наблюдением: 9 из 9 рабочих дней этапа.",
+ "expected": [],
+ "triad": {
+  "plan_today": 100,
+  "declared": {
+   "percent": 100
+  },
+  "confirmed": 100,
+  "confirmed_days": 9,
+  "elapsed_days": 9,
+  "note": "9 из 9 дней"
+ },
+ "calendar": {
+  "days": {
+   "2026-08-04": 2,
+   "2026-08-05": 2,
+   "2026-08-06": 2,
+   "2026-08-07": 2,
+   "2026-08-10": 2,
+   "2026-08-11": 2,
+   "2026-08-12": 2,
+   "2026-08-13": 2,
+   "2026-08-14": 2
+  },
+  "acts": [],
+  "confirmed_days": 9,
+  "elapsed_days": 9
+ },
+ "shifts": {},
+ "causes": [],
+ "history": []
+}

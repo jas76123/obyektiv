@@ -1,0 +1,90 @@
+{
+ "as_of": "2026-09-04",
+ "object": {
+  "id": "metro",
+  "name": "Перегон «Парковая» — «Заречная»",
+  "short_name": "Перегон Парковая",
+  "stage": "проходка · линейный",
+  "zone_type": "linear",
+  "cameras_count": 0,
+  "worst": "none",
+  "not_checked_count": 3,
+  "delay_days": null,
+  "bars": {
+   "plan_today": 35,
+   "declared": 35,
+   "confirmed": null
+  },
+  "zones_label": "Диапазоны пикетажа · ПК 0+00 — 15+00"
+ },
+ "cameras": [],
+ "counts": {
+  "total": 3,
+  "ok": 0,
+  "warn": 0,
+  "bad": 0,
+  "none": 3
+ },
+ "forecast": {
+  "text": "",
+  "delay_days": null
+ },
+ "acts": [],
+ "works": [
+  {
+   "id": "M-01",
+   "name": "Проходка ПК 0+00 — 6+00",
+   "zone": "ПК 0+00 — 6+00",
+   "contractor": "Метрострой",
+   "plan_start": "2026-06-01",
+   "plan_end": "2026-08-20",
+   "plan_v1": null,
+   "declared": {
+    "percent": 100
+   },
+   "status": "not_checked",
+   "status_reason": "no_camera",
+   "tags": [],
+   "fact": {
+    "start": "2026-06-01",
+    "end": "2026-08-20",
+    "tone": "done"
+   },
+   "forecast_end": null
+  },
+  {
+   "id": "M-02",
+   "name": "Проходка ПК 6+00 — 11+00",
+   "zone": "ПК 6+00 — 11+00",
+   "contractor": "Метрострой",
+   "plan_start": "2026-08-21",
+   "plan_end": "2026-10-15",
+   "plan_v1": null,
+   "declared": {
+    "percent": 35
+   },
+   "status": "not_checked",
+   "status_reason": "no_camera",
+   "tags": [],
+   "fact": null,
+   "forecast_end": null
+  },
+  {
+   "id": "M-03",
+   "name": "Монтаж обделки ПК 6+00 — 9+00",
+   "zone": "ПК 6+00 — 9+00",
+   "contractor": "Метрострой",
+   "plan_start": "2026-08-25",
+   "plan_end": "2026-09-30",
+   "plan_v1": null,
+   "declared": {
+    "percent": 20
+   },
+   "status": "not_checked",
+   "status_reason": "no_camera",
+   "tags": [],
+   "fact": null,
+   "forecast_end": null
+  }
+ ]
+}

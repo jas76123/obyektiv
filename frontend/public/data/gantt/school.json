@@ -1,0 +1,150 @@
+{
+ "as_of": "2026-09-04",
+ "object": {
+  "id": "school",
+  "name": "Школа на ул. Ленина",
+  "short_name": "Школа Ленина",
+  "stage": "фасад и отделка",
+  "zone_type": "area",
+  "cameras_count": 3,
+  "worst": "ok",
+  "not_checked_count": 2,
+  "delay_days": null,
+  "bars": {
+   "plan_today": 95,
+   "declared": 95,
+   "confirmed": 93
+  },
+  "zones_label": "Полигоны на стройгенплане · фасады по сторонам света"
+ },
+ "cameras": [
+  {
+   "id": "КАМ-Ш1",
+   "zone": null,
+   "description": "Фасад южный",
+   "state": "ok",
+   "last_frame": "4 сен 17:00"
+  },
+  {
+   "id": "КАМ-Ш2",
+   "zone": null,
+   "description": "Фасад северный, кровля",
+   "state": "ok",
+   "last_frame": "4 сен 17:00"
+  },
+  {
+   "id": "КАМ-Ш3",
+   "zone": null,
+   "description": "Площадка, въезд",
+   "state": "off",
+   "last_frame": "кадров нет с 2 сен 14:20"
+  }
+ ],
+ "counts": {
+  "total": 5,
+  "ok": 2,
+  "warn": 0,
+  "bad": 0,
+  "none": 2
+ },
+ "forecast": {
+  "text": "Сроки. Прогноз по наблюдаемому темпу совпадает с графиком, сдвигов нет.",
+  "delay_days": null
+ },
+ "acts": [],
+ "works": [
+  {
+   "id": "S-02",
+   "name": "Кровля: мембрана",
+   "zone": "Кровля",
+   "contractor": "КровСервис",
+   "plan_start": "2026-08-17",
+   "plan_end": "2026-08-28",
+   "plan_v1": null,
+   "declared": {
+    "percent": 100
+   },
+   "status": "in_progress",
+   "status_reason": null,
+   "tags": [],
+   "fact": {
+    "start": "2026-08-17",
+    "end": "2026-08-28",
+    "tone": "done"
+   },
+   "forecast_end": null
+  },
+  {
+   "id": "S-01",
+   "name": "Фасад: штукатурка",
+   "zone": "Фасад южный",
+   "contractor": "ФасадПро",
+   "plan_start": "2026-08-10",
+   "plan_end": "2026-09-04",
+   "plan_v1": null,
+   "declared": {
+    "percent": 95
+   },
+   "status": "in_progress",
+   "status_reason": null,
+   "tags": [],
+   "fact": {
+    "start": "2026-08-10",
+    "end": "2026-09-04",
+    "tone": "ok"
+   },
+   "forecast_end": null
+  },
+  {
+   "id": "S-05",
+   "name": "Внутренние инженерные сети",
+   "zone": "2 этаж",
+   "contractor": "ИнжМонтаж",
+   "plan_start": "2026-08-31",
+   "plan_end": "2026-09-30",
+   "plan_v1": null,
+   "declared": {
+    "percent": 15
+   },
+   "status": "not_checked",
+   "status_reason": "no_observable",
+   "tags": [],
+   "fact": null,
+   "forecast_end": null
+  },
+  {
+   "id": "S-03",
+   "name": "Внутренняя отделка 2 этаж",
+   "zone": "2 этаж",
+   "contractor": "ОтделСтрой",
+   "plan_start": "2026-08-24",
+   "plan_end": "2026-09-18",
+   "plan_v1": null,
+   "declared": {
+    "percent": 30
+   },
+   "status": "not_checked",
+   "status_reason": "no_observable",
+   "tags": [],
+   "fact": null,
+   "forecast_end": null
+  },
+  {
+   "id": "S-04",
+   "name": "Благоустройство",
+   "zone": "Площадка",
+   "contractor": "СУ-7",
+   "plan_start": "2026-09-07",
+   "plan_end": "2026-09-25",
+   "plan_v1": null,
+   "declared": {
+    "percent": 0
+   },
+   "status": "not_started",
+   "status_reason": null,
+   "tags": [],
+   "fact": null,
+   "forecast_end": null
+  }
+ ]
+}

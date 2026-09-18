@@ -1,0 +1,50 @@
+{
+ "as_of": "2026-09-04",
+ "object": {
+  "id": "metro",
+  "name": "Перегон «Парковая» — «Заречная»",
+  "short_name": "Перегон Парковая"
+ },
+ "work": {
+  "id": "M-01",
+  "name": "Проходка ПК 0+00 — 6+00",
+  "zone": "ПК 0+00 — 6+00",
+  "contractor": "Метрострой",
+  "plan_start": "2026-06-01",
+  "plan_end": "2026-08-20",
+  "declared": {
+   "percent": 100
+  },
+  "status": "not_checked",
+  "status_reason": "no_camera",
+  "tags": []
+ },
+ "mode": "not_checked",
+ "ladder": [
+  null,
+  null,
+  null,
+  true
+ ],
+ "verdict": "НЕТ КАМЕРЫ НА ЗОНЕ. На зоне работы нет камеры. План и заявленный факт показаны, наблюдение не ведётся.",
+ "expected": [],
+ "triad": {
+  "plan_today": 100,
+  "declared": {
+   "percent": 100
+  },
+  "confirmed": null,
+  "confirmed_days": 0,
+  "elapsed_days": 59,
+  "note": "не проверяется"
+ },
+ "calendar": {
+  "days": {},
+  "acts": [],
+  "confirmed_days": 0,
+  "elapsed_days": 59
+ },
+ "shifts": {},
+ "causes": [],
+ "history": []
+}

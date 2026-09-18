@@ -1,0 +1,149 @@
+{
+ "as_of": "2026-09-04",
+ "object": {
+  "id": "sev",
+  "short_name": "Северный к.2"
+ },
+ "camera": {
+  "id": "КАМ-02",
+  "zone": "Секция 2",
+  "description": "Секция 2 · фундамент",
+  "state": "ok",
+  "last_frame": "4 сен 17:00"
+ },
+ "date": "2026-09-03",
+ "dates": [
+  "2026-08-19",
+  "2026-08-20",
+  "2026-08-21",
+  "2026-08-24",
+  "2026-08-25",
+  "2026-08-26",
+  "2026-08-27",
+  "2026-08-28",
+  "2026-08-31",
+  "2026-09-01",
+  "2026-09-02",
+  "2026-09-03",
+  "2026-09-04"
+ ],
+ "link": {
+  "work_id": "W-07",
+  "work_name": "Армирование фундамента",
+  "note": "По графику в этой зоне: Армирование фундамента, 28 авг — 3 сен. Ожидалось: кран ≥1, людей ≥4.",
+  "step01": false,
+  "step02": false
+ },
+ "frames": [
+  {
+   "frame_id": "КАМ-02_20260903_0800",
+   "camera_id": "КАМ-02",
+   "captured_at": "2026-09-03T08:00:00+03:00",
+   "image_path": null,
+   "width": 1920,
+   "height": 1080,
+   "detections": [],
+   "expected_found": false
+  },
+  {
+   "frame_id": "КАМ-02_20260903_0900",
+   "camera_id": "КАМ-02",
+   "captured_at": "2026-09-03T09:00:00+03:00",
+   "image_path": null,
+   "width": 1920,
+   "height": 1080,
+   "detections": [],
+   "expected_found": false
+  },
+  {
+   "frame_id": "КАМ-02_20260903_1000",
+   "camera_id": "КАМ-02",
+   "captured_at": "2026-09-03T10:00:00+03:00",
+   "image_path": null,
+   "width": 1920,
+   "height": 1080,
+   "detections": [],
+   "expected_found": false
+  },
+  {
+   "frame_id": "КАМ-02_20260903_1100",
+   "camera_id": "КАМ-02",
+   "captured_at": "2026-09-03T11:00:00+03:00",
+   "image_path": null,
+   "width": 1920,
+   "height": 1080,
+   "detections": [],
+   "expected_found": false
+  },
+  {
+   "frame_id": "КАМ-02_20260903_1200",
+   "camera_id": "КАМ-02",
+   "captured_at": "2026-09-03T12:00:00+03:00",
+   "image_path": null,
+   "width": 1920,
+   "height": 1080,
+   "detections": [],
+   "expected_found": false
+  },
+  {
+   "frame_id": "КАМ-02_20260903_1300",
+   "camera_id": "КАМ-02",
+   "captured_at": "2026-09-03T13:00:00+03:00",
+   "image_path": null,
+   "width": 1920,
+   "height": 1080,
+   "detections": [],
+   "expected_found": false
+  },
+  {
+   "frame_id": "КАМ-02_20260903_1400",
+   "camera_id": "КАМ-02",
+   "captured_at": "2026-09-03T14:00:00+03:00",
+   "image_path": null,
+   "width": 1920,
+   "height": 1080,
+   "detections": [],
+   "expected_found": false
+  },
+  {
+   "frame_id": "КАМ-02_20260903_1500",
+   "camera_id": "КАМ-02",
+   "captured_at": "2026-09-03T15:00:00+03:00",
+   "image_path": null,
+   "width": 1920,
+   "height": 1080,
+   "detections": [],
+   "expected_found": false
+  },
+  {
+   "frame_id": "КАМ-02_20260903_1600",
+   "camera_id": "КАМ-02",
+   "captured_at": "2026-09-03T16:00:00+03:00",
+   "image_path": null,
+   "width": 1920,
+   "height": 1080,
+   "detections": [],
+   "expected_found": false
+  },
+  {
+   "frame_id": "КАМ-02_20260903_1700",
+   "camera_id": "КАМ-02",
+   "captured_at": "2026-09-03T17:00:00+03:00",
+   "image_path": null,
+   "width": 1920,
+   "height": 1080,
+   "detections": [],
+   "expected_found": false
+  },
+  {
+   "frame_id": "КАМ-02_20260903_1800",
+   "camera_id": "КАМ-02",
+   "captured_at": "2026-09-03T18:00:00+03:00",
+   "image_path": null,
+   "width": 1920,
+   "height": 1080,
+   "detections": [],
+   "expected_found": false
+  }
+ ]
+}

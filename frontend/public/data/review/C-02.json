@@ -1,0 +1,254 @@
+{
+ "as_of": "2026-09-04",
+ "object": {
+  "id": "rech",
+  "name": "ЖК «Речной», корпус 1",
+  "short_name": "Речной к.1"
+ },
+ "work": {
+  "id": "C-02",
+  "name": "Разработка котлована",
+  "zone": "Котлован",
+  "contractor": "СУ-7",
+  "plan_start": "2026-08-24",
+  "plan_end": "2026-09-11",
+  "declared": {
+   "percent": 40
+  },
+  "status": "resources_only",
+  "status_reason": null,
+  "tags": []
+ },
+ "mode": "full",
+ "ladder": [
+  true,
+  false,
+  null,
+  false
+ ],
+ "verdict": "Восемь рабочих дней из десяти подтверждены полностью. 3 и 4 сентября экскаватор в кадре без движения, самосвалов нет: ресурсы на месте, работа не идёт. Заявленные 40 % совпадают с наблюдением до простоя.",
+ "expected": [
+  {
+   "label": "excavator",
+   "expected": "≥ 1",
+   "found": "1",
+   "in_frame": "10 ч из 10",
+   "ok": true
+  },
+  {
+   "label": "dump_truck",
+   "expected": "≥ 1",
+   "found": "0",
+   "in_frame": "0 ч из 10",
+   "ok": false
+  },
+  {
+   "label": "person",
+   "expected": "≥ 2",
+   "found": "2",
+   "in_frame": "8 ч из 10",
+   "ok": true
+  },
+  {
+   "label": "перемещение техники за смену",
+   "expected": "есть",
+   "found": "нет · экскаватор на месте 2 дня",
+   "in_frame": "по 4 кадрам",
+   "ok": false
+  },
+  {
+   "label": "дней с активностью",
+   "expected": "6 из 10 (60 %)",
+   "found": "8 из 10",
+   "in_frame": "—",
+   "ok": true
+  }
+ ],
+ "triad": {
+  "plan_today": 67,
+  "declared": {
+   "percent": 40
+  },
+  "confirmed": 80,
+  "confirmed_days": 8,
+  "elapsed_days": 10,
+  "note": "8 из 10 дней"
+ },
+ "calendar": {
+  "days": {
+   "2026-08-17": 0,
+   "2026-08-18": 0,
+   "2026-08-19": 0,
+   "2026-08-20": 0,
+   "2026-08-21": 0,
+   "2026-08-24": 2,
+   "2026-08-25": 2,
+   "2026-08-26": 2,
+   "2026-08-27": 2,
+   "2026-08-28": 2,
+   "2026-08-31": 2,
+   "2026-09-01": 2,
+   "2026-09-02": 2,
+   "2026-09-03": 1,
+   "2026-09-04": 1
+  },
+  "acts": [],
+  "confirmed_days": 8,
+  "elapsed_days": 10
+ },
+ "shifts": {
+  "2026-09-04": {
+   "camera_id": "КАМ-В1",
+   "frames": [
+    {
+     "frame_id": "КАМ-В1_20260904_0900",
+     "camera_id": "КАМ-В1",
+     "captured_at": "2026-09-04T09:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.92,
+       "bbox": [
+        653,
+        410,
+        480,
+        356
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1344,
+        594,
+        86,
+        140
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.74,
+       "bbox": [
+        1478,
+        605,
+        86,
+        130
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-В1_20260904_1130",
+     "camera_id": "КАМ-В1",
+     "captured_at": "2026-09-04T11:30:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.92,
+       "bbox": [
+        653,
+        410,
+        480,
+        356
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.76,
+       "bbox": [
+        1363,
+        594,
+        86,
+        140
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-В1_20260904_1400",
+     "camera_id": "КАМ-В1",
+     "captured_at": "2026-09-04T14:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.91,
+       "bbox": [
+        653,
+        410,
+        480,
+        356
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.77,
+       "bbox": [
+        1325,
+        594,
+        86,
+        140
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1459,
+        605,
+        86,
+        130
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-В1_20260904_1600",
+     "camera_id": "КАМ-В1",
+     "captured_at": "2026-09-04T16:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.9,
+       "bbox": [
+        653,
+        410,
+        480,
+        356
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "causes": [
+  "Самосвалы не выходили два дня: возможна проблема с вывозом грунта или с полигоном",
+  "Экскаватор стоит на одном месте: ожидание фронта работ или поломка"
+ ],
+ "history": [
+  {
+   "when": "5 авг",
+   "what": "работа добавлена: 24 авг — 11 сен",
+   "who": "руководитель проекта",
+   "reason": "—"
+  },
+  {
+   "when": "2 сен",
+   "what": "факт 0 % → 40 %",
+   "who": "СУ-7",
+   "reason": "—"
+  }
+ ]
+}

@@ -1,0 +1,50 @@
+{
+ "as_of": "2026-09-04",
+ "object": {
+  "id": "school",
+  "name": "Школа на ул. Ленина",
+  "short_name": "Школа Ленина"
+ },
+ "work": {
+  "id": "S-05",
+  "name": "Внутренние инженерные сети",
+  "zone": "2 этаж",
+  "contractor": "ИнжМонтаж",
+  "plan_start": "2026-08-31",
+  "plan_end": "2026-09-30",
+  "declared": {
+   "percent": 15
+  },
+  "status": "not_checked",
+  "status_reason": "no_observable",
+  "tags": []
+ },
+ "mode": "not_checked",
+ "ladder": [
+  null,
+  null,
+  null,
+  false
+ ],
+ "verdict": "НЕТ ВИДИМЫХ ПРИЗНАКОВ. У работы нет признаков, видимых с камеры: она выполняется вручную или внутри здания. Система её не проверяет.",
+ "expected": [],
+ "triad": {
+  "plan_today": 22,
+  "declared": {
+   "percent": 15
+  },
+  "confirmed": null,
+  "confirmed_days": 0,
+  "elapsed_days": 5,
+  "note": "не проверяется"
+ },
+ "calendar": {
+  "days": {},
+  "acts": [],
+  "confirmed_days": 0,
+  "elapsed_days": 5
+ },
+ "shifts": {},
+ "causes": [],
+ "history": []
+}

@@ -1,0 +1,161 @@
+{
+ "as_of": "2026-09-04",
+ "object": {
+  "id": "rech",
+  "short_name": "Речной к.1"
+ },
+ "camera": {
+  "id": "КАМ-В1",
+  "zone": "Котлован",
+  "description": "Котлован · северный борт",
+  "state": "ok",
+  "last_frame": "4 сен 16:00"
+ },
+ "date": "2026-09-04",
+ "dates": [
+  "2026-09-04"
+ ],
+ "link": {
+  "work_id": "C-02",
+  "work_name": "Разработка котлована",
+  "note": "По графику в этой зоне Разработка котлована, 24 авг — 11 сен. Ожидалось: excavator ≥1, dump_truck ≥1, людей ≥2.",
+  "step01": true,
+  "step02": false
+ },
+ "frames": [
+  {
+   "frame_id": "КАМ-В1_20260904_0900",
+   "camera_id": "КАМ-В1",
+   "captured_at": "2026-09-04T09:00:00+03:00",
+   "image_path": null,
+   "width": 1920,
+   "height": 1080,
+   "detections": [
+    {
+     "class": "excavator",
+     "confidence": 0.92,
+     "bbox": [
+      653,
+      410,
+      480,
+      356
+     ]
+    },
+    {
+     "class": "person",
+     "confidence": 0.78,
+     "bbox": [
+      1344,
+      594,
+      86,
+      140
+     ]
+    },
+    {
+     "class": "person",
+     "confidence": 0.74,
+     "bbox": [
+      1478,
+      605,
+      86,
+      130
+     ]
+    }
+   ],
+   "expected_found": false
+  },
+  {
+   "frame_id": "КАМ-В1_20260904_1130",
+   "camera_id": "КАМ-В1",
+   "captured_at": "2026-09-04T11:30:00+03:00",
+   "image_path": null,
+   "width": 1920,
+   "height": 1080,
+   "detections": [
+    {
+     "class": "excavator",
+     "confidence": 0.92,
+     "bbox": [
+      653,
+      410,
+      480,
+      356
+     ]
+    },
+    {
+     "class": "person",
+     "confidence": 0.76,
+     "bbox": [
+      1363,
+      594,
+      86,
+      140
+     ]
+    }
+   ],
+   "expected_found": false
+  },
+  {
+   "frame_id": "КАМ-В1_20260904_1400",
+   "camera_id": "КАМ-В1",
+   "captured_at": "2026-09-04T14:00:00+03:00",
+   "image_path": null,
+   "width": 1920,
+   "height": 1080,
+   "detections": [
+    {
+     "class": "excavator",
+     "confidence": 0.91,
+     "bbox": [
+      653,
+      410,
+      480,
+      356
+     ]
+    },
+    {
+     "class": "person",
+     "confidence": 0.77,
+     "bbox": [
+      1325,
+      594,
+      86,
+      140
+     ]
+    },
+    {
+     "class": "person",
+     "confidence": 0.72,
+     "bbox": [
+      1459,
+      605,
+      86,
+      130
+     ]
+    }
+   ],
+   "expected_found": false
+  },
+  {
+   "frame_id": "КАМ-В1_20260904_1600",
+   "camera_id": "КАМ-В1",
+   "captured_at": "2026-09-04T16:00:00+03:00",
+   "image_path": null,
+   "width": 1920,
+   "height": 1080,
+   "detections": [
+    {
+     "class": "excavator",
+     "confidence": 0.9,
+     "bbox": [
+      653,
+      410,
+      480,
+      356
+     ]
+    }
+   ],
+   "expected_found": false
+  }
+ ]
+}

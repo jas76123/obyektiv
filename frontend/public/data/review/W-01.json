@@ -1,0 +1,2717 @@
+{
+ "as_of": "2026-09-04",
+ "object": {
+  "id": "sev",
+  "name": "ЖК «Северный», корпус 2",
+  "short_name": "Северный к.2"
+ },
+ "work": {
+  "id": "W-01",
+  "name": "Подготовка территории",
+  "zone": "Секция 1",
+  "contractor": "СУ-7",
+  "plan_start": "2026-08-18",
+  "plan_end": "2026-08-21",
+  "declared": {
+   "percent": 100
+  },
+  "status": "in_progress",
+  "status_reason": null,
+  "tags": []
+ },
+ "mode": "done",
+ "ladder": [
+  true,
+  true,
+  null,
+  true
+ ],
+ "verdict": "Работа завершена и подтверждена наблюдением: 3 из 3 рабочих дней этапа.",
+ "expected": [],
+ "triad": {
+  "plan_today": 75,
+  "declared": {
+   "percent": 100
+  },
+  "confirmed": 100,
+  "confirmed_days": 3,
+  "elapsed_days": 3,
+  "note": "3 из 3 дней"
+ },
+ "calendar": {
+  "days": {
+   "2026-08-18": 2,
+   "2026-08-19": 2,
+   "2026-08-20": 2
+  },
+  "acts": [
+   "2026-08-21"
+  ],
+  "confirmed_days": 3,
+  "elapsed_days": 3
+ },
+ "shifts": {
+  "2026-08-18": {
+   "camera_id": "КАМ-01",
+   "frames": [
+    {
+     "frame_id": "КАМ-01_20260818_0800",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-18T08:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        120,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        740,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260818_0900",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-18T09:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        290,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        910,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260818_1000",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-18T10:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        460,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        1080,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260818_1100",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-18T11:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        630,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        1250,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260818_1200",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-18T12:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        120,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        740,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260818_1300",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-18T13:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        290,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        910,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260818_1400",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-18T14:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        460,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        1080,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260818_1500",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-18T15:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        630,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        1250,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260818_1600",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-18T16:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        120,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        740,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260818_1700",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-18T17:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        290,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        910,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260818_1800",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-18T18:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        460,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        1080,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "2026-08-19": {
+   "camera_id": "КАМ-01",
+   "frames": [
+    {
+     "frame_id": "КАМ-01_20260819_0800",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-19T08:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        120,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        740,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260819_0900",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-19T09:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        290,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        910,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260819_1000",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-19T10:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        460,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        1080,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260819_1100",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-19T11:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        630,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        1250,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260819_1200",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-19T12:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        120,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        740,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260819_1300",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-19T13:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        290,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        910,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260819_1400",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-19T14:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        460,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        1080,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260819_1500",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-19T15:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        630,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        1250,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260819_1600",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-19T16:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        120,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        740,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260819_1700",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-19T17:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        290,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        910,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260819_1800",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-19T18:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        460,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        1080,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "2026-08-20": {
+   "camera_id": "КАМ-01",
+   "frames": [
+    {
+     "frame_id": "КАМ-01_20260820_0800",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-20T08:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        120,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        740,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260820_0900",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-20T09:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        290,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        910,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260820_1000",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-20T10:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        460,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        1080,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260820_1100",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-20T11:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        630,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        1250,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260820_1200",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-20T12:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        120,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        740,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260820_1300",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-20T13:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        290,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        910,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260820_1400",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-20T14:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        460,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        1080,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260820_1500",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-20T15:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        630,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        1250,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260820_1600",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-20T16:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        120,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        740,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260820_1700",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-20T17:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        290,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        910,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260820_1800",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-20T18:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        460,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        1080,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "2026-08-21": {
+   "camera_id": "КАМ-01",
+   "frames": [
+    {
+     "frame_id": "КАМ-01_20260821_0800",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-21T08:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        120,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        740,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260821_0900",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-21T09:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        290,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        910,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260821_1000",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-21T10:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        460,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        1080,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260821_1100",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-21T11:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        630,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        1250,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260821_1200",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-21T12:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        120,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        740,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260821_1300",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-21T13:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        290,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        910,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260821_1400",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-21T14:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        460,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        1080,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260821_1500",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-21T15:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        630,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        1250,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260821_1600",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-21T16:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        120,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        740,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260821_1700",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-21T17:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        290,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        910,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-01_20260821_1800",
+     "camera_id": "КАМ-01",
+     "captured_at": "2026-08-21T18:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "excavator",
+       "confidence": 0.93,
+       "bbox": [
+        460,
+        340,
+        500,
+        400
+       ]
+      },
+      {
+       "class": "dump_truck",
+       "confidence": 0.87,
+       "bbox": [
+        1080,
+        430,
+        440,
+        290
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.72,
+       "bbox": [
+        1600,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "causes": [],
+ "history": []
+}

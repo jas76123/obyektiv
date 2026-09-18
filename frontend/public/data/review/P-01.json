@@ -1,0 +1,61 @@
+{
+ "as_of": "2026-09-04",
+ "object": {
+  "id": "park",
+  "name": "ЖК «Парковый», корпус 4",
+  "short_name": "Парковый к.4"
+ },
+ "work": {
+  "id": "P-01",
+  "name": "Монолитный каркас 1 этаж",
+  "zone": "Секция А",
+  "contractor": "СтройМонтаж",
+  "plan_start": "2026-08-03",
+  "plan_end": "2026-08-14",
+  "declared": {
+   "percent": 100
+  },
+  "status": "in_progress",
+  "status_reason": null,
+  "tags": []
+ },
+ "mode": "done",
+ "ladder": [
+  true,
+  true,
+  null,
+  true
+ ],
+ "verdict": "Работа завершена и подтверждена наблюдением: 10 из 10 рабочих дней этапа.",
+ "expected": [],
+ "triad": {
+  "plan_today": 100,
+  "declared": {
+   "percent": 100
+  },
+  "confirmed": 100,
+  "confirmed_days": 10,
+  "elapsed_days": 10,
+  "note": "10 из 10 дней"
+ },
+ "calendar": {
+  "days": {
+   "2026-08-03": 2,
+   "2026-08-04": 2,
+   "2026-08-05": 2,
+   "2026-08-06": 2,
+   "2026-08-07": 2,
+   "2026-08-10": 2,
+   "2026-08-11": 2,
+   "2026-08-12": 2,
+   "2026-08-13": 2,
+   "2026-08-14": 2
+  },
+  "acts": [],
+  "confirmed_days": 10,
+  "elapsed_days": 10
+ },
+ "shifts": {},
+ "causes": [],
+ "history": []
+}

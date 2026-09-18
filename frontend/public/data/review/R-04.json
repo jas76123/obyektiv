@@ -1,0 +1,41 @@
+{
+ "as_of": "2026-09-04",
+ "object": {
+  "id": "rom",
+  "name": "Детский сад «Ромашка»",
+  "short_name": "ДС «Ромашка»"
+ },
+ "work": {
+  "id": "R-04",
+  "name": "Бетонирование ростверка",
+  "zone": "Ростверк",
+  "contractor": "ФундаментСтрой",
+  "plan_start": "2026-09-07",
+  "plan_end": "2026-09-09",
+  "declared": {
+   "percent": 0
+  },
+  "status": "not_started",
+  "status_reason": null,
+  "tags": []
+ },
+ "mode": "not_started",
+ "ladder": [
+  null,
+  null,
+  null,
+  false
+ ],
+ "verdict": "Работа по графику ещё не началась: наблюдений нет.",
+ "expected": [],
+ "triad": null,
+ "calendar": {
+  "days": {},
+  "acts": [],
+  "confirmed_days": 0,
+  "elapsed_days": 0
+ },
+ "shifts": {},
+ "causes": [],
+ "history": []
+}

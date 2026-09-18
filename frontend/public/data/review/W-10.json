@@ -1,0 +1,43 @@
+{
+ "as_of": "2026-09-04",
+ "object": {
+  "id": "sev",
+  "name": "ЖК «Северный», корпус 2",
+  "short_name": "Северный к.2"
+ },
+ "work": {
+  "id": "W-10",
+  "name": "Обратная засыпка",
+  "zone": "Секция 2",
+  "contractor": "СУ-7",
+  "plan_start": "2026-09-16",
+  "plan_end": "2026-09-21",
+  "declared": {
+   "percent": 0
+  },
+  "status": "not_started",
+  "status_reason": null,
+  "tags": []
+ },
+ "mode": "not_started",
+ "ladder": [
+  null,
+  null,
+  null,
+  false
+ ],
+ "verdict": "Работа по графику ещё не началась: наблюдений нет.",
+ "expected": [],
+ "triad": null,
+ "calendar": {
+  "days": {},
+  "acts": [
+   "2026-08-21"
+  ],
+  "confirmed_days": 0,
+  "elapsed_days": 0
+ },
+ "shifts": {},
+ "causes": [],
+ "history": []
+}

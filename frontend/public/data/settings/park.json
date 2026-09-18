@@ -1,0 +1,181 @@
+{
+ "as_of": "2026-09-04",
+ "object": {
+  "id": "park",
+  "name": "ЖК «Парковый», корпус 4",
+  "short_name": "Парковый к.4"
+ },
+ "objects": [
+  {
+   "id": "sev",
+   "short_name": "Северный к.2"
+  },
+  {
+   "id": "park",
+   "short_name": "Парковый к.4"
+  },
+  {
+   "id": "rom",
+   "short_name": "ДС «Ромашка»"
+  },
+  {
+   "id": "rech",
+   "short_name": "Речной к.1"
+  },
+  {
+   "id": "school",
+   "short_name": "Школа Ленина"
+  },
+  {
+   "id": "metro",
+   "short_name": "Перегон Парковая"
+  }
+ ],
+ "plan_source": {
+  "kind": "link",
+  "name": "docs.google.com/spreadsheets/d/1aF9k…/edit",
+  "updated_at": "4 сен, 17:42"
+ },
+ "week_mode": 5,
+ "holidays": [],
+ "acts": [],
+ "zone_type": "area",
+ "zones_label": "Полигоны на плане этажа · 2 секции × этажи",
+ "cameras": [
+  {
+   "id": "КАМ-П1",
+   "zone": "Секция А",
+   "description": "Секция А · монолит, вид с крана",
+   "state": "gap",
+   "last_frame": "4 сен 17:00 · молчала 31 авг — 1 сен"
+  },
+  {
+   "id": "КАМ-П2",
+   "zone": "Секция Б",
+   "description": "Секция Б · монолит",
+   "state": "ok",
+   "last_frame": "4 сен 17:00"
+  },
+  {
+   "id": "КАМ-П3",
+   "zone": null,
+   "description": "Площадка складирования",
+   "state": "ok",
+   "last_frame": "4 сен 17:00"
+  },
+  {
+   "id": "КАМ-П4",
+   "zone": null,
+   "description": "Въезд",
+   "state": "ok",
+   "last_frame": "4 сен 17:00"
+  }
+ ],
+ "contacts": [
+  {
+   "contractor": "СтройМонтаж",
+   "object_id": "park",
+   "name": "Дёмин П. А.",
+   "role": "начальник участка",
+   "phone": "+7 903 776-40-12",
+   "telegram": "@demin_pa",
+   "max": null,
+   "email": null,
+   "scope": "монолитный каркас, секции А и Б",
+   "escalation": "Гурьев Н. В., главный инженер СтройМонтаж, +7 495 640-22-08"
+  }
+ ],
+ "contractors_without_contact": [
+  "КаменьСтрой"
+ ],
+ "catalog": [
+  {
+   "work_pattern": "подготовка территории",
+   "classes": {
+    "excavator": 1,
+    "dump_truck": 1
+   },
+   "min_people": 2,
+   "threshold": "3 дня с активностью",
+   "comment": "расчистка и временные дороги"
+  },
+  {
+   "work_pattern": "разработка котлована",
+   "classes": {
+    "excavator": 1,
+    "dump_truck": 1
+   },
+   "min_people": 2,
+   "threshold": "3 дня с активностью",
+   "comment": "разработка грунта и вывоз"
+  },
+  {
+   "work_pattern": "щебёночная подготовка",
+   "classes": {
+    "dump_truck": 1,
+    "excavator": 1
+   },
+   "min_people": 2,
+   "threshold": "1 день с активностью",
+   "comment": "отсыпка и планировка основания"
+  },
+  {
+   "work_pattern": "свайные работы",
+   "classes": {
+    "crane": 1
+   },
+   "min_people": 3,
+   "threshold": "4 дня с активностью",
+   "comment": "бурение и погружение свай"
+  },
+  {
+   "work_pattern": "армирование фундамента",
+   "classes": {
+    "crane": 1
+   },
+   "min_people": 4,
+   "threshold": "4 дня с активностью",
+   "comment": "подача и вязка арматурных каркасов"
+  },
+  {
+   "work_pattern": "бетонирование фундамента",
+   "classes": {
+    "concrete_pump": 1,
+    "mixer_truck": 1
+   },
+   "min_people": 4,
+   "threshold": "1 день с активностью",
+   "comment": "подача бетонной смеси"
+  },
+  {
+   "work_pattern": "обратная засыпка",
+   "classes": {
+    "excavator": 1,
+    "dump_truck": 1
+   },
+   "min_people": 2,
+   "threshold": "2 дня с активностью",
+   "comment": "засыпка пазух и планировка"
+  },
+  {
+   "work_pattern": "монолитный каркас",
+   "classes": {
+    "crane": 1,
+    "concrete_pump": 1
+   },
+   "min_people": 6,
+   "threshold": "5 дней с активностью",
+   "comment": "опалубка армирование бетонирование по этажам"
+  },
+  {
+   "work_pattern": "устройство фундаментной плиты",
+   "classes": {
+    "crane": 1,
+    "concrete_pump": 1
+   },
+   "min_people": 4,
+   "threshold": "5 дней с активностью",
+   "comment": "опалубка армирование бетонирование плиты"
+  }
+ ]
+}

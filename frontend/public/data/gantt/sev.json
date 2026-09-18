@@ -1,0 +1,307 @@
+{
+ "as_of": "2026-09-04",
+ "object": {
+  "id": "sev",
+  "name": "ЖК «Северный», корпус 2",
+  "short_name": "Северный к.2",
+  "stage": "нулевой цикл",
+  "zone_type": "area",
+  "cameras_count": 3,
+  "worst": "bad",
+  "not_checked_count": 1,
+  "delay_days": 2,
+  "bars": {
+   "plan_today": 71,
+   "declared": 68,
+   "confirmed": 54
+  },
+  "zones_label": "Полигоны на стройгенплане · 3 зоны"
+ },
+ "cameras": [
+  {
+   "id": "КАМ-01",
+   "zone": "Секция 1",
+   "description": "Секция 1 · котлован, восточный борт",
+   "state": "ok",
+   "last_frame": "4 сен 17:00"
+  },
+  {
+   "id": "КАМ-02",
+   "zone": "Секция 2",
+   "description": "Секция 2 · фундамент",
+   "state": "ok",
+   "last_frame": "4 сен 17:00"
+  },
+  {
+   "id": "КАМ-03",
+   "zone": "Секция 1",
+   "description": "Секция 1 · общий план",
+   "state": "ok",
+   "last_frame": "4 сен 16:00"
+  }
+ ],
+ "counts": {
+  "total": 12,
+  "ok": 4,
+  "warn": 1,
+  "bad": 1,
+  "none": 1
+ },
+ "forecast": {
+  "text": "Прогноз сроков. Худшая работа «Бетонирование фундамента»: по темпу наблюдения окончание 10 сен вместо 8 сен, это +2 раб. дня к сроку следующего этапа. Объём по армирование фундамента закрыт в графике, но не подтверждён наблюдением: прогноз по нему невозможен до проверки.",
+  "delay_days": 2
+ },
+ "acts": [
+  {
+   "date": "2026-08-21",
+   "reason": "ливень, акт простоя №3"
+  }
+ ],
+ "works": [
+  {
+   "id": "W-01",
+   "name": "Подготовка территории",
+   "zone": "Секция 1",
+   "contractor": "СУ-7",
+   "plan_start": "2026-08-18",
+   "plan_end": "2026-08-21",
+   "plan_v1": null,
+   "declared": {
+    "percent": 100
+   },
+   "status": "in_progress",
+   "status_reason": null,
+   "tags": [],
+   "fact": {
+    "start": "2026-08-18",
+    "end": "2026-08-21",
+    "tone": "done"
+   },
+   "forecast_end": null
+  },
+  {
+   "id": "W-02",
+   "name": "Разработка котлована",
+   "zone": "Секция 1",
+   "contractor": "СУ-7",
+   "plan_start": "2026-08-24",
+   "plan_end": "2026-09-08",
+   "plan_v1": null,
+   "declared": {
+    "percent": 55
+   },
+   "status": "in_progress",
+   "status_reason": null,
+   "tags": [
+    {
+     "kind": "lag",
+     "text": "ЗАЯВЛЕНО 55 % · В КАДРЕ 9 ДН ИЗ 10"
+    }
+   ],
+   "fact": {
+    "start": "2026-08-24",
+    "end": "2026-09-04",
+    "tone": "ok"
+   },
+   "forecast_end": null
+  },
+  {
+   "id": "W-03",
+   "name": "Свайные работы",
+   "zone": "Секция 1",
+   "contractor": "ГеоСтрой",
+   "plan_start": "2026-09-09",
+   "plan_end": "2026-09-22",
+   "plan_v1": null,
+   "declared": {
+    "percent": 0
+   },
+   "status": "not_started",
+   "status_reason": null,
+   "tags": [],
+   "fact": null,
+   "forecast_end": null
+  },
+  {
+   "id": "W-04",
+   "name": "Устройство фундаментной плиты",
+   "zone": "Секция 1",
+   "contractor": "СтройМонтаж",
+   "plan_start": "2026-09-21",
+   "plan_end": "2026-10-02",
+   "plan_v1": null,
+   "declared": {
+    "percent": 0
+   },
+   "status": "not_started",
+   "status_reason": null,
+   "tags": [],
+   "fact": null,
+   "forecast_end": null
+  },
+  {
+   "id": "W-05",
+   "name": "Разработка котлована",
+   "zone": "Секция 2",
+   "contractor": "СУ-7",
+   "plan_start": "2026-08-19",
+   "plan_end": "2026-08-26",
+   "plan_v1": null,
+   "declared": {
+    "percent": 100
+   },
+   "status": "in_progress",
+   "status_reason": null,
+   "tags": [],
+   "fact": {
+    "start": "2026-08-19",
+    "end": "2026-08-26",
+    "tone": "done"
+   },
+   "forecast_end": null
+  },
+  {
+   "id": "W-06",
+   "name": "Щебёночная подготовка",
+   "zone": "Секция 2",
+   "contractor": "СУ-7",
+   "plan_start": "2026-08-27",
+   "plan_end": "2026-08-27",
+   "plan_v1": null,
+   "declared": {
+    "percent": 100
+   },
+   "status": "in_progress",
+   "status_reason": null,
+   "tags": [],
+   "fact": {
+    "start": "2026-08-27",
+    "end": "2026-08-27",
+    "tone": "done"
+   },
+   "forecast_end": null
+  },
+  {
+   "id": "W-07",
+   "name": "Армирование фундамента",
+   "zone": "Секция 2",
+   "contractor": "СтройМонтаж",
+   "plan_start": "2026-08-28",
+   "plan_end": "2026-09-03",
+   "plan_v1": {
+    "start": "2026-08-26",
+    "end": "2026-08-31"
+   },
+   "declared": {
+    "percent": 100
+   },
+   "status": "false_completion",
+   "status_reason": null,
+   "tags": [
+    {
+     "kind": "rep",
+     "text": "ЗАЯВЛЕНО 100 % · В КАДРЕ 0 ДН ИЗ 5"
+    }
+   ],
+   "fact": {
+    "start": "2026-08-28",
+    "end": "2026-09-03",
+    "tone": "bad"
+   },
+   "forecast_end": null
+  },
+  {
+   "id": "W-08",
+   "name": "Бетонирование фундамента",
+   "zone": "Секция 2",
+   "contractor": "СтройМонтаж",
+   "plan_start": "2026-09-04",
+   "plan_end": "2026-09-08",
+   "plan_v1": null,
+   "declared": {
+    "percent": 0
+   },
+   "status": "resources_only",
+   "status_reason": null,
+   "tags": [],
+   "fact": {
+    "start": "2026-09-04",
+    "end": "2026-09-04",
+    "tone": "warn"
+   },
+   "forecast_end": "2026-09-10"
+  },
+  {
+   "id": "W-09",
+   "name": "Гидроизоляция фундамента",
+   "zone": "Секция 2",
+   "contractor": "СтройМонтаж",
+   "plan_start": "2026-09-09",
+   "plan_end": "2026-09-15",
+   "plan_v1": null,
+   "declared": {
+    "percent": 0
+   },
+   "status": "not_started",
+   "status_reason": null,
+   "tags": [],
+   "fact": null,
+   "forecast_end": null
+  },
+  {
+   "id": "W-10",
+   "name": "Обратная засыпка",
+   "zone": "Секция 2",
+   "contractor": "СУ-7",
+   "plan_start": "2026-09-16",
+   "plan_end": "2026-09-21",
+   "plan_v1": null,
+   "declared": {
+    "percent": 0
+   },
+   "status": "not_started",
+   "status_reason": null,
+   "tags": [],
+   "fact": null,
+   "forecast_end": null
+  },
+  {
+   "id": "W-11",
+   "name": "Монолитный каркас 1 этаж",
+   "zone": "Секция 2",
+   "contractor": "СтройМонтаж",
+   "plan_start": "2026-09-22",
+   "plan_end": "2026-10-05",
+   "plan_v1": null,
+   "declared": {
+    "percent": 0
+   },
+   "status": "not_started",
+   "status_reason": null,
+   "tags": [],
+   "fact": null,
+   "forecast_end": null
+  },
+  {
+   "id": "W-12",
+   "name": "Монтаж башенного крана",
+   "zone": "Секция 1",
+   "contractor": "КранСервис",
+   "plan_start": "2026-08-31",
+   "plan_end": "2026-09-02",
+   "plan_v1": null,
+   "declared": {
+    "percent": 100
+   },
+   "status": "not_checked",
+   "status_reason": "no_catalog",
+   "tags": [],
+   "fact": {
+    "start": "2026-08-31",
+    "end": "2026-09-02",
+    "tone": "done"
+   },
+   "forecast_end": null
+  }
+ ]
+}

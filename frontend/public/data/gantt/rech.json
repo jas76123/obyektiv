@@ -1,0 +1,126 @@
+{
+ "as_of": "2026-09-04",
+ "object": {
+  "id": "rech",
+  "name": "ЖК «Речной», корпус 1",
+  "short_name": "Речной к.1",
+  "stage": "котлован",
+  "zone_type": "area",
+  "cameras_count": 2,
+  "worst": "warn",
+  "not_checked_count": 0,
+  "delay_days": 2,
+  "bars": {
+   "plan_today": 44,
+   "declared": 44,
+   "confirmed": 41
+  },
+  "zones_label": "Полигоны на стройгенплане · 1 зона"
+ },
+ "cameras": [
+  {
+   "id": "КАМ-В1",
+   "zone": "Котлован",
+   "description": "Котлован · северный борт",
+   "state": "ok",
+   "last_frame": "4 сен 16:00"
+  },
+  {
+   "id": "КАМ-В2",
+   "zone": null,
+   "description": "Въезд, мойка колёс",
+   "state": "ok",
+   "last_frame": "4 сен 17:00"
+  }
+ ],
+ "counts": {
+  "total": 4,
+  "ok": 1,
+  "warn": 1,
+  "bad": 0,
+  "none": 0
+ },
+ "forecast": {
+  "text": "Прогноз сроков. Худшая работа «Разработка котлована»: по темпу наблюдения окончание 15 сен вместо 11 сен, это +2 раб. дня к сроку следующего этапа.",
+  "delay_days": 2
+ },
+ "acts": [],
+ "works": [
+  {
+   "id": "C-01",
+   "name": "Подготовка территории",
+   "zone": "Котлован",
+   "contractor": "СУ-7",
+   "plan_start": "2026-08-10",
+   "plan_end": "2026-08-14",
+   "plan_v1": null,
+   "declared": {
+    "percent": 100
+   },
+   "status": "in_progress",
+   "status_reason": null,
+   "tags": [],
+   "fact": {
+    "start": "2026-08-10",
+    "end": "2026-08-14",
+    "tone": "done"
+   },
+   "forecast_end": null
+  },
+  {
+   "id": "C-02",
+   "name": "Разработка котлована",
+   "zone": "Котлован",
+   "contractor": "СУ-7",
+   "plan_start": "2026-08-24",
+   "plan_end": "2026-09-11",
+   "plan_v1": null,
+   "declared": {
+    "percent": 40
+   },
+   "status": "resources_only",
+   "status_reason": null,
+   "tags": [],
+   "fact": {
+    "start": "2026-08-24",
+    "end": "2026-09-04",
+    "tone": "warn"
+   },
+   "forecast_end": "2026-09-15"
+  },
+  {
+   "id": "C-03",
+   "name": "Свайные работы",
+   "zone": "Котлован",
+   "contractor": "ГеоСтрой",
+   "plan_start": "2026-09-14",
+   "plan_end": "2026-09-25",
+   "plan_v1": null,
+   "declared": {
+    "percent": 0
+   },
+   "status": "not_started",
+   "status_reason": null,
+   "tags": [],
+   "fact": null,
+   "forecast_end": null
+  },
+  {
+   "id": "C-04",
+   "name": "Устройство фундаментной плиты",
+   "zone": "Котлован",
+   "contractor": "СтройМонтаж",
+   "plan_start": "2026-09-28",
+   "plan_end": "2026-10-09",
+   "plan_v1": null,
+   "declared": {
+    "percent": 0
+   },
+   "status": "not_started",
+   "status_reason": null,
+   "tags": [],
+   "fact": null,
+   "forecast_end": null
+  }
+ ]
+}

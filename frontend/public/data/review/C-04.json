@@ -1,0 +1,41 @@
+{
+ "as_of": "2026-09-04",
+ "object": {
+  "id": "rech",
+  "name": "ЖК «Речной», корпус 1",
+  "short_name": "Речной к.1"
+ },
+ "work": {
+  "id": "C-04",
+  "name": "Устройство фундаментной плиты",
+  "zone": "Котлован",
+  "contractor": "СтройМонтаж",
+  "plan_start": "2026-09-28",
+  "plan_end": "2026-10-09",
+  "declared": {
+   "percent": 0
+  },
+  "status": "not_started",
+  "status_reason": null,
+  "tags": []
+ },
+ "mode": "not_started",
+ "ladder": [
+  null,
+  null,
+  null,
+  false
+ ],
+ "verdict": "Работа по графику ещё не началась: наблюдений нет.",
+ "expected": [],
+ "triad": null,
+ "calendar": {
+  "days": {},
+  "acts": [],
+  "confirmed_days": 0,
+  "elapsed_days": 0
+ },
+ "shifts": {},
+ "causes": [],
+ "history": []
+}

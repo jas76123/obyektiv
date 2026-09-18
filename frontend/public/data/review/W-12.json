@@ -1,0 +1,52 @@
+{
+ "as_of": "2026-09-04",
+ "object": {
+  "id": "sev",
+  "name": "ЖК «Северный», корпус 2",
+  "short_name": "Северный к.2"
+ },
+ "work": {
+  "id": "W-12",
+  "name": "Монтаж башенного крана",
+  "zone": "Секция 1",
+  "contractor": "КранСервис",
+  "plan_start": "2026-08-31",
+  "plan_end": "2026-09-02",
+  "declared": {
+   "percent": 100
+  },
+  "status": "not_checked",
+  "status_reason": "no_catalog",
+  "tags": []
+ },
+ "mode": "not_checked",
+ "ladder": [
+  null,
+  null,
+  null,
+  true
+ ],
+ "verdict": "НЕТ В СПРАВОЧНИКЕ. Вид работ не описан в справочнике признаков: система его не проверяет и ничего о нём не утверждает. Опишите признаки в настройке либо проверьте работу вручную.",
+ "expected": [],
+ "triad": {
+  "plan_today": 100,
+  "declared": {
+   "percent": 100
+  },
+  "confirmed": null,
+  "confirmed_days": 0,
+  "elapsed_days": 3,
+  "note": "не проверяется"
+ },
+ "calendar": {
+  "days": {},
+  "acts": [
+   "2026-08-21"
+  ],
+  "confirmed_days": 0,
+  "elapsed_days": 3
+ },
+ "shifts": {},
+ "causes": [],
+ "history": []
+}

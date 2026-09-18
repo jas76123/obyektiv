@@ -1,0 +1,556 @@
+{
+ "as_of": "2026-09-04",
+ "object": {
+  "id": "sev",
+  "name": "ЖК «Северный», корпус 2",
+  "short_name": "Северный к.2"
+ },
+ "work": {
+  "id": "W-08",
+  "name": "Бетонирование фундамента",
+  "zone": "Секция 2",
+  "contractor": "СтройМонтаж",
+  "plan_start": "2026-09-04",
+  "plan_end": "2026-09-08",
+  "declared": {
+   "percent": 0
+  },
+  "status": "resources_only",
+  "status_reason": null,
+  "tags": []
+ },
+ "mode": "full",
+ "ladder": [
+  true,
+  false,
+  null,
+  false
+ ],
+ "verdict": "Бетононасос в кадре с 08:15, положение за смену не менялось. Бетоновозы не зафиксированы, в зоне два человека вместо четырёх. Ресурсы на месте, но бетонирование не идёт.",
+ "expected": [
+  {
+   "label": "concrete_pump",
+   "expected": "≥ 1",
+   "found": "1",
+   "in_frame": "10 ч из 10",
+   "ok": true
+  },
+  {
+   "label": "mixer_truck",
+   "expected": "≥ 1",
+   "found": "0",
+   "in_frame": "0 ч из 10",
+   "ok": false
+  },
+  {
+   "label": "person",
+   "expected": "≥ 4",
+   "found": "2",
+   "in_frame": "10 ч из 10",
+   "ok": false
+  },
+  {
+   "label": "перемещение техники за смену",
+   "expected": "есть",
+   "found": "нет · бетононасос на месте",
+   "in_frame": "по 4 кадрам",
+   "ok": false
+  },
+  {
+   "label": "дней с активностью",
+   "expected": "1 из 1",
+   "found": "0 из 1",
+   "in_frame": "—",
+   "ok": false
+  }
+ ],
+ "triad": {
+  "plan_today": 33,
+  "declared": {
+   "percent": 0
+  },
+  "confirmed": 0,
+  "confirmed_days": 0,
+  "elapsed_days": 1,
+  "note": "0 из 1 дней"
+ },
+ "calendar": {
+  "days": {
+   "2026-08-24": 0,
+   "2026-08-25": 0,
+   "2026-08-26": 0,
+   "2026-08-27": 0,
+   "2026-08-28": 0,
+   "2026-08-31": 0,
+   "2026-09-01": 0,
+   "2026-09-02": 0,
+   "2026-09-03": 0,
+   "2026-09-04": 1
+  },
+  "acts": [
+   "2026-08-21"
+  ],
+  "confirmed_days": 0,
+  "elapsed_days": 1
+ },
+ "shifts": {
+  "2026-09-04": {
+   "camera_id": "КАМ-02",
+   "frames": [
+    {
+     "frame_id": "КАМ-02_20260904_0800",
+     "camera_id": "КАМ-02",
+     "captured_at": "2026-09-04T08:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "concrete_pump",
+       "confidence": 0.86,
+       "bbox": [
+        120,
+        390,
+        460,
+        360
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-02_20260904_0900",
+     "camera_id": "КАМ-02",
+     "captured_at": "2026-09-04T09:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "concrete_pump",
+       "confidence": 0.86,
+       "bbox": [
+        120,
+        390,
+        460,
+        360
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-02_20260904_1000",
+     "camera_id": "КАМ-02",
+     "captured_at": "2026-09-04T10:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "concrete_pump",
+       "confidence": 0.86,
+       "bbox": [
+        120,
+        390,
+        460,
+        360
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-02_20260904_1100",
+     "camera_id": "КАМ-02",
+     "captured_at": "2026-09-04T11:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "concrete_pump",
+       "confidence": 0.86,
+       "bbox": [
+        120,
+        390,
+        460,
+        360
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-02_20260904_1200",
+     "camera_id": "КАМ-02",
+     "captured_at": "2026-09-04T12:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "concrete_pump",
+       "confidence": 0.86,
+       "bbox": [
+        120,
+        390,
+        460,
+        360
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-02_20260904_1300",
+     "camera_id": "КАМ-02",
+     "captured_at": "2026-09-04T13:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "concrete_pump",
+       "confidence": 0.86,
+       "bbox": [
+        120,
+        390,
+        460,
+        360
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-02_20260904_1400",
+     "camera_id": "КАМ-02",
+     "captured_at": "2026-09-04T14:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "concrete_pump",
+       "confidence": 0.86,
+       "bbox": [
+        120,
+        390,
+        460,
+        360
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-02_20260904_1500",
+     "camera_id": "КАМ-02",
+     "captured_at": "2026-09-04T15:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "concrete_pump",
+       "confidence": 0.86,
+       "bbox": [
+        120,
+        390,
+        460,
+        360
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-02_20260904_1600",
+     "camera_id": "КАМ-02",
+     "captured_at": "2026-09-04T16:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "concrete_pump",
+       "confidence": 0.86,
+       "bbox": [
+        120,
+        390,
+        460,
+        360
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-02_20260904_1700",
+     "camera_id": "КАМ-02",
+     "captured_at": "2026-09-04T17:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "concrete_pump",
+       "confidence": 0.86,
+       "bbox": [
+        120,
+        390,
+        460,
+        360
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    },
+    {
+     "frame_id": "КАМ-02_20260904_1800",
+     "camera_id": "КАМ-02",
+     "captured_at": "2026-09-04T18:00:00+03:00",
+     "image_path": null,
+     "width": 1920,
+     "height": 1080,
+     "detections": [
+      {
+       "class": "concrete_pump",
+       "confidence": 0.86,
+       "bbox": [
+        120,
+        390,
+        460,
+        360
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.78,
+       "bbox": [
+        1420,
+        540,
+        70,
+        190
+       ]
+      },
+      {
+       "class": "person",
+       "confidence": 0.75,
+       "bbox": [
+        1510,
+        540,
+        70,
+        190
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "causes": [
+  "Бетоновозы за смену не зафиксированы: вероятна задержка поставки смеси",
+  "В зоне двое рабочих вместо четырёх: возможен недобор бригады",
+  "Бетононасос не менял положение: подготовка под заливку могла не завершиться"
+ ],
+ "history": [
+  {
+   "when": "18 авг",
+   "what": "работа добавлена: 4 сен — 8 сен",
+   "who": "руководитель проекта",
+   "reason": "—"
+  }
+ ]
+}
