@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "data": "tsx scripts/build-data.ts",
+    "real": "tsx scripts/build-real.ts",
     "prebuild": "npm run data",
     "build": "next build",
     "test": "vitest run",

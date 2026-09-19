@@ -1,0 +1,7269 @@
+[
+  {
+    "frame": 0,
+    "time_sec": 0.0,
+    "id": 1,
+    "class": "Bucket loader Standart",
+    "confidence": 0.66,
+    "bbox": [
+      241.58,
+      1035.06,
+      178.85,
+      325.14
+    ]
+  },
+  {
+    "frame": 0,
+    "time_sec": 0.0,
+    "id": 2,
+    "class": "Excavator",
+    "confidence": 0.47,
+    "bbox": [
+      184.25,
+      567.48,
+      367.57,
+      344.58
+    ]
+  },
+  {
+    "frame": 1,
+    "time_sec": 0.033,
+    "id": 1,
+    "class": "Bucket loader Standart",
+    "confidence": 0.59,
+    "bbox": [
+      240.77,
+      1026.48,
+      187.6,
+      341.34
+    ]
+  },
+  {
+    "frame": 1,
+    "time_sec": 0.033,
+    "id": 2,
+    "class": "Excavator",
+    "confidence": 0.75,
+    "bbox": [
+      176.54,
+      567.52,
+      353.07,
+      342.31
+    ]
+  },
+  {
+    "frame": 2,
+    "time_sec": 0.067,
+    "id": 1,
+    "class": "Bucket loader Standart",
+    "confidence": 0.6,
+    "bbox": [
+      240.68,
+      1025.69,
+      188.27,
+      342.94
+    ]
+  },
+  {
+    "frame": 2,
+    "time_sec": 0.067,
+    "id": 2,
+    "class": "Excavator",
+    "confidence": 0.75,
+    "bbox": [
+      175.0,
+      567.57,
+      350.0,
+      341.91
+    ]
+  },
+  {
+    "frame": 3,
+    "time_sec": 0.1,
+    "id": 1,
+    "class": "Bucket loader Standart",
+    "confidence": 0.7,
+    "bbox": [
+      240.81,
+      1025.66,
+      187.11,
+      341.2
+    ]
+  },
+  {
+    "frame": 3,
+    "time_sec": 0.1,
+    "id": 2,
+    "class": "Excavator",
+    "confidence": 0.73,
+    "bbox": [
+      175.5,
+      567.7,
+      351.0,
+      341.73
+    ]
+  },
+  {
+    "frame": 4,
+    "time_sec": 0.133,
+    "id": 1,
+    "class": "Bucket loader Standart",
+    "confidence": 0.71,
+    "bbox": [
+      241.05,
+      1023.98,
+      188.52,
+      344.4
+    ]
+  },
+  {
+    "frame": 4,
+    "time_sec": 0.133,
+    "id": 2,
+    "class": "Excavator",
+    "confidence": 0.48,
+    "bbox": [
+      250.24,
+      567.89,
+      396.46,
+      367.32
+    ]
+  },
+  {
+    "frame": 5,
+    "time_sec": 0.167,
+    "id": 1,
+    "class": "Bucket loader Standart",
+    "confidence": 0.76,
+    "bbox": [
+      241.39,
+      1028.69,
+      182.82,
+      333.96
+    ]
+  },
+  {
+    "frame": 5,
+    "time_sec": 0.167,
+    "id": 2,
+    "class": "Excavator",
+    "confidence": 0.44,
+    "bbox": [
+      206.64,
+      567.93,
+      379.34,
+      352.26
+    ]
+  },
+  {
+    "frame": 6,
+    "time_sec": 0.2,
+    "id": 2,
+    "class": "Excavator",
+    "confidence": 0.42,
+    "bbox": [
+      275.0,
+      570.33,
+      411.66,
+      371.99
+    ]
+  },
+  {
+    "frame": 7,
+    "time_sec": 0.233,
+    "id": 2,
+    "class": "Excavator",
+    "confidence": 0.44,
+    "bbox": [
+      298.83,
+      571.25,
+      430.94,
+      378.84
+    ]
+  },
+  {
+    "frame": 8,
+    "time_sec": 0.267,
+    "id": 2,
+    "class": "Excavator",
+    "confidence": 0.49,
+    "bbox": [
+      310.04,
+      573.58,
+      446.28,
+      381.37
+    ]
+  },
+  {
+    "frame": 10,
+    "time_sec": 0.333,
+    "id": 1,
+    "class": "Forklift Giraffe",
+    "confidence": 0.59,
+    "bbox": [
+      266.0,
+      1006.33,
+      164.36,
+      294.75
+    ]
+  },
+  {
+    "frame": 11,
+    "time_sec": 0.367,
+    "id": 1,
+    "class": "Excavator",
+    "confidence": 0.68,
+    "bbox": [
+      208.77,
+      975.82,
+      217.4,
+      365.66
+    ]
+  },
+  {
+    "frame": 12,
+    "time_sec": 0.4,
+    "id": 1,
+    "class": "Excavator",
+    "confidence": 0.68,
+    "bbox": [
+      193.35,
+      967.18,
+      241.61,
+      384.64
+    ]
+  },
+  {
+    "frame": 13,
+    "time_sec": 0.433,
+    "id": 1,
+    "class": "Excavator",
+    "confidence": 0.76,
+    "bbox": [
+      187.48,
+      962.97,
+      257.74,
+      390.85
+    ]
+  },
+  {
+    "frame": 16,
+    "time_sec": 0.533,
+    "id": 1,
+    "class": "Excavator",
+    "confidence": 0.68,
+    "bbox": [
+      185.4,
+      961.34,
+      270.2,
+      389.3
+    ]
+  },
+  {
+    "frame": 17,
+    "time_sec": 0.567,
+    "id": 4,
+    "class": "Excavator",
+    "confidence": 0.49,
+    "bbox": [
+      334.22,
+      500.97,
+      162.27,
+      277.81
+    ]
+  },
+  {
+    "frame": 17,
+    "time_sec": 0.567,
+    "id": 1,
+    "class": "Excavator",
+    "confidence": 0.68,
+    "bbox": [
+      186.16,
+      962.26,
+      280.96,
+      388.05
+    ]
+  },
+  {
+    "frame": 18,
+    "time_sec": 0.6,
+    "id": 1,
+    "class": "Excavator",
+    "confidence": 0.56,
+    "bbox": [
+      186.34,
+      962.65,
+      294.04,
+      393.11
+    ]
+  },
+  {
+    "frame": 19,
+    "time_sec": 0.633,
+    "id": 1,
+    "class": "Excavator",
+    "confidence": 0.69,
+    "bbox": [
+      186.3,
+      963.78,
+      303.36,
+      394.45
+    ]
+  },
+  {
+    "frame": 23,
+    "time_sec": 0.767,
+    "id": 1,
+    "class": "Bucket loader Big",
+    "confidence": 0.46,
+    "bbox": [
+      190.55,
+      1022.5,
+      299.29,
+      386.66
+    ]
+  },
+  {
+    "frame": 25,
+    "time_sec": 0.833,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.7,
+    "bbox": [
+      271.88,
+      549.49,
+      535.14,
+      399.34
+    ]
+  },
+  {
+    "frame": 26,
+    "time_sec": 0.867,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.42,
+    "bbox": [
+      289.37,
+      560.43,
+      506.79,
+      376.82
+    ]
+  },
+  {
+    "frame": 27,
+    "time_sec": 0.9,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.42,
+    "bbox": [
+      294.18,
+      563.93,
+      499.74,
+      369.7
+    ]
+  },
+  {
+    "frame": 28,
+    "time_sec": 0.933,
+    "id": 1,
+    "class": "Bucket loader Big",
+    "confidence": 0.7,
+    "bbox": [
+      231.48,
+      991.5,
+      262.14,
+      345.37
+    ]
+  },
+  {
+    "frame": 29,
+    "time_sec": 0.967,
+    "id": 1,
+    "class": "Bucket loader Big",
+    "confidence": 0.64,
+    "bbox": [
+      240.63,
+      980.93,
+      262.3,
+      356.06
+    ]
+  },
+  {
+    "frame": 30,
+    "time_sec": 1.0,
+    "id": 1,
+    "class": "Bucket loader Big",
+    "confidence": 0.76,
+    "bbox": [
+      239.77,
+      975.45,
+      256.12,
+      353.19
+    ]
+  },
+  {
+    "frame": 31,
+    "time_sec": 1.033,
+    "id": 1,
+    "class": "Bucket loader Big",
+    "confidence": 0.64,
+    "bbox": [
+      237.1,
+      984.77,
+      239.0,
+      328.14
+    ]
+  },
+  {
+    "frame": 32,
+    "time_sec": 1.067,
+    "id": 1,
+    "class": "Bucket loader Big",
+    "confidence": 0.64,
+    "bbox": [
+      235.85,
+      988.46,
+      232.98,
+      318.7
+    ]
+  },
+  {
+    "frame": 33,
+    "time_sec": 1.1,
+    "id": 1,
+    "class": "Bucket loader Big",
+    "confidence": 0.78,
+    "bbox": [
+      255.02,
+      1002.62,
+      206.91,
+      287.11
+    ]
+  },
+  {
+    "frame": 33,
+    "time_sec": 1.1,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.49,
+    "bbox": [
+      205.54,
+      570.44,
+      411.09,
+      328.36
+    ]
+  },
+  {
+    "frame": 34,
+    "time_sec": 1.133,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.58,
+    "bbox": [
+      197.92,
+      564.15,
+      395.83,
+      337.65
+    ]
+  },
+  {
+    "frame": 35,
+    "time_sec": 1.167,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.68,
+    "bbox": [
+      199.03,
+      563.93,
+      398.05,
+      337.76
+    ]
+  },
+  {
+    "frame": 36,
+    "time_sec": 1.2,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.54,
+    "bbox": [
+      197.09,
+      565.54,
+      394.18,
+      333.92
+    ]
+  },
+  {
+    "frame": 37,
+    "time_sec": 1.233,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.55,
+    "bbox": [
+      195.91,
+      566.09,
+      391.82,
+      332.62
+    ]
+  },
+  {
+    "frame": 38,
+    "time_sec": 1.267,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.49,
+    "bbox": [
+      190.43,
+      577.03,
+      380.87,
+      314.65
+    ]
+  },
+  {
+    "frame": 39,
+    "time_sec": 1.3,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.89,
+    "bbox": [
+      146.94,
+      601.89,
+      293.89,
+      266.63
+    ]
+  },
+  {
+    "frame": 41,
+    "time_sec": 1.367,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.82,
+    "bbox": [
+      178.18,
+      591.74,
+      355.97,
+      289.32
+    ]
+  },
+  {
+    "frame": 42,
+    "time_sec": 1.4,
+    "id": 8,
+    "class": "Tanker",
+    "confidence": 0.75,
+    "bbox": [
+      546.26,
+      602.77,
+      145.95,
+      178.92
+    ]
+  },
+  {
+    "frame": 42,
+    "time_sec": 1.4,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.81,
+    "bbox": [
+      187.63,
+      589.65,
+      365.43,
+      295.45
+    ]
+  },
+  {
+    "frame": 43,
+    "time_sec": 1.433,
+    "id": 8,
+    "class": "Tanker",
+    "confidence": 0.49,
+    "bbox": [
+      543.62,
+      603.56,
+      146.72,
+      180.05
+    ]
+  },
+  {
+    "frame": 46,
+    "time_sec": 1.533,
+    "id": 10,
+    "class": "Excavator",
+    "confidence": 0.9,
+    "bbox": [
+      110.63,
+      438.57,
+      198.48,
+      137.88
+    ]
+  },
+  {
+    "frame": 46,
+    "time_sec": 1.533,
+    "id": 8,
+    "class": "Tanker",
+    "confidence": 0.71,
+    "bbox": [
+      587.37,
+      574.52,
+      104.67,
+      127.58
+    ]
+  },
+  {
+    "frame": 47,
+    "time_sec": 1.567,
+    "id": 10,
+    "class": "Excavator",
+    "confidence": 0.9,
+    "bbox": [
+      112.23,
+      438.17,
+      199.57,
+      138.4
+    ]
+  },
+  {
+    "frame": 47,
+    "time_sec": 1.567,
+    "id": 8,
+    "class": "Tanker",
+    "confidence": 0.72,
+    "bbox": [
+      591.57,
+      571.94,
+      101.21,
+      122.45
+    ]
+  },
+  {
+    "frame": 48,
+    "time_sec": 1.6,
+    "id": 10,
+    "class": "Excavator",
+    "confidence": 0.8,
+    "bbox": [
+      111.79,
+      437.93,
+      208.83,
+      144.75
+    ]
+  },
+  {
+    "frame": 48,
+    "time_sec": 1.6,
+    "id": 8,
+    "class": "Tanker",
+    "confidence": 0.52,
+    "bbox": [
+      604.26,
+      551.65,
+      110.39,
+      132.94
+    ]
+  },
+  {
+    "frame": 48,
+    "time_sec": 1.6,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.41,
+    "bbox": [
+      196.62,
+      578.43,
+      393.24,
+      318.07
+    ]
+  },
+  {
+    "frame": 49,
+    "time_sec": 1.633,
+    "id": 10,
+    "class": "Excavator",
+    "confidence": 0.85,
+    "bbox": [
+      124.35,
+      438.03,
+      216.41,
+      149.11
+    ]
+  },
+  {
+    "frame": 49,
+    "time_sec": 1.633,
+    "id": 8,
+    "class": "Tanker",
+    "confidence": 0.58,
+    "bbox": [
+      606.5,
+      547.72,
+      109.68,
+      131.33
+    ]
+  },
+  {
+    "frame": 49,
+    "time_sec": 1.633,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.66,
+    "bbox": [
+      201.15,
+      573.08,
+      402.3,
+      327.53
+    ]
+  },
+  {
+    "frame": 50,
+    "time_sec": 1.667,
+    "id": 10,
+    "class": "Excavator",
+    "confidence": 0.91,
+    "bbox": [
+      114.23,
+      435.29,
+      214.85,
+      148.14
+    ]
+  },
+  {
+    "frame": 50,
+    "time_sec": 1.667,
+    "id": 8,
+    "class": "Tanker",
+    "confidence": 0.53,
+    "bbox": [
+      605.34,
+      541.97,
+      118.67,
+      142.43
+    ]
+  },
+  {
+    "frame": 50,
+    "time_sec": 1.667,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.72,
+    "bbox": [
+      196.84,
+      577.18,
+      393.68,
+      318.77
+    ]
+  },
+  {
+    "frame": 51,
+    "time_sec": 1.7,
+    "id": 10,
+    "class": "Excavator",
+    "confidence": 0.79,
+    "bbox": [
+      116.83,
+      432.11,
+      233.65,
+      162.44
+    ]
+  },
+  {
+    "frame": 51,
+    "time_sec": 1.7,
+    "id": 8,
+    "class": "Tanker",
+    "confidence": 0.47,
+    "bbox": [
+      607.18,
+      536.82,
+      127.48,
+      153.56
+    ]
+  },
+  {
+    "frame": 51,
+    "time_sec": 1.7,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.52,
+    "bbox": [
+      193.18,
+      576.62,
+      386.37,
+      318.32
+    ]
+  },
+  {
+    "frame": 52,
+    "time_sec": 1.733,
+    "id": 10,
+    "class": "Excavator",
+    "confidence": 0.8,
+    "bbox": [
+      118.63,
+      430.91,
+      237.26,
+      167.23
+    ]
+  },
+  {
+    "frame": 52,
+    "time_sec": 1.733,
+    "id": 8,
+    "class": "Tanker",
+    "confidence": 0.47,
+    "bbox": [
+      607.68,
+      535.11,
+      130.55,
+      157.82
+    ]
+  },
+  {
+    "frame": 52,
+    "time_sec": 1.733,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.52,
+    "bbox": [
+      191.43,
+      576.66,
+      382.85,
+      317.6
+    ]
+  },
+  {
+    "frame": 53,
+    "time_sec": 1.767,
+    "id": 10,
+    "class": "Excavator",
+    "confidence": 0.85,
+    "bbox": [
+      121.76,
+      428.72,
+      243.52,
+      170.93
+    ]
+  },
+  {
+    "frame": 53,
+    "time_sec": 1.767,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.48,
+    "bbox": [
+      169.88,
+      575.82,
+      339.75,
+      317.74
+    ]
+  },
+  {
+    "frame": 54,
+    "time_sec": 1.8,
+    "id": 10,
+    "class": "Excavator",
+    "confidence": 0.9,
+    "bbox": [
+      121.17,
+      426.46,
+      242.33,
+      171.77
+    ]
+  },
+  {
+    "frame": 55,
+    "time_sec": 1.833,
+    "id": 10,
+    "class": "Excavator",
+    "confidence": 0.9,
+    "bbox": [
+      115.61,
+      424.33,
+      231.22,
+      167.07
+    ]
+  },
+  {
+    "frame": 56,
+    "time_sec": 1.867,
+    "id": 8,
+    "class": "Tanker",
+    "confidence": 0.47,
+    "bbox": [
+      655.33,
+      498.51,
+      107.34,
+      127.43
+    ]
+  },
+  {
+    "frame": 57,
+    "time_sec": 1.9,
+    "id": 8,
+    "class": "Tanker",
+    "confidence": 0.44,
+    "bbox": [
+      659.92,
+      495.63,
+      105.85,
+      123.71
+    ]
+  },
+  {
+    "frame": 60,
+    "time_sec": 2.0,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.71,
+    "bbox": [
+      175.57,
+      573.83,
+      351.14,
+      321.2
+    ]
+  },
+  {
+    "frame": 61,
+    "time_sec": 2.033,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.71,
+    "bbox": [
+      220.18,
+      574.52,
+      388.35,
+      320.54
+    ]
+  },
+  {
+    "frame": 62,
+    "time_sec": 2.067,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.71,
+    "bbox": [
+      238.04,
+      574.68,
+      401.19,
+      320.22
+    ]
+  },
+  {
+    "frame": 71,
+    "time_sec": 2.367,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.57,
+    "bbox": [
+      163.28,
+      603.75,
+      326.57,
+      268.36
+    ]
+  },
+  {
+    "frame": 72,
+    "time_sec": 2.4,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.57,
+    "bbox": [
+      159.35,
+      605.19,
+      318.71,
+      265.85
+    ]
+  },
+  {
+    "frame": 73,
+    "time_sec": 2.433,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.71,
+    "bbox": [
+      188.4,
+      578.14,
+      376.8,
+      320.77
+    ]
+  },
+  {
+    "frame": 74,
+    "time_sec": 2.467,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.56,
+    "bbox": [
+      192.91,
+      571.14,
+      385.82,
+      331.7
+    ]
+  },
+  {
+    "frame": 75,
+    "time_sec": 2.5,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.66,
+    "bbox": [
+      179.76,
+      567.36,
+      359.51,
+      335.76
+    ]
+  },
+  {
+    "frame": 76,
+    "time_sec": 2.533,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.56,
+    "bbox": [
+      178.17,
+      571.33,
+      356.34,
+      326.88
+    ]
+  },
+  {
+    "frame": 77,
+    "time_sec": 2.567,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.56,
+    "bbox": [
+      177.11,
+      572.98,
+      354.21,
+      323.17
+    ]
+  },
+  {
+    "frame": 78,
+    "time_sec": 2.6,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.75,
+    "bbox": [
+      186.39,
+      573.8,
+      372.77,
+      325.87
+    ]
+  },
+  {
+    "frame": 80,
+    "time_sec": 2.667,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.78,
+    "bbox": [
+      142.43,
+      594.29,
+      284.86,
+      287.74
+    ]
+  },
+  {
+    "frame": 81,
+    "time_sec": 2.7,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.45,
+    "bbox": [
+      128.24,
+      585.92,
+      256.48,
+      301.4
+    ]
+  },
+  {
+    "frame": 82,
+    "time_sec": 2.733,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.46,
+    "bbox": [
+      121.27,
+      583.32,
+      242.53,
+      305.67
+    ]
+  },
+  {
+    "frame": 83,
+    "time_sec": 2.767,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.86,
+    "bbox": [
+      117.48,
+      578.03,
+      234.96,
+      317.25
+    ]
+  },
+  {
+    "frame": 84,
+    "time_sec": 2.8,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.75,
+    "bbox": [
+      116.23,
+      576.09,
+      232.45,
+      321.45
+    ]
+  },
+  {
+    "frame": 86,
+    "time_sec": 2.867,
+    "id": 14,
+    "class": "Excavator",
+    "confidence": 0.49,
+    "bbox": [
+      286.92,
+      493.37,
+      222.17,
+      254.49
+    ]
+  },
+  {
+    "frame": 86,
+    "time_sec": 2.867,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.79,
+    "bbox": [
+      172.66,
+      561.2,
+      323.84,
+      347.4
+    ]
+  },
+  {
+    "frame": 87,
+    "time_sec": 2.9,
+    "id": 14,
+    "class": "Excavator",
+    "confidence": 0.48,
+    "bbox": [
+      289.14,
+      497.34,
+      215.97,
+      246.89
+    ]
+  },
+  {
+    "frame": 87,
+    "time_sec": 2.9,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.79,
+    "bbox": [
+      192.62,
+      557.96,
+      336.77,
+      353.12
+    ]
+  },
+  {
+    "frame": 88,
+    "time_sec": 2.933,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.42,
+    "bbox": [
+      185.0,
+      566.16,
+      324.86,
+      335.62
+    ]
+  },
+  {
+    "frame": 89,
+    "time_sec": 2.967,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.85,
+    "bbox": [
+      188.44,
+      572.04,
+      320.93,
+      324.28
+    ]
+  },
+  {
+    "frame": 90,
+    "time_sec": 3.0,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.71,
+    "bbox": [
+      185.71,
+      576.45,
+      318.54,
+      316.04
+    ]
+  },
+  {
+    "frame": 91,
+    "time_sec": 3.033,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.89,
+    "bbox": [
+      187.87,
+      574.39,
+      328.61,
+      321.5
+    ]
+  },
+  {
+    "frame": 92,
+    "time_sec": 3.067,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.89,
+    "bbox": [
+      188.59,
+      573.65,
+      334.8,
+      323.56
+    ]
+  },
+  {
+    "frame": 93,
+    "time_sec": 3.1,
+    "id": 6,
+    "class": "Excavator",
+    "confidence": 0.94,
+    "bbox": [
+      164.28,
+      582.96,
+      315.1,
+      305.12
+    ]
+  },
+  {
+    "frame": 116,
+    "time_sec": 3.867,
+    "id": 16,
+    "class": "Excavator",
+    "confidence": 0.5,
+    "bbox": [
+      287.68,
+      474.65,
+      210.62,
+      63.87
+    ]
+  },
+  {
+    "frame": 117,
+    "time_sec": 3.9,
+    "id": 16,
+    "class": "Excavator",
+    "confidence": 0.48,
+    "bbox": [
+      287.79,
+      474.72,
+      211.07,
+      64.01
+    ]
+  },
+  {
+    "frame": 132,
+    "time_sec": 4.4,
+    "id": 17,
+    "class": "Mixer",
+    "confidence": 0.54,
+    "bbox": [
+      455.78,
+      461.16,
+      118.04,
+      64.54
+    ]
+  },
+  {
+    "frame": 132,
+    "time_sec": 4.4,
+    "id": 18,
+    "class": "Crane manipulator",
+    "confidence": 0.44,
+    "bbox": [
+      611.35,
+      526.44,
+      86.82,
+      102.71
+    ]
+  },
+  {
+    "frame": 133,
+    "time_sec": 4.433,
+    "id": 17,
+    "class": "Mixer",
+    "confidence": 0.7,
+    "bbox": [
+      459.0,
+      461.08,
+      117.88,
+      64.54
+    ]
+  },
+  {
+    "frame": 133,
+    "time_sec": 4.433,
+    "id": 18,
+    "class": "Crane manipulator",
+    "confidence": 0.51,
+    "bbox": [
+      612.73,
+      526.48,
+      87.04,
+      102.91
+    ]
+  },
+  {
+    "frame": 134,
+    "time_sec": 4.467,
+    "id": 17,
+    "class": "Mixer",
+    "confidence": 0.8,
+    "bbox": [
+      461.96,
+      460.89,
+      117.11,
+      64.3
+    ]
+  },
+  {
+    "frame": 134,
+    "time_sec": 4.467,
+    "id": 18,
+    "class": "Crane manipulator",
+    "confidence": 0.45,
+    "bbox": [
+      614.98,
+      526.69,
+      87.66,
+      103.46
+    ]
+  },
+  {
+    "frame": 135,
+    "time_sec": 4.5,
+    "id": 17,
+    "class": "Mixer",
+    "confidence": 0.67,
+    "bbox": [
+      460.04,
+      460.95,
+      119.1,
+      65.55
+    ]
+  },
+  {
+    "frame": 135,
+    "time_sec": 4.5,
+    "id": 18,
+    "class": "Crane manipulator",
+    "confidence": 0.77,
+    "bbox": [
+      618.2,
+      526.37,
+      89.32,
+      104.95
+    ]
+  },
+  {
+    "frame": 136,
+    "time_sec": 4.533,
+    "id": 17,
+    "class": "Mixer",
+    "confidence": 0.6,
+    "bbox": [
+      461.51,
+      460.52,
+      118.26,
+      65.36
+    ]
+  },
+  {
+    "frame": 136,
+    "time_sec": 4.533,
+    "id": 18,
+    "class": "Crane manipulator",
+    "confidence": 0.77,
+    "bbox": [
+      618.64,
+      526.14,
+      90.27,
+      105.61
+    ]
+  },
+  {
+    "frame": 137,
+    "time_sec": 4.567,
+    "id": 17,
+    "class": "Mixer",
+    "confidence": 0.57,
+    "bbox": [
+      461.92,
+      460.37,
+      117.51,
+      65.25
+    ]
+  },
+  {
+    "frame": 137,
+    "time_sec": 4.567,
+    "id": 18,
+    "class": "Crane manipulator",
+    "confidence": 0.78,
+    "bbox": [
+      618.36,
+      526.05,
+      90.83,
+      105.83
+    ]
+  },
+  {
+    "frame": 138,
+    "time_sec": 4.6,
+    "id": 17,
+    "class": "Mixer",
+    "confidence": 0.52,
+    "bbox": [
+      461.15,
+      460.76,
+      117.16,
+      65.3
+    ]
+  },
+  {
+    "frame": 138,
+    "time_sec": 4.6,
+    "id": 18,
+    "class": "Crane manipulator",
+    "confidence": 0.76,
+    "bbox": [
+      618.39,
+      526.06,
+      91.26,
+      105.8
+    ]
+  },
+  {
+    "frame": 139,
+    "time_sec": 4.633,
+    "id": 17,
+    "class": "Mixer",
+    "confidence": 0.44,
+    "bbox": [
+      453.15,
+      460.91,
+      118.32,
+      65.41
+    ]
+  },
+  {
+    "frame": 139,
+    "time_sec": 4.633,
+    "id": 18,
+    "class": "Crane manipulator",
+    "confidence": 0.71,
+    "bbox": [
+      622.46,
+      525.7,
+      92.92,
+      106.38
+    ]
+  },
+  {
+    "frame": 140,
+    "time_sec": 4.667,
+    "id": 17,
+    "class": "Mixer",
+    "confidence": 0.6,
+    "bbox": [
+      453.79,
+      460.82,
+      116.99,
+      64.46
+    ]
+  },
+  {
+    "frame": 140,
+    "time_sec": 4.667,
+    "id": 18,
+    "class": "Crane manipulator",
+    "confidence": 0.6,
+    "bbox": [
+      620.73,
+      525.36,
+      93.29,
+      106.2
+    ]
+  },
+  {
+    "frame": 141,
+    "time_sec": 4.7,
+    "id": 17,
+    "class": "Mixer",
+    "confidence": 0.46,
+    "bbox": [
+      457.19,
+      461.34,
+      115.41,
+      63.7
+    ]
+  },
+  {
+    "frame": 141,
+    "time_sec": 4.7,
+    "id": 18,
+    "class": "Crane manipulator",
+    "confidence": 0.69,
+    "bbox": [
+      619.29,
+      525.93,
+      92.69,
+      104.97
+    ]
+  },
+  {
+    "frame": 142,
+    "time_sec": 4.733,
+    "id": 17,
+    "class": "Mixer",
+    "confidence": 0.44,
+    "bbox": [
+      459.09,
+      461.54,
+      114.2,
+      63.19
+    ]
+  },
+  {
+    "frame": 142,
+    "time_sec": 4.733,
+    "id": 18,
+    "class": "Crane manipulator",
+    "confidence": 0.67,
+    "bbox": [
+      618.84,
+      526.18,
+      92.68,
+      104.39
+    ]
+  },
+  {
+    "frame": 143,
+    "time_sec": 4.767,
+    "id": 17,
+    "class": "Mixer",
+    "confidence": 0.5,
+    "bbox": [
+      456.08,
+      461.7,
+      115.43,
+      63.63
+    ]
+  },
+  {
+    "frame": 143,
+    "time_sec": 4.767,
+    "id": 18,
+    "class": "Crane manipulator",
+    "confidence": 0.72,
+    "bbox": [
+      619.35,
+      526.25,
+      93.26,
+      104.36
+    ]
+  },
+  {
+    "frame": 144,
+    "time_sec": 4.8,
+    "id": 17,
+    "class": "Mixer",
+    "confidence": 0.69,
+    "bbox": [
+      456.09,
+      461.11,
+      116.46,
+      64.17
+    ]
+  },
+  {
+    "frame": 144,
+    "time_sec": 4.8,
+    "id": 18,
+    "class": "Crane manipulator",
+    "confidence": 0.51,
+    "bbox": [
+      620.39,
+      525.79,
+      94.13,
+      104.47
+    ]
+  },
+  {
+    "frame": 145,
+    "time_sec": 4.833,
+    "id": 17,
+    "class": "Mixer",
+    "confidence": 0.67,
+    "bbox": [
+      454.98,
+      461.27,
+      118.26,
+      65.09
+    ]
+  },
+  {
+    "frame": 145,
+    "time_sec": 4.833,
+    "id": 18,
+    "class": "Crane manipulator",
+    "confidence": 0.61,
+    "bbox": [
+      619.41,
+      525.2,
+      95.33,
+      105.56
+    ]
+  },
+  {
+    "frame": 146,
+    "time_sec": 4.867,
+    "id": 17,
+    "class": "Mixer",
+    "confidence": 0.74,
+    "bbox": [
+      457.19,
+      461.13,
+      117.73,
+      65.06
+    ]
+  },
+  {
+    "frame": 146,
+    "time_sec": 4.867,
+    "id": 18,
+    "class": "Crane manipulator",
+    "confidence": 0.43,
+    "bbox": [
+      618.49,
+      524.83,
+      95.82,
+      106.08
+    ]
+  },
+  {
+    "frame": 146,
+    "time_sec": 4.867,
+    "id": 20,
+    "class": "Mixer",
+    "confidence": 0.87,
+    "bbox": [
+      493.2,
+      817.55,
+      450.54,
+      191.0
+    ]
+  },
+  {
+    "frame": 147,
+    "time_sec": 4.9,
+    "id": 17,
+    "class": "Mixer",
+    "confidence": 0.74,
+    "bbox": [
+      458.08,
+      461.08,
+      117.24,
+      65.05
+    ]
+  },
+  {
+    "frame": 147,
+    "time_sec": 4.9,
+    "id": 18,
+    "class": "Crane manipulator",
+    "confidence": 0.43,
+    "bbox": [
+      618.13,
+      524.7,
+      96.01,
+      106.27
+    ]
+  },
+  {
+    "frame": 147,
+    "time_sec": 4.9,
+    "id": 20,
+    "class": "Mixer",
+    "confidence": 0.87,
+    "bbox": [
+      493.33,
+      817.67,
+      450.84,
+      191.13
+    ]
+  },
+  {
+    "frame": 148,
+    "time_sec": 4.933,
+    "id": 17,
+    "class": "Mixer",
+    "confidence": 0.66,
+    "bbox": [
+      451.65,
+      461.58,
+      119.7,
+      65.73
+    ]
+  },
+  {
+    "frame": 148,
+    "time_sec": 4.933,
+    "id": 18,
+    "class": "Crane manipulator",
+    "confidence": 0.61,
+    "bbox": [
+      618.02,
+      524.75,
+      95.78,
+      105.87
+    ]
+  },
+  {
+    "frame": 148,
+    "time_sec": 4.933,
+    "id": 20,
+    "class": "Mixer",
+    "confidence": 0.91,
+    "bbox": [
+      492.92,
+      817.43,
+      451.93,
+      191.63
+    ]
+  },
+  {
+    "frame": 149,
+    "time_sec": 4.967,
+    "id": 17,
+    "class": "Mixer",
+    "confidence": 0.61,
+    "bbox": [
+      453.9,
+      461.44,
+      118.94,
+      65.28
+    ]
+  },
+  {
+    "frame": 149,
+    "time_sec": 4.967,
+    "id": 18,
+    "class": "Crane manipulator",
+    "confidence": 0.64,
+    "bbox": [
+      617.97,
+      524.64,
+      96.03,
+      106.11
+    ]
+  },
+  {
+    "frame": 149,
+    "time_sec": 4.967,
+    "id": 20,
+    "class": "Mixer",
+    "confidence": 0.89,
+    "bbox": [
+      492.57,
+      817.72,
+      447.95,
+      189.89
+    ]
+  },
+  {
+    "frame": 150,
+    "time_sec": 5.0,
+    "id": 17,
+    "class": "Mixer",
+    "confidence": 0.46,
+    "bbox": [
+      449.31,
+      461.6,
+      122.67,
+      66.71
+    ]
+  },
+  {
+    "frame": 150,
+    "time_sec": 5.0,
+    "id": 18,
+    "class": "Crane manipulator",
+    "confidence": 0.42,
+    "bbox": [
+      618.4,
+      525.62,
+      94.78,
+      104.19
+    ]
+  },
+  {
+    "frame": 150,
+    "time_sec": 5.0,
+    "id": 20,
+    "class": "Mixer",
+    "confidence": 0.9,
+    "bbox": [
+      490.22,
+      817.95,
+      450.86,
+      191.16
+    ]
+  },
+  {
+    "frame": 151,
+    "time_sec": 5.033,
+    "id": 17,
+    "class": "Mixer",
+    "confidence": 0.55,
+    "bbox": [
+      460.78,
+      461.52,
+      119.2,
+      66.12
+    ]
+  },
+  {
+    "frame": 151,
+    "time_sec": 5.033,
+    "id": 20,
+    "class": "Mixer",
+    "confidence": 0.87,
+    "bbox": [
+      486.53,
+      817.62,
+      447.79,
+      190.1
+    ]
+  },
+  {
+    "frame": 152,
+    "time_sec": 5.067,
+    "id": 17,
+    "class": "Mixer",
+    "confidence": 0.55,
+    "bbox": [
+      465.13,
+      461.48,
+      116.64,
+      65.9
+    ]
+  },
+  {
+    "frame": 152,
+    "time_sec": 5.067,
+    "id": 20,
+    "class": "Mixer",
+    "confidence": 0.87,
+    "bbox": [
+      484.99,
+      817.55,
+      446.23,
+      189.71
+    ]
+  },
+  {
+    "frame": 153,
+    "time_sec": 5.1,
+    "id": 17,
+    "class": "Mixer",
+    "confidence": 0.51,
+    "bbox": [
+      464.6,
+      461.47,
+      115.6,
+      66.06
+    ]
+  },
+  {
+    "frame": 153,
+    "time_sec": 5.1,
+    "id": 20,
+    "class": "Mixer",
+    "confidence": 0.84,
+    "bbox": [
+      487.47,
+      817.14,
+      445.63,
+      189.39
+    ]
+  },
+  {
+    "frame": 153,
+    "time_sec": 5.1,
+    "id": 18,
+    "class": "Tanker",
+    "confidence": 0.56,
+    "bbox": [
+      611.63,
+      536.91,
+      96.7,
+      105.9
+    ]
+  },
+  {
+    "frame": 154,
+    "time_sec": 5.133,
+    "id": 17,
+    "class": "Mixer",
+    "confidence": 0.48,
+    "bbox": [
+      466.39,
+      461.49,
+      113.87,
+      66.09
+    ]
+  },
+  {
+    "frame": 154,
+    "time_sec": 5.133,
+    "id": 20,
+    "class": "Mixer",
+    "confidence": 0.69,
+    "bbox": [
+      489.96,
+      817.03,
+      453.4,
+      192.84
+    ]
+  },
+  {
+    "frame": 155,
+    "time_sec": 5.167,
+    "id": 20,
+    "class": "Mixer",
+    "confidence": 0.87,
+    "bbox": [
+      484.15,
+      808.86,
+      471.69,
+      208.13
+    ]
+  },
+  {
+    "frame": 156,
+    "time_sec": 5.2,
+    "id": 20,
+    "class": "Mixer",
+    "confidence": 0.89,
+    "bbox": [
+      485.95,
+      808.72,
+      468.09,
+      206.68
+    ]
+  },
+  {
+    "frame": 156,
+    "time_sec": 5.2,
+    "id": 22,
+    "class": "Mixer",
+    "confidence": 0.86,
+    "bbox": [
+      507.67,
+      648.81,
+      138.35,
+      155.28
+    ]
+  },
+  {
+    "frame": 157,
+    "time_sec": 5.233,
+    "id": 20,
+    "class": "Mixer",
+    "confidence": 0.89,
+    "bbox": [
+      486.99,
+      808.67,
+      466.02,
+      206.05
+    ]
+  },
+  {
+    "frame": 157,
+    "time_sec": 5.233,
+    "id": 22,
+    "class": "Mixer",
+    "confidence": 0.86,
+    "bbox": [
+      507.35,
+      649.03,
+      137.86,
+      154.73
+    ]
+  },
+  {
+    "frame": 157,
+    "time_sec": 5.233,
+    "id": 23,
+    "class": "Mixer",
+    "confidence": 0.62,
+    "bbox": [
+      333.71,
+      608.65,
+      211.76,
+      111.73
+    ]
+  },
+  {
+    "frame": 158,
+    "time_sec": 5.267,
+    "id": 20,
+    "class": "Mixer",
+    "confidence": 0.86,
+    "bbox": [
+      486.1,
+      807.63,
+      467.8,
+      207.68
+    ]
+  },
+  {
+    "frame": 158,
+    "time_sec": 5.267,
+    "id": 22,
+    "class": "Mixer",
+    "confidence": 0.83,
+    "bbox": [
+      506.81,
+      650.06,
+      139.16,
+      156.22
+    ]
+  },
+  {
+    "frame": 159,
+    "time_sec": 5.3,
+    "id": 20,
+    "class": "Mixer",
+    "confidence": 0.88,
+    "bbox": [
+      489.53,
+      810.22,
+      460.95,
+      202.42
+    ]
+  },
+  {
+    "frame": 159,
+    "time_sec": 5.3,
+    "id": 22,
+    "class": "Mixer",
+    "confidence": 0.87,
+    "bbox": [
+      507.08,
+      649.04,
+      137.45,
+      154.25
+    ]
+  },
+  {
+    "frame": 159,
+    "time_sec": 5.3,
+    "id": 23,
+    "class": "Mixer",
+    "confidence": 0.54,
+    "bbox": [
+      333.28,
+      609.03,
+      210.62,
+      111.05
+    ]
+  },
+  {
+    "frame": 160,
+    "time_sec": 5.333,
+    "id": 20,
+    "class": "Mixer",
+    "confidence": 0.85,
+    "bbox": [
+      487.2,
+      811.1,
+      461.41,
+      201.39
+    ]
+  },
+  {
+    "frame": 160,
+    "time_sec": 5.333,
+    "id": 22,
+    "class": "Mixer",
+    "confidence": 0.87,
+    "bbox": [
+      507.3,
+      648.7,
+      136.81,
+      153.46
+    ]
+  },
+  {
+    "frame": 160,
+    "time_sec": 5.333,
+    "id": 23,
+    "class": "Mixer",
+    "confidence": 0.46,
+    "bbox": [
+      332.24,
+      609.3,
+      210.51,
+      110.89
+    ]
+  },
+  {
+    "frame": 161,
+    "time_sec": 5.367,
+    "id": 20,
+    "class": "Mixer",
+    "confidence": 0.88,
+    "bbox": [
+      489.93,
+      812.55,
+      455.74,
+      199.12
+    ]
+  },
+  {
+    "frame": 161,
+    "time_sec": 5.367,
+    "id": 22,
+    "class": "Mixer",
+    "confidence": 0.86,
+    "bbox": [
+      507.59,
+      648.75,
+      137.2,
+      153.86
+    ]
+  },
+  {
+    "frame": 161,
+    "time_sec": 5.367,
+    "id": 17,
+    "class": "Mixer",
+    "confidence": 0.51,
+    "bbox": [
+      477.57,
+      460.57,
+      105.39,
+      64.01
+    ]
+  },
+  {
+    "frame": 162,
+    "time_sec": 5.4,
+    "id": 20,
+    "class": "Mixer",
+    "confidence": 0.88,
+    "bbox": [
+      490.97,
+      813.1,
+      453.35,
+      198.27
+    ]
+  },
+  {
+    "frame": 162,
+    "time_sec": 5.4,
+    "id": 22,
+    "class": "Mixer",
+    "confidence": 0.86,
+    "bbox": [
+      507.69,
+      648.77,
+      137.39,
+      154.02
+    ]
+  },
+  {
+    "frame": 162,
+    "time_sec": 5.4,
+    "id": 24,
+    "class": "Excavator",
+    "confidence": 0.42,
+    "bbox": [
+      265.46,
+      463.42,
+      74.01,
+      45.97
+    ]
+  },
+  {
+    "frame": 162,
+    "time_sec": 5.4,
+    "id": 17,
+    "class": "Mixer",
+    "confidence": 0.51,
+    "bbox": [
+      478.15,
+      460.51,
+      101.25,
+      63.87
+    ]
+  },
+  {
+    "frame": 163,
+    "time_sec": 5.433,
+    "id": 20,
+    "class": "Mixer",
+    "confidence": 0.88,
+    "bbox": [
+      490.75,
+      811.95,
+      458.28,
+      200.9
+    ]
+  },
+  {
+    "frame": 163,
+    "time_sec": 5.433,
+    "id": 22,
+    "class": "Mixer",
+    "confidence": 0.9,
+    "bbox": [
+      507.62,
+      649.04,
+      137.84,
+      154.64
+    ]
+  },
+  {
+    "frame": 164,
+    "time_sec": 5.467,
+    "id": 20,
+    "class": "Mixer",
+    "confidence": 0.72,
+    "bbox": [
+      490.21,
+      812.66,
+      453.61,
+      198.89
+    ]
+  },
+  {
+    "frame": 164,
+    "time_sec": 5.467,
+    "id": 22,
+    "class": "Mixer",
+    "confidence": 0.89,
+    "bbox": [
+      508.04,
+      648.66,
+      137.36,
+      154.07
+    ]
+  },
+  {
+    "frame": 164,
+    "time_sec": 5.467,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.58,
+    "bbox": [
+      102.98,
+      634.98,
+      203.58,
+      130.72
+    ]
+  },
+  {
+    "frame": 165,
+    "time_sec": 5.5,
+    "id": 22,
+    "class": "Mixer",
+    "confidence": 0.82,
+    "bbox": [
+      527.77,
+      631.2,
+      172.05,
+      192.56
+    ]
+  },
+  {
+    "frame": 165,
+    "time_sec": 5.5,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.59,
+    "bbox": [
+      103.18,
+      634.98,
+      204.18,
+      131.1
+    ]
+  },
+  {
+    "frame": 166,
+    "time_sec": 5.533,
+    "id": 22,
+    "class": "Mixer",
+    "confidence": 0.87,
+    "bbox": [
+      517.31,
+      640.78,
+      152.6,
+      171.33
+    ]
+  },
+  {
+    "frame": 166,
+    "time_sec": 5.533,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.67,
+    "bbox": [
+      102.98,
+      634.85,
+      203.91,
+      130.93
+    ]
+  },
+  {
+    "frame": 166,
+    "time_sec": 5.533,
+    "id": 18,
+    "class": "Tanker",
+    "confidence": 0.46,
+    "bbox": [
+      619.41,
+      539.77,
+      103.57,
+      114.79
+    ]
+  },
+  {
+    "frame": 167,
+    "time_sec": 5.567,
+    "id": 22,
+    "class": "Mixer",
+    "confidence": 0.87,
+    "bbox": [
+      512.09,
+      645.54,
+      142.82,
+      160.81
+    ]
+  },
+  {
+    "frame": 167,
+    "time_sec": 5.567,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.66,
+    "bbox": [
+      102.88,
+      634.8,
+      203.76,
+      130.84
+    ]
+  },
+  {
+    "frame": 167,
+    "time_sec": 5.567,
+    "id": 18,
+    "class": "Tanker",
+    "confidence": 0.46,
+    "bbox": [
+      619.74,
+      539.73,
+      102.95,
+      115.09
+    ]
+  },
+  {
+    "frame": 168,
+    "time_sec": 5.6,
+    "id": 22,
+    "class": "Mixer",
+    "confidence": 0.87,
+    "bbox": [
+      522.3,
+      634.59,
+      136.99,
+      153.37
+    ]
+  },
+  {
+    "frame": 168,
+    "time_sec": 5.6,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.49,
+    "bbox": [
+      102.8,
+      634.81,
+      204.17,
+      131.13
+    ]
+  },
+  {
+    "frame": 168,
+    "time_sec": 5.6,
+    "id": 18,
+    "class": "Mixer",
+    "confidence": 0.74,
+    "bbox": [
+      612.19,
+      535.98,
+      105.98,
+      113.16
+    ]
+  },
+  {
+    "frame": 169,
+    "time_sec": 5.633,
+    "id": 22,
+    "class": "Mixer",
+    "confidence": 0.87,
+    "bbox": [
+      526.31,
+      630.48,
+      135.53,
+      150.83
+    ]
+  },
+  {
+    "frame": 169,
+    "time_sec": 5.633,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.51,
+    "bbox": [
+      102.78,
+      634.73,
+      204.3,
+      131.23
+    ]
+  },
+  {
+    "frame": 169,
+    "time_sec": 5.633,
+    "id": 18,
+    "class": "Mixer",
+    "confidence": 0.78,
+    "bbox": [
+      607.27,
+      534.53,
+      109.78,
+      112.39
+    ]
+  },
+  {
+    "frame": 170,
+    "time_sec": 5.667,
+    "id": 22,
+    "class": "Mixer",
+    "confidence": 0.91,
+    "bbox": [
+      527.99,
+      628.79,
+      136.39,
+      151.04
+    ]
+  },
+  {
+    "frame": 170,
+    "time_sec": 5.667,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.57,
+    "bbox": [
+      102.85,
+      634.68,
+      204.45,
+      131.35
+    ]
+  },
+  {
+    "frame": 170,
+    "time_sec": 5.667,
+    "id": 18,
+    "class": "Mixer",
+    "confidence": 0.82,
+    "bbox": [
+      604.16,
+      533.47,
+      114.6,
+      113.33
+    ]
+  },
+  {
+    "frame": 170,
+    "time_sec": 5.667,
+    "id": 17,
+    "class": "Mixer",
+    "confidence": 0.55,
+    "bbox": [
+      539.37,
+      463.49,
+      114.38,
+      66.23
+    ]
+  },
+  {
+    "frame": 171,
+    "time_sec": 5.7,
+    "id": 22,
+    "class": "Mixer",
+    "confidence": 0.89,
+    "bbox": [
+      528.68,
+      628.49,
+      137.04,
+      151.07
+    ]
+  },
+  {
+    "frame": 171,
+    "time_sec": 5.7,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.71,
+    "bbox": [
+      103.03,
+      634.84,
+      204.52,
+      131.41
+    ]
+  },
+  {
+    "frame": 171,
+    "time_sec": 5.7,
+    "id": 18,
+    "class": "Mixer",
+    "confidence": 0.64,
+    "bbox": [
+      610.15,
+      533.29,
+      115.26,
+      113.21
+    ]
+  },
+  {
+    "frame": 172,
+    "time_sec": 5.733,
+    "id": 22,
+    "class": "Mixer",
+    "confidence": 0.89,
+    "bbox": [
+      528.87,
+      628.47,
+      137.61,
+      151.07
+    ]
+  },
+  {
+    "frame": 172,
+    "time_sec": 5.733,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.71,
+    "bbox": [
+      103.13,
+      634.9,
+      204.58,
+      131.46
+    ]
+  },
+  {
+    "frame": 172,
+    "time_sec": 5.733,
+    "id": 18,
+    "class": "Mixer",
+    "confidence": 0.69,
+    "bbox": [
+      612.47,
+      533.23,
+      115.85,
+      113.1
+    ]
+  },
+  {
+    "frame": 173,
+    "time_sec": 5.767,
+    "id": 22,
+    "class": "Mixer",
+    "confidence": 0.88,
+    "bbox": [
+      528.81,
+      628.63,
+      137.47,
+      150.27
+    ]
+  },
+  {
+    "frame": 173,
+    "time_sec": 5.767,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.57,
+    "bbox": [
+      102.74,
+      634.87,
+      204.38,
+      131.38
+    ]
+  },
+  {
+    "frame": 173,
+    "time_sec": 5.767,
+    "id": 18,
+    "class": "Mixer",
+    "confidence": 0.77,
+    "bbox": [
+      619.49,
+      533.37,
+      113.61,
+      112.29
+    ]
+  },
+  {
+    "frame": 174,
+    "time_sec": 5.8,
+    "id": 22,
+    "class": "Mixer",
+    "confidence": 0.89,
+    "bbox": [
+      528.65,
+      628.65,
+      138.36,
+      150.67
+    ]
+  },
+  {
+    "frame": 174,
+    "time_sec": 5.8,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.6,
+    "bbox": [
+      103.64,
+      635.19,
+      204.5,
+      131.51
+    ]
+  },
+  {
+    "frame": 174,
+    "time_sec": 5.8,
+    "id": 18,
+    "class": "Mixer",
+    "confidence": 0.75,
+    "bbox": [
+      623.12,
+      533.42,
+      111.95,
+      112.14
+    ]
+  },
+  {
+    "frame": 175,
+    "time_sec": 5.833,
+    "id": 22,
+    "class": "Mixer",
+    "confidence": 0.88,
+    "bbox": [
+      528.54,
+      628.9,
+      139.12,
+      150.93
+    ]
+  },
+  {
+    "frame": 175,
+    "time_sec": 5.833,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.61,
+    "bbox": [
+      99.04,
+      636.04,
+      198.09,
+      130.38
+    ]
+  },
+  {
+    "frame": 175,
+    "time_sec": 5.833,
+    "id": 18,
+    "class": "Mixer",
+    "confidence": 0.78,
+    "bbox": [
+      622.47,
+      533.34,
+      111.62,
+      112.38
+    ]
+  },
+  {
+    "frame": 176,
+    "time_sec": 5.867,
+    "id": 22,
+    "class": "Mixer",
+    "confidence": 0.9,
+    "bbox": [
+      528.45,
+      628.99,
+      139.41,
+      150.79
+    ]
+  },
+  {
+    "frame": 176,
+    "time_sec": 5.867,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.54,
+    "bbox": [
+      103.73,
+      636.65,
+      202.07,
+      130.62
+    ]
+  },
+  {
+    "frame": 176,
+    "time_sec": 5.867,
+    "id": 18,
+    "class": "Mixer",
+    "confidence": 0.8,
+    "bbox": [
+      619.27,
+      533.23,
+      111.95,
+      112.51
+    ]
+  },
+  {
+    "frame": 177,
+    "time_sec": 5.9,
+    "id": 22,
+    "class": "Mixer",
+    "confidence": 0.9,
+    "bbox": [
+      528.36,
+      629.06,
+      139.75,
+      150.74
+    ]
+  },
+  {
+    "frame": 177,
+    "time_sec": 5.9,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.55,
+    "bbox": [
+      106.05,
+      636.9,
+      202.77,
+      130.71
+    ]
+  },
+  {
+    "frame": 177,
+    "time_sec": 5.9,
+    "id": 18,
+    "class": "Mixer",
+    "confidence": 0.8,
+    "bbox": [
+      617.97,
+      533.19,
+      112.19,
+      112.55
+    ]
+  },
+  {
+    "frame": 177,
+    "time_sec": 5.9,
+    "id": 26,
+    "class": "Tanker",
+    "confidence": 0.91,
+    "bbox": [
+      160.88,
+      1111.17,
+      321.66,
+      334.95
+    ]
+  },
+  {
+    "frame": 178,
+    "time_sec": 5.933,
+    "id": 22,
+    "class": "Mixer",
+    "confidence": 0.9,
+    "bbox": [
+      528.29,
+      629.09,
+      139.9,
+      150.52
+    ]
+  },
+  {
+    "frame": 178,
+    "time_sec": 5.933,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.6,
+    "bbox": [
+      106.76,
+      636.94,
+      203.5,
+      130.92
+    ]
+  },
+  {
+    "frame": 178,
+    "time_sec": 5.933,
+    "id": 18,
+    "class": "Mixer",
+    "confidence": 0.77,
+    "bbox": [
+      616.21,
+      532.85,
+      113.09,
+      113.17
+    ]
+  },
+  {
+    "frame": 178,
+    "time_sec": 5.933,
+    "id": 26,
+    "class": "Tanker",
+    "confidence": 0.66,
+    "bbox": [
+      163.32,
+      1106.23,
+      326.64,
+      345.25
+    ]
+  },
+  {
+    "frame": 179,
+    "time_sec": 5.967,
+    "id": 22,
+    "class": "Mixer",
+    "confidence": 0.88,
+    "bbox": [
+      528.35,
+      628.79,
+      139.8,
+      150.12
+    ]
+  },
+  {
+    "frame": 179,
+    "time_sec": 5.967,
+    "id": 18,
+    "class": "Mixer",
+    "confidence": 0.76,
+    "bbox": [
+      620.8,
+      533.35,
+      110.87,
+      112.04
+    ]
+  },
+  {
+    "frame": 180,
+    "time_sec": 6.0,
+    "id": 22,
+    "class": "Mixer",
+    "confidence": 0.88,
+    "bbox": [
+      528.53,
+      628.92,
+      139.98,
+      149.84
+    ]
+  },
+  {
+    "frame": 180,
+    "time_sec": 6.0,
+    "id": 18,
+    "class": "Mixer",
+    "confidence": 0.77,
+    "bbox": [
+      620.19,
+      532.54,
+      111.68,
+      113.09
+    ]
+  },
+  {
+    "frame": 180,
+    "time_sec": 6.0,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.62,
+    "bbox": [
+      96.5,
+      637.0,
+      193.0,
+      130.27
+    ]
+  },
+  {
+    "frame": 180,
+    "time_sec": 6.0,
+    "id": 26,
+    "class": "Tanker",
+    "confidence": 0.77,
+    "bbox": [
+      179.61,
+      1085.67,
+      359.21,
+      386.33
+    ]
+  },
+  {
+    "frame": 181,
+    "time_sec": 6.033,
+    "id": 18,
+    "class": "Mixer",
+    "confidence": 0.61,
+    "bbox": [
+      617.79,
+      530.7,
+      110.76,
+      111.27
+    ]
+  },
+  {
+    "frame": 181,
+    "time_sec": 6.033,
+    "id": 26,
+    "class": "Tanker",
+    "confidence": 0.95,
+    "bbox": [
+      197.72,
+      1061.77,
+      395.44,
+      431.82
+    ]
+  },
+  {
+    "frame": 182,
+    "time_sec": 6.067,
+    "id": 18,
+    "class": "Mixer",
+    "confidence": 0.6,
+    "bbox": [
+      617.01,
+      530.02,
+      110.78,
+      110.56
+    ]
+  },
+  {
+    "frame": 182,
+    "time_sec": 6.067,
+    "id": 26,
+    "class": "Tanker",
+    "confidence": 0.95,
+    "bbox": [
+      203.75,
+      1053.36,
+      407.5,
+      447.86
+    ]
+  },
+  {
+    "frame": 182,
+    "time_sec": 6.067,
+    "id": 27,
+    "class": "Mixer",
+    "confidence": 0.56,
+    "bbox": [
+      241.57,
+      115.51,
+      482.73,
+      230.76
+    ]
+  },
+  {
+    "frame": 183,
+    "time_sec": 6.1,
+    "id": 18,
+    "class": "Tanker",
+    "confidence": 0.65,
+    "bbox": [
+      610.65,
+      545.03,
+      125.94,
+      127.43
+    ]
+  },
+  {
+    "frame": 183,
+    "time_sec": 6.1,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.6,
+    "bbox": [
+      92.16,
+      636.76,
+      184.33,
+      130.44
+    ]
+  },
+  {
+    "frame": 184,
+    "time_sec": 6.133,
+    "id": 18,
+    "class": "Mixer",
+    "confidence": 0.9,
+    "bbox": [
+      610.89,
+      543.58,
+      124.05,
+      125.25
+    ]
+  },
+  {
+    "frame": 184,
+    "time_sec": 6.133,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.7,
+    "bbox": [
+      91.89,
+      637.54,
+      183.77,
+      132.76
+    ]
+  },
+  {
+    "frame": 185,
+    "time_sec": 6.167,
+    "id": 18,
+    "class": "Mixer",
+    "confidence": 0.9,
+    "bbox": [
+      610.77,
+      542.94,
+      122.83,
+      123.71
+    ]
+  },
+  {
+    "frame": 185,
+    "time_sec": 6.167,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.63,
+    "bbox": [
+      90.63,
+      637.34,
+      181.25,
+      132.01
+    ]
+  },
+  {
+    "frame": 186,
+    "time_sec": 6.2,
+    "id": 18,
+    "class": "Mixer",
+    "confidence": 0.91,
+    "bbox": [
+      611.01,
+      542.84,
+      122.14,
+      122.77
+    ]
+  },
+  {
+    "frame": 186,
+    "time_sec": 6.2,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.67,
+    "bbox": [
+      90.06,
+      636.78,
+      180.13,
+      131.19
+    ]
+  },
+  {
+    "frame": 187,
+    "time_sec": 6.233,
+    "id": 18,
+    "class": "Mixer",
+    "confidence": 0.91,
+    "bbox": [
+      611.15,
+      542.76,
+      121.97,
+      122.37
+    ]
+  },
+  {
+    "frame": 187,
+    "time_sec": 6.233,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.69,
+    "bbox": [
+      89.6,
+      636.55,
+      179.2,
+      131.07
+    ]
+  },
+  {
+    "frame": 188,
+    "time_sec": 6.267,
+    "id": 18,
+    "class": "Mixer",
+    "confidence": 0.91,
+    "bbox": [
+      611.34,
+      542.88,
+      121.95,
+      122.12
+    ]
+  },
+  {
+    "frame": 188,
+    "time_sec": 6.267,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.74,
+    "bbox": [
+      88.97,
+      636.56,
+      177.95,
+      131.35
+    ]
+  },
+  {
+    "frame": 189,
+    "time_sec": 6.3,
+    "id": 18,
+    "class": "Mixer",
+    "confidence": 0.91,
+    "bbox": [
+      611.52,
+      543.08,
+      122.0,
+      121.94
+    ]
+  },
+  {
+    "frame": 189,
+    "time_sec": 6.3,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.7,
+    "bbox": [
+      88.68,
+      636.61,
+      177.35,
+      131.52
+    ]
+  },
+  {
+    "frame": 190,
+    "time_sec": 6.333,
+    "id": 18,
+    "class": "Mixer",
+    "confidence": 0.91,
+    "bbox": [
+      611.64,
+      543.03,
+      122.32,
+      122.09
+    ]
+  },
+  {
+    "frame": 190,
+    "time_sec": 6.333,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.67,
+    "bbox": [
+      88.21,
+      636.44,
+      176.41,
+      131.03
+    ]
+  },
+  {
+    "frame": 191,
+    "time_sec": 6.367,
+    "id": 18,
+    "class": "Mixer",
+    "confidence": 0.89,
+    "bbox": [
+      611.71,
+      543.25,
+      122.68,
+      122.47
+    ]
+  },
+  {
+    "frame": 191,
+    "time_sec": 6.367,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.62,
+    "bbox": [
+      88.2,
+      636.63,
+      176.39,
+      131.45
+    ]
+  },
+  {
+    "frame": 192,
+    "time_sec": 6.4,
+    "id": 18,
+    "class": "Mixer",
+    "confidence": 0.89,
+    "bbox": [
+      611.75,
+      543.31,
+      122.8,
+      122.61
+    ]
+  },
+  {
+    "frame": 192,
+    "time_sec": 6.4,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.63,
+    "bbox": [
+      88.01,
+      636.69,
+      176.03,
+      131.6
+    ]
+  },
+  {
+    "frame": 193,
+    "time_sec": 6.433,
+    "id": 18,
+    "class": "Tanker",
+    "confidence": 0.59,
+    "bbox": [
+      606.25,
+      548.56,
+      124.07,
+      123.68
+    ]
+  },
+  {
+    "frame": 193,
+    "time_sec": 6.433,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.65,
+    "bbox": [
+      87.08,
+      636.35,
+      174.16,
+      130.56
+    ]
+  },
+  {
+    "frame": 194,
+    "time_sec": 6.467,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.58,
+    "bbox": [
+      86.31,
+      636.52,
+      172.62,
+      130.1
+    ]
+  },
+  {
+    "frame": 195,
+    "time_sec": 6.5,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.58,
+    "bbox": [
+      85.94,
+      636.53,
+      171.88,
+      130.27
+    ]
+  },
+  {
+    "frame": 196,
+    "time_sec": 6.533,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.5,
+    "bbox": [
+      86.37,
+      637.36,
+      172.74,
+      132.18
+    ]
+  },
+  {
+    "frame": 197,
+    "time_sec": 6.567,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.49,
+    "bbox": [
+      86.38,
+      637.67,
+      172.77,
+      132.89
+    ]
+  },
+  {
+    "frame": 198,
+    "time_sec": 6.6,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.74,
+    "bbox": [
+      86.72,
+      636.66,
+      172.25,
+      130.34
+    ]
+  },
+  {
+    "frame": 199,
+    "time_sec": 6.633,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.67,
+    "bbox": [
+      86.46,
+      637.53,
+      172.91,
+      131.82
+    ]
+  },
+  {
+    "frame": 200,
+    "time_sec": 6.667,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.83,
+    "bbox": [
+      86.34,
+      637.38,
+      172.68,
+      131.57
+    ]
+  },
+  {
+    "frame": 201,
+    "time_sec": 6.7,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.82,
+    "bbox": [
+      86.19,
+      637.15,
+      172.38,
+      131.37
+    ]
+  },
+  {
+    "frame": 202,
+    "time_sec": 6.733,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.82,
+    "bbox": [
+      86.11,
+      637.06,
+      172.21,
+      131.29
+    ]
+  },
+  {
+    "frame": 203,
+    "time_sec": 6.767,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.82,
+    "bbox": [
+      85.85,
+      636.94,
+      171.71,
+      131.1
+    ]
+  },
+  {
+    "frame": 204,
+    "time_sec": 6.8,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.81,
+    "bbox": [
+      86.11,
+      636.95,
+      171.52,
+      130.89
+    ]
+  },
+  {
+    "frame": 205,
+    "time_sec": 6.833,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.84,
+    "bbox": [
+      86.59,
+      636.91,
+      171.47,
+      130.84
+    ]
+  },
+  {
+    "frame": 206,
+    "time_sec": 6.867,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.83,
+    "bbox": [
+      87.26,
+      636.72,
+      171.51,
+      131.08
+    ]
+  },
+  {
+    "frame": 207,
+    "time_sec": 6.9,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.83,
+    "bbox": [
+      87.49,
+      636.67,
+      171.49,
+      131.28
+    ]
+  },
+  {
+    "frame": 208,
+    "time_sec": 6.933,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.82,
+    "bbox": [
+      87.36,
+      637.2,
+      172.46,
+      132.29
+    ]
+  },
+  {
+    "frame": 209,
+    "time_sec": 6.967,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.79,
+    "bbox": [
+      87.29,
+      637.47,
+      172.37,
+      132.48
+    ]
+  },
+  {
+    "frame": 210,
+    "time_sec": 7.0,
+    "id": 25,
+    "class": "Mixer",
+    "confidence": 0.81,
+    "bbox": [
+      87.41,
+      637.4,
+      171.84,
+      132.24
+    ]
+  },
+  {
+    "frame": 229,
+    "time_sec": 7.633,
+    "id": 30,
+    "class": "Mixer",
+    "confidence": 0.63,
+    "bbox": [
+      661.42,
+      481.0,
+      109.15,
+      91.48
+    ]
+  },
+  {
+    "frame": 230,
+    "time_sec": 7.667,
+    "id": 30,
+    "class": "Mixer",
+    "confidence": 0.61,
+    "bbox": [
+      662.37,
+      480.98,
+      108.97,
+      91.28
+    ]
+  },
+  {
+    "frame": 231,
+    "time_sec": 7.7,
+    "id": 30,
+    "class": "Mixer",
+    "confidence": 0.6,
+    "bbox": [
+      662.9,
+      481.33,
+      108.41,
+      90.73
+    ]
+  },
+  {
+    "frame": 232,
+    "time_sec": 7.733,
+    "id": 30,
+    "class": "Mixer",
+    "confidence": 0.61,
+    "bbox": [
+      663.11,
+      481.45,
+      108.42,
+      90.65
+    ]
+  },
+  {
+    "frame": 233,
+    "time_sec": 7.767,
+    "id": 30,
+    "class": "Mixer",
+    "confidence": 0.58,
+    "bbox": [
+      662.88,
+      481.51,
+      109.62,
+      91.5
+    ]
+  },
+  {
+    "frame": 234,
+    "time_sec": 7.8,
+    "id": 30,
+    "class": "Mixer",
+    "confidence": 0.52,
+    "bbox": [
+      661.9,
+      481.51,
+      110.02,
+      91.54
+    ]
+  },
+  {
+    "frame": 235,
+    "time_sec": 7.833,
+    "id": 30,
+    "class": "Mixer",
+    "confidence": 0.52,
+    "bbox": [
+      661.29,
+      481.47,
+      110.86,
+      91.92
+    ]
+  },
+  {
+    "frame": 236,
+    "time_sec": 7.867,
+    "id": 30,
+    "class": "Mixer",
+    "confidence": 0.52,
+    "bbox": [
+      660.48,
+      481.45,
+      111.61,
+      92.08
+    ]
+  },
+  {
+    "frame": 237,
+    "time_sec": 7.9,
+    "id": 30,
+    "class": "Mixer",
+    "confidence": 0.53,
+    "bbox": [
+      660.19,
+      481.44,
+      112.22,
+      92.13
+    ]
+  },
+  {
+    "frame": 238,
+    "time_sec": 7.933,
+    "id": 30,
+    "class": "Mixer",
+    "confidence": 0.52,
+    "bbox": [
+      660.1,
+      481.51,
+      112.73,
+      92.11
+    ]
+  },
+  {
+    "frame": 239,
+    "time_sec": 7.967,
+    "id": 30,
+    "class": "Mixer",
+    "confidence": 0.51,
+    "bbox": [
+      660.02,
+      481.66,
+      113.27,
+      92.13
+    ]
+  },
+  {
+    "frame": 241,
+    "time_sec": 8.033,
+    "id": 31,
+    "class": "Excavator",
+    "confidence": 0.88,
+    "bbox": [
+      403.52,
+      521.05,
+      230.86,
+      269.08
+    ]
+  },
+  {
+    "frame": 242,
+    "time_sec": 8.067,
+    "id": 31,
+    "class": "Excavator",
+    "confidence": 0.88,
+    "bbox": [
+      403.06,
+      521.74,
+      228.3,
+      265.82
+    ]
+  },
+  {
+    "frame": 244,
+    "time_sec": 8.133,
+    "id": 33,
+    "class": "Forklift Giraffe",
+    "confidence": 0.55,
+    "bbox": [
+      507.99,
+      660.08,
+      230.47,
+      256.84
+    ]
+  },
+  {
+    "frame": 245,
+    "time_sec": 8.167,
+    "id": 33,
+    "class": "Forklift Giraffe",
+    "confidence": 0.4,
+    "bbox": [
+      509.01,
+      659.71,
+      230.97,
+      257.2
+    ]
+  },
+  {
+    "frame": 246,
+    "time_sec": 8.2,
+    "id": 33,
+    "class": "Forklift Giraffe",
+    "confidence": 0.52,
+    "bbox": [
+      508.57,
+      660.26,
+      229.69,
+      255.41
+    ]
+  },
+  {
+    "frame": 246,
+    "time_sec": 8.2,
+    "id": 34,
+    "class": "Bucket loader Standart",
+    "confidence": 0.71,
+    "bbox": [
+      243.62,
+      1052.22,
+      181.47,
+      288.52
+    ]
+  },
+  {
+    "frame": 247,
+    "time_sec": 8.233,
+    "id": 33,
+    "class": "Forklift Giraffe",
+    "confidence": 0.53,
+    "bbox": [
+      508.4,
+      660.44,
+      229.61,
+      254.87
+    ]
+  },
+  {
+    "frame": 247,
+    "time_sec": 8.233,
+    "id": 34,
+    "class": "Bucket loader Standart",
+    "confidence": 0.71,
+    "bbox": [
+      243.64,
+      1052.3,
+      181.28,
+      288.23
+    ]
+  },
+  {
+    "frame": 251,
+    "time_sec": 8.367,
+    "id": 31,
+    "class": "Excavator",
+    "confidence": 0.53,
+    "bbox": [
+      390.25,
+      564.63,
+      153.99,
+      171.94
+    ]
+  },
+  {
+    "frame": 252,
+    "time_sec": 8.4,
+    "id": 31,
+    "class": "Excavator",
+    "confidence": 0.55,
+    "bbox": [
+      389.99,
+      565.65,
+      157.43,
+      169.55
+    ]
+  },
+  {
+    "frame": 253,
+    "time_sec": 8.433,
+    "id": 31,
+    "class": "Excavator",
+    "confidence": 0.73,
+    "bbox": [
+      392.12,
+      556.91,
+      179.56,
+      190.09
+    ]
+  },
+  {
+    "frame": 254,
+    "time_sec": 8.467,
+    "id": 31,
+    "class": "Excavator",
+    "confidence": 0.79,
+    "bbox": [
+      395.54,
+      551.11,
+      199.84,
+      209.59
+    ]
+  },
+  {
+    "frame": 254,
+    "time_sec": 8.467,
+    "id": 30,
+    "class": "Excavator",
+    "confidence": 0.72,
+    "bbox": [
+      617.77,
+      448.62,
+      204.46,
+      212.64
+    ]
+  },
+  {
+    "frame": 255,
+    "time_sec": 8.5,
+    "id": 31,
+    "class": "Excavator",
+    "confidence": 0.76,
+    "bbox": [
+      397.38,
+      547.78,
+      207.36,
+      215.52
+    ]
+  },
+  {
+    "frame": 255,
+    "time_sec": 8.5,
+    "id": 30,
+    "class": "Excavator",
+    "confidence": 0.63,
+    "bbox": [
+      622.67,
+      449.26,
+      194.65,
+      210.77
+    ]
+  },
+  {
+    "frame": 256,
+    "time_sec": 8.533,
+    "id": 31,
+    "class": "Excavator",
+    "confidence": 0.8,
+    "bbox": [
+      401.78,
+      550.2,
+      217.05,
+      223.44
+    ]
+  },
+  {
+    "frame": 256,
+    "time_sec": 8.533,
+    "id": 30,
+    "class": "Excavator",
+    "confidence": 0.8,
+    "bbox": [
+      621.74,
+      447.44,
+      196.53,
+      201.51
+    ]
+  },
+  {
+    "frame": 257,
+    "time_sec": 8.567,
+    "id": 31,
+    "class": "Excavator",
+    "confidence": 0.79,
+    "bbox": [
+      403.41,
+      551.18,
+      221.85,
+      226.46
+    ]
+  },
+  {
+    "frame": 257,
+    "time_sec": 8.567,
+    "id": 30,
+    "class": "Excavator",
+    "confidence": 0.81,
+    "bbox": [
+      621.83,
+      446.73,
+      196.33,
+      197.19
+    ]
+  },
+  {
+    "frame": 258,
+    "time_sec": 8.6,
+    "id": 30,
+    "class": "Excavator",
+    "confidence": 0.79,
+    "bbox": [
+      620.94,
+      442.36,
+      198.12,
+      189.91
+    ]
+  },
+  {
+    "frame": 259,
+    "time_sec": 8.633,
+    "id": 30,
+    "class": "Excavator",
+    "confidence": 0.88,
+    "bbox": [
+      626.94,
+      439.57,
+      186.11,
+      180.12
+    ]
+  },
+  {
+    "frame": 260,
+    "time_sec": 8.667,
+    "id": 30,
+    "class": "Excavator",
+    "confidence": 0.89,
+    "bbox": [
+      634.37,
+      438.23,
+      171.26,
+      174.38
+    ]
+  },
+  {
+    "frame": 260,
+    "time_sec": 8.667,
+    "id": 31,
+    "class": "Excavator",
+    "confidence": 0.47,
+    "bbox": [
+      385.06,
+      556.52,
+      206.94,
+      212.38
+    ]
+  },
+  {
+    "frame": 261,
+    "time_sec": 8.7,
+    "id": 30,
+    "class": "Excavator",
+    "confidence": 0.85,
+    "bbox": [
+      638.06,
+      447.21,
+      158.63,
+      151.92
+    ]
+  },
+  {
+    "frame": 261,
+    "time_sec": 8.7,
+    "id": 31,
+    "class": "Excavator",
+    "confidence": 0.69,
+    "bbox": [
+      384.87,
+      550.04,
+      226.33,
+      235.67
+    ]
+  },
+  {
+    "frame": 262,
+    "time_sec": 8.733,
+    "id": 30,
+    "class": "Excavator",
+    "confidence": 0.85,
+    "bbox": [
+      638.03,
+      450.8,
+      151.11,
+      142.92
+    ]
+  },
+  {
+    "frame": 262,
+    "time_sec": 8.733,
+    "id": 31,
+    "class": "Excavator",
+    "confidence": 0.7,
+    "bbox": [
+      384.78,
+      547.95,
+      230.14,
+      242.73
+    ]
+  },
+  {
+    "frame": 263,
+    "time_sec": 8.767,
+    "id": 30,
+    "class": "Excavator",
+    "confidence": 0.81,
+    "bbox": [
+      638.35,
+      456.05,
+      142.59,
+      132.08
+    ]
+  },
+  {
+    "frame": 264,
+    "time_sec": 8.8,
+    "id": 30,
+    "class": "Excavator",
+    "confidence": 0.89,
+    "bbox": [
+      637.77,
+      456.99,
+      143.17,
+      130.45
+    ]
+  },
+  {
+    "frame": 264,
+    "time_sec": 8.8,
+    "id": 36,
+    "class": "Excavator",
+    "confidence": 0.63,
+    "bbox": [
+      200.87,
+      782.23,
+      366.72,
+      336.94
+    ]
+  },
+  {
+    "frame": 265,
+    "time_sec": 8.833,
+    "id": 30,
+    "class": "Excavator",
+    "confidence": 0.8,
+    "bbox": [
+      637.43,
+      459.55,
+      140.1,
+      124.88
+    ]
+  },
+  {
+    "frame": 265,
+    "time_sec": 8.833,
+    "id": 36,
+    "class": "Excavator",
+    "confidence": 0.67,
+    "bbox": [
+      200.03,
+      784.84,
+      361.51,
+      331.85
+    ]
+  },
+  {
+    "frame": 266,
+    "time_sec": 8.867,
+    "id": 30,
+    "class": "Excavator",
+    "confidence": 0.83,
+    "bbox": [
+      637.25,
+      460.59,
+      140.09,
+      122.44
+    ]
+  },
+  {
+    "frame": 266,
+    "time_sec": 8.867,
+    "id": 36,
+    "class": "Excavator",
+    "confidence": 0.7,
+    "bbox": [
+      201.35,
+      785.64,
+      359.42,
+      329.4
+    ]
+  },
+  {
+    "frame": 267,
+    "time_sec": 8.9,
+    "id": 30,
+    "class": "Excavator",
+    "confidence": 0.83,
+    "bbox": [
+      637.11,
+      460.91,
+      141.66,
+      121.68
+    ]
+  },
+  {
+    "frame": 267,
+    "time_sec": 8.9,
+    "id": 36,
+    "class": "Excavator",
+    "confidence": 0.68,
+    "bbox": [
+      201.68,
+      785.8,
+      359.67,
+      328.95
+    ]
+  },
+  {
+    "frame": 268,
+    "time_sec": 8.933,
+    "id": 30,
+    "class": "Excavator",
+    "confidence": 0.84,
+    "bbox": [
+      638.16,
+      460.3,
+      145.24,
+      123.45
+    ]
+  },
+  {
+    "frame": 269,
+    "time_sec": 8.967,
+    "id": 30,
+    "class": "Excavator",
+    "confidence": 0.64,
+    "bbox": [
+      643.68,
+      457.33,
+      152.65,
+      130.77
+    ]
+  },
+  {
+    "frame": 270,
+    "time_sec": 9.0,
+    "id": 30,
+    "class": "Excavator",
+    "confidence": 0.85,
+    "bbox": [
+      645.45,
+      454.81,
+      149.1,
+      135.96
+    ]
+  },
+  {
+    "frame": 270,
+    "time_sec": 9.0,
+    "id": 36,
+    "class": "Excavator",
+    "confidence": 0.46,
+    "bbox": [
+      219.49,
+      796.5,
+      343.61,
+      312.19
+    ]
+  },
+  {
+    "frame": 271,
+    "time_sec": 9.033,
+    "id": 30,
+    "class": "Excavator",
+    "confidence": 0.86,
+    "bbox": [
+      646.21,
+      453.47,
+      147.58,
+      138.46
+    ]
+  },
+  {
+    "frame": 271,
+    "time_sec": 9.033,
+    "id": 36,
+    "class": "Excavator",
+    "confidence": 0.44,
+    "bbox": [
+      239.91,
+      804.25,
+      333.02,
+      296.45
+    ]
+  },
+  {
+    "frame": 272,
+    "time_sec": 9.067,
+    "id": 30,
+    "class": "Excavator",
+    "confidence": 0.87,
+    "bbox": [
+      646.74,
+      452.97,
+      146.52,
+      139.42
+    ]
+  },
+  {
+    "frame": 272,
+    "time_sec": 9.067,
+    "id": 36,
+    "class": "Excavator",
+    "confidence": 0.45,
+    "bbox": [
+      246.46,
+      806.76,
+      334.03,
+      291.52
+    ]
+  },
+  {
+    "frame": 273,
+    "time_sec": 9.1,
+    "id": 30,
+    "class": "Excavator",
+    "confidence": 0.59,
+    "bbox": [
+      631.73,
+      468.09,
+      176.54,
+      172.16
+    ]
+  },
+  {
+    "frame": 274,
+    "time_sec": 9.133,
+    "id": 30,
+    "class": "Excavator",
+    "confidence": 0.7,
+    "bbox": [
+      626.58,
+      473.99,
+      186.83,
+      184.5
+    ]
+  },
+  {
+    "frame": 275,
+    "time_sec": 9.167,
+    "id": 30,
+    "class": "Excavator",
+    "confidence": 0.66,
+    "bbox": [
+      624.19,
+      478.22,
+      191.62,
+      192.96
+    ]
+  },
+  {
+    "frame": 275,
+    "time_sec": 9.167,
+    "id": 36,
+    "class": "Excavator",
+    "confidence": 0.49,
+    "bbox": [
+      244.9,
+      808.5,
+      338.93,
+      289.81
+    ]
+  },
+  {
+    "frame": 276,
+    "time_sec": 9.2,
+    "id": 36,
+    "class": "Excavator",
+    "confidence": 0.71,
+    "bbox": [
+      240.96,
+      805.18,
+      365.31,
+      310.2
+    ]
+  },
+  {
+    "frame": 277,
+    "time_sec": 9.233,
+    "id": 36,
+    "class": "Excavator",
+    "confidence": 0.71,
+    "bbox": [
+      239.75,
+      804.09,
+      375.81,
+      317.13
+    ]
+  },
+  {
+    "frame": 278,
+    "time_sec": 9.267,
+    "id": 36,
+    "class": "Excavator",
+    "confidence": 0.73,
+    "bbox": [
+      239.34,
+      810.33,
+      359.89,
+      298.8
+    ]
+  },
+  {
+    "frame": 278,
+    "time_sec": 9.267,
+    "id": 30,
+    "class": "Excavator",
+    "confidence": 0.58,
+    "bbox": [
+      626.54,
+      475.53,
+      186.93,
+      184.22
+    ]
+  },
+  {
+    "frame": 279,
+    "time_sec": 9.3,
+    "id": 36,
+    "class": "Excavator",
+    "confidence": 0.68,
+    "bbox": [
+      236.68,
+      810.01,
+      356.83,
+      292.65
+    ]
+  },
+  {
+    "frame": 279,
+    "time_sec": 9.3,
+    "id": 30,
+    "class": "Excavator",
+    "confidence": 0.69,
+    "bbox": [
+      626.3,
+      477.26,
+      187.4,
+      186.83
+    ]
+  },
+  {
+    "frame": 280,
+    "time_sec": 9.333,
+    "id": 30,
+    "class": "Excavator",
+    "confidence": 0.67,
+    "bbox": [
+      627.17,
+      476.37,
+      185.66,
+      184.68
+    ]
+  },
+  {
+    "frame": 281,
+    "time_sec": 9.367,
+    "id": 30,
+    "class": "Crane manipulator",
+    "confidence": 0.44,
+    "bbox": [
+      622.71,
+      484.32,
+      194.58,
+      206.2
+    ]
+  },
+  {
+    "frame": 282,
+    "time_sec": 9.4,
+    "id": 30,
+    "class": "Crane manipulator",
+    "confidence": 0.43,
+    "bbox": [
+      621.8,
+      487.23,
+      196.41,
+      213.94
+    ]
+  },
+  {
+    "frame": 285,
+    "time_sec": 9.5,
+    "id": 30,
+    "class": "Excavator",
+    "confidence": 0.67,
+    "bbox": [
+      597.58,
+      481.34,
+      207.78,
+      223.54
+    ]
+  },
+  {
+    "frame": 286,
+    "time_sec": 9.533,
+    "id": 30,
+    "class": "Excavator",
+    "confidence": 0.56,
+    "bbox": [
+      598.14,
+      480.16,
+      198.13,
+      224.79
+    ]
+  },
+  {
+    "frame": 287,
+    "time_sec": 9.567,
+    "id": 30,
+    "class": "Excavator",
+    "confidence": 0.58,
+    "bbox": [
+      598.12,
+      479.75,
+      189.05,
+      225.15
+    ]
+  },
+  {
+    "frame": 288,
+    "time_sec": 9.6,
+    "id": 30,
+    "class": "Excavator",
+    "confidence": 0.78,
+    "bbox": [
+      601.6,
+      482.71,
+      176.0,
+      215.95
+    ]
+  },
+  {
+    "frame": 293,
+    "time_sec": 9.767,
+    "id": 36,
+    "class": "Excavator",
+    "confidence": 0.8,
+    "bbox": [
+      164.74,
+      809.8,
+      329.47,
+      289.65
+    ]
+  },
+  {
+    "frame": 294,
+    "time_sec": 9.8,
+    "id": 36,
+    "class": "Excavator",
+    "confidence": 0.86,
+    "bbox": [
+      161.02,
+      810.76,
+      322.04,
+      286.26
+    ]
+  },
+  {
+    "frame": 295,
+    "time_sec": 9.833,
+    "id": 36,
+    "class": "Excavator",
+    "confidence": 0.61,
+    "bbox": [
+      160.96,
+      812.66,
+      321.92,
+      289.76
+    ]
+  },
+  {
+    "frame": 296,
+    "time_sec": 9.867,
+    "id": 36,
+    "class": "Excavator",
+    "confidence": 0.79,
+    "bbox": [
+      159.59,
+      814.27,
+      319.18,
+      289.53
+    ]
+  },
+  {
+    "frame": 297,
+    "time_sec": 9.9,
+    "id": 36,
+    "class": "Excavator",
+    "confidence": 0.79,
+    "bbox": [
+      158.78,
+      814.97,
+      317.56,
+      289.44
+    ]
+  },
+  {
+    "frame": 298,
+    "time_sec": 9.933,
+    "id": 36,
+    "class": "Excavator",
+    "confidence": 0.87,
+    "bbox": [
+      161.6,
+      820.54,
+      323.19,
+      303.31
+    ]
+  },
+  {
+    "frame": 299,
+    "time_sec": 9.967,
+    "id": 36,
+    "class": "Excavator",
+    "confidence": 0.84,
+    "bbox": [
+      161.13,
+      820.78,
+      322.25,
+      304.17
+    ]
+  },
+  {
+    "frame": 300,
+    "time_sec": 10.0,
+    "id": 36,
+    "class": "Excavator",
+    "confidence": 0.64,
+    "bbox": [
+      210.21,
+      894.64,
+      420.42,
+      458.66
+    ]
+  },
+  {
+    "frame": 301,
+    "time_sec": 10.033,
+    "id": 37,
+    "class": "Excavator",
+    "confidence": 0.81,
+    "bbox": [
+      376.17,
+      536.85,
+      175.56,
+      266.89
+    ]
+  },
+  {
+    "frame": 302,
+    "time_sec": 10.067,
+    "id": 37,
+    "class": "Excavator",
+    "confidence": 0.81,
+    "bbox": [
+      378.33,
+      538.64,
+      177.77,
+      269.8
+    ]
+  },
+  {
+    "frame": 322,
+    "time_sec": 10.733,
+    "id": 40,
+    "class": "Bucket loader Standart",
+    "confidence": 0.46,
+    "bbox": [
+      665.77,
+      1020.89,
+      107.96,
+      178.29
+    ]
+  },
+  {
+    "frame": 323,
+    "time_sec": 10.767,
+    "id": 40,
+    "class": "Bucket loader Standart",
+    "confidence": 0.59,
+    "bbox": [
+      664.74,
+      1021.24,
+      107.87,
+      178.03
+    ]
+  },
+  {
+    "frame": 324,
+    "time_sec": 10.8,
+    "id": 40,
+    "class": "Bucket loader Standart",
+    "confidence": 0.58,
+    "bbox": [
+      664.48,
+      1021.4,
+      107.65,
+      177.5
+    ]
+  },
+  {
+    "frame": 325,
+    "time_sec": 10.833,
+    "id": 40,
+    "class": "Bucket loader Standart",
+    "confidence": 0.52,
+    "bbox": [
+      664.5,
+      1021.12,
+      107.95,
+      177.85
+    ]
+  },
+  {
+    "frame": 326,
+    "time_sec": 10.867,
+    "id": 40,
+    "class": "Bucket loader Standart",
+    "confidence": 0.4,
+    "bbox": [
+      664.0,
+      1021.86,
+      107.58,
+      176.89
+    ]
+  },
+  {
+    "frame": 327,
+    "time_sec": 10.9,
+    "id": 40,
+    "class": "Bucket loader Standart",
+    "confidence": 0.41,
+    "bbox": [
+      663.89,
+      1022.27,
+      107.45,
+      176.27
+    ]
+  },
+  {
+    "frame": 327,
+    "time_sec": 10.9,
+    "id": 41,
+    "class": "Tanker",
+    "confidence": 0.72,
+    "bbox": [
+      558.0,
+      640.59,
+      94.13,
+      126.77
+    ]
+  },
+  {
+    "frame": 328,
+    "time_sec": 10.933,
+    "id": 40,
+    "class": "Bucket loader Standart",
+    "confidence": 0.48,
+    "bbox": [
+      664.5,
+      1021.66,
+      108.18,
+      177.35
+    ]
+  },
+  {
+    "frame": 328,
+    "time_sec": 10.933,
+    "id": 41,
+    "class": "Tanker",
+    "confidence": 0.42,
+    "bbox": [
+      561.14,
+      633.06,
+      83.07,
+      111.5
+    ]
+  },
+  {
+    "frame": 329,
+    "time_sec": 10.967,
+    "id": 41,
+    "class": "Tanker",
+    "confidence": 0.4,
+    "bbox": [
+      562.58,
+      630.58,
+      80.2,
+      107.17
+    ]
+  },
+  {
+    "frame": 331,
+    "time_sec": 11.033,
+    "id": 37,
+    "class": "Crane manipulator",
+    "confidence": 0.59,
+    "bbox": [
+      318.8,
+      590.24,
+      197.11,
+      202.02
+    ]
+  },
+  {
+    "frame": 332,
+    "time_sec": 11.067,
+    "id": 37,
+    "class": "Crane manipulator",
+    "confidence": 0.6,
+    "bbox": [
+      318.23,
+      590.7,
+      237.21,
+      201.35
+    ]
+  },
+  {
+    "frame": 333,
+    "time_sec": 11.1,
+    "id": 40,
+    "class": "Bucket loader Standart",
+    "confidence": 0.55,
+    "bbox": [
+      658.86,
+      1022.73,
+      109.43,
+      177.06
+    ]
+  },
+  {
+    "frame": 334,
+    "time_sec": 11.133,
+    "id": 41,
+    "class": "Tanker",
+    "confidence": 0.41,
+    "bbox": [
+      561.89,
+      632.27,
+      81.04,
+      106.99
+    ]
+  },
+  {
+    "frame": 337,
+    "time_sec": 11.233,
+    "id": 42,
+    "class": "Mixer",
+    "confidence": 0.93,
+    "bbox": [
+      155.02,
+      869.07,
+      306.81,
+      173.45
+    ]
+  },
+  {
+    "frame": 338,
+    "time_sec": 11.267,
+    "id": 42,
+    "class": "Mixer",
+    "confidence": 0.93,
+    "bbox": [
+      154.92,
+      869.65,
+      307.63,
+      173.93
+    ]
+  },
+  {
+    "frame": 339,
+    "time_sec": 11.3,
+    "id": 42,
+    "class": "Mixer",
+    "confidence": 0.93,
+    "bbox": [
+      155.55,
+      870.52,
+      308.17,
+      174.24
+    ]
+  },
+  {
+    "frame": 340,
+    "time_sec": 11.333,
+    "id": 42,
+    "class": "Mixer",
+    "confidence": 0.93,
+    "bbox": [
+      155.71,
+      871.26,
+      308.36,
+      174.35
+    ]
+  },
+  {
+    "frame": 343,
+    "time_sec": 11.433,
+    "id": 42,
+    "class": "Mixer",
+    "confidence": 0.57,
+    "bbox": [
+      151.41,
+      873.37,
+      302.81,
+      182.5
+    ]
+  },
+  {
+    "frame": 346,
+    "time_sec": 11.533,
+    "id": 43,
+    "class": "Excavator",
+    "confidence": 0.9,
+    "bbox": [
+      675.74,
+      480.07,
+      84.05,
+      129.77
+    ]
+  },
+  {
+    "frame": 347,
+    "time_sec": 11.567,
+    "id": 43,
+    "class": "Excavator",
+    "confidence": 0.9,
+    "bbox": [
+      675.51,
+      480.09,
+      84.28,
+      130.07
+    ]
+  },
+  {
+    "frame": 348,
+    "time_sec": 11.6,
+    "id": 43,
+    "class": "Excavator",
+    "confidence": 0.9,
+    "bbox": [
+      674.96,
+      481.32,
+      83.35,
+      128.41
+    ]
+  },
+  {
+    "frame": 349,
+    "time_sec": 11.633,
+    "id": 43,
+    "class": "Excavator",
+    "confidence": 0.91,
+    "bbox": [
+      674.81,
+      483.02,
+      82.3,
+      126.47
+    ]
+  },
+  {
+    "frame": 350,
+    "time_sec": 11.667,
+    "id": 43,
+    "class": "Excavator",
+    "confidence": 0.87,
+    "bbox": [
+      674.72,
+      483.62,
+      83.17,
+      127.51
+    ]
+  },
+  {
+    "frame": 363,
+    "time_sec": 12.1,
+    "id": 42,
+    "class": "Mixer",
+    "confidence": 0.71,
+    "bbox": [
+      194.12,
+      893.47,
+      272.6,
+      152.91
+    ]
+  },
+  {
+    "frame": 364,
+    "time_sec": 12.133,
+    "id": 42,
+    "class": "Mixer",
+    "confidence": 0.79,
+    "bbox": [
+      195.47,
+      894.34,
+      273.7,
+      151.79
+    ]
+  },
+  {
+    "frame": 365,
+    "time_sec": 12.167,
+    "id": 42,
+    "class": "Mixer",
+    "confidence": 0.59,
+    "bbox": [
+      193.45,
+      895.54,
+      278.8,
+      153.02
+    ]
+  },
+  {
+    "frame": 366,
+    "time_sec": 12.2,
+    "id": 42,
+    "class": "Mixer",
+    "confidence": 0.66,
+    "bbox": [
+      178.8,
+      891.42,
+      305.89,
+      165.75
+    ]
+  },
+  {
+    "frame": 367,
+    "time_sec": 12.233,
+    "id": 42,
+    "class": "Mixer",
+    "confidence": 0.67,
+    "bbox": [
+      173.52,
+      889.95,
+      317.4,
+      170.21
+    ]
+  },
+  {
+    "frame": 368,
+    "time_sec": 12.267,
+    "id": 42,
+    "class": "Mixer",
+    "confidence": 0.53,
+    "bbox": [
+      183.26,
+      894.75,
+      301.43,
+      160.72
+    ]
+  },
+  {
+    "frame": 369,
+    "time_sec": 12.3,
+    "id": 42,
+    "class": "Mixer",
+    "confidence": 0.67,
+    "bbox": [
+      198.39,
+      897.0,
+      298.45,
+      156.79
+    ]
+  },
+  {
+    "frame": 370,
+    "time_sec": 12.333,
+    "id": 42,
+    "class": "Mixer",
+    "confidence": 0.57,
+    "bbox": [
+      188.16,
+      892.25,
+      325.74,
+      169.36
+    ]
+  },
+  {
+    "frame": 375,
+    "time_sec": 12.5,
+    "id": 45,
+    "class": "Tanker",
+    "confidence": 0.44,
+    "bbox": [
+      585.06,
+      651.66,
+      92.52,
+      101.86
+    ]
+  },
+  {
+    "frame": 380,
+    "time_sec": 12.667,
+    "id": 45,
+    "class": "Tanker",
+    "confidence": 0.44,
+    "bbox": [
+      586.03,
+      656.97,
+      91.56,
+      100.86
+    ]
+  },
+  {
+    "frame": 390,
+    "time_sec": 13.0,
+    "id": 45,
+    "class": "Tanker",
+    "confidence": 0.4,
+    "bbox": [
+      588.81,
+      664.42,
+      91.24,
+      100.72
+    ]
+  },
+  {
+    "frame": 391,
+    "time_sec": 13.033,
+    "id": 45,
+    "class": "Tanker",
+    "confidence": 0.44,
+    "bbox": [
+      589.12,
+      665.23,
+      91.14,
+      100.79
+    ]
+  },
+  {
+    "frame": 392,
+    "time_sec": 13.067,
+    "id": 45,
+    "class": "Tanker",
+    "confidence": 0.44,
+    "bbox": [
+      589.23,
+      665.51,
+      91.03,
+      100.81
+    ]
+  },
+  {
+    "frame": 393,
+    "time_sec": 13.1,
+    "id": 45,
+    "class": "Tanker",
+    "confidence": 0.47,
+    "bbox": [
+      590.04,
+      665.79,
+      90.64,
+      100.56
+    ]
+  },
+  {
+    "frame": 394,
+    "time_sec": 13.133,
+    "id": 45,
+    "class": "Tanker",
+    "confidence": 0.48,
+    "bbox": [
+      590.58,
+      666.8,
+      89.7,
+      99.59
+    ]
+  },
+  {
+    "frame": 395,
+    "time_sec": 13.167,
+    "id": 45,
+    "class": "Tanker",
+    "confidence": 0.41,
+    "bbox": [
+      591.04,
+      667.63,
+      89.19,
+      99.01
+    ]
+  },
+  {
+    "frame": 422,
+    "time_sec": 14.067,
+    "id": 49,
+    "class": "Forklift Giraffe",
+    "confidence": 0.61,
+    "bbox": [
+      638.83,
+      586.56,
+      110.79,
+      152.68
+    ]
+  },
+  {
+    "frame": 423,
+    "time_sec": 14.1,
+    "id": 49,
+    "class": "Forklift Giraffe",
+    "confidence": 0.75,
+    "bbox": [
+      623.49,
+      586.79,
+      108.77,
+      148.83
+    ]
+  },
+  {
+    "frame": 424,
+    "time_sec": 14.133,
+    "id": 49,
+    "class": "Forklift Giraffe",
+    "confidence": 0.72,
+    "bbox": [
+      618.94,
+      591.82,
+      102.98,
+      138.82
+    ]
+  },
+  {
+    "frame": 425,
+    "time_sec": 14.167,
+    "id": 49,
+    "class": "Forklift Giraffe",
+    "confidence": 0.56,
+    "bbox": [
+      618.73,
+      593.18,
+      104.53,
+      138.38
+    ]
+  },
+  {
+    "frame": 440,
+    "time_sec": 14.667,
+    "id": 51,
+    "class": "Mixer",
+    "confidence": 0.47,
+    "bbox": [
+      605.3,
+      895.7,
+      226.5,
+      149.26
+    ]
+  },
+  {
+    "frame": 441,
+    "time_sec": 14.7,
+    "id": 51,
+    "class": "Mixer",
+    "confidence": 0.43,
+    "bbox": [
+      607.35,
+      897.03,
+      225.3,
+      148.6
+    ]
+  },
+  {
+    "frame": 442,
+    "time_sec": 14.733,
+    "id": 51,
+    "class": "Mixer",
+    "confidence": 0.42,
+    "bbox": [
+      607.92,
+      897.49,
+      224.17,
+      148.31
+    ]
+  },
+  {
+    "frame": 456,
+    "time_sec": 15.2,
+    "id": 55,
+    "class": "Forklift Giraffe",
+    "confidence": 0.67,
+    "bbox": [
+      661.41,
+      631.75,
+      74.66,
+      122.64
+    ]
+  },
+  {
+    "frame": 457,
+    "time_sec": 15.233,
+    "id": 55,
+    "class": "Forklift Giraffe",
+    "confidence": 0.67,
+    "bbox": [
+      661.53,
+      631.64,
+      75.01,
+      122.96
+    ]
+  },
+  {
+    "frame": 458,
+    "time_sec": 15.267,
+    "id": 55,
+    "class": "Forklift Giraffe",
+    "confidence": 0.59,
+    "bbox": [
+      662.84,
+      633.44,
+      74.33,
+      121.44
+    ]
+  },
+  {
+    "frame": 482,
+    "time_sec": 16.067,
+    "id": 56,
+    "class": "Forklift Giraffe",
+    "confidence": 0.7,
+    "bbox": [
+      492.29,
+      677.88,
+      219.03,
+      219.63
+    ]
+  },
+  {
+    "frame": 483,
+    "time_sec": 16.1,
+    "id": 56,
+    "class": "Forklift Giraffe",
+    "confidence": 0.68,
+    "bbox": [
+      492.75,
+      677.7,
+      219.0,
+      219.61
+    ]
+  },
+  {
+    "frame": 484,
+    "time_sec": 16.133,
+    "id": 56,
+    "class": "Forklift Giraffe",
+    "confidence": 0.66,
+    "bbox": [
+      492.91,
+      677.52,
+      219.2,
+      219.85
+    ]
+  },
+  {
+    "frame": 486,
+    "time_sec": 16.2,
+    "id": 57,
+    "class": "Excavator",
+    "confidence": 0.6,
+    "bbox": [
+      416.73,
+      516.01,
+      293.54,
+      291.14
+    ]
+  },
+  {
+    "frame": 487,
+    "time_sec": 16.233,
+    "id": 57,
+    "class": "Excavator",
+    "confidence": 0.59,
+    "bbox": [
+      414.48,
+      515.71,
+      293.16,
+      291.15
+    ]
+  },
+  {
+    "frame": 488,
+    "time_sec": 16.267,
+    "id": 57,
+    "class": "Excavator",
+    "confidence": 0.57,
+    "bbox": [
+      415.32,
+      514.85,
+      290.82,
+      289.35
+    ]
+  },
+  {
+    "frame": 489,
+    "time_sec": 16.3,
+    "id": 57,
+    "class": "Excavator",
+    "confidence": 0.45,
+    "bbox": [
+      415.39,
+      514.45,
+      289.33,
+      288.52
+    ]
+  },
+  {
+    "frame": 491,
+    "time_sec": 16.367,
+    "id": 57,
+    "class": "Excavator",
+    "confidence": 0.64,
+    "bbox": [
+      351.09,
+      537.9,
+      241.46,
+      247.46
+    ]
+  },
+  {
+    "frame": 492,
+    "time_sec": 16.4,
+    "id": 57,
+    "class": "Excavator",
+    "confidence": 0.64,
+    "bbox": [
+      338.93,
+      542.5,
+      227.13,
+      239.77
+    ]
+  },
+  {
+    "frame": 493,
+    "time_sec": 16.433,
+    "id": 57,
+    "class": "Excavator",
+    "confidence": 0.46,
+    "bbox": [
+      335.05,
+      545.4,
+      221.16,
+      240.57
+    ]
+  },
+  {
+    "frame": 494,
+    "time_sec": 16.467,
+    "id": 57,
+    "class": "Excavator",
+    "confidence": 0.78,
+    "bbox": [
+      334.62,
+      546.06,
+      210.69,
+      236.18
+    ]
+  },
+  {
+    "frame": 497,
+    "time_sec": 16.567,
+    "id": 58,
+    "class": "Tanker",
+    "confidence": 0.55,
+    "bbox": [
+      624.8,
+      537.73,
+      100.84,
+      98.41
+    ]
+  },
+  {
+    "frame": 500,
+    "time_sec": 16.667,
+    "id": 57,
+    "class": "Excavator",
+    "confidence": 0.71,
+    "bbox": [
+      375.72,
+      559.05,
+      192.75,
+      212.56
+    ]
+  },
+  {
+    "frame": 500,
+    "time_sec": 16.667,
+    "id": 58,
+    "class": "Tanker",
+    "confidence": 0.47,
+    "bbox": [
+      625.23,
+      536.65,
+      103.09,
+      100.65
+    ]
+  },
+  {
+    "frame": 501,
+    "time_sec": 16.7,
+    "id": 57,
+    "class": "Excavator",
+    "confidence": 0.47,
+    "bbox": [
+      373.31,
+      558.87,
+      188.88,
+      207.4
+    ]
+  },
+  {
+    "frame": 502,
+    "time_sec": 16.733,
+    "id": 57,
+    "class": "Excavator",
+    "confidence": 0.46,
+    "bbox": [
+      373.04,
+      558.84,
+      188.09,
+      205.48
+    ]
+  },
+  {
+    "frame": 504,
+    "time_sec": 16.8,
+    "id": 60,
+    "class": "Excavator",
+    "confidence": 0.7,
+    "bbox": [
+      623.71,
+      414.53,
+      192.58,
+      232.99
+    ]
+  },
+  {
+    "frame": 505,
+    "time_sec": 16.833,
+    "id": 60,
+    "class": "Excavator",
+    "confidence": 0.83,
+    "bbox": [
+      619.78,
+      419.71,
+      200.43,
+      250.46
+    ]
+  },
+  {
+    "frame": 505,
+    "time_sec": 16.833,
+    "id": 61,
+    "class": "Tanker",
+    "confidence": 0.7,
+    "bbox": [
+      586.76,
+      592.56,
+      86.22,
+      92.13
+    ]
+  },
+  {
+    "frame": 506,
+    "time_sec": 16.867,
+    "id": 60,
+    "class": "Excavator",
+    "confidence": 0.65,
+    "bbox": [
+      614.76,
+      412.22,
+      210.49,
+      276.34
+    ]
+  },
+  {
+    "frame": 506,
+    "time_sec": 16.867,
+    "id": 61,
+    "class": "Tanker",
+    "confidence": 0.75,
+    "bbox": [
+      587.11,
+      593.3,
+      88.33,
+      94.36
+    ]
+  },
+  {
+    "frame": 507,
+    "time_sec": 16.9,
+    "id": 60,
+    "class": "Excavator",
+    "confidence": 0.66,
+    "bbox": [
+      613.32,
+      409.76,
+      213.36,
+      285.74
+    ]
+  },
+  {
+    "frame": 507,
+    "time_sec": 16.9,
+    "id": 61,
+    "class": "Tanker",
+    "confidence": 0.75,
+    "bbox": [
+      587.25,
+      593.48,
+      89.19,
+      95.23
+    ]
+  },
+  {
+    "frame": 508,
+    "time_sec": 16.933,
+    "id": 60,
+    "class": "Excavator",
+    "confidence": 0.74,
+    "bbox": [
+      607.63,
+      405.77,
+      224.74,
+      297.35
+    ]
+  },
+  {
+    "frame": 509,
+    "time_sec": 16.967,
+    "id": 60,
+    "class": "Excavator",
+    "confidence": 0.67,
+    "bbox": [
+      602.65,
+      406.33,
+      234.7,
+      307.65
+    ]
+  },
+  {
+    "frame": 509,
+    "time_sec": 16.967,
+    "id": 63,
+    "class": "Excavator",
+    "confidence": 0.54,
+    "bbox": [
+      126.46,
+      861.84,
+      248.96,
+      184.67
+    ]
+  },
+  {
+    "frame": 510,
+    "time_sec": 17.0,
+    "id": 63,
+    "class": "Excavator",
+    "confidence": 0.42,
+    "bbox": [
+      126.79,
+      863.21,
+      246.92,
+      183.08
+    ]
+  },
+  {
+    "frame": 515,
+    "time_sec": 17.167,
+    "id": 60,
+    "class": "Excavator",
+    "confidence": 0.4,
+    "bbox": [
+      595.62,
+      389.73,
+      214.51,
+      254.24
+    ]
+  },
+  {
+    "frame": 518,
+    "time_sec": 17.267,
+    "id": 57,
+    "class": "Motor grader",
+    "confidence": 0.44,
+    "bbox": [
+      395.81,
+      605.05,
+      152.22,
+      145.65
+    ]
+  },
+  {
+    "frame": 518,
+    "time_sec": 17.267,
+    "id": 60,
+    "class": "Excavator",
+    "confidence": 0.8,
+    "bbox": [
+      594.5,
+      389.19,
+      213.68,
+      247.73
+    ]
+  },
+  {
+    "frame": 519,
+    "time_sec": 17.3,
+    "id": 57,
+    "class": "Motor grader",
+    "confidence": 0.52,
+    "bbox": [
+      399.69,
+      612.86,
+      150.77,
+      130.17
+    ]
+  },
+  {
+    "frame": 520,
+    "time_sec": 17.333,
+    "id": 57,
+    "class": "Motor grader",
+    "confidence": 0.58,
+    "bbox": [
+      400.46,
+      614.14,
+      158.1,
+      127.77
+    ]
+  },
+  {
+    "frame": 521,
+    "time_sec": 17.367,
+    "id": 57,
+    "class": "Motor grader",
+    "confidence": 0.51,
+    "bbox": [
+      399.95,
+      616.11,
+      163.14,
+      124.88
+    ]
+  },
+  {
+    "frame": 522,
+    "time_sec": 17.4,
+    "id": 57,
+    "class": "Motor grader",
+    "confidence": 0.49,
+    "bbox": [
+      399.65,
+      616.8,
+      168.48,
+      123.72
+    ]
+  },
+  {
+    "frame": 523,
+    "time_sec": 17.433,
+    "id": 57,
+    "class": "Motor grader",
+    "confidence": 0.62,
+    "bbox": [
+      401.12,
+      617.18,
+      172.7,
+      123.25
+    ]
+  },
+  {
+    "frame": 528,
+    "time_sec": 17.6,
+    "id": 57,
+    "class": "Motor grader",
+    "confidence": 0.46,
+    "bbox": [
+      400.9,
+      607.46,
+      205.85,
+      146.49
+    ]
+  },
+  {
+    "frame": 533,
+    "time_sec": 17.767,
+    "id": 61,
+    "class": "Forklift Giraffe",
+    "confidence": 0.63,
+    "bbox": [
+      568.43,
+      611.98,
+      101.16,
+      105.2
+    ]
+  },
+  {
+    "frame": 534,
+    "time_sec": 17.8,
+    "id": 61,
+    "class": "Forklift Giraffe",
+    "confidence": 0.58,
+    "bbox": [
+      568.66,
+      612.33,
+      102.79,
+      105.3
+    ]
+  },
+  {
+    "frame": 534,
+    "time_sec": 17.8,
+    "id": 60,
+    "class": "Excavator",
+    "confidence": 0.9,
+    "bbox": [
+      626.88,
+      409.01,
+      186.23,
+      218.92
+    ]
+  },
+  {
+    "frame": 535,
+    "time_sec": 17.833,
+    "id": 61,
+    "class": "Forklift Giraffe",
+    "confidence": 0.55,
+    "bbox": [
+      566.46,
+      612.98,
+      104.95,
+      105.22
+    ]
+  },
+  {
+    "frame": 535,
+    "time_sec": 17.833,
+    "id": 60,
+    "class": "Excavator",
+    "confidence": 0.92,
+    "bbox": [
+      622.16,
+      415.64,
+      183.07,
+      207.83
+    ]
+  },
+  {
+    "frame": 535,
+    "time_sec": 17.833,
+    "id": 57,
+    "class": "Excavator",
+    "confidence": 0.5,
+    "bbox": [
+      386.35,
+      563.17,
+      279.99,
+      211.27
+    ]
+  },
+  {
+    "frame": 536,
+    "time_sec": 17.867,
+    "id": 60,
+    "class": "Excavator",
+    "confidence": 0.92,
+    "bbox": [
+      620.7,
+      417.59,
+      184.97,
+      206.64
+    ]
+  },
+  {
+    "frame": 536,
+    "time_sec": 17.867,
+    "id": 57,
+    "class": "Excavator",
+    "confidence": 0.54,
+    "bbox": [
+      386.11,
+      563.57,
+      274.24,
+      216.23
+    ]
+  },
+  {
+    "frame": 537,
+    "time_sec": 17.9,
+    "id": 60,
+    "class": "Excavator",
+    "confidence": 0.92,
+    "bbox": [
+      620.13,
+      418.25,
+      186.92,
+      206.29
+    ]
+  },
+  {
+    "frame": 537,
+    "time_sec": 17.9,
+    "id": 57,
+    "class": "Excavator",
+    "confidence": 0.55,
+    "bbox": [
+      386.02,
+      563.82,
+      266.96,
+      217.95
+    ]
+  },
+  {
+    "frame": 538,
+    "time_sec": 17.933,
+    "id": 60,
+    "class": "Excavator",
+    "confidence": 0.9,
+    "bbox": [
+      620.64,
+      418.06,
+      189.13,
+      207.33
+    ]
+  },
+  {
+    "frame": 539,
+    "time_sec": 17.967,
+    "id": 60,
+    "class": "Excavator",
+    "confidence": 0.92,
+    "bbox": [
+      618.31,
+      419.33,
+      192.41,
+      208.99
+    ]
+  },
+  {
+    "frame": 539,
+    "time_sec": 17.967,
+    "id": 57,
+    "class": "Excavator",
+    "confidence": 0.68,
+    "bbox": [
+      387.2,
+      566.25,
+      264.17,
+      222.6
+    ]
+  },
+  {
+    "frame": 540,
+    "time_sec": 18.0,
+    "id": 60,
+    "class": "Excavator",
+    "confidence": 0.93,
+    "bbox": [
+      613.75,
+      420.95,
+      195.57,
+      209.32
+    ]
+  },
+  {
+    "frame": 540,
+    "time_sec": 18.0,
+    "id": 57,
+    "class": "Excavator",
+    "confidence": 0.79,
+    "bbox": [
+      387.11,
+      564.35,
+      250.79,
+      216.1
+    ]
+  },
+  {
+    "frame": 541,
+    "time_sec": 18.033,
+    "id": 60,
+    "class": "Excavator",
+    "confidence": 0.89,
+    "bbox": [
+      618.22,
+      421.71,
+      195.51,
+      208.86
+    ]
+  },
+  {
+    "frame": 541,
+    "time_sec": 18.033,
+    "id": 57,
+    "class": "Excavator",
+    "confidence": 0.78,
+    "bbox": [
+      387.68,
+      565.76,
+      245.51,
+      215.65
+    ]
+  },
+  {
+    "frame": 542,
+    "time_sec": 18.067,
+    "id": 60,
+    "class": "Excavator",
+    "confidence": 0.89,
+    "bbox": [
+      619.95,
+      421.92,
+      195.7,
+      208.75
+    ]
+  },
+  {
+    "frame": 542,
+    "time_sec": 18.067,
+    "id": 57,
+    "class": "Excavator",
+    "confidence": 0.77,
+    "bbox": [
+      387.9,
+      566.33,
+      241.62,
+      215.77
+    ]
+  },
+  {
+    "frame": 543,
+    "time_sec": 18.1,
+    "id": 60,
+    "class": "Excavator",
+    "confidence": 0.86,
+    "bbox": [
+      618.55,
+      423.01,
+      196.72,
+      208.87
+    ]
+  },
+  {
+    "frame": 544,
+    "time_sec": 18.133,
+    "id": 60,
+    "class": "Excavator",
+    "confidence": 0.91,
+    "bbox": [
+      610.04,
+      424.74,
+      199.44,
+      208.09
+    ]
+  },
+  {
+    "frame": 545,
+    "time_sec": 18.167,
+    "id": 60,
+    "class": "Excavator",
+    "confidence": 0.92,
+    "bbox": [
+      605.45,
+      426.42,
+      201.08,
+      205.86
+    ]
+  },
+  {
+    "frame": 546,
+    "time_sec": 18.2,
+    "id": 60,
+    "class": "Excavator",
+    "confidence": 0.9,
+    "bbox": [
+      607.32,
+      428.67,
+      202.16,
+      204.61
+    ]
+  },
+  {
+    "frame": 547,
+    "time_sec": 18.233,
+    "id": 60,
+    "class": "Excavator",
+    "confidence": 0.9,
+    "bbox": [
+      607.95,
+      429.48,
+      203.82,
+      204.2
+    ]
+  },
+  {
+    "frame": 548,
+    "time_sec": 18.267,
+    "id": 60,
+    "class": "Excavator",
+    "confidence": 0.88,
+    "bbox": [
+      613.21,
+      429.73,
+      202.94,
+      202.78
+    ]
+  },
+  {
+    "frame": 549,
+    "time_sec": 18.3,
+    "id": 60,
+    "class": "Excavator",
+    "confidence": 0.92,
+    "bbox": [
+      617.46,
+      430.78,
+      203.28,
+      203.5
+    ]
+  },
+  {
+    "frame": 550,
+    "time_sec": 18.333,
+    "id": 60,
+    "class": "Excavator",
+    "confidence": 0.9,
+    "bbox": [
+      619.71,
+      430.12,
+      200.58,
+      203.24
+    ]
+  },
+  {
+    "frame": 551,
+    "time_sec": 18.367,
+    "id": 60,
+    "class": "Excavator",
+    "confidence": 0.89,
+    "bbox": [
+      622.54,
+      422.68,
+      190.68,
+      190.71
+    ]
+  },
+  {
+    "frame": 552,
+    "time_sec": 18.4,
+    "id": 60,
+    "class": "Excavator",
+    "confidence": 0.89,
+    "bbox": [
+      623.2,
+      419.73,
+      186.75,
+      186.09
+    ]
+  },
+  {
+    "frame": 553,
+    "time_sec": 18.433,
+    "id": 60,
+    "class": "Excavator",
+    "confidence": 0.9,
+    "bbox": [
+      620.28,
+      430.84,
+      199.44,
+      200.86
+    ]
+  },
+  {
+    "frame": 554,
+    "time_sec": 18.467,
+    "id": 60,
+    "class": "Excavator",
+    "confidence": 0.93,
+    "bbox": [
+      620.05,
+      436.08,
+      199.9,
+      204.87
+    ]
+  },
+  {
+    "frame": 555,
+    "time_sec": 18.5,
+    "id": 60,
+    "class": "Excavator",
+    "confidence": 0.9,
+    "bbox": [
+      618.51,
+      439.64,
+      202.98,
+      206.21
+    ]
+  },
+  {
+    "frame": 556,
+    "time_sec": 18.533,
+    "id": 60,
+    "class": "Excavator",
+    "confidence": 0.89,
+    "bbox": [
+      617.45,
+      441.8,
+      205.11,
+      206.85
+    ]
+  },
+  {
+    "frame": 557,
+    "time_sec": 18.567,
+    "id": 60,
+    "class": "Excavator",
+    "confidence": 0.89,
+    "bbox": [
+      616.82,
+      442.6,
+      206.09,
+      207.21
+    ]
+  },
+  {
+    "frame": 558,
+    "time_sec": 18.6,
+    "id": 60,
+    "class": "Excavator",
+    "confidence": 0.91,
+    "bbox": [
+      618.1,
+      443.74,
+      203.79,
+      207.76
+    ]
+  },
+  {
+    "frame": 559,
+    "time_sec": 18.633,
+    "id": 60,
+    "class": "Excavator",
+    "confidence": 0.89,
+    "bbox": [
+      612.98,
+      446.65,
+      205.01,
+      204.99
+    ]
+  },
+  {
+    "frame": 560,
+    "time_sec": 18.667,
+    "id": 60,
+    "class": "Excavator",
+    "confidence": 0.9,
+    "bbox": [
+      607.21,
+      449.94,
+      207.18,
+      204.62
+    ]
+  },
+  {
+    "frame": 561,
+    "time_sec": 18.7,
+    "id": 60,
+    "class": "Excavator",
+    "confidence": 0.9,
+    "bbox": [
+      604.82,
+      449.46,
+      214.95,
+      210.91
+    ]
+  },
+  {
+    "frame": 562,
+    "time_sec": 18.733,
+    "id": 60,
+    "class": "Excavator",
+    "confidence": 0.9,
+    "bbox": [
+      603.96,
+      449.24,
+      218.62,
+      213.26
+    ]
+  },
+  {
+    "frame": 568,
+    "time_sec": 18.933,
+    "id": 60,
+    "class": "Excavator",
+    "confidence": 0.43,
+    "bbox": [
+      626.59,
+      448.04,
+      186.83,
+      239.03
+    ]
+  },
+  {
+    "frame": 574,
+    "time_sec": 19.133,
+    "id": 57,
+    "class": "Excavator",
+    "confidence": 0.77,
+    "bbox": [
+      382.52,
+      590.54,
+      300.87,
+      304.64
+    ]
+  },
+  {
+    "frame": 575,
+    "time_sec": 19.167,
+    "id": 57,
+    "class": "Excavator",
+    "confidence": 0.8,
+    "bbox": [
+      382.65,
+      591.68,
+      276.12,
+      300.84
+    ]
+  },
+  {
+    "frame": 576,
+    "time_sec": 19.2,
+    "id": 57,
+    "class": "Excavator",
+    "confidence": 0.43,
+    "bbox": [
+      382.83,
+      598.01,
+      267.03,
+      307.26
+    ]
+  },
+  {
+    "frame": 577,
+    "time_sec": 19.233,
+    "id": 57,
+    "class": "Excavator",
+    "confidence": 0.43,
+    "bbox": [
+      382.9,
+      600.46,
+      258.68,
+      309.74
+    ]
+  },
+  {
+    "frame": 581,
+    "time_sec": 19.367,
+    "id": 66,
+    "class": "Excavator",
+    "confidence": 0.7,
+    "bbox": [
+      676.53,
+      522.11,
+      86.94,
+      142.74
+    ]
+  },
+  {
+    "frame": 582,
+    "time_sec": 19.4,
+    "id": 66,
+    "class": "Excavator",
+    "confidence": 0.7,
+    "bbox": [
+      676.59,
+      522.4,
+      86.81,
+      142.75
+    ]
+  },
+  {
+    "frame": 583,
+    "time_sec": 19.433,
+    "id": 66,
+    "class": "Excavator",
+    "confidence": 0.8,
+    "bbox": [
+      677.15,
+      525.69,
+      85.71,
+      140.29
+    ]
+  },
+  {
+    "frame": 584,
+    "time_sec": 19.467,
+    "id": 66,
+    "class": "Excavator",
+    "confidence": 0.75,
+    "bbox": [
+      677.2,
+      529.03,
+      85.6,
+      139.84
+    ]
+  },
+  {
+    "frame": 586,
+    "time_sec": 19.533,
+    "id": 66,
+    "class": "Excavator",
+    "confidence": 0.55,
+    "bbox": [
+      675.94,
+      534.12,
+      85.56,
+      139.28
+    ]
+  },
+  {
+    "frame": 587,
+    "time_sec": 19.567,
+    "id": 67,
+    "class": "Excavator",
+    "confidence": 0.59,
+    "bbox": [
+      395.56,
+      681.72,
+      231.31,
+      187.31
+    ]
+  },
+  {
+    "frame": 587,
+    "time_sec": 19.567,
+    "id": 66,
+    "class": "Excavator",
+    "confidence": 0.55,
+    "bbox": [
+      675.68,
+      534.91,
+      85.77,
+      139.33
+    ]
+  },
+  {
+    "frame": 588,
+    "time_sec": 19.6,
+    "id": 67,
+    "class": "Excavator",
+    "confidence": 0.53,
+    "bbox": [
+      400.8,
+      683.67,
+      225.26,
+      182.15
+    ]
+  },
+  {
+    "frame": 588,
+    "time_sec": 19.6,
+    "id": 66,
+    "class": "Excavator",
+    "confidence": 0.68,
+    "bbox": [
+      674.85,
+      537.8,
+      85.94,
+      139.02
+    ]
+  },
+  {
+    "frame": 589,
+    "time_sec": 19.633,
+    "id": 67,
+    "class": "Excavator",
+    "confidence": 0.78,
+    "bbox": [
+      404.87,
+      689.46,
+      227.14,
+      183.3
+    ]
+  },
+  {
+    "frame": 590,
+    "time_sec": 19.667,
+    "id": 67,
+    "class": "Excavator",
+    "confidence": 0.77,
+    "bbox": [
+      403.59,
+      692.49,
+      223.88,
+      180.15
+    ]
+  },
+  {
+    "frame": 591,
+    "time_sec": 19.7,
+    "id": 67,
+    "class": "Excavator",
+    "confidence": 0.81,
+    "bbox": [
+      401.27,
+      692.91,
+      216.76,
+      173.74
+    ]
+  },
+  {
+    "frame": 592,
+    "time_sec": 19.733,
+    "id": 67,
+    "class": "Excavator",
+    "confidence": 0.82,
+    "bbox": [
+      400.48,
+      693.02,
+      215.41,
+      171.92
+    ]
+  },
+  {
+    "frame": 593,
+    "time_sec": 19.767,
+    "id": 67,
+    "class": "Excavator",
+    "confidence": 0.84,
+    "bbox": [
+      399.08,
+      692.12,
+      216.51,
+      172.23
+    ]
+  },
+  {
+    "frame": 616,
+    "time_sec": 20.533,
+    "id": 70,
+    "class": "Excavator",
+    "confidence": 0.51,
+    "bbox": [
+      275.88,
+      1016.12,
+      403.63,
+      255.63
+    ]
+  },
+  {
+    "frame": 617,
+    "time_sec": 20.567,
+    "id": 70,
+    "class": "Excavator",
+    "confidence": 0.48,
+    "bbox": [
+      276.95,
+      1016.5,
+      404.74,
+      256.26
+    ]
+  },
+  {
+    "frame": 618,
+    "time_sec": 20.6,
+    "id": 70,
+    "class": "Excavator",
+    "confidence": 0.44,
+    "bbox": [
+      284.58,
+      1017.96,
+      417.96,
+      264.43
+    ]
+  },
+  {
+    "frame": 637,
+    "time_sec": 21.233,
+    "id": 72,
+    "class": "Motor grader",
+    "confidence": 0.49,
+    "bbox": [
+      464.32,
+      849.4,
+      118.79,
+      112.07
+    ]
+  },
+  {
+    "frame": 641,
+    "time_sec": 21.367,
+    "id": 72,
+    "class": "Motor grader",
+    "confidence": 0.42,
+    "bbox": [
+      443.57,
+      870.6,
+      108.3,
+      100.72
+    ]
+  },
+  {
+    "frame": 642,
+    "time_sec": 21.4,
+    "id": 72,
+    "class": "Motor grader",
+    "confidence": 0.48,
+    "bbox": [
+      445.52,
+      872.37,
+      108.24,
+      99.57
+    ]
+  },
+  {
+    "frame": 643,
+    "time_sec": 21.433,
+    "id": 72,
+    "class": "Motor grader",
+    "confidence": 0.61,
+    "bbox": [
+      452.07,
+      874.21,
+      108.78,
+      99.06
+    ]
+  },
+  {
+    "frame": 644,
+    "time_sec": 21.467,
+    "id": 72,
+    "class": "Motor grader",
+    "confidence": 0.43,
+    "bbox": [
+      465.05,
+      872.68,
+      118.05,
+      105.71
+    ]
+  },
+  {
+    "frame": 645,
+    "time_sec": 21.5,
+    "id": 72,
+    "class": "Motor grader",
+    "confidence": 0.69,
+    "bbox": [
+      467.82,
+      874.89,
+      121.37,
+      106.4
+    ]
+  },
+  {
+    "frame": 646,
+    "time_sec": 21.533,
+    "id": 72,
+    "class": "Motor grader",
+    "confidence": 0.46,
+    "bbox": [
+      459.84,
+      877.75,
+      121.48,
+      106.17
+    ]
+  },
+  {
+    "frame": 647,
+    "time_sec": 21.567,
+    "id": 72,
+    "class": "Motor grader",
+    "confidence": 0.46,
+    "bbox": [
+      456.77,
+      878.71,
+      121.75,
+      106.09
+    ]
+  },
+  {
+    "frame": 649,
+    "time_sec": 21.633,
+    "id": 73,
+    "class": "Excavator",
+    "confidence": 0.45,
+    "bbox": [
+      152.14,
+      899.84,
+      242.9,
+      199.35
+    ]
+  },
+  {
+    "frame": 655,
+    "time_sec": 21.833,
+    "id": 72,
+    "class": "Motor grader",
+    "confidence": 0.63,
+    "bbox": [
+      445.38,
+      900.05,
+      127.67,
+      110.57
+    ]
+  },
+  {
+    "frame": 658,
+    "time_sec": 21.933,
+    "id": 72,
+    "class": "Motor grader",
+    "confidence": 0.73,
+    "bbox": [
+      461.72,
+      906.07,
+      132.59,
+      110.25
+    ]
+  },
+  {
+    "frame": 661,
+    "time_sec": 22.033,
+    "id": 72,
+    "class": "Forklift Giraffe",
+    "confidence": 0.54,
+    "bbox": [
+      449.73,
+      916.55,
+      126.59,
+      104.52
+    ]
+  },
+  {
+    "frame": 662,
+    "time_sec": 22.067,
+    "id": 72,
+    "class": "Forklift Giraffe",
+    "confidence": 0.54,
+    "bbox": [
+      447.75,
+      918.0,
+      126.39,
+      103.79
+    ]
+  },
+  {
+    "frame": 663,
+    "time_sec": 22.1,
+    "id": 72,
+    "class": "Motor grader",
+    "confidence": 0.78,
+    "bbox": [
+      447.7,
+      919.56,
+      127.14,
+      104.15
+    ]
+  },
+  {
+    "frame": 679,
+    "time_sec": 22.633,
+    "id": 75,
+    "class": "Excavator",
+    "confidence": 0.61,
+    "bbox": [
+      662.0,
+      726.03,
+      94.94,
+      216.86
+    ]
+  },
+  {
+    "frame": 680,
+    "time_sec": 22.667,
+    "id": 75,
+    "class": "Excavator",
+    "confidence": 0.81,
+    "bbox": [
+      666.73,
+      730.59,
+      92.69,
+      211.16
+    ]
+  },
+  {
+    "frame": 681,
+    "time_sec": 22.7,
+    "id": 75,
+    "class": "Excavator",
+    "confidence": 0.74,
+    "bbox": [
+      663.5,
+      733.54,
+      92.87,
+      210.06
+    ]
+  },
+  {
+    "frame": 682,
+    "time_sec": 22.733,
+    "id": 75,
+    "class": "Excavator",
+    "confidence": 0.75,
+    "bbox": [
+      662.82,
+      734.3,
+      93.59,
+      209.86
+    ]
+  },
+  {
+    "frame": 683,
+    "time_sec": 22.767,
+    "id": 75,
+    "class": "Excavator",
+    "confidence": 0.68,
+    "bbox": [
+      659.66,
+      737.13,
+      96.41,
+      213.55
+    ]
+  },
+  {
+    "frame": 684,
+    "time_sec": 22.8,
+    "id": 75,
+    "class": "Excavator",
+    "confidence": 0.66,
+    "bbox": [
+      663.46,
+      739.82,
+      98.02,
+      215.86
+    ]
+  },
+  {
+    "frame": 685,
+    "time_sec": 22.833,
+    "id": 75,
+    "class": "Excavator",
+    "confidence": 0.75,
+    "bbox": [
+      667.54,
+      742.01,
+      98.85,
+      217.39
+    ]
+  },
+  {
+    "frame": 686,
+    "time_sec": 22.867,
+    "id": 75,
+    "class": "Excavator",
+    "confidence": 0.72,
+    "bbox": [
+      662.04,
+      744.63,
+      99.67,
+      215.76
+    ]
+  },
+  {
+    "frame": 687,
+    "time_sec": 22.9,
+    "id": 75,
+    "class": "Excavator",
+    "confidence": 0.72,
+    "bbox": [
+      659.85,
+      745.48,
+      100.95,
+      215.1
+    ]
+  },
+  {
+    "frame": 688,
+    "time_sec": 22.933,
+    "id": 75,
+    "class": "Excavator",
+    "confidence": 0.62,
+    "bbox": [
+      662.6,
+      748.22,
+      101.1,
+      213.58
+    ]
+  },
+  {
+    "frame": 689,
+    "time_sec": 22.967,
+    "id": 75,
+    "class": "Excavator",
+    "confidence": 0.53,
+    "bbox": [
+      663.59,
+      751.0,
+      101.16,
+      211.75
+    ]
+  },
+  {
+    "frame": 689,
+    "time_sec": 22.967,
+    "id": 76,
+    "class": "Excavator",
+    "confidence": 0.57,
+    "bbox": [
+      184.68,
+      990.12,
+      160.07,
+      204.53
+    ]
+  },
+  {
+    "frame": 690,
+    "time_sec": 23.0,
+    "id": 76,
+    "class": "Excavator",
+    "confidence": 0.64,
+    "bbox": [
+      183.67,
+      992.13,
+      160.57,
+      205.31
+    ]
+  },
+  {
+    "frame": 691,
+    "time_sec": 23.033,
+    "id": 76,
+    "class": "Excavator",
+    "confidence": 0.66,
+    "bbox": [
+      183.77,
+      994.59,
+      162.72,
+      208.08
+    ]
+  },
+  {
+    "frame": 691,
+    "time_sec": 23.033,
+    "id": 72,
+    "class": "Forklift Giraffe",
+    "confidence": 0.43,
+    "bbox": [
+      458.38,
+      981.83,
+      107.95,
+      90.99
+    ]
+  },
+  {
+    "frame": 692,
+    "time_sec": 23.067,
+    "id": 76,
+    "class": "Excavator",
+    "confidence": 0.66,
+    "bbox": [
+      183.82,
+      995.31,
+      163.37,
+      208.95
+    ]
+  },
+  {
+    "frame": 692,
+    "time_sec": 23.067,
+    "id": 72,
+    "class": "Forklift Giraffe",
+    "confidence": 0.43,
+    "bbox": [
+      458.58,
+      982.41,
+      105.97,
+      90.81
+    ]
+  },
+  {
+    "frame": 693,
+    "time_sec": 23.1,
+    "id": 76,
+    "class": "Excavator",
+    "confidence": 0.7,
+    "bbox": [
+      185.78,
+      996.65,
+      164.04,
+      209.73
+    ]
+  },
+  {
+    "frame": 693,
+    "time_sec": 23.1,
+    "id": 72,
+    "class": "Forklift Giraffe",
+    "confidence": 0.5,
+    "bbox": [
+      453.53,
+      984.0,
+      109.09,
+      91.75
+    ]
+  },
+  {
+    "frame": 701,
+    "time_sec": 23.367,
+    "id": 72,
+    "class": "Forklift Giraffe",
+    "confidence": 0.45,
+    "bbox": [
+      461.34,
+      1000.5,
+      109.76,
+      95.16
+    ]
+  },
+  {
+    "frame": 702,
+    "time_sec": 23.4,
+    "id": 72,
+    "class": "Forklift Giraffe",
+    "confidence": 0.45,
+    "bbox": [
+      461.8,
+      1001.17,
+      107.73,
+      95.36
+    ]
+  },
+  {
+    "frame": 704,
+    "time_sec": 23.467,
+    "id": 72,
+    "class": "Motor grader",
+    "confidence": 0.83,
+    "bbox": [
+      482.07,
+      996.87,
+      120.35,
+      106.83
+    ]
+  },
+  {
+    "frame": 705,
+    "time_sec": 23.5,
+    "id": 72,
+    "class": "Motor grader",
+    "confidence": 0.59,
+    "bbox": [
+      487.19,
+      998.1,
+      121.19,
+      107.16
+    ]
+  },
+  {
+    "frame": 714,
+    "time_sec": 23.8,
+    "id": 76,
+    "class": "Excavator",
+    "confidence": 0.6,
+    "bbox": [
+      147.56,
+      1032.67,
+      181.84,
+      204.71
+    ]
+  },
+  {
+    "frame": 717,
+    "time_sec": 23.9,
+    "id": 76,
+    "class": "Excavator",
+    "confidence": 0.44,
+    "bbox": [
+      143.3,
+      1036.99,
+      202.34,
+      209.78
+    ]
+  },
+  {
+    "frame": 1141,
+    "time_sec": 38.033,
+    "id": 79,
+    "class": "Tanker",
+    "confidence": 0.62,
+    "bbox": [
+      360.0,
+      1147.95,
+      720.0,
+      264.11
+    ]
+  },
+  {
+    "frame": 1142,
+    "time_sec": 38.067,
+    "id": 79,
+    "class": "Tanker",
+    "confidence": 0.63,
+    "bbox": [
+      360.0,
+      1147.61,
+      720.0,
+      264.78
+    ]
+  },
+  {
+    "frame": 1143,
+    "time_sec": 38.1,
+    "id": 79,
+    "class": "Tanker",
+    "confidence": 0.48,
+    "bbox": [
+      360.0,
+      1147.57,
+      720.0,
+      264.86
+    ]
+  },
+  {
+    "frame": 1144,
+    "time_sec": 38.133,
+    "id": 79,
+    "class": "Tanker",
+    "confidence": 0.55,
+    "bbox": [
+      359.62,
+      1149.44,
+      719.24,
+      261.11
+    ]
+  },
+  {
+    "frame": 1145,
+    "time_sec": 38.167,
+    "id": 79,
+    "class": "Tanker",
+    "confidence": 0.67,
+    "bbox": [
+      359.24,
+      1150.0,
+      716.38,
+      260.0
+    ]
+  },
+  {
+    "frame": 1149,
+    "time_sec": 38.3,
+    "id": 79,
+    "class": "Tanker",
+    "confidence": 0.43,
+    "bbox": [
+      359.21,
+      1151.27,
+      710.39,
+      257.45
+    ]
+  },
+  {
+    "frame": 1362,
+    "time_sec": 45.4,
+    "id": 83,
+    "class": "Mixer",
+    "confidence": 0.44,
+    "bbox": [
+      641.75,
+      916.02,
+      156.22,
+      234.19
+    ]
+  },
+  {
+    "frame": 1406,
+    "time_sec": 46.867,
+    "id": 84,
+    "class": "Excavator",
+    "confidence": 0.91,
+    "bbox": [
+      641.33,
+      890.06,
+      157.34,
+      267.99
+    ]
+  },
+  {
+    "frame": 1407,
+    "time_sec": 46.9,
+    "id": 84,
+    "class": "Excavator",
+    "confidence": 0.88,
+    "bbox": [
+      641.34,
+      889.93,
+      157.33,
+      268.03
+    ]
+  },
+  {
+    "frame": 1408,
+    "time_sec": 46.933,
+    "id": 84,
+    "class": "Excavator",
+    "confidence": 0.89,
+    "bbox": [
+      641.41,
+      889.86,
+      157.05,
+      267.38
+    ]
+  },
+  {
+    "frame": 1415,
+    "time_sec": 47.167,
+    "id": 84,
+    "class": "Excavator",
+    "confidence": 0.48,
+    "bbox": [
+      638.49,
+      896.97,
+      163.03,
+      285.87
+    ]
+  },
+  {
+    "frame": 1416,
+    "time_sec": 47.2,
+    "id": 84,
+    "class": "Excavator",
+    "confidence": 0.61,
+    "bbox": [
+      638.46,
+      897.39,
+      163.09,
+      286.88
+    ]
+  },
+  {
+    "frame": 1417,
+    "time_sec": 47.233,
+    "id": 84,
+    "class": "Excavator",
+    "confidence": 0.59,
+    "bbox": [
+      638.57,
+      897.56,
+      162.86,
+      287.16
+    ]
+  },
+  {
+    "frame": 1418,
+    "time_sec": 47.267,
+    "id": 84,
+    "class": "Excavator",
+    "confidence": 0.52,
+    "bbox": [
+      638.16,
+      899.86,
+      163.68,
+      291.16
+    ]
+  },
+  {
+    "frame": 1419,
+    "time_sec": 47.3,
+    "id": 84,
+    "class": "Excavator",
+    "confidence": 0.56,
+    "bbox": [
+      638.03,
+      900.21,
+      163.94,
+      292.02
+    ]
+  },
+  {
+    "frame": 1420,
+    "time_sec": 47.333,
+    "id": 84,
+    "class": "Excavator",
+    "confidence": 0.56,
+    "bbox": [
+      638.8,
+      898.1,
+      162.41,
+      287.11
+    ]
+  },
+  {
+    "frame": 1433,
+    "time_sec": 47.767,
+    "id": 84,
+    "class": "Mixer",
+    "confidence": 0.64,
+    "bbox": [
+      639.47,
+      906.9,
+      132.42,
+      219.48
+    ]
+  },
+  {
+    "frame": 1434,
+    "time_sec": 47.8,
+    "id": 84,
+    "class": "Mixer",
+    "confidence": 0.75,
+    "bbox": [
+      639.18,
+      907.56,
+      137.03,
+      219.54
+    ]
+  },
+  {
+    "frame": 1435,
+    "time_sec": 47.833,
+    "id": 84,
+    "class": "Mixer",
+    "confidence": 0.71,
+    "bbox": [
+      638.63,
+      907.85,
+      140.8,
+      219.8
+    ]
+  },
+  {
+    "frame": 1437,
+    "time_sec": 47.9,
+    "id": 84,
+    "class": "Mixer",
+    "confidence": 0.56,
+    "bbox": [
+      638.13,
+      908.34,
+      144.79,
+      221.31
+    ]
+  },
+  {
+    "frame": 1438,
+    "time_sec": 47.933,
+    "id": 84,
+    "class": "Mixer",
+    "confidence": 0.48,
+    "bbox": [
+      638.9,
+      907.74,
+      146.03,
+      219.44
+    ]
+  }
+]
