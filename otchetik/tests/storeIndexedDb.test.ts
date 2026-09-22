@@ -57,8 +57,36 @@ for (const [name, make] of [
       expect((await store.get('a'))?.retake_of).toBeFalsy();
       expect((await store.get('b'))?.retake_of).toBe('a');
     });
+
+    it('countByStatus on empty store returns all zeros', async () => {
+      expect(await store.countByStatus()).toEqual({ queued: 0, uploading: 0, failed: 0, uploaded: 0 });
+    });
   });
 }
+
+describe('IndexedDbStore concurrency', () => {
+  it('concurrent add with same uuid does not create duplicate and does not throw', async () => {
+    const store = new IndexedDbStore('concurrent-' + Math.random());
+    await store.init();
+
+    const uuid = 'concurrent-test-uuid';
+    const r1 = rec(uuid);
+    const r2 = { ...rec(uuid), work_name: 'Different work name' };
+
+    // Fire both adds concurrently
+    const results = await Promise.allSettled([store.add(r1), store.add(r2)]);
+
+    // Both should succeed
+    expect(results.every((r) => r.status === 'fulfilled')).toBe(true);
+
+    // Only one record should exist
+    const all = await store.listAll();
+    expect(all).toHaveLength(1);
+
+    // It should be the first one that was added (not overwritten by second)
+    expect(all[0].work_name).toBe(r1.work_name);
+  });
+});
 
 describe('IndexedDbStore blobs', () => {
   it('stores and returns photo blob', async () => {

@@ -1,5 +1,6 @@
 import type { LocalStatus } from '../lib/status';
 import { EMPTY_COUNTS, type QueueStore, type ShotRecord } from './types';
+import { orderForSending, orderNewestFirst } from './order';
 
 export class MemoryStore implements QueueStore {
   private rows = new Map<string, ShotRecord>();
@@ -7,10 +8,10 @@ export class MemoryStore implements QueueStore {
   async add(r: ShotRecord) { if (!this.rows.has(r.local_uuid)) this.rows.set(r.local_uuid, { retake_of: null, ...r }); }
   async get(uuid: string) { return this.rows.get(uuid) ?? null; }
   async list(status: LocalStatus) {
-    return [...this.rows.values()].filter((r) => r.status === status).sort((a, b) => a.created_at.localeCompare(b.created_at));
+    return orderForSending([...this.rows.values()], status);
   }
   async listAll(sinceIso?: string) {
-    return [...this.rows.values()].filter((r) => !sinceIso || r.taken_at >= sinceIso).sort((a, b) => b.taken_at.localeCompare(a.taken_at));
+    return orderNewestFirst([...this.rows.values()], sinceIso);
   }
   async update(uuid: string, patch: Partial<ShotRecord>) {
     const cur = this.rows.get(uuid);

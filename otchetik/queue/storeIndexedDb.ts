@@ -1,5 +1,6 @@
 import type { LocalStatus } from '../lib/status';
 import { EMPTY_COUNTS, type QueueStore, type ShotRecord } from './types';
+import { orderForSending, orderNewestFirst } from './order';
 
 function req<T>(r: IDBRequest<T>): Promise<T> {
   return new Promise((resolve, reject) => { r.onsuccess = () => resolve(r.result); r.onerror = () => reject(r.error); });
@@ -25,16 +26,54 @@ export class IndexedDbStore implements QueueStore {
   }
 
   async add(r: ShotRecord) {
-    const existing = await req(this.tx('shots', 'readonly').get(r.local_uuid));
-    if (!existing) await req(this.tx('shots', 'readwrite').add({ retake_of: null, ...r }));
+    return new Promise<void>((resolve, reject) => {
+      if (!this.db) throw new Error('IndexedDbStore: init() не вызван');
+      const tx = this.db.transaction('shots', 'readwrite');
+      const store = tx.objectStore('shots');
+      const getReq = store.get(r.local_uuid);
+      let finished = false;
+
+      getReq.onsuccess = () => {
+        const existing = getReq.result;
+        if (!existing) {
+          const addReq = store.add({ retake_of: null, ...r });
+          addReq.onerror = () => {
+            // Swallow ConstraintError: another concurrent add succeeded first
+            if (addReq.error?.name !== 'ConstraintError') {
+              finished = true;
+              reject(addReq.error);
+            }
+          };
+        }
+      };
+
+      getReq.onerror = () => {
+        finished = true;
+        reject(getReq.error);
+      };
+
+      tx.oncomplete = () => {
+        if (!finished) {
+          finished = true;
+          resolve();
+        }
+      };
+
+      tx.onerror = () => {
+        if (!finished) {
+          finished = true;
+          reject(tx.error);
+        }
+      };
+    });
   }
   async get(uuid: string) { return ((await req(this.tx('shots', 'readonly').get(uuid))) as ShotRecord | undefined) ?? null; }
   private async all(): Promise<ShotRecord[]> { return (await req(this.tx('shots', 'readonly').getAll())) as ShotRecord[]; }
   async list(status: LocalStatus) {
-    return (await this.all()).filter((r) => r.status === status).sort((a, b) => a.created_at.localeCompare(b.created_at));
+    return orderForSending(await this.all(), status);
   }
   async listAll(sinceIso?: string) {
-    return (await this.all()).filter((r) => !sinceIso || r.taken_at >= sinceIso).sort((a, b) => b.taken_at.localeCompare(a.taken_at));
+    return orderNewestFirst(await this.all(), sinceIso);
   }
   async update(uuid: string, patch: Partial<ShotRecord>) {
     const cur = await this.get(uuid);
