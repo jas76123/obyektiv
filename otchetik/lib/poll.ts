@@ -9,3 +9,15 @@ export const PROBLEM_POLL_MS = 15_000;
 export function problemPollInterval(data: { problem?: string } | undefined): number | false {
   return data?.problem ? PROBLEM_POLL_MS : false;
 }
+
+/**
+ * Стоит ли перезапросить наряды, объекты и рейтинг после прогона очереди.
+ * Если фото не ушло (failed), сервер, скорее всего, пропал — без перезапроса
+ * шапка так и покажет «онлайн» без строки проблемы, пока прораб сам не
+ * сменит вкладку: 15-секундный опрос выше включается только после первого
+ * зафиксированного problem. Если ушло (sent) — сервер вернулся, и строку
+ * проблемы пора снять, не дожидаясь опроса.
+ */
+export function listsChangedByRun(r: { sent: number; failed: number; skipped: boolean }): boolean {
+  return !r.skipped && (r.sent > 0 || r.failed > 0);
+}

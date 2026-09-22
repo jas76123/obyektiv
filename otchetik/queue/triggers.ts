@@ -1,6 +1,8 @@
 import NetInfo, { type NetInfoState } from '@react-native-community/netinfo';
 import { AppState } from 'react-native';
+import { queryClient } from '../data/queryClient';
 import { loadSettings, serverBase } from '../data/settings';
+import { listsChangedByRun } from '../lib/poll';
 import { queueEvents } from './queueEvents';
 import { getStore, storeReady } from './store';
 import { uploadShot } from './uploadShot';
@@ -24,7 +26,12 @@ export async function runQueueNow(opts?: { force?: boolean }): Promise<RunResult
   const net = await NetInfo.fetch();
   if (!isOnline(net)) return { sent: 0, failed: 0, skipped: true };
   await storeReady();
-  return runQueue({ store: getStore(), upload: (r) => uploadShot(base, r), onProgress: () => queueEvents.emit(), force: opts?.force });
+  const result = await runQueue({ store: getStore(), upload: (r) => uploadShot(base, r), onProgress: () => queueEvents.emit(), force: opts?.force });
+  // Фото не ушло — сервер, видимо, пропал; ушло — вернулся. В обоих случаях
+  // переспрашиваем наряды, объекты, рейтинг и статусы, чтобы шапка показала
+  // (или сняла) строку проблемы сразу, а не после смены вкладки.
+  if (listsChangedByRun(result)) queryClient.invalidateQueries().catch(() => {});
+  return result;
 }
 
 let timer: ReturnType<typeof setTimeout> | null = null;
