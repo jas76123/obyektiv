@@ -3,17 +3,20 @@
     "name": "Отчётик",
     "slug": "otchetik",
     "version": "0.1.0",
+    "icon": "./assets/icon.png",
     "orientation": "portrait",
     "scheme": "otchetik",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "android": {
       "package": "ru.obyektiv.otchetik",
-      "permissions": ["CAMERA", "ACCESS_COARSE_LOCATION", "ACCESS_FINE_LOCATION"]
+      "permissions": ["CAMERA", "ACCESS_COARSE_LOCATION", "ACCESS_FINE_LOCATION"],
+      "adaptiveIcon": { "foregroundImage": "./assets/android-icon-foreground.png", "backgroundImage": "./assets/android-icon-background.png", "monochromeImage": "./assets/android-icon-monochrome.png" }
     },
     "web": {
       "bundler": "metro",
-      "output": "single"
+      "output": "single",
+      "favicon": "./assets/favicon.png"
     },
     "plugins": [
       "expo-router",
