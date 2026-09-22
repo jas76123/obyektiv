@@ -8,8 +8,8 @@ import { buildObservations, pivotFrames } from './real/observations';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const OUT = path.resolve(HERE, '../public/real');
-const jsonPath = path.resolve(process.argv[2] ?? path.join(HERE, '../../data/georgiy/video_detections.json'));
-const videoPath = path.resolve(process.argv[3] ?? path.join(HERE, '../../data/georgiy/Video.mp4'));
+const jsonPath = path.resolve(process.argv[2] ?? path.join(HERE, '../../data/model-output/video_detections.json'));
+const videoPath = path.resolve(process.argv[3] ?? path.join(HERE, '../../data/model-output/Video.mp4'));
 
 const parsed = z.array(RawDetectionSchema).safeParse(JSON.parse(fs.readFileSync(jsonPath, 'utf-8')));
 if (!parsed.success) {

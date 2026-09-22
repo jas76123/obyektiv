@@ -7,11 +7,11 @@ from pathlib import Path
 from scripts.tracker_fill import check, issue_fields, load_users, main, pick_workflow, plan_actions, sync
 from scripts.tracker_plan import PlanTask
 
-USERS = {"Жасмина": "jas", "Георгий": "geo", "Денис": "den"}
+USERS = {"product": "jas", "ml": "geo", "lead": "den"}
 COMPONENTS = {"ML": 1, "Лид": 2}
 
 
-def task(key="ML-02", blocks="M-1", assignee="Георгий", component="ML", tags=None):
+def task(key="ML-02", blocks="M-1", assignee="ml", component="ML", tags=None):
     return PlanTask(key, component, "JSON детекций", assignee, "2026-09-17", "2026-09-18",
                     tags or [], blocks, "critical", "Поля добавлены")
 
@@ -72,9 +72,9 @@ class FakeClient:
 class UsersTest(unittest.TestCase):
     def test_load_users_reads_json(self):
         tmp = tempfile.NamedTemporaryFile("w", suffix=".json", delete=False, encoding="utf-8")
-        json.dump({"Жасмина": "jas", "Денис": ""}, tmp, ensure_ascii=False)
+        json.dump({"product": "jas", "lead": ""}, tmp, ensure_ascii=False)
         tmp.close()
-        self.assertEqual(load_users(Path(tmp.name)), {"Жасмина": "jas", "Денис": ""})
+        self.assertEqual(load_users(Path(tmp.name)), {"product": "jas", "lead": ""})
 
 
 class IssueFieldsTest(unittest.TestCase):
@@ -90,7 +90,7 @@ class IssueFieldsTest(unittest.TestCase):
         self.assertIn("Поля добавлены", f["description"])
 
     def test_empty_login_means_no_assignee(self):
-        f = issue_fields(task(assignee="Александр"), {"Александр": ""}, COMPONENTS)
+        f = issue_fields(task(assignee="frontend"), {"frontend": ""}, COMPONENTS)
         self.assertNotIn("assignee", f)
 
     def test_unknown_name_raises(self):

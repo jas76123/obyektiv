@@ -11,7 +11,7 @@ export type Settings = {
 };
 
 export const DEFAULT_SETTINGS: Settings = {
-  serverUrl: '', // адрес от Георгия 22.09 вписать сюда, когда появится
+  serverUrl: '', // адрес сервера команды вписать сюда, когда появится
   demoOnly: false,
   objectId: null,
   objectName: null,

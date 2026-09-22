@@ -1,6 +1,6 @@
 # Контракт «Отчётика» (приложение прораба)
 
-Пути по документу Татьяны `docs/FOREMAN_APP.md` §13, плюс `objects` для экрана входа.
+Пути по документу `docs/FOREMAN_APP.md` §13 (репозиторий construction-monitoring), плюс `objects` для экрана входа.
 Примеры ответов: `otchetik/demo/*.json`. Схемы: `otchetik/contract/schemas.ts`.
 
 | Запрос | Ответ (пример) |

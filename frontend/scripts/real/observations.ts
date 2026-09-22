@@ -5,7 +5,7 @@ export const MIN_TRACK_FRAMES = 5;
 export const SCENE_GAP_FRAMES = 15;
 export const MOVE_RATIO = 0.25;
 
-/** Классы модели (data.yaml Георгия) → коды фронта (contract/labels.ts). */
+/** Классы модели (data.yaml модели) → коды фронта (contract/labels.ts). */
 export const CLASS_MAP: Record<string, string> = {
   'Dump truck': 'dump_truck',
   'Excavator': 'excavator',
