@@ -10,8 +10,17 @@
     "newArchEnabled": true,
     "android": {
       "package": "ru.obyektiv.otchetik",
-      "permissions": ["CAMERA", "ACCESS_COARSE_LOCATION", "ACCESS_FINE_LOCATION"],
-      "adaptiveIcon": { "foregroundImage": "./assets/android-icon-foreground.png", "backgroundImage": "./assets/android-icon-background.png", "monochromeImage": "./assets/android-icon-monochrome.png" }
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.RECORD_AUDIO"
+      ],
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      }
     },
     "web": {
       "bundler": "metro",
@@ -22,12 +31,29 @@
       "expo-router",
       "expo-sqlite",
       "expo-background-task",
-      ["expo-image-picker", { "cameraPermission": "Камера нужна, чтобы снять фото работы" }],
-      ["expo-location", { "locationWhenInUsePermission": "Координаты добавляются к фото работы" }]
+      [
+        "expo-image-picker",
+        {
+          "cameraPermission": "Камера нужна, чтобы снять фото работы"
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Координаты добавляются к фото работы"
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true,
       "baseUrl": "/obyektiv"
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "912a09b6-e3a5-4e4f-a934-6bc610fdabf6"
+      }
+    },
+    "owner": "jasmin123s-team"
   }
 }
