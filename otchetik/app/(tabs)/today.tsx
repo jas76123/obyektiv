@@ -1,12 +1,54 @@
-import { Text, View } from 'react-native';
+import NetInfo from '@react-native-community/netinfo';
+import { useEffect, useMemo, useState } from 'react';
+import { FlatList, RefreshControl, StyleSheet, Text, View } from 'react-native';
 import { Header } from '../../components/Header';
+import { TaskCard } from '../../components/TaskCard';
+import { useSchedule, useShotStatuses } from '../../data/queries';
+import { useSettings } from '../../data/settings';
+import { fmtDay, todayIso } from '../../lib/time';
 import { theme } from '../../lib/theme';
+import { useQueue } from '../../queue/useQueue';
+
+export function useOnline(): boolean {
+  const [online, setOnline] = useState(true);
+  useEffect(() => NetInfo.addEventListener((s) => setOnline(!!s.isConnected && s.isInternetReachable !== false)), []);
+  return online;
+}
 
 export default function Today() {
+  const { settings } = useSettings();
+  const date = todayIso();
+  const online = useOnline();
+  const schedule = useSchedule(settings?.objectId ?? null, settings?.brigadeId ?? null, date);
+  const { records, pending, refresh } = useQueue();
+  const todays = useMemo(() => records.filter((r) => r.taken_at.slice(0, 10) === date), [records, date]);
+  const uploaded = useMemo(() => todays.filter((r) => r.status === 'uploaded').map((r) => r.local_uuid), [todays]);
+  const statuses = useShotStatuses(uploaded);
+  const statusOf = (uuid: string) => statuses.data?.data.shots.find((s) => s.local_uuid === uuid)?.status;
+
+  const tasks = schedule.data?.data.tasks ?? [];
   return (
-    <View style={{ flex: 1, backgroundColor: theme.bg }}>
-      <Header title="Сегодня" queueCount={0} online={true} />
-      <Text style={{ padding: theme.pad, color: theme.muted }}>Работы появятся в задаче 5.</Text>
+    <View style={styles.screen}>
+      <Header title="Сегодня" queueCount={pending} online={online} source={schedule.data?.source} at={schedule.data?.at} />
+      <Text style={styles.day}>{fmtDay(date).toUpperCase()} · {date.slice(8, 10)}.{date.slice(5, 7)}</Text>
+      <FlatList
+        data={tasks}
+        keyExtractor={(t) => t.task_id}
+        contentContainerStyle={{ padding: theme.pad }}
+        refreshControl={<RefreshControl refreshing={schedule.isFetching} onRefresh={() => { schedule.refetch(); refresh(); }} />}
+        renderItem={({ item }) => (
+          <TaskCard task={item} shots={todays.filter((r) => r.task_id === item.task_id)} serverStatus={statusOf} />
+        )}
+        ListEmptyComponent={
+          <Text style={styles.empty}>{schedule.isLoading ? 'Загружаем работы…' : schedule.error ? String((schedule.error as Error).message) : 'На сегодня работ нет'}</Text>
+        }
+      />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  screen: { flex: 1, backgroundColor: theme.bg },
+  day: { paddingHorizontal: theme.pad, paddingTop: 12, fontSize: 12, fontWeight: '700', color: theme.muted, letterSpacing: 0.6 },
+  empty: { color: theme.muted, textAlign: 'center', marginTop: 24 },
+});
