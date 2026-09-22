@@ -1,7 +1,7 @@
 import { ImageManipulator, SaveFormat } from 'expo-image-manipulator';
+import { MAX_SIDE, JPEG_QUALITY, resizeSpec } from '../lib/resize';
 
-export const MAX_SIDE = 1280;
-export const JPEG_QUALITY = 0.6;
+export { MAX_SIDE, JPEG_QUALITY } from '../lib/resize';
 
 /**
  * Общий пайплайн сжатия для native и web: не длиннее MAX_SIDE по большей
@@ -9,9 +9,9 @@ export const JPEG_QUALITY = 0.6;
  * (native: file://, web: временный blob-uri из ImageManipulator).
  */
 export async function compressToJpeg(sourceUri: string, width?: number, height?: number): Promise<{ uri: string }> {
-  const landscape = (width ?? 0) >= (height ?? 0);
+  const spec = resizeSpec(width, height);
   const rendered = await ImageManipulator.manipulate(sourceUri)
-    .resize(landscape ? { width: MAX_SIDE } : { height: MAX_SIDE })
+    .resize(spec)
     .renderAsync();
   const saved = await rendered.saveAsync({ compress: JPEG_QUALITY, format: SaveFormat.JPEG });
   return { uri: saved.uri };

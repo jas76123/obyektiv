@@ -21,7 +21,8 @@ export function TaskCard({ task, shots, serverStatus }: {
     try {
       await captureForTask(task);
     } catch (e) {
-      Alert.alert('Не получилось', (e as Error).message);
+      const msg = (e as Error)?.message;
+      Alert.alert('Не получилось', msg && /[а-яё]/i.test(msg) ? msg : 'Фото не сохранилось. Попробуйте ещё раз.');
     } finally {
       setBusy(false);
     }

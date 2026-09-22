@@ -5,7 +5,7 @@ import { Header } from '../../components/Header';
 import { TaskCard } from '../../components/TaskCard';
 import { useSchedule, useShotStatuses } from '../../data/queries';
 import { useSettings } from '../../data/settings';
-import { fmtDay, todayIso } from '../../lib/time';
+import { dayKey, fmtDay, todayIso } from '../../lib/time';
 import { theme } from '../../lib/theme';
 import { useQueue } from '../../queue/useQueue';
 
@@ -21,7 +21,7 @@ export default function Today() {
   const online = useOnline();
   const schedule = useSchedule(settings?.objectId ?? null, settings?.brigadeId ?? null, date);
   const { records, pending, refresh } = useQueue();
-  const todays = useMemo(() => records.filter((r) => r.taken_at.slice(0, 10) === date), [records, date]);
+  const todays = useMemo(() => records.filter((r) => dayKey(r.taken_at) === date), [records, date]);
   const uploaded = useMemo(() => todays.filter((r) => r.status === 'uploaded').map((r) => r.local_uuid), [todays]);
   const statuses = useShotStatuses(uploaded);
   const statusOf = (uuid: string) => statuses.data?.data.shots.find((s) => s.local_uuid === uuid)?.status;
