@@ -17,10 +17,16 @@ export default function Settings() {
   if (!settings) return null;
 
   async function apply() {
+    const trimmed = url.trim();
+    if (trimmed !== url) setUrl(trimmed);
+    if (trimmed && !/^https?:\/\//i.test(trimmed)) {
+      showAlert('Не получилось', 'Адрес должен начинаться с http:// или https://');
+      return;
+    }
     try {
-      await save({ serverUrl: url.trim() });
+      await save({ serverUrl: trimmed });
       await queryClient.invalidateQueries();
-      showAlert('Сохранено', url.trim() ? `Сервер: ${url.trim()}` : 'Адрес пустой: работаем на демо-данных');
+      showAlert('Сохранено', trimmed ? `Сервер: ${trimmed}` : 'Адрес пустой: работаем на демо-данных');
     } catch (err) {
       showAlert('Не получилось', err instanceof Error ? err.message : 'Не удалось сохранить настройку');
     }

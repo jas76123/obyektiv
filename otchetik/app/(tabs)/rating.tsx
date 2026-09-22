@@ -18,7 +18,7 @@ export default function Rating() {
 
   return (
     <View style={styles.screen}>
-      <Header title="Соревнование бригад" queueCount={pending} online={online} source={lb.data?.source} at={lb.data?.at} />
+      <Header title="Соревнование бригад" queueCount={pending} online={online} source={lb.data?.source} at={lb.data?.at} problem={lb.data?.problem} />
       <FlatList
         data={brigades}
         keyExtractor={(b) => b.id}
@@ -41,6 +41,7 @@ export default function Rating() {
         ListFooterComponent={
           <View>
             <Text style={[styles.cap, { marginTop: 20 }]}>ЧТО СДЕЛАЛИ ДРУГИЕ БРИГАДЫ</Text>
+            {others.length === 0 && <Text style={styles.meta}>Пока нет принятых работ</Text>}
             {others.map((o, i) => (
               <View key={i} style={styles.other}>
                 <Text style={styles.meta}>{o.brigade} · {o.work} · {o.zone}</Text>

@@ -47,7 +47,7 @@ export default function Reports() {
 
   return (
     <View style={styles.screen}>
-      <Header title="Мои отчёты" queueCount={pending} online={online} source={schedule.data?.source} at={schedule.data?.at} />
+      <Header title="Мои отчёты" queueCount={pending} online={online} source={schedule.data?.source} at={schedule.data?.at} problem={schedule.data?.problem} />
       <Text style={styles.cap}>ФАКТ ВЫПОЛНЕННЫХ РАБОТ</Text>
       <SectionList
         sections={sections}

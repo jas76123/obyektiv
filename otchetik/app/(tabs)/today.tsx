@@ -29,7 +29,7 @@ export default function Today() {
   const tasks = schedule.data?.data.tasks ?? [];
   return (
     <View style={styles.screen}>
-      <Header title="Сегодня" queueCount={pending} online={online} source={schedule.data?.source} at={schedule.data?.at} />
+      <Header title="Сегодня" queueCount={pending} online={online} source={schedule.data?.source} at={schedule.data?.at} problem={schedule.data?.problem} />
       <Text style={styles.day}>{fmtDay(date).toUpperCase()} · {date.slice(8, 10)}.{date.slice(5, 7)}</Text>
       <FlatList
         data={tasks}

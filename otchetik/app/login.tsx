@@ -30,6 +30,7 @@ export default function Login() {
       {data?.source === 'demo' && <Text style={styles.demo}>демо-данные</Text>}
       {isLoading && <Text style={styles.muted}>Загружаем…</Text>}
       {error && <Text style={styles.err}>{String((error as Error).message)}</Text>}
+      {!isLoading && objects.length === 0 && <Text style={styles.muted}>Объектов нет. Проверьте адрес сервера в настройках.</Text>}
 
       <Text style={styles.h}>Объект</Text>
       {objects.map((o) => (

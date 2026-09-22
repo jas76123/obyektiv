@@ -11,11 +11,11 @@ describe('chooseSource', () => {
   });
   it('cache when server fails', async () => {
     const r = await chooseSource({ server: async () => { throw new Error('down'); }, cached: { tasks: ['old'] }, demo });
-    expect(r).toEqual({ data: { tasks: ['old'] }, source: 'cache' });
+    expect(r).toEqual({ data: { tasks: ['old'] }, source: 'cache', problem: 'сервер не отвечает' });
   });
   it('demo when server fails and no cache', async () => {
     const r = await chooseSource({ server: async () => { throw new Error('down'); }, cached: undefined, demo });
-    expect(r).toEqual({ data: demo, source: 'demo' });
+    expect(r).toEqual({ data: demo, source: 'demo', problem: 'сервер не отвечает' });
   });
   it('cache when server is null but cache exists (demoOnly or no url, spec §3.3 order server->cache->demo)', async () => {
     const r = await chooseSource({ server: null, cached: { tasks: ['old'] }, demo });
@@ -24,6 +24,20 @@ describe('chooseSource', () => {
   it('demo when server is null and no cache', async () => {
     const r = await chooseSource({ server: null, cached: undefined, demo });
     expect(r).toEqual({ data: demo, source: 'demo' });
+  });
+  it('a rejecting server fills problem with the zod message and falls back to cache', async () => {
+    const r = await chooseSource({
+      server: async () => { throw new Error('поле ok: ждали boolean, пришло string'); },
+      cached: { tasks: ['old'] },
+      demo,
+    });
+    expect(r.source).toBe('cache');
+    expect(r.problem).toBe('поле ok: ждали boolean, пришло string');
+  });
+  it('a rejecting server with a non-schema error falls back to a generic Russian problem text', async () => {
+    const r = await chooseSource({ server: async () => { throw new Error('HTTP 500'); }, cached: undefined, demo });
+    expect(r.source).toBe('demo');
+    expect(r.problem).toBe('сервер не отвечает');
   });
 });
 

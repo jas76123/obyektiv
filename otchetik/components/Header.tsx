@@ -5,8 +5,8 @@ import type { SourceTag } from '../data/source';
 import { fmtTime } from '../lib/time';
 import { theme } from '../lib/theme';
 
-export function Header({ title, queueCount, online, source, at }: {
-  title: string; queueCount: number; online: boolean; source?: SourceTag; at?: string;
+export function Header({ title, queueCount, online, source, at, problem }: {
+  title: string; queueCount: number; online: boolean; source?: SourceTag; at?: string; problem?: string;
 }) {
   const { settings } = useSettings();
   const router = useRouter();
@@ -17,6 +17,7 @@ export function Header({ title, queueCount, online, source, at }: {
         <Text style={styles.queue}>в очереди: {queueCount}</Text>
         {source === 'demo' && <Text style={styles.demo}>демо</Text>}
         {source === 'cache' && <Text style={styles.demo}>{at ? `данные на ${fmtTime(at)}` : 'из кэша'}</Text>}
+        {problem && <Text style={styles.problem}>{problem}</Text>}
       </View>
       <Text style={styles.title}>{title}</Text>
       <Pressable onPress={() => router.push('/login')} accessibilityRole="button" accessibilityLabel="Сменить бригаду">
@@ -35,6 +36,7 @@ const styles = StyleSheet.create({
   net: { fontSize: 12, color: theme.muted },
   queue: { fontSize: 12, color: theme.muted },
   demo: { fontSize: 12, color: theme.warnInk, backgroundColor: theme.warnBg, paddingHorizontal: 6, borderRadius: 4 },
+  problem: { fontSize: 12, color: theme.error },
   title: { fontSize: 24, fontWeight: '800', color: theme.ink, marginTop: 6 },
   sub: { fontSize: 14, color: theme.muted, marginTop: 2 },
   warn: { marginTop: 10, backgroundColor: theme.warnBg, padding: 10, borderRadius: theme.radius },

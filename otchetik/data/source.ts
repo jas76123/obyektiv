@@ -6,8 +6,18 @@ export type SourceTag = 'server' | 'cache' | 'demo';
  * `at` — время (ISO), когда `data` пришли от сервера. Есть при source
  * 'server' и 'cache' (кэш всегда происходит от настоящего ответа сервера),
  * отсутствует при 'demo'.
+ * `problem` — короткий текст на русском о том, почему источник не 'server'
+ * (сервер не ответил по схеме или не ответил вовсе); нет при удачном 'server'.
  */
-export type Sourced<T> = { data: T; source: SourceTag; at?: string };
+export type Sourced<T> = { data: T; source: SourceTag; at?: string; problem?: string };
+
+/** Короткий русский текст ошибки сервера для шапки экрана. Зодовский текст уже
+ * читаемый (см. describeZodError) и начинается с «поле …» — показываем как есть;
+ * остальное (HTTP-ошибка, обрыв сети, таймаут) сворачиваем в одну фразу. */
+function problemText(e: unknown): string {
+  const msg = e instanceof Error ? e.message : String(e);
+  return msg.startsWith('поле ') ? msg : 'сервер не отвечает';
+}
 
 /**
  * Порядок из спеки §3.3: сервер, потом кэш, потом демо — всегда в этом порядке.
@@ -23,9 +33,10 @@ export async function chooseSource<T>(opts: {
   if (opts.server) {
     try {
       return { data: await opts.server(), source: 'server' };
-    } catch {
-      if (opts.cached !== undefined) return { data: opts.cached, source: 'cache' };
-      return { data: opts.demo, source: 'demo' };
+    } catch (e) {
+      const problem = problemText(e);
+      if (opts.cached !== undefined) return { data: opts.cached, source: 'cache', problem };
+      return { data: opts.demo, source: 'demo', problem };
     }
   }
   if (opts.cached !== undefined) return { data: opts.cached, source: 'cache' };
