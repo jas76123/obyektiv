@@ -48,4 +48,44 @@ describe('buildReport', () => {
     expect(doors.photos.length).toBe(1);
     expect(doors.comment).toBeNull();
   });
+
+  it('comment comes from the newest photo with the shown status', () => {
+    const days = buildReport(
+      [
+        rec('a', 't-doors', '2026-09-22T13:00:00+03:00', 'uploaded'),  // newest
+        rec('b', 't-doors', '2026-09-22T12:00:00+03:00', 'uploaded'),  // oldest
+      ],
+      {
+        a: { local_uuid: 'a', status: 'rework', verdict_comment: 'X', updated_at: 'x' },
+        b: { local_uuid: 'b', status: 'rejected', verdict_comment: 'Y', updated_at: 'x' },
+      },
+      {},
+      now,
+    );
+    const doors = days[0].works[0];
+    expect(doors.status).toBe('rework');
+    expect(doors.comment).toBe('X');  // from photo A, the newest with rework status
+  });
+
+  it('percent only from the defining photo', () => {
+    // P1: older, accepted, has percent
+    // P2: newer, under_review, no percent
+    // workStatus(['on_review', 'accepted']) returns 'on_review' (higher priority)
+    // So the defining photo is P2 (newest with on_review status), which has no percent
+    const days = buildReport(
+      [
+        rec('p2', 't-rebar', '2026-09-22T13:00:00+03:00', 'uploaded'),  // newest: under_review
+        rec('p1', 't-rebar', '2026-09-22T12:00:00+03:00', 'uploaded'),  // oldest: accepted
+      ],
+      {
+        p2: { local_uuid: 'p2', status: 'under_review', updated_at: 'x' },
+        p1: { local_uuid: 'p1', status: 'accepted', accepted_percent: 50, updated_at: 'x' },
+      },
+      {},
+      now,
+    );
+    const rebar = days[0].works[0];
+    expect(rebar.status).toBe('on_review');  // on_review has higher priority than accepted
+    expect(rebar.percent).toBeNull();  // from P2, the newest with on_review status
+  });
 });

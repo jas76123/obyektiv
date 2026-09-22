@@ -12,7 +12,8 @@ export function ReportRow({ work, onRetake }: { work: ReportWork; onRetake: (tas
   useEffect(() => {
     if (!open) return;
     Promise.all(work.photos.map(async (p) => [p.uuid, p.record ? await photoUri(p.record) : ''] as const))
-      .then((pairs) => setUris(Object.fromEntries(pairs)));
+      .then((pairs) => setUris(Object.fromEntries(pairs)))
+      .catch(() => setUris({}));
   }, [open, work.photos]);
 
   return (

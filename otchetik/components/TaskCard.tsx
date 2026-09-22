@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ActivityIndicator, Pressable, StyleSheet, Text, View } from 'react-native';
 import type { ScheduleTask } from '../contract/schemas';
-import { showCaptureError } from '../lib/alerts';
+import { showCaptureError } from './alerts';
 import { photoChip, type AnyShotStatus } from '../lib/status';
 import { theme } from '../lib/theme';
 import { captureForTask } from '../queue/capture';

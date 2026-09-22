@@ -1,9 +1,9 @@
 import type { ScheduleTask, ShotStatusItem } from '../contract/schemas';
 import type { ShotRecord } from '../queue/types';
-import { SCREEN_LABEL, foldStatus, photoChip, workStatus, type ScreenStatus } from './status';
+import { SCREEN_LABEL, foldStatus, photoChip, workStatus, type AnyShotStatus, type ScreenStatus } from './status';
 import { dayKey, fmtDay, todayIso } from './time';
 
-export type ReportPhoto = { uuid: string; taken_at: string; word: string; record: ShotRecord | null };
+export type ReportPhoto = { uuid: string; taken_at: string; word: string; record: ShotRecord; status: AnyShotStatus };
 export type ReportWork = {
   task_id: string; name: string; zone: string; status: ScreenStatus; label: string;
   comment: string | null; percent: number | null; photos: ReportPhoto[];
@@ -35,18 +35,26 @@ export function buildReport(
     const w = workFor(dayKey(r.taken_at), r.task_id, r.work_name, r.zone);
     const srv = statuses[r.local_uuid];
     const st = srv ? srv.status : r.status;
-    w.photos.push({ uuid: r.local_uuid, taken_at: r.taken_at, word: photoChip(st), record: r });
-    if (srv?.verdict_comment && (srv.status === 'rework' || srv.status === 'rejected')) w.comment = srv.verdict_comment;
-    if (srv?.accepted_percent != null) w.percent = srv.accepted_percent;
+    w.photos.push({ uuid: r.local_uuid, taken_at: r.taken_at, word: photoChip(st), record: r, status: st });
   }
 
   const out: ReportDay[] = [];
   for (const [key, works] of [...days.entries()].sort((a, b) => b[0].localeCompare(a[0]))) {
     const list = [...works.values()].map((w) => {
-      const folded = w.photos.map((p) => foldStatus((statuses[p.uuid]?.status ?? p.record?.status ?? 'queued')));
-      const status = workStatus(folded);
       w.photos.sort((a, b) => b.taken_at.localeCompare(a.taken_at));
-      return { ...w, status, label: SCREEN_LABEL[status] };
+      const folded = w.photos.map((p) => foldStatus(p.status));
+      const status = workStatus(folded);
+
+      // Find the newest photo whose folded status equals the work status
+      const definingPhoto = w.photos.find((p) => foldStatus(p.status) === status);
+      const comment = definingPhoto && (status === 'rework' || status === 'rejected')
+        ? statuses[definingPhoto.uuid]?.verdict_comment ?? null
+        : null;
+      const percent = definingPhoto
+        ? statuses[definingPhoto.uuid]?.accepted_percent ?? null
+        : null;
+
+      return { ...w, status, label: SCREEN_LABEL[status], comment, percent };
     });
     out.push({ key, label: fmtDay(key, now), works: list });
   }
