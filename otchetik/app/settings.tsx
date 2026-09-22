@@ -12,17 +12,26 @@ export default function Settings() {
   const { counts, pending, runNow } = useQueue();
   const router = useRouter();
   const [url, setUrl] = useState('');
-  useEffect(() => { if (settings) setUrl(settings.serverUrl); }, [settings]);
+  // Зависим только от serverUrl, чтобы не сбрасывать введённый адрес при других изменениях в settings
+  useEffect(() => { if (settings) setUrl(settings.serverUrl); }, [settings?.serverUrl]);
   if (!settings) return null;
 
   async function apply() {
-    await save({ serverUrl: url.trim() });
-    await queryClient.invalidateQueries();
-    showAlert('Сохранено', url.trim() ? `Сервер: ${url.trim()}` : 'Адрес пустой: работаем на демо-данных');
+    try {
+      await save({ serverUrl: url.trim() });
+      await queryClient.invalidateQueries();
+      showAlert('Сохранено', url.trim() ? `Сервер: ${url.trim()}` : 'Адрес пустой: работаем на демо-данных');
+    } catch (err) {
+      showAlert('Не получилось', err instanceof Error ? err.message : 'Не удалось сохранить настройку');
+    }
   }
   async function send() {
-    const r = await runNow();
-    showAlert('Прогон очереди', r.skipped ? 'Не запускался: нет адреса сервера или уже идёт' : `отправлено ${r.sent}, с ошибкой ${r.failed}`);
+    try {
+      const r = await runNow();
+      showAlert('Прогон очереди', r.skipped ? 'Не запускался: нет адреса сервера или уже идёт' : `отправлено ${r.sent}, с ошибкой ${r.failed}`);
+    } catch (err) {
+      showAlert('Не получилось', err instanceof Error ? err.message : 'Не удалось отправить очередь');
+    }
   }
 
   return (
@@ -33,7 +42,7 @@ export default function Settings() {
 
       <View style={styles.rowBetween}>
         <Text style={styles.label}>Только демо-данные</Text>
-        <Switch value={settings.demoOnly} onValueChange={async (v) => { await save({ demoOnly: v }); await queryClient.invalidateQueries(); }} />
+        <Switch value={settings.demoOnly} onValueChange={async (v) => { try { await save({ demoOnly: v }); await queryClient.invalidateQueries(); } catch (err) { showAlert('Не получилось', err instanceof Error ? err.message : 'Не удалось сохранить настройку'); } }} />
       </View>
 
       <Text style={styles.h}>Очередь</Text>
@@ -42,7 +51,7 @@ export default function Settings() {
 
       <Text style={styles.h}>Бригада</Text>
       <Text style={styles.label}>{settings.objectName ?? '—'} · {settings.brigadeName ?? '—'}</Text>
-      <Pressable onPress={async () => { await save({ objectId: null, objectName: null, brigadeId: null, brigadeName: null }); router.replace('/login'); }} style={[styles.btn, styles.btnGhost]}>
+      <Pressable onPress={async () => { try { await save({ objectId: null, objectName: null, brigadeId: null, brigadeName: null }); router.replace('/login'); } catch (err) { showAlert('Не получилось', err instanceof Error ? err.message : 'Не удалось сохранить настройку'); } }} style={[styles.btn, styles.btnGhost]}>
         <Text style={[styles.btnText, { color: theme.accent }]}>Сбросить выбор бригады</Text>
       </Pressable>
     </ScrollView>
