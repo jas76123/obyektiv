@@ -1,0 +1,13 @@
+{
+  "objects": [
+    {
+      "id": "obj-severny-2",
+      "name": "ЖК «Северный», корпус 2",
+      "brigades": [
+        { "id": "br-1", "name": "Бригада №1", "members": 6 },
+        { "id": "br-2", "name": "Бригада №2", "members": 5 },
+        { "id": "br-3", "name": "Бригада №3", "members": 4 }
+      ]
+    }
+  ]
+}

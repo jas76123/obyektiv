@@ -1,0 +1,8 @@
+{
+  "date": "2026-09-22",
+  "tasks": [
+    { "task_id": "t-doors-0922", "work_id": "w-doors", "name": "Установка дверей", "zone": "Зона 2", "expected": "4 двери", "plan_start": "2026-09-21", "plan_end": "2026-09-23" },
+    { "task_id": "t-concrete-0922", "work_id": "w-concrete", "name": "Бетонирование", "zone": "Секция C", "plan_start": "2026-09-22", "plan_end": "2026-09-24" },
+    { "task_id": "t-rebar-0922", "work_id": "w-rebar", "name": "Армирование", "zone": "Зона A", "plan_start": "2026-09-20", "plan_end": "2026-09-22" }
+  ]
+}

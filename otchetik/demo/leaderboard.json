@@ -1,0 +1,12 @@
+{
+  "brigades": [
+    { "id": "br-2", "name": "Бригада №2", "rank": 1, "points": 178, "accepted": 14, "quality": 92 },
+    { "id": "br-1", "name": "Бригада №1", "rank": 2, "points": 150, "accepted": 12, "quality": 88 },
+    { "id": "br-3", "name": "Бригада №3", "rank": 3, "points": 104, "accepted": 9, "quality": 75 }
+  ],
+  "others": [
+    { "brigade": "Бригада №2", "work": "Установка дверей", "zone": "зона 4", "status": "accepted" },
+    { "brigade": "Бригада №2", "work": "Стяжка пола", "zone": "секция B", "status": "accepted" },
+    { "brigade": "Бригада №3", "work": "Армирование", "zone": "зона C", "status": "under_review" }
+  ]
+}
