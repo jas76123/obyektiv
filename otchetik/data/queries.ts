@@ -6,22 +6,27 @@ import {
 import { demo } from '../demo';
 import { queryClient } from './queryClient';
 import { loadSettings, serverBase } from './settings';
-import { chooseSource, fetchJson, type Sourced } from './source';
+import { cacheFrom, chooseSource, fetchJson, stampSource, type Sourced } from './source';
 
 async function load<T>(key: unknown[], path: string, schema: Parameters<typeof fetchJson>[1], demoData: T): Promise<Sourced<T>> {
   const s = await loadSettings();
   const base = serverBase(s);
   const stored = queryClient.getQueryData<Sourced<T>>(key);
-  // «Кэш» — это только предыдущий успешный ответ сервера. Если раньше уже
-  // показывали демо (сервер был недоступен), это не кэш: иначе повторный
-  // показ демо-данных подписывался бы как «данные на HH:MM». А при
-  // «только демо-данные» кэш вообще не передаём, чтобы демо было демо.
-  const cached = !s.demoOnly && stored?.source === 'server' ? stored.data : undefined;
-  return chooseSource<T>({
-    server: base ? () => fetchJson(base + path, schema) as Promise<T> : null,
-    cached,
-    demo: demoData,
-  });
+  // «Кэш» — это последний успешный ответ сервера, и он живёт, пока сервер
+  // недоступен, сколько бы раз подряд он ни падал (source 'cache' сам по
+  // себе уже происходит от настоящего ответа сервера — демо в кэш не
+  // пересохраняется). При «только демо-данные» кэш не отдаём вообще, чтобы
+  // демо оставалось демо. `stampSource` ниже проставляет время того ответа
+  // (`at`) для шапки «данные на HH:MM».
+  const cached = cacheFrom(stored, s.demoOnly);
+  return stampSource(
+    await chooseSource<T>({
+      server: base ? () => fetchJson(base + path, schema) as Promise<T> : null,
+      cached,
+      demo: demoData,
+    }),
+    stored,
+  );
 }
 
 export const keys = {

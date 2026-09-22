@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { z } from 'zod';
-import { chooseSource, fetchJson } from '../data/source';
+import { cacheFrom, chooseSource, fetchJson, stampSource } from '../data/source';
 
 const demo = { tasks: ['demo'] };
 
@@ -24,6 +24,49 @@ describe('chooseSource', () => {
   it('demo when server is null and no cache', async () => {
     const r = await chooseSource({ server: null, cached: undefined, demo });
     expect(r).toEqual({ data: demo, source: 'demo' });
+  });
+});
+
+describe('cacheFrom', () => {
+  it('forwards data when stored is a server answer', () => {
+    const stored = { data: { tasks: ['srv'] }, source: 'server' as const, at: '2026-09-22T10:00:00.000Z' };
+    expect(cacheFrom(stored, false)).toEqual({ tasks: ['srv'] });
+  });
+  it('forwards data when stored is cache (regression: second consecutive failure still gets cache)', () => {
+    const stored = { data: { tasks: ['srv'] }, source: 'cache' as const, at: '2026-09-22T10:00:00.000Z' };
+    expect(cacheFrom(stored, false)).toEqual({ tasks: ['srv'] });
+  });
+  it('is undefined when stored is demo', () => {
+    const stored = { data: { tasks: ['demo'] }, source: 'demo' as const };
+    expect(cacheFrom(stored, false)).toBeUndefined();
+  });
+  it('is undefined when demoOnly is true, even with a server-backed record', () => {
+    const stored = { data: { tasks: ['srv'] }, source: 'server' as const, at: '2026-09-22T10:00:00.000Z' };
+    expect(cacheFrom(stored, true)).toBeUndefined();
+  });
+  it('is undefined when there is nothing stored', () => {
+    expect(cacheFrom(undefined, false)).toBeUndefined();
+  });
+});
+
+describe('stampSource', () => {
+  const now = new Date('2026-09-22T12:34:00.000Z');
+  it('stamps server results with the current time', () => {
+    const r = stampSource({ data: { tasks: ['srv'] }, source: 'server' }, undefined, now);
+    expect(r).toEqual({ data: { tasks: ['srv'] }, source: 'server', at: now.toISOString() });
+  });
+  it('keeps the stored time for cache results', () => {
+    const stored = { data: { tasks: ['srv'] }, source: 'server' as const, at: '2026-09-22T10:00:00.000Z' };
+    const r = stampSource({ data: { tasks: ['srv'] }, source: 'cache' }, stored, now);
+    expect(r).toEqual({ data: { tasks: ['srv'] }, source: 'cache', at: '2026-09-22T10:00:00.000Z' });
+  });
+  it('leaves cache without a time when stored had none', () => {
+    const r = stampSource({ data: { tasks: ['srv'] }, source: 'cache' }, undefined, now);
+    expect(r).toEqual({ data: { tasks: ['srv'] }, source: 'cache', at: undefined });
+  });
+  it('has no time for demo', () => {
+    const r = stampSource({ data: demo, source: 'demo' }, undefined, now);
+    expect(r).toEqual({ data: demo, source: 'demo', at: undefined });
   });
 });
 

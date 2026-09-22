@@ -1,7 +1,12 @@
 import type { ZodError, ZodTypeAny, z } from 'zod';
 
 export type SourceTag = 'server' | 'cache' | 'demo';
-export type Sourced<T> = { data: T; source: SourceTag };
+/**
+ * `at` — время (ISO), когда `data` пришли от сервера. Есть при source
+ * 'server' и 'cache' (кэш всегда происходит от настоящего ответа сервера),
+ * отсутствует при 'demo'.
+ */
+export type Sourced<T> = { data: T; source: SourceTag; at?: string };
 
 /**
  * Порядок из спеки §3.3: сервер, потом кэш, потом демо — всегда в этом порядке.
@@ -24,6 +29,32 @@ export async function chooseSource<T>(opts: {
   }
   if (opts.cached !== undefined) return { data: opts.cached, source: 'cache' };
   return { data: opts.demo, source: 'demo' };
+}
+
+/**
+ * Что передать в chooseSource как «кэш» из уже сохранённой записи.
+ * «Кэш» — это только последний успешный ответ сервера: source 'cache' сюда
+ * всегда попадает от настоящего ответа сервера (демо никогда не
+ * пересохраняется как 'cache'), поэтому и предыдущий кэш годится дальше,
+ * сколько бы раз подряд сервер ни падал. При «только демо-данные» кэш не
+ * отдаём вообще, чтобы демо оставалось демо.
+ */
+export function cacheFrom<T>(stored: Sourced<T> | undefined, demoOnly: boolean): T | undefined {
+  if (demoOnly || !stored) return undefined;
+  if (stored.source === 'server' || stored.source === 'cache') return stored.data;
+  return undefined;
+}
+
+/**
+ * Проставляет `at` результату chooseSource: для 'server' — текущее время
+ * (это и есть момент ответа), для 'cache' — время из предыдущей записи
+ * (может быть undefined, но обычно есть, раз кэш живой), для 'demo' — нет
+ * времени вовсе.
+ */
+export function stampSource<T>(result: Sourced<T>, stored: Sourced<T> | undefined, now: Date = new Date()): Sourced<T> {
+  if (result.source === 'server') return { ...result, at: now.toISOString() };
+  if (result.source === 'cache') return { ...result, at: stored?.at };
+  return { ...result, at: undefined };
 }
 
 function describeZodError(e: ZodError): string {
