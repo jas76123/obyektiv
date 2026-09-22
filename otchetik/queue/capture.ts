@@ -27,8 +27,9 @@ async function quickGeo(): Promise<string | null> {
   }
 }
 
-/** Тап «Фото»: системная камера → сжатие → файл → запись queued. Возвращает запись или null, если прораб отменил. */
-export async function captureForTask(task: ScheduleTask): Promise<ShotRecord | null> {
+/** Тап «Фото»: системная камера → сжатие → файл → запись queued. Возвращает запись или null, если прораб отменил.
+ * `opts.retakeOf` — local_uuid прежнего фото, которое переснимается (экран «Отчёты», кнопка «Переснять»). */
+export async function captureForTask(task: ScheduleTask, opts?: { retakeOf?: string }): Promise<ShotRecord | null> {
   const perm = await ImagePicker.requestCameraPermissionsAsync();
   if (!perm.granted) throw new Error('Нет доступа к камере');
   const res = await ImagePicker.launchCameraAsync({ mediaTypes: ['images'], quality: 0.9, exif: false });
@@ -39,7 +40,7 @@ export async function captureForTask(task: ScheduleTask): Promise<ShotRecord | n
   const { file_path } = await savePhoto(asset.uri, uuid, asset.width, asset.height);
   const geo = await quickGeo();
   await storeReady();
-  const record = newRecord({ local_uuid: uuid, task_id: task.task_id, work_name: task.name, zone: task.zone, taken_at, geo, file_path });
+  const record = newRecord({ local_uuid: uuid, task_id: task.task_id, work_name: task.name, zone: task.zone, taken_at, geo, file_path, retake_of: opts?.retakeOf ?? null });
   await getStore().add(record);
   queueEvents.emit();
   return record;

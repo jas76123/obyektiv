@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { ActivityIndicator, Alert, Pressable, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, Pressable, StyleSheet, Text, View } from 'react-native';
 import type { ScheduleTask } from '../contract/schemas';
+import { showCaptureError } from '../lib/alerts';
 import { photoChip, type AnyShotStatus } from '../lib/status';
 import { theme } from '../lib/theme';
 import { captureForTask } from '../queue/capture';
@@ -21,8 +22,7 @@ export function TaskCard({ task, shots, serverStatus }: {
     try {
       await captureForTask(task);
     } catch (e) {
-      const msg = (e as Error)?.message;
-      Alert.alert('Не получилось', msg && /[а-яё]/i.test(msg) ? msg : 'Фото не сохранилось. Попробуйте ещё раз.');
+      showCaptureError(e);
     } finally {
       setBusy(false);
     }
