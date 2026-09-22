@@ -4,3 +4,6 @@ __pycache__/
 data/*.db
 .DS_Store
 data/georgiy/*.mp4
+otchetik/node_modules/
+otchetik/dist/
+otchetik/.expo/

@@ -1,0 +1,30 @@
+{
+  "expo": {
+    "name": "Отчётик",
+    "slug": "otchetik",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "scheme": "otchetik",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "android": {
+      "package": "ru.obyektiv.otchetik",
+      "permissions": ["CAMERA", "ACCESS_COARSE_LOCATION", "ACCESS_FINE_LOCATION"]
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "single"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-sqlite",
+      "expo-background-task",
+      ["expo-image-picker", { "cameraPermission": "Камера нужна, чтобы снять фото работы" }],
+      ["expo-location", { "locationWhenInUsePermission": "Координаты добавляются к фото работы" }]
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "baseUrl": "/obyektiv"
+    }
+  }
+}
