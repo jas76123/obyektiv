@@ -12,8 +12,13 @@ export type UploadFn = (r: ShotRecord) => Promise<{ server_id: string }>;
 
 let running = false;
 
-/** Один прогон очереди. Замок: второй одновременный вызов возвращает skipped. Записи, оставшиеся в uploading после обрыва, отправляются заново. */
-export async function runQueue(deps: { store: QueueStore; upload: UploadFn; now?: () => number; onProgress?: () => void }): Promise<RunResult> {
+/**
+ * Один прогон очереди. Замок: второй одновременный вызов возвращает skipped. Записи,
+ * оставшиеся в uploading после обрыва, отправляются заново. `force` игнорирует
+ * `next_attempt_at` у failed-записей — нужно, когда сеть только что появилась и
+ * записи ещё не «дозрели» до своего времени повтора (спека §4.4).
+ */
+export async function runQueue(deps: { store: QueueStore; upload: UploadFn; now?: () => number; onProgress?: () => void; force?: boolean }): Promise<RunResult> {
   if (running) return { sent: 0, failed: 0, skipped: true };
   running = true;
   const now = deps.now ?? Date.now;
@@ -22,7 +27,7 @@ export async function runQueue(deps: { store: QueueStore; upload: UploadFn; now?
     const due = [
       ...(await deps.store.list('uploading')),
       ...(await deps.store.list('queued')),
-      ...(await deps.store.list('failed')).filter((r) => r.next_attempt_at <= now())
+      ...(await deps.store.list('failed')).filter((r) => deps.force || r.next_attempt_at <= now())
     ].sort((a, b) => a.created_at.localeCompare(b.created_at));
     for (const r of due) {
       await deps.store.update(r.local_uuid, { status: 'uploading' });

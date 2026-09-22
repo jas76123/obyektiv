@@ -1,4 +1,5 @@
 import type { ZodError, ZodTypeAny, z } from 'zod';
+import { GET_TIMEOUT_MS, timeoutSignal } from '../lib/network';
 
 export type SourceTag = 'server' | 'cache' | 'demo';
 /**
@@ -72,7 +73,7 @@ export async function fetchJson<S extends ZodTypeAny>(
   init?: RequestInit,
   fetchImpl: typeof fetch = fetch,
 ): Promise<z.infer<S>> {
-  const res = await fetchImpl(url, init);
+  const res = await fetchImpl(url, { ...init, signal: init?.signal ?? timeoutSignal(GET_TIMEOUT_MS) });
   if (!res.ok) throw new Error(`HTTP ${res.status} ${url}`);
   const json = await res.json();
   const parsed = schema.safeParse(json);

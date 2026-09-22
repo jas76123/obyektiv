@@ -76,6 +76,17 @@ describe('runQueue', () => {
     expect((await first).sent).toBe(1);
   });
 
+  it('force sends a failed record whose next_attempt_at is still in the future', async () => {
+    const store = new MemoryStore();
+    await store.add({ ...rec('a'), status: 'failed', attempts: 1, next_attempt_at: 999_999 });
+    let calls = 0;
+    const upload = async () => { calls++; return { server_id: 's' }; };
+    const r = await runQueue({ store, upload, now: () => 0, force: true });
+    expect(calls).toBe(1);
+    expect(r.sent).toBe(1);
+    expect((await store.get('a'))?.status).toBe('uploaded');
+  });
+
   it('retries a record left in uploading by an interrupted run', async () => {
     const store = new MemoryStore();
     await store.add({ ...rec('a'), status: 'uploading' });

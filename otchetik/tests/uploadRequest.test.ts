@@ -54,4 +54,16 @@ describe('postShot', () => {
     vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({ oops: true }), { status: 200 })));
     await expect(postShot('http://x', rec(), new Blob(['x']))).rejects.toThrow('ответ сервера не по схеме');
   });
+
+  it('rejects within the timeout when the server accepts the connection but never answers', async () => {
+    vi.useFakeTimers();
+    const mock = vi.fn((_url: string, init?: RequestInit) => new Promise((_resolve, reject) => {
+      init?.signal?.addEventListener('abort', () => reject(new Error('aborted')));
+    }));
+    vi.stubGlobal('fetch', mock);
+    const pending = expect(postShot('http://x', rec(), new Blob(['x']))).rejects.toThrow();
+    await vi.advanceTimersByTimeAsync(20_000);
+    await pending;
+    vi.useRealTimers();
+  });
 });

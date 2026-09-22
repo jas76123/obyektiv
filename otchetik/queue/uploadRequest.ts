@@ -1,4 +1,5 @@
 import { UploadResponse } from '../contract/schemas';
+import { POST_TIMEOUT_MS, timeoutSignal } from '../lib/network';
 import type { ShotRecord } from './types';
 
 export type PhotoPart = Blob | { uri: string; name: string; type: string };
@@ -19,7 +20,7 @@ export async function postShot(base: string, r: ShotRecord, photo: PhotoPart): P
   fd.append('taken_at', r.taken_at);
   fd.append('geo', r.geo ?? '');
   if (r.retake_of) fd.append('retake_of', r.retake_of);
-  const res = await fetch(`${base}/api/foreman/shots`, { method: 'POST', body: fd });
+  const res = await fetch(`${base}/api/foreman/shots`, { method: 'POST', body: fd, signal: timeoutSignal(POST_TIMEOUT_MS) });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   const parsed = UploadResponse.safeParse(await res.json());
   if (!parsed.success) throw new Error('ответ сервера не по схеме: ' + parsed.error.issues[0]?.message);

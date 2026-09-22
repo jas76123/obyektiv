@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { z } from 'zod';
 import { cacheFrom, chooseSource, fetchJson, stampSource } from '../data/source';
 
@@ -83,5 +83,16 @@ describe('fetchJson', () => {
   it('throws on http error', async () => {
     const f = async () => new Response('nope', { status: 500 });
     await expect(fetchJson('http://x/api', schema, undefined, f as typeof fetch)).rejects.toThrow(/HTTP 500/);
+  });
+
+  it('rejects within the timeout when the server accepts the connection but never answers', async () => {
+    vi.useFakeTimers();
+    const f = (_url: string, init?: RequestInit) => new Promise((_resolve, reject) => {
+      init?.signal?.addEventListener('abort', () => reject(new Error('aborted')));
+    });
+    const pending = expect(fetchJson('http://x/api', schema, undefined, f as typeof fetch)).rejects.toThrow();
+    await vi.advanceTimersByTimeAsync(8_000);
+    await pending;
+    vi.useRealTimers();
   });
 });
