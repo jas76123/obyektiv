@@ -4,7 +4,11 @@ import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import { persister, queryClient } from '../data/queryClient';
 import { registerBackgroundTask } from '../queue/backgroundTask';
+import { configureNetInfoForWeb } from '../queue/netinfoConfig';
 import { installTriggers } from '../queue/triggers';
+
+// До первого подписчика NetInfo: иначе проверка сети уйдёт на корень сайта и вернёт «нет сети».
+configureNetInfoForWeb();
 
 export default function RootLayout() {
   useEffect(() => {
