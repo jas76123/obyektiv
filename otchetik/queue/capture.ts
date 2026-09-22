@@ -2,6 +2,7 @@ import * as Crypto from 'expo-crypto';
 import * as ImagePicker from 'expo-image-picker';
 import * as Location from 'expo-location';
 import type { ScheduleTask } from '../contract/schemas';
+import { newUuid } from '../lib/uuid';
 import { savePhoto } from './photoFile';
 import { queueEvents } from './queueEvents';
 import { getStore, storeReady } from './store';
@@ -35,7 +36,7 @@ export async function captureForTask(task: ScheduleTask, opts?: { retakeOf?: str
   const res = await ImagePicker.launchCameraAsync({ mediaTypes: ['images'], quality: 0.9, exif: false });
   if (res.canceled || !res.assets[0]) return null;
   const asset = res.assets[0];
-  const uuid = Crypto.randomUUID();
+  const uuid = newUuid((n) => Crypto.getRandomValues(new Uint8Array(n)));
   const taken_at = new Date().toISOString();
   const { file_path } = await savePhoto(asset.uri, uuid, asset.width, asset.height);
   const geo = await quickGeo();
