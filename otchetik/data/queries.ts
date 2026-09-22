@@ -4,6 +4,7 @@ import {
   type Leaderboard, type Objects, type Schedule, type ShotsStatus,
 } from '../contract/schemas';
 import { demo } from '../demo';
+import { problemPollInterval } from '../lib/poll';
 import { queryClient } from './queryClient';
 import { loadSettings, serverBase } from './settings';
 import { cacheFrom, chooseSource, fetchJson, stampSource, type Sourced } from './source';
@@ -39,6 +40,7 @@ export const keys = {
 export function useObjects() {
   return useQuery({
     queryKey: keys.objects(),
+    refetchInterval: (q) => problemPollInterval(q.state.data),
     queryFn: () => load<Objects>([...keys.objects()], '/api/foreman/objects', ObjectsResponse, demo.objects),
   });
 }
@@ -47,6 +49,7 @@ export function useSchedule(objectId: string | null, brigadeId: string | null, d
   return useQuery({
     queryKey: keys.schedule(objectId ?? '', brigadeId ?? '', date),
     enabled: !!objectId && !!brigadeId,
+    refetchInterval: (q) => problemPollInterval(q.state.data),
     queryFn: () => load<Schedule>(
       [...keys.schedule(objectId!, brigadeId!, date)],
       `/api/foreman/object/${encodeURIComponent(objectId!)}/schedule?brigade_id=${encodeURIComponent(brigadeId!)}&date=${date}`,
@@ -60,6 +63,7 @@ export function useLeaderboard(objectId: string | null) {
   return useQuery({
     queryKey: keys.leaderboard(objectId ?? ''),
     enabled: !!objectId,
+    refetchInterval: (q) => problemPollInterval(q.state.data),
     queryFn: () => load<Leaderboard>(
       [...keys.leaderboard(objectId!)],
       `/api/foreman/leaderboard?object_id=${encodeURIComponent(objectId!)}`,
