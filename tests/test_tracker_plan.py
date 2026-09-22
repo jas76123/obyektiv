@@ -16,6 +16,10 @@ def write_csv(rows: str) -> Path:
     return Path(tmp.name)
 
 
+REAL_PLAN = Path(__file__).resolve().parent.parent / "docs" / "superpowers" / "specs" / "2026-09-17-obyektiv-work-plan.csv"
+# Файл плана не публикуется в репозитории — эти два теста идут только там, где он есть.
+
+
 class LoadPlanTest(unittest.TestCase):
     def test_reads_rows_into_tasks(self):
         path = write_csv(
@@ -46,6 +50,7 @@ class LoadPlanTest(unittest.TestCase):
         )
         self.assertIn("A-1: ключ повторяется", validate_plan(load_plan(path)))
 
+    @unittest.skipUnless(REAL_PLAN.exists(), "файл плана не в репозитории")
     def test_validate_passes_on_real_plan(self):
         real = Path(__file__).resolve().parent.parent / "docs" / "superpowers" / "specs" / "2026-09-17-obyektiv-work-plan.csv"
         tasks = load_plan(real)
@@ -80,6 +85,7 @@ class HelpersTest(unittest.TestCase):
         self.assertTrue(text.startswith("**Цель:** основа для экранов"))
         self.assertIn("**Критерий готовности:** экраны открываются", text)
 
+    @unittest.skipUnless(REAL_PLAN.exists(), "файл плана не в репозитории")
     def test_real_plan_has_goal_for_every_task(self):
         real = Path(__file__).resolve().parent.parent / "docs" / "superpowers" / "specs" / "2026-09-17-obyektiv-work-plan.csv"
         self.assertTrue(all(t.goal for t in load_plan(real)))
