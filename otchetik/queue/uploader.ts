@@ -12,16 +12,18 @@ export type UploadFn = (r: ShotRecord) => Promise<{ server_id: string }>;
 
 let running = false;
 
-/** Один прогон очереди. Замок: второй одновременный вызов возвращает skipped. */
+/** Один прогон очереди. Замок: второй одновременный вызов возвращает skipped. Записи, оставшиеся в uploading после обрыва, отправляются заново. */
 export async function runQueue(deps: { store: QueueStore; upload: UploadFn; now?: () => number; onProgress?: () => void }): Promise<RunResult> {
   if (running) return { sent: 0, failed: 0, skipped: true };
   running = true;
   const now = deps.now ?? Date.now;
   const result: RunResult = { sent: 0, failed: 0, skipped: false };
   try {
-    const due = [...(await deps.store.list('queued')), ...(await deps.store.list('failed'))]
-      .filter((r) => r.next_attempt_at <= now())
-      .sort((a, b) => a.created_at.localeCompare(b.created_at));
+    const due = [
+      ...(await deps.store.list('uploading')),
+      ...(await deps.store.list('queued')),
+      ...(await deps.store.list('failed')).filter((r) => r.next_attempt_at <= now())
+    ].sort((a, b) => a.created_at.localeCompare(b.created_at));
     for (const r of due) {
       await deps.store.update(r.local_uuid, { status: 'uploading' });
       deps.onProgress?.();
@@ -32,7 +34,7 @@ export async function runQueue(deps: { store: QueueStore; upload: UploadFn; now?
       } catch (e) {
         const attempts = r.attempts + 1;
         await deps.store.update(r.local_uuid, {
-          status: 'failed', attempts, last_error: (e as Error).message ?? String(e),
+          status: 'failed', attempts, last_error: e instanceof Error ? e.message : String(e),
           next_attempt_at: now() + nextDelay(attempts),
         });
         result.failed++;

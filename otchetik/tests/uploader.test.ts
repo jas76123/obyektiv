@@ -75,4 +75,12 @@ describe('runQueue', () => {
     release();
     expect((await first).sent).toBe(1);
   });
+
+  it('retries a record left in uploading by an interrupted run', async () => {
+    const store = new MemoryStore();
+    await store.add({ ...rec('a'), status: 'uploading' });
+    const r = await runQueue({ store, upload: async () => ({ server_id: 's' }), now: () => 0 });
+    expect(r.sent).toBe(1);
+    expect((await store.get('a'))?.status).toBe('uploaded');
+  });
 });
