@@ -1,0 +1,14 @@
+export const theme = {
+  bg: '#F5F4F0',
+  paper: '#FFFFFF',
+  ink: '#1E262E',
+  muted: '#66717C',
+  line: '#DCDFE3',
+  accent: '#D9551F',
+  accentInk: '#FFFFFF',
+  warnBg: '#FFF6D6',
+  warnInk: '#6B5200',
+  okBg: '#E9F2E7',
+  radius: 10,
+  pad: 16,
+};
