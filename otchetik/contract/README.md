@@ -14,6 +14,7 @@
 Правила:
 - Повтор `POST` с тем же `local_uuid` не создаёт дубль и отвечает тем же `server_id`.
 - Статусы фото: `uploaded, processing, processed, under_review, accepted, partial, rework, rejected` (до `uploaded` живёт на телефоне).
+- `verdict` — исход проверки руководителем, дублирует `status` для accepted/partial/rework/rejected; необязателен.
 - `verdict_comment` для `rework` и `rejected`: текст руководителя, показывается прорабу.
 - Даты и время в ISO 8601 с часовым поясом.
 - CORS: веб-версия ходит с `https://jas76123.github.io`, нужен `Access-Control-Allow-Origin`.

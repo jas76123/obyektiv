@@ -6,7 +6,7 @@ import {
   ShotsStatusResponse,
   UploadResponse,
 } from '../contract/schemas';
-import { demo } from '../demo';
+import { demo, demoShots } from '../demo';
 
 describe('demo data matches contract', () => {
   it('objects', () => {
@@ -20,9 +20,30 @@ describe('demo data matches contract', () => {
   it('shots status covers all verdict kinds', () => {
     const r = ShotsStatusResponse.parse(demo.shotsStatus);
     const statuses = new Set(r.shots.map((s) => s.status));
-    expect(statuses.has('accepted')).toBe(true);
     expect(statuses.has('under_review')).toBe(true);
     expect(statuses.has('rework')).toBe(true);
+    expect(statuses.has('accepted')).toBe(true);
+  });
+  it('rejects invalid verdict value', () => {
+    expect(() =>
+      ShotsStatusResponse.parse({
+        shots: [{ local_uuid: 'a', status: 'accepted', verdict: 'maybe', updated_at: 'x' }],
+      })
+    ).toThrow();
+  });
+  it('demo shots with verdict statuses have verdict === status', () => {
+    const r = ShotsStatusResponse.parse(demo.shotsStatus);
+    const verdictStatuses = ['accepted', 'partial', 'rework', 'rejected'];
+    for (const shot of r.shots) {
+      if (verdictStatuses.includes(shot.status)) {
+        expect(shot.verdict).toBe(shot.status);
+      }
+    }
+  });
+  it('doors task has no shot in demoShots and shots-status', () => {
+    expect(demoShots.some((s) => s.task_id === 't-doors-0922')).toBe(false);
+    const r = ShotsStatusResponse.parse(demo.shotsStatus);
+    expect(r.shots.some((s) => s.local_uuid === 'demo-doors-1')).toBe(false);
   });
   it('leaderboard', () => {
     const r = LeaderboardResponse.parse(demo.leaderboard);

@@ -1,8 +1,7 @@
 {
   "shots": [
-    { "local_uuid": "demo-doors-1", "status": "accepted", "accepted_percent": 100, "updated_at": "2026-09-22T12:40:00+03:00" },
     { "local_uuid": "demo-concrete-1", "status": "under_review", "updated_at": "2026-09-22T11:05:00+03:00" },
-    { "local_uuid": "demo-rebar-1", "status": "rework", "verdict_comment": "нужен пересъём: не видно узел вязки", "updated_at": "2026-09-22T10:20:00+03:00" },
-    { "local_uuid": "demo-pit-1", "status": "accepted", "accepted_percent": 100, "updated_at": "2026-09-21T17:30:00+03:00" }
+    { "local_uuid": "demo-rebar-1", "status": "rework", "verdict": "rework", "verdict_comment": "нужен пересъём", "updated_at": "2026-09-22T10:20:00+03:00" },
+    { "local_uuid": "demo-pit-1", "status": "accepted", "verdict": "accepted", "accepted_percent": 100, "updated_at": "2026-09-21T17:30:00+03:00" }
   ]
 }

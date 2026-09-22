@@ -25,11 +25,15 @@ export const ServerShotStatus = z.enum([
 ]);
 export type ServerShotStatus = z.infer<typeof ServerShotStatus>;
 
+export const Verdict = z.enum(['accepted', 'partial', 'rework', 'rejected']);
+export type Verdict = z.infer<typeof Verdict>;
+
 export const UploadResponse = z.object({ server_id: z.string(), status: ServerShotStatus });
 
 export const ShotStatusItem = z.object({
   local_uuid: z.string(),
   status: ServerShotStatus,
+  verdict: Verdict.optional(),
   verdict_comment: z.string().optional(),
   accepted_percent: z.number().optional(),
   updated_at: z.string(),
