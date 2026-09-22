@@ -37,9 +37,12 @@ export class IndexedDbStore implements QueueStore {
         const existing = getReq.result;
         if (!existing) {
           const addReq = store.add({ retake_of: null, ...r });
-          addReq.onerror = () => {
-            // Swallow ConstraintError: another concurrent add succeeded first
-            if (addReq.error?.name !== 'ConstraintError') {
+          addReq.onerror = (event) => {
+            // Гасим ConstraintError: параллельный add с тем же uuid успел первым.
+            // preventDefault не даёт ошибке оборвать всю транзакцию.
+            if (addReq.error?.name === 'ConstraintError') {
+              event.preventDefault();
+            } else {
               finished = true;
               reject(addReq.error);
             }

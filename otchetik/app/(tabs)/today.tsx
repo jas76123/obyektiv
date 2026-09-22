@@ -1,4 +1,5 @@
 import NetInfo from '@react-native-community/netinfo';
+import * as Location from 'expo-location';
 import { useEffect, useMemo, useState } from 'react';
 import { FlatList, RefreshControl, StyleSheet, Text, View } from 'react-native';
 import { Header } from '../../components/Header';
@@ -19,6 +20,9 @@ export default function Today() {
   const { settings } = useSettings();
   const date = todayIso();
   const online = useOnline();
+  // Спрашиваем разрешение на геолокацию заранее: quickGeo при съёмке ждёт координаты
+  // не дольше секунды, и системный диалог разрешения в это окно не должен успеть встать.
+  useEffect(() => { Location.requestForegroundPermissionsAsync().catch(() => {}); }, []);
   const schedule = useSchedule(settings?.objectId ?? null, settings?.brigadeId ?? null, date);
   const { records, pending, refresh } = useQueue();
   const todays = useMemo(() => records.filter((r) => dayKey(r.taken_at) === date), [records, date]);

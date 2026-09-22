@@ -45,7 +45,7 @@ export function buildReport(
       const folded = w.photos.map((p) => foldStatus(p.status));
       const status = workStatus(folded);
 
-      // Find the newest photo whose folded status equals the work status
+      // Ищем самое свежее фото, чей свёрнутый статус совпадает со статусом работы
       const definingPhoto = w.photos.find((p) => foldStatus(p.status) === status);
       const comment = definingPhoto && (status === 'rework' || status === 'rejected')
         ? statuses[definingPhoto.uuid]?.verdict_comment ?? null
