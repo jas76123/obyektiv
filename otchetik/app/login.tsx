@@ -45,11 +45,11 @@ export default function Login() {
         </Pressable>
       ))}
 
-      <Pressable onPress={next} disabled={!brigade} style={[styles.btn, !brigade && styles.btnOff]} accessibilityRole="button">
+      <Pressable onPress={next} disabled={!brigade} style={[styles.btn, !brigade && styles.btnOff]} accessibilityRole="button" accessibilityState={{ disabled: !brigade }}>
         <Text style={styles.btnText}>Продолжить</Text>
       </Pressable>
 
-      <Pressable onLongPress={() => router.push('/settings')} delayLongPress={800} style={{ marginTop: 40, alignSelf: 'center' }}>
+      <Pressable onLongPress={() => router.push('/settings')} delayLongPress={800} style={{ marginTop: 40, alignSelf: 'center' }} accessibilityRole="button" accessibilityLabel="Настройки сервера">
         <Text style={styles.muted}>версия {Constants.expoConfig?.version ?? '0.1.0'}</Text>
       </Pressable>
     </ScrollView>
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
   lead: { fontSize: 15, color: theme.muted, marginTop: 6 },
   demo: { alignSelf: 'flex-start', marginTop: 8, fontSize: 12, color: theme.warnInk, backgroundColor: theme.warnBg, paddingHorizontal: 6, borderRadius: 4 },
   muted: { color: theme.muted, marginTop: 12 },
-  err: { color: '#AC3529', marginTop: 12 },
+  err: { color: theme.error, marginTop: 12 },
   h: { fontSize: 13, fontWeight: '700', color: theme.muted, textTransform: 'uppercase', marginTop: 24, marginBottom: 8 },
   opt: { backgroundColor: theme.paper, borderWidth: 1, borderColor: theme.line, borderRadius: theme.radius, padding: 14, marginBottom: 8 },
   optOn: { borderColor: theme.accent, borderWidth: 2 },

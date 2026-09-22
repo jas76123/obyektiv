@@ -9,6 +9,7 @@ export const theme = {
   warnBg: '#FFF6D6',
   warnInk: '#6B5200',
   okBg: '#E9F2E7',
+  error: '#AC3529',
   radius: 10,
   pad: 16,
 };

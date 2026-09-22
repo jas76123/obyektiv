@@ -2,10 +2,11 @@ import { useRouter } from 'expo-router';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { useSettings } from '../data/settings';
 import type { SourceTag } from '../data/source';
+import { fmtTime } from '../lib/time';
 import { theme } from '../lib/theme';
 
-export function Header({ title, queueCount, online, source }: {
-  title: string; queueCount: number; online: boolean; source?: SourceTag;
+export function Header({ title, queueCount, online, source, at }: {
+  title: string; queueCount: number; online: boolean; source?: SourceTag; at?: string;
 }) {
   const { settings } = useSettings();
   const router = useRouter();
@@ -15,17 +16,14 @@ export function Header({ title, queueCount, online, source }: {
         <Text style={styles.net}>{online ? 'онлайн' : 'нет сети, фото сохранены, отправятся позже'}</Text>
         <Text style={styles.queue}>в очереди: {queueCount}</Text>
         {source === 'demo' && <Text style={styles.demo}>демо</Text>}
-        {source === 'cache' && <Text style={styles.demo}>из кэша</Text>}
+        {source === 'cache' && <Text style={styles.demo}>{at ? `данные на ${fmtTime(at)}` : 'из кэша'}</Text>}
       </View>
       <Text style={styles.title}>{title}</Text>
       <Pressable onPress={() => router.push('/login')} accessibilityRole="button" accessibilityLabel="Сменить бригаду">
         <Text style={styles.sub}>{settings?.objectName ?? ''}{settings?.brigadeName ? ` · ${settings.brigadeName}` : ''}</Text>
       </Pressable>
-      {!online && queueCount > 0 && (
-        <View style={styles.warn}><Text style={styles.warnText}>Нет сети — фото сохранены, отправятся позже</Text></View>
-      )}
       {queueCount > 200 && (
-        <View style={styles.warn}><Text style={styles.warnText}>В очереди много фото, подключите интернет</Text></View>
+        <View style={styles.warn}><Text style={styles.warnText}>в очереди много фото, подключите интернет</Text></View>
       )}
     </View>
   );
