@@ -13,10 +13,14 @@ export type Sourced<T> = { data: T; source: SourceTag; at?: string; problem?: st
 
 /** Короткий русский текст ошибки сервера для шапки экрана. Зодовский текст уже
  * читаемый (см. describeZodError) и начинается с «поле …» — показываем как есть;
- * остальное (HTTP-ошибка, обрыв сети, таймаут) сворачиваем в одну фразу. */
+ * HTTP-ошибка называет код («сервер ответил 404»: сервер жив, но маршрута нет);
+ * остальное (обрыв сети, таймаут) сворачиваем в «сервер не отвечает». */
 function problemText(e: unknown): string {
   const msg = e instanceof Error ? e.message : String(e);
-  return msg.startsWith('поле ') ? msg : 'сервер не отвечает';
+  if (msg.startsWith('поле ')) return msg;
+  const http = /^HTTP (\d{3})/.exec(msg);
+  if (http) return `сервер ответил ${http[1]}`;
+  return 'сервер не отвечает';
 }
 
 /**

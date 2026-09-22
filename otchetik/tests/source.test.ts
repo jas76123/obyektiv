@@ -34,8 +34,13 @@ describe('chooseSource', () => {
     expect(r.source).toBe('cache');
     expect(r.problem).toBe('поле ok: ждали boolean, пришло string');
   });
-  it('a rejecting server with a non-schema error falls back to a generic Russian problem text', async () => {
-    const r = await chooseSource({ server: async () => { throw new Error('HTTP 500'); }, cached: undefined, demo });
+  it('an HTTP error names the status so a wrong route is not mistaken for a dead server', async () => {
+    const r = await chooseSource({ server: async () => { throw new Error('HTTP 404 http://x/api/foreman/objects'); }, cached: undefined, demo });
+    expect(r.source).toBe('demo');
+    expect(r.problem).toBe('сервер ответил 404');
+  });
+  it('a network or timeout error falls back to a generic Russian problem text', async () => {
+    const r = await chooseSource({ server: async () => { throw new TypeError('Failed to fetch'); }, cached: undefined, demo });
     expect(r.source).toBe('demo');
     expect(r.problem).toBe('сервер не отвечает');
   });
