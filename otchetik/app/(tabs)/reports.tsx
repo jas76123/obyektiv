@@ -1,8 +1,8 @@
 import { useMemo } from 'react';
-import { Alert, SectionList, StyleSheet, Text, View } from 'react-native';
+import { SectionList, StyleSheet, Text, View } from 'react-native';
 import { Header } from '../../components/Header';
 import { ReportRow } from '../../components/ReportRow';
-import { showCaptureError } from '../../components/alerts';
+import { showAlert, showCaptureError } from '../../components/alerts';
 import { useSchedule, useShotStatuses } from '../../data/queries';
 import { useSettings } from '../../data/settings';
 import { demoShots } from '../../demo';
@@ -36,7 +36,7 @@ export default function Reports() {
 
   async function retake(task_id: string) {
     const task = tasks[task_id];
-    if (!task) { Alert.alert('Работа не в сегодняшнем наряде', 'Снять можно с экрана «Сегодня»'); return; }
+    if (!task) { showAlert('Работа не в сегодняшнем наряде', 'Снять можно с экрана «Сегодня»'); return; }
     const last = [...shown].filter((r) => r.task_id === task_id).sort((a, b) => b.taken_at.localeCompare(a.taken_at))[0];
     try {
       await captureForTask(task, last ? { retakeOf: last.local_uuid } : undefined);
