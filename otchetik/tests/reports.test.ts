@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { demo, demoShots } from '../demo';
 import { buildReport } from '../lib/reports';
 import { newRecord } from '../queue/types';
 
@@ -87,5 +88,20 @@ describe('buildReport', () => {
     const rebar = days[0].works[0];
     expect(rebar.status).toBe('on_review');  // on_review has higher priority than accepted
     expect(rebar.percent).toBeNull();  // from P2, the newest with on_review status
+  });
+
+  it('demo feed does not break on a day after the demo was written: exactly two day sections, no task twice', () => {
+    const laterNow = new Date('2026-09-29T15:00:00+03:00');
+    const records = demoShots(laterNow).map((d) => ({
+      ...newRecord({ ...d, geo: null, file_path: '' }),
+      status: 'uploaded' as const,
+    }));
+    const tasks = Object.fromEntries(demo.schedule.tasks.map((t) => [t.task_id, { task_id: t.task_id, work_id: t.work_id, name: t.name, zone: t.zone }]));
+    const days = buildReport(records, {}, tasks, laterNow);
+    expect(days.map((d) => d.label)).toEqual(['Сегодня', 'Вчера']);
+    const allTaskIds = days.flatMap((d) => d.works.map((w) => w.task_id));
+    expect(new Set(allTaskIds).size).toBe(allTaskIds.length);
+    const concrete = days[0].works.find((w) => w.task_id === 't-concrete-0922');
+    expect(concrete?.status).toBe('on_review');
   });
 });

@@ -24,7 +24,7 @@ export default function Reports() {
   // Демо-режим без своих фото: показываем демо-записи, чтобы лента не была пустой.
   const isDemo = schedule.data?.source === 'demo';
   const shown = useMemo(() => (records.length === 0 && isDemo
-    ? demoShots.map((d) => ({ ...newRecord({ ...d, geo: null, file_path: '' }), status: 'uploaded' as const }))
+    ? demoShots(new Date()).map((d) => ({ ...newRecord({ ...d, geo: null, file_path: '' }), status: 'uploaded' as const }))
     : records), [records, isDemo]);
 
   const uploaded = useMemo(() => shown.filter((r) => r.status === 'uploaded').map((r) => r.local_uuid), [shown]);

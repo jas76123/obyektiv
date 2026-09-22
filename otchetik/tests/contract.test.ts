@@ -41,7 +41,7 @@ describe('demo data matches contract', () => {
     }
   });
   it('doors task has no shot in demoShots and shots-status', () => {
-    expect(demoShots.some((s) => s.task_id === 't-doors-0922')).toBe(false);
+    expect(demoShots().some((s) => s.task_id === 't-doors-0922')).toBe(false);
     const r = ShotsStatusResponse.parse(demo.shotsStatus);
     expect(r.shots.some((s) => s.local_uuid === 'demo-doors-1')).toBe(false);
   });
