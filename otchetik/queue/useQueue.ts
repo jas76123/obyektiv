@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { queueEvents } from './queueEvents';
 import { getStore, storeReady } from './store';
+import { runQueueNow } from './triggers';
 import { EMPTY_COUNTS, type ShotRecord } from './types';
 
 export function useQueue(sinceDays = 7) {
@@ -22,5 +23,6 @@ export function useQueue(sinceDays = 7) {
 
   /** «В очереди»: всё, что ещё не на сервере. */
   const pending = counts.queued + counts.uploading + counts.failed;
-  return { counts, records, pending, refresh };
+  const runNow = useCallback(async () => { const r = await runQueueNow(); await refresh(); return r; }, [refresh]);
+  return { counts, records, pending, refresh, runNow };
 }
