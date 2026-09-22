@@ -17,7 +17,8 @@ export function Header({ title, queueCount, online, source, at, problem }: {
         <Text style={styles.queue}>в очереди: {queueCount}</Text>
         {source === 'demo' && <Text style={styles.demo}>демо</Text>}
         {source === 'cache' && <Text style={styles.demo}>{at ? `данные на ${fmtTime(at)}` : 'из кэша'}</Text>}
-        {problem && <Text style={styles.problem}>{problem}</Text>}
+        {/* Без сети причина одна и уже названа слева; «сервер не отвечает» показываем только когда сеть есть. */}
+        {problem && online && <Text style={styles.problem}>{problem}</Text>}
       </View>
       <Text style={styles.title}>{title}</Text>
       <Pressable onPress={() => router.push('/login')} accessibilityRole="button" accessibilityLabel="Сменить бригаду">
