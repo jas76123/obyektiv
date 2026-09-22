@@ -7,3 +7,5 @@ data/georgiy/*.mp4
 otchetik/node_modules/
 otchetik/dist/
 otchetik/.expo/
+docs/superpowers/
+.superpowers/
