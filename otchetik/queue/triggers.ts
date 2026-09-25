@@ -56,7 +56,14 @@ export function installTriggers(): () => void {
   const offQueue = queueEvents.on(() => schedule(300));
   const offNet = NetInfo.addEventListener((s) => { if (isOnline(s)) schedule(500, { force: true }); });
   const sub = AppState.addEventListener('change', (st) => { if (st === 'active') schedule(500); });
-  const tick = setInterval(() => { hasPending().then((yes) => { if (yes) schedule(0); }).catch(() => {}); }, 60_000); // подбирает failed, чьё время пришло
+  const tick = setInterval(() => {
+    hasPending().then((yes) => { if (yes) schedule(0); }).catch(() => {}); // подбирает failed, чьё время пришло
+    // Проверка нейросети — безусловно, не только при непустой очереди отправки: иначе
+    // второе фото, снятое в течение минуты после первого, получит too_soon и не
+    // дождётся результата, пока очередь пуста. Сама дешёвая, если ждать нечего,
+    // и сама ограничивает частоту (ML_MIN_INTERVAL_MS).
+    runMlCheckNow().catch(() => {});
+  }, 60_000);
   schedule(1000);
   return () => { offQueue(); offNet(); sub.remove(); clearInterval(tick); if (timer) clearTimeout(timer); };
 }

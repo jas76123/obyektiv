@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { createMlResults, type KeyValue } from '../lib/mlResults';
-import { ML_MIN_INTERVAL_MS, checkMlResults, resetMlCheckClock } from '../queue/mlCheck';
+import { ML_MAX_AGE_MS, ML_MIN_INTERVAL_MS, checkMlResults, resetMlCheckClock, waitingRecords } from '../queue/mlCheck';
 import { newRecord, type ShotRecord } from '../queue/types';
 
 function memoryKv(): KeyValue { const d: Record<string, string> = {}; return { async getItem(k) { return d[k] ?? null; }, async setItem(k, v) { d[k] = v; } }; }
@@ -68,5 +68,41 @@ describe('checkMlResults', () => {
     const r2 = await checkMlResults({ base: 'http://x', records: [uploaded('a')], results, fetchImpl: down, now: () => now });
     expect(r2).toEqual({ checked: 0, skipped: 'error' });
     expect(results.get('a')).toBeUndefined();
+  });
+
+  it('пока первый запрос висит — второй вызов сразу skipped: in_flight, fetch вызван один раз', async () => {
+    const results = createMlResults(memoryKv());
+    let resolveFetch!: (r: Response) => void;
+    const pending = new Promise<Response>((resolve) => { resolveFetch = resolve; });
+    const fetchImpl = vi.fn(() => pending);
+
+    const first = checkMlResults({ base: 'http://x', records: [uploaded('a')], results, fetchImpl, now: () => now });
+    // Дать первому вызову дойти до fetch (несколько микрозадач на results.load()).
+    await new Promise((r) => setTimeout(r, 0));
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+
+    const second = await checkMlResults({ base: 'http://x', records: [uploaded('a')], results, fetchImpl, now: () => now });
+    expect(second).toEqual({ checked: 0, skipped: 'in_flight' });
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+
+    resolveFetch(new Response(JSON.stringify({ total: 0, photos: [] }), { status: 200 }));
+    await first;
+
+    now += ML_MIN_INTERVAL_MS;
+    await checkMlResults({ base: 'http://x', records: [uploaded('a')], results, fetchImpl, now: () => now });
+    expect(fetchImpl).toHaveBeenCalledTimes(2);
+  });
+});
+
+describe('waitingRecords', () => {
+  const now = Date.parse('2026-09-25T12:00:00+03:00');
+
+  it('пропускает фото старше ML_MAX_AGE_MS и без server_id, берёт свежее без результата', () => {
+    const results = createMlResults(memoryKv());
+    const fresh = { ...uploaded('fresh'), taken_at: new Date(now - 1000).toISOString() };
+    const old = { ...uploaded('old'), taken_at: new Date(now - ML_MAX_AGE_MS - 1000).toISOString() };
+    const noServer = { ...uploaded('no-server', null), taken_at: new Date(now - 1000).toISOString() };
+    const r = waitingRecords([fresh, old, noServer], results, now);
+    expect(r.map((x) => x.local_uuid)).toEqual(['fresh']);
   });
 });
