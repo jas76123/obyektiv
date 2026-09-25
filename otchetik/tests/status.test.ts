@@ -1,50 +1,53 @@
 import { describe, expect, it } from 'vitest';
-import { SCREEN_LABEL, foldStatus, photoChip, workStatus } from '../lib/status';
+import { SCREEN_COLOR, SCREEN_LABEL, foldStatus, photoChip, workStatus } from '../lib/status';
 
 describe('foldStatus', () => {
-  it('local statuses are in_work', () => {
-    expect(foldStatus('queued')).toBe('in_work');
-    expect(foldStatus('uploading')).toBe('in_work');
-    expect(foldStatus('failed')).toBe('in_work');
-  });
-  it('server pre-verdict statuses are on_review', () => {
-    for (const s of ['uploaded', 'processing', 'processed', 'under_review'] as const) {
-      expect(foldStatus(s)).toBe('on_review');
+  it('всё, что не вернули на пересъём, — в работе', () => {
+    for (const s of ['queued', 'uploading', 'failed', 'uploaded', 'processing', 'processed', 'under_review', 'accepted', 'partial'] as const) {
+      expect(foldStatus(s)).toBe('in_work');
     }
   });
-  it('verdicts map one to one', () => {
-    expect(foldStatus('accepted')).toBe('accepted');
-    expect(foldStatus('partial')).toBe('partial');
-    expect(foldStatus('rework')).toBe('rework');
-    expect(foldStatus('rejected')).toBe('rejected');
+  it('rework и rejected от сервера — переснять', () => {
+    expect(foldStatus('rework')).toBe('retake');
+    expect(foldStatus('rejected')).toBe('retake');
+  });
+  it('пустые детекции нейросети — переснять, каким бы ни был статус', () => {
+    expect(foldStatus('uploaded', { mlEmpty: true })).toBe('retake');
+    expect(foldStatus('accepted', { mlEmpty: true })).toBe('retake');
+    expect(foldStatus('uploaded', { mlEmpty: false })).toBe('in_work');
   });
 });
 
-describe('workStatus priority', () => {
-  it('empty is not_started', () => {
+describe('workStatus', () => {
+  it('без фото — не начато', () => {
     expect(workStatus([])).toBe('not_started');
   });
-  it('rework beats accepted', () => {
-    expect(workStatus(['accepted', 'rework'])).toBe('rework');
-  });
-  it('in_work beats on_review and accepted', () => {
-    expect(workStatus(['accepted', 'on_review', 'in_work'])).toBe('in_work');
-  });
-  it('partial beats accepted', () => {
-    expect(workStatus(['accepted', 'partial'])).toBe('partial');
+  it('берёт статус самого свежего фото (первого в списке)', () => {
+    expect(workStatus(['in_work', 'retake'])).toBe('in_work');
+    expect(workStatus(['retake', 'in_work'])).toBe('retake');
   });
 });
 
-describe('labels', () => {
-  it('every screen status has a russian word', () => {
-    expect(SCREEN_LABEL.rework).toBe('на доработку');
-    expect(SCREEN_LABEL.in_work).toBe('в работе');
+describe('слова и цвета', () => {
+  it('три слова', () => {
+    expect(SCREEN_LABEL).toEqual({ not_started: 'не начато', in_work: 'в работе', retake: 'переснять' });
   });
-  it('photo chip words', () => {
+  it('три цвета из прежней палитры', () => {
+    expect(SCREEN_COLOR).toEqual({ not_started: '#7C8079', in_work: '#1B5C8A', retake: '#AC3529' });
+  });
+  it('photoChip — только доставка', () => {
     expect(photoChip('queued')).toBe('ждёт сети');
+    expect(photoChip('failed')).toBe('ждёт сети');
     expect(photoChip('uploading')).toBe('отправляется');
     expect(photoChip('uploaded')).toBe('отправлено');
-    expect(photoChip('under_review')).toBe('на проверке');
-    expect(photoChip('accepted')).toBe('принято');
+    expect(photoChip('under_review')).toBe('отправлено');
+    expect(photoChip('rework')).toBe('отправлено');
+  });
+  it('без адреса сервера очередь ждёт сервера, а не сети', () => {
+    expect(photoChip('queued', { serverSet: false })).toBe('ждёт сервера');
+    expect(photoChip('failed', { serverSet: false })).toBe('ждёт сервера');
+    expect(photoChip('draft', { serverSet: false })).toBe('ждёт сервера');
+    expect(photoChip('uploading', { serverSet: false })).toBe('отправляется');
+    expect(photoChip('queued', { serverSet: true })).toBe('ждёт сети');
   });
 });
