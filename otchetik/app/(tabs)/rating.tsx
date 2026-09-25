@@ -1,31 +1,71 @@
+import { useFocusEffect } from 'expo-router';
+import { useCallback, useMemo, useState } from 'react';
 import { FlatList, RefreshControl, StyleSheet, Text, View } from 'react-native';
 import { Header } from '../../components/Header';
-import { useLeaderboard } from '../../data/queries';
-import { useSettings } from '../../data/settings';
+import type { Leaderboard } from '../../contract/schemas';
+import { useLeaderboard, useObjects, useSchedules } from '../../data/queries';
+import { serverBase, useSettings } from '../../data/settings';
+import { POINTS_PER_ACCEPTED, buildLeaderboard } from '../../lib/leaderboard';
 import { theme } from '../../lib/theme';
+import { todayIso } from '../../lib/time';
+import { runMlCheckNow } from '../../queue/mlRun';
+import { setPhotosWanted, usePhotos } from '../../queue/photosCache';
 import { useQueue } from '../../queue/useQueue';
 import { useOnline } from './today';
 
 // Ширины числовых колонок: «Принято», «Кач-во», «Баллы». Считалось для 360 px: 328 на ряд минус
 // отступы 24, рамка 4 и четыре промежутка по 6 — названию остаётся ~108 px, «Бригада №1» (~92 px) помещается в одну строку.
 const COL = { rank: 20, accepted: 56, quality: 48, points: 44 };
+const EMPTY: Leaderboard = { brigades: [], others: [] };
 
 export default function Rating() {
   const { settings } = useSettings();
   const online = useOnline();
   const { pending } = useQueue();
-  const lb = useLeaderboard(settings?.objectId ?? null);
-  const brigades = [...(lb.data?.data.brigades ?? [])].sort((a, b) => a.rank - b.rank);
-  const others = lb.data?.data.others ?? [];
+  const objectId = settings?.objectId ?? null;
+  // Живой сервер: рейтинг считаем сами из /photos (спека 26.09 §5); демо — файл demo/leaderboard.json.
+  const live = settings ? serverBase(settings) !== null : false;
+  const lb = useLeaderboard(live ? null : objectId);
+  const objects = useObjects();
+  const brigadesOfObject = useMemo(
+    () => objects.data?.data.objects.find((o) => o.id === objectId)?.brigades.map((b) => ({ id: b.id, name: b.name })) ?? [],
+    [objects.data, objectId],
+  );
+  const schedules = useSchedules(live ? objectId : null, brigadesOfObject.map((b) => b.id), todayIso());
+  const photos = usePhotos();
+  const computed = useMemo(
+    () => buildLeaderboard(photos.list, brigadesOfObject, schedules, settings?.brigadeId ?? null),
+    [photos.list, brigadesOfObject, schedules, settings?.brigadeId],
+  );
+  const data = live ? computed : (lb.data?.data ?? EMPTY);
+  const brigades = [...data.brigades].sort((a, b) => a.rank - b.rank);
+  const others = data.others;
+
+  // Пока экран на виду, /photos спрашивается по тику и без своих ждущих фото.
+  useFocusEffect(useCallback(() => {
+    setPhotosWanted(true);
+    runMlCheckNow().catch(() => {});
+    return () => setPhotosWanted(false);
+  }, []));
+
+  const [refreshing, setRefreshing] = useState(false);
+  async function refresh() {
+    setRefreshing(true);
+    try { await Promise.all([lb.refetch(), objects.refetch(), runMlCheckNow()]); } finally { setRefreshing(false); }
+  }
+
+  const headerSource = live ? (photos.at ? 'server' : objects.data?.source) : lb.data?.source;
+  const headerAt = live ? (photos.at ?? undefined) : lb.data?.at;
+  const headerProblem = live ? objects.data?.problem : lb.data?.problem;
 
   return (
     <View style={styles.screen}>
-      <Header title="Соревнование бригад" queueCount={pending} online={online} source={lb.data?.source} at={lb.data?.at} problem={lb.data?.problem} />
+      <Header title="Соревнование бригад" queueCount={pending} online={online} source={headerSource} at={headerAt} problem={headerProblem} />
       <FlatList
         data={brigades}
         keyExtractor={(b) => b.id}
         contentContainerStyle={{ padding: theme.pad }}
-        refreshControl={<RefreshControl refreshing={lb.isFetching} onRefresh={() => lb.refetch()} />}
+        refreshControl={<RefreshControl refreshing={refreshing || lb.isFetching} onRefresh={refresh} />}
         ListHeaderComponent={
           <View>
             <Text style={styles.cap}>ПРИНЯТЫЕ РАБОТЫ · БАЛЛЫ</Text>
@@ -55,6 +95,7 @@ export default function Rating() {
         }}
         ListFooterComponent={
           <View>
+            {live && <Text style={styles.note}>Баллы: {POINTS_PER_ACCEPTED} за каждое фото, на котором нейросеть нашла работу. Оценки руководителя пока нет.</Text>}
             <Text style={[styles.cap, { marginTop: 20 }]}>ЧТО СДЕЛАЛИ ДРУГИЕ БРИГАДЫ</Text>
             {others.length === 0 && <Text style={styles.meta}>Пока нет принятых работ</Text>}
             {others.map((o, i) => (
@@ -66,7 +107,7 @@ export default function Rating() {
             <Text style={styles.note}>Без фото и личных данных: соревнование, а не слежка.</Text>
           </View>
         }
-        ListEmptyComponent={<Text style={styles.meta}>{lb.isLoading ? 'Загружаем…' : 'Рейтинга пока нет'}</Text>}
+        ListEmptyComponent={<Text style={styles.meta}>{live ? (photos.at ? 'Рейтинга пока нет' : 'Ждём ответ сервера…') : lb.isLoading ? 'Загружаем…' : 'Рейтинга пока нет'}</Text>}
       />
     </View>
   );

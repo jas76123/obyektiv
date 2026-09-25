@@ -1,7 +1,8 @@
-import { useQuery } from '@tanstack/react-query';
+import { useQueries, useQuery } from '@tanstack/react-query';
+import { useMemo } from 'react';
 import {
   LeaderboardResponse, ObjectsResponse, ScheduleResponse, ShotsStatusResponse,
-  type Leaderboard, type Objects, type Schedule, type ShotsStatus,
+  type Leaderboard, type Objects, type Schedule, type ScheduleTask, type ShotsStatus,
 } from '../contract/schemas';
 import { demo } from '../demo';
 import { problemPollInterval } from '../lib/poll';
@@ -57,6 +58,26 @@ export function useSchedule(objectId: string | null, brigadeId: string | null, d
       { ...demo.schedule, date },
     ),
   });
+}
+
+/** Расписания нескольких бригад объекта — для имён работ в «Что сделали другие бригады». */
+export function useSchedules(objectId: string | null, brigadeIds: string[], date: string): Record<string, ScheduleTask[]> {
+  const results = useQueries({
+    queries: brigadeIds.map((b) => ({
+      queryKey: keys.schedule(objectId ?? '', b, date),
+      enabled: !!objectId,
+      queryFn: () => load<Schedule>(
+        [...keys.schedule(objectId!, b, date)],
+        `/api/foreman/object/${encodeURIComponent(objectId!)}/schedule?brigade_id=${encodeURIComponent(b)}&date=${date}`,
+        ScheduleResponse,
+        { ...demo.schedule, date },
+      ),
+    })),
+  });
+  const stamp = results.map((r) => r.dataUpdatedAt).join(',');
+  const ids = brigadeIds.join(',');
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- results новый на каждый рендер, зависим от штампов
+  return useMemo(() => Object.fromEntries(brigadeIds.map((b, i) => [b, results[i]?.data?.data.tasks ?? []])), [ids, stamp]);
 }
 
 export function useLeaderboard(objectId: string | null) {
