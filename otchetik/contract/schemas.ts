@@ -52,3 +52,9 @@ export const LeaderboardResponse = z.object({
   })),
 });
 export type Leaderboard = z.infer<typeof LeaderboardResponse>;
+
+/** GET /photos у Георгия: нужны только id (= server_id из POST /api/foreman/shots) и детекции. */
+export const PhotosResponse = z.object({
+  photos: z.array(z.object({ id: z.string(), detections: z.array(z.unknown()) })),
+});
+export type Photos = z.infer<typeof PhotosResponse>;
