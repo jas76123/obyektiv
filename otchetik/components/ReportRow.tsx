@@ -22,12 +22,12 @@ export function ReportRow({ work, onRetake }: { work: ReportWork; onRetake: (tas
         <View style={styles.head}>
           <View style={{ flex: 1 }}>
             <Text style={styles.name}>{work.name}</Text>
-            <Text style={styles.meta}>{work.zone}{work.percent != null ? ` · ${work.percent}%` : ''}{work.comment ? ` · ${work.comment}` : ''}</Text>
+            <Text style={styles.meta}>{work.zone}{work.time ? ` · ${fmtTime(work.time)}` : ''}{work.comment ? ` · ${work.comment}` : ''}</Text>
           </View>
           <StatusChip status={work.status} />
         </View>
       </Pressable>
-      {work.status === 'rework' && (
+      {work.status === 'retake' && (
         <Pressable onPress={() => onRetake(work.task_id)} style={styles.retake} accessibilityRole="button" accessibilityLabel={`Переснять: ${work.name}`}>
           <Text style={styles.retakeText}>Переснять</Text>
         </Pressable>

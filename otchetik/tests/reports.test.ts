@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { demo, demoShots } from '../demo';
-import { buildReport } from '../lib/reports';
+import { buildReport, liveRecords, taskState } from '../lib/reports';
 import { newRecord } from '../queue/types';
 
 const now = new Date('2026-09-22T15:00:00+03:00');
@@ -12,7 +12,7 @@ function rec(uuid: string, task: string, taken: string, status: 'queued' | 'uplo
 }
 
 describe('buildReport', () => {
-  it('groups by day, newest first, folds work status by priority', () => {
+  it('группирует по дням, новые сверху; статус работы = статус самого свежего фото', () => {
     const days = buildReport(
       [rec('a', 't-doors', '2026-09-22T12:31:00+03:00'), rec('b', 't-doors', '2026-09-22T12:40:00+03:00'), rec('c', 't-rebar', '2026-09-21T10:00:00+03:00', 'queued')],
       { a: { local_uuid: 'a', status: 'accepted', updated_at: 'x' }, b: { local_uuid: 'b', status: 'rework', verdict_comment: 'нужен пересъём', updated_at: 'x' } },
@@ -22,24 +22,37 @@ describe('buildReport', () => {
     expect(days.map((d) => d.label)).toEqual(['Сегодня', 'Вчера']);
     const doors = days[0].works[0];
     expect(doors.name).toBe('Установка дверей');
-    expect(doors.status).toBe('rework');
+    expect(doors.status).toBe('retake');
+    expect(doors.label).toBe('переснять');
     expect(doors.comment).toBe('нужен пересъём');
+    expect(doors.time).toBe('2026-09-22T12:40:00+03:00');
     expect(doors.photos.length).toBe(2);
     expect(days[1].works[0].status).toBe('in_work');
   });
 
-  it('shows todays tasks without photos as not_started', () => {
+  it('свежее фото «в работе» снимает «переснять» со старого', () => {
+    const days = buildReport(
+      [rec('old', 't-doors', '2026-09-22T12:00:00+03:00'), rec('new', 't-doors', '2026-09-22T13:00:00+03:00')],
+      { old: { local_uuid: 'old', status: 'rework', verdict_comment: 'X', updated_at: 'x' }, new: { local_uuid: 'new', status: 'uploaded', updated_at: 'x' } },
+      {},
+      now,
+    );
+    const doors = days[0].works[0];
+    expect(doors.status).toBe('in_work');
+    expect(doors.comment).toBeNull();
+    expect(doors.time).toBe('2026-09-22T13:00:00+03:00');
+  });
+
+  it('сегодняшние наряды без фото — не начато, без времени', () => {
     const days = buildReport([], {}, { 't-concrete': { task_id: 't-concrete', work_id: 'w', name: 'Бетонирование', zone: 'Секция C' } }, now);
     expect(days[0].label).toBe('Сегодня');
     expect(days[0].works[0].status).toBe('not_started');
+    expect(days[0].works[0].time).toBeNull();
   });
 
-  it('excludes photos that have been retaken from the feed', () => {
+  it('переснятые фото не показываются', () => {
     const days = buildReport(
-      [
-        rec('a', 't-doors', '2026-09-22T12:00:00+03:00', 'uploaded'),
-        rec('b', 't-doors', '2026-09-22T13:00:00+03:00', 'queued', 'a'),
-      ],
+      [rec('a', 't-doors', '2026-09-22T12:00:00+03:00', 'uploaded'), rec('b', 't-doors', '2026-09-22T13:00:00+03:00', 'queued', 'a')],
       { a: { local_uuid: 'a', status: 'rework', verdict_comment: 'нужен пересъём', updated_at: 'x' } },
       {},
       now,
@@ -50,58 +63,64 @@ describe('buildReport', () => {
     expect(doors.comment).toBeNull();
   });
 
-  it('comment comes from the newest photo with the shown status', () => {
+  it('пустые детекции нейросети дают «переснять» без слова от сервера', () => {
     const days = buildReport(
-      [
-        rec('a', 't-doors', '2026-09-22T13:00:00+03:00', 'uploaded'),  // newest
-        rec('b', 't-doors', '2026-09-22T12:00:00+03:00', 'uploaded'),  // oldest
-      ],
-      {
-        a: { local_uuid: 'a', status: 'rework', verdict_comment: 'X', updated_at: 'x' },
-        b: { local_uuid: 'b', status: 'rejected', verdict_comment: 'Y', updated_at: 'x' },
-      },
+      [rec('a', 't-doors', '2026-09-22T12:00:00+03:00', 'uploaded')],
+      { a: { local_uuid: 'a', status: 'uploaded', updated_at: 'x' } },
       {},
       now,
+      { mlEmpty: { a: true } },
     );
-    const doors = days[0].works[0];
-    expect(doors.status).toBe('rework');
-    expect(doors.comment).toBe('X');  // from photo A, the newest with rework status
+    expect(days[0].works[0].status).toBe('retake');
+    expect(days[0].works[0].comment).toBeNull();
   });
 
-  it('percent only from the defining photo', () => {
-    // P1: older, accepted, has percent
-    // P2: newer, under_review, no percent
-    // workStatus(['on_review', 'accepted']) returns 'on_review' (higher priority)
-    // So the defining photo is P2 (newest with on_review status), which has no percent
-    const days = buildReport(
-      [
-        rec('p2', 't-rebar', '2026-09-22T13:00:00+03:00', 'uploaded'),  // newest: under_review
-        rec('p1', 't-rebar', '2026-09-22T12:00:00+03:00', 'uploaded'),  // oldest: accepted
-      ],
-      {
-        p2: { local_uuid: 'p2', status: 'under_review', updated_at: 'x' },
-        p1: { local_uuid: 'p1', status: 'accepted', accepted_percent: 50, updated_at: 'x' },
-      },
-      {},
-      now,
-    );
-    const rebar = days[0].works[0];
-    expect(rebar.status).toBe('on_review');  // on_review has higher priority than accepted
-    expect(rebar.percent).toBeNull();  // from P2, the newest with on_review status
+  it('слово доставки у фото зависит от serverSet', () => {
+    const withServer = buildReport([rec('q', 't-doors', '2026-09-22T12:00:00+03:00', 'queued')], {}, {}, now, { serverSet: true });
+    const without = buildReport([rec('q', 't-doors', '2026-09-22T12:00:00+03:00', 'queued')], {}, {}, now, { serverSet: false });
+    expect(withServer[0].works[0].photos[0].word).toBe('ждёт сети');
+    expect(without[0].works[0].photos[0].word).toBe('ждёт сервера');
   });
 
-  it('demo feed does not break on a day after the demo was written: exactly two day sections, no task twice', () => {
+  it('демо-лента на следующий день: два дня, наряд не дублируется, бетонирование в работе', () => {
     const laterNow = new Date('2026-09-29T15:00:00+03:00');
-    const records = demoShots(laterNow).map((d) => ({
-      ...newRecord({ ...d, geo: null, file_path: '' }),
-      status: 'uploaded' as const,
-    }));
+    const records = demoShots(laterNow).map((d) => ({ ...newRecord({ ...d, geo: null, file_path: '' }), status: 'uploaded' as const }));
     const tasks = Object.fromEntries(demo.schedule.tasks.map((t) => [t.task_id, { task_id: t.task_id, work_id: t.work_id, name: t.name, zone: t.zone }]));
     const days = buildReport(records, {}, tasks, laterNow);
     expect(days.map((d) => d.label)).toEqual(['Сегодня', 'Вчера']);
     const allTaskIds = days.flatMap((d) => d.works.map((w) => w.task_id));
     expect(new Set(allTaskIds).size).toBe(allTaskIds.length);
-    const concrete = days[0].works.find((w) => w.task_id === 't-concrete-0922');
-    expect(concrete?.status).toBe('on_review');
+    expect(days[0].works.find((w) => w.task_id === 't-concrete-0922')?.status).toBe('in_work');
+  });
+});
+
+describe('taskState', () => {
+  const records = [
+    rec('old', 't-doors', '2026-09-22T12:00:00+03:00'),
+    rec('new', 't-doors', '2026-09-22T13:00:00+03:00'),
+    rec('r', 't-rebar', '2026-09-22T11:00:00+03:00'),
+  ];
+  it('без фото — не начато и нет uuid', () => {
+    expect(taskState([], {}, 't-doors')).toEqual({ status: 'not_started', latestUuid: null });
+  });
+  it('статус и uuid самого свежего фото наряда', () => {
+    const st = taskState(records, { new: { local_uuid: 'new', status: 'rework', updated_at: 'x' } }, 't-doors');
+    expect(st).toEqual({ status: 'retake', latestUuid: 'new' });
+    expect(taskState(records, {}, 't-rebar')).toEqual({ status: 'in_work', latestUuid: 'r' });
+  });
+  it('переснятое фото не считается', () => {
+    const withRetake = [...records, rec('newer', 't-doors', '2026-09-22T14:00:00+03:00', 'queued', 'new')];
+    const st = taskState(withRetake, { new: { local_uuid: 'new', status: 'rework', updated_at: 'x' } }, 't-doors');
+    expect(st).toEqual({ status: 'in_work', latestUuid: 'newer' });
+  });
+  it('пустые детекции — переснять', () => {
+    expect(taskState(records, {}, 't-rebar', { mlEmpty: { r: true } }).status).toBe('retake');
+  });
+});
+
+describe('liveRecords', () => {
+  it('убирает фото, на которые указывает retake_of', () => {
+    const live = liveRecords([rec('a', 't-doors', '2026-09-22T12:00:00+03:00'), rec('b', 't-doors', '2026-09-22T13:00:00+03:00', 'queued', 'a')]);
+    expect(live.map((r) => r.local_uuid)).toEqual(['b']);
   });
 });
