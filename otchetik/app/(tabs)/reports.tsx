@@ -4,14 +4,13 @@ import { Header } from '../../components/Header';
 import { ReportRow } from '../../components/ReportRow';
 import { showAlert, showCaptureError } from '../../components/alerts';
 import { useSchedule, useShotStatuses } from '../../data/queries';
-import { useSettings } from '../../data/settings';
-import { demoShots } from '../../demo';
-import { buildReport } from '../../lib/reports';
+import { serverBase, useSettings } from '../../data/settings';
+import { buildReport, taskState } from '../../lib/reports';
 import { theme } from '../../lib/theme';
 import { todayIso } from '../../lib/time';
 import { captureForTask } from '../../queue/capture';
-import { newRecord } from '../../queue/types';
-import { useQueue } from '../../queue/useQueue';
+import { useMlEmpty } from '../../queue/mlResults';
+import { useShownRecords } from '../../queue/useShownRecords';
 import { useOnline } from './today';
 
 export default function Reports() {
@@ -19,27 +18,24 @@ export default function Reports() {
   const online = useOnline();
   const date = todayIso();
   const schedule = useSchedule(settings?.objectId ?? null, settings?.brigadeId ?? null, date);
-  const { records, pending } = useQueue(7);
-
-  // Демо-режим без своих фото: показываем демо-записи, чтобы лента не была пустой.
-  const isDemo = schedule.data?.source === 'demo';
-  const shown = useMemo(() => (records.length === 0 && isDemo
-    ? demoShots(new Date()).map((d) => ({ ...newRecord({ ...d, geo: null, file_path: '' }), status: 'uploaded' as const }))
-    : records), [records, isDemo]);
+  const { shown, pending } = useShownRecords(schedule.data?.source === 'demo');
 
   const uploaded = useMemo(() => shown.filter((r) => r.status === 'uploaded').map((r) => r.local_uuid), [shown]);
   const statuses = useShotStatuses(uploaded);
   const byUuid = useMemo(() => Object.fromEntries((statuses.data?.data.shots ?? []).map((s) => [s.local_uuid, s])), [statuses.data]);
   const tasks = useMemo(() => Object.fromEntries((schedule.data?.data.tasks ?? []).map((t) => [t.task_id, t])), [schedule.data]);
-  const days = useMemo(() => buildReport(shown, byUuid, tasks), [shown, byUuid, tasks]);
+  const mlEmpty = useMlEmpty();
+  const serverSet = settings ? serverBase(settings) !== null : true;
+  const days = useMemo(() => buildReport(shown, byUuid, tasks, new Date(), { serverSet, mlEmpty }), [shown, byUuid, tasks, serverSet, mlEmpty]);
   const sections = useMemo(() => days.map((d) => ({ title: d.label, data: d.works })), [days]);
 
   async function retake(task_id: string) {
     const task = tasks[task_id];
     if (!task) { showAlert('Работа не в сегодняшнем наряде', 'Снять можно с экрана «Сегодня»'); return; }
-    const last = [...shown].filter((r) => r.task_id === task_id).sort((a, b) => b.taken_at.localeCompare(a.taken_at))[0];
+    // То же фото, что определяет статус на карточке «Сегодня».
+    const { latestUuid } = taskState(shown, byUuid, task_id, { mlEmpty });
     try {
-      await captureForTask(task, last ? { retakeOf: last.local_uuid } : undefined);
+      await captureForTask(task, latestUuid ? { retakeOf: latestUuid } : undefined);
     } catch (e) {
       showCaptureError(e);
     }
