@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Switch, Text, TextInput, View } from 'react-native';
 import { showAlert } from '../components/alerts';
 import { queryClient } from '../data/queryClient';
-import { useSettings } from '../data/settings';
+import { currentDefaultServerUrl, useSettings } from '../data/settings';
 import { theme } from '../lib/theme';
 import { useQueue } from '../queue/useQueue';
 
@@ -15,6 +15,7 @@ export default function Settings() {
   // Зависим только от serverUrl, чтобы не сбрасывать введённый адрес при других изменениях в settings
   useEffect(() => { if (settings) setUrl(settings.serverUrl); }, [settings?.serverUrl]);
   if (!settings) return null;
+  const fallback = currentDefaultServerUrl();
 
   async function apply() {
     const trimmed = url.trim();
@@ -26,7 +27,7 @@ export default function Settings() {
     try {
       await save({ serverUrl: trimmed });
       await queryClient.invalidateQueries();
-      showAlert('Сохранено', trimmed ? `Сервер: ${trimmed}` : 'Адрес пустой: работаем на демо-данных');
+      showAlert('Сохранено', trimmed ? `Сервер: ${trimmed}` : fallback ? `Адрес пустой: по умолчанию ${fallback}` : 'Адрес пустой: работаем на демо-данных');
     } catch (err) {
       showAlert('Не получилось', err instanceof Error ? err.message : 'Не удалось сохранить настройку');
     }
@@ -44,6 +45,7 @@ export default function Settings() {
     <ScrollView style={styles.screen} contentContainerStyle={{ padding: theme.pad }}>
       <Text style={styles.h}>Адрес сервера</Text>
       <TextInput value={url} onChangeText={setUrl} placeholder="http://192.168.0.10:8000" autoCapitalize="none" autoCorrect={false} keyboardType="url" style={styles.input} />
+      <Text style={styles.hint}>по умолчанию: {fallback || 'нет, демо-данные'}</Text>
       <Pressable onPress={apply} style={styles.btn}><Text style={styles.btnText}>Сохранить адрес</Text></Pressable>
 
       <View style={styles.rowBetween}>
@@ -78,4 +80,5 @@ const styles = StyleSheet.create({
   btnText: { color: theme.accentInk, fontSize: 16, fontWeight: '700' },
   rowBetween: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: 20 },
   label: { fontSize: 15, color: theme.ink },
+  hint: { fontSize: 12, color: theme.muted, marginTop: 6 },
 });

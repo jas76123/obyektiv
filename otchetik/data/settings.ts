@@ -1,5 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useCallback, useEffect, useState } from 'react';
+import { Platform } from 'react-native';
+import { defaultServerUrl, resolveServerBase } from '../lib/serverDefault';
 
 export type Settings = {
   serverUrl: string;
@@ -13,7 +15,7 @@ export type Settings = {
 };
 
 export const DEFAULT_SETTINGS: Settings = {
-  serverUrl: '', // адрес сервера команды вписать сюда, когда появится
+  serverUrl: '', // пусто = адрес по умолчанию (lib/serverDefault.ts); скрытая настройка перекрывает
   demoOnly: false,
   mlCheck: true,
   objectId: null,
@@ -58,8 +60,13 @@ export function useSettings(): { settings: Settings | null; save: (p: Partial<Se
   return { settings, save };
 }
 
+/** Умолчание для текущей платформы и адреса страницы. */
+export function currentDefaultServerUrl(): string {
+  const loc = typeof window !== 'undefined' && window.location ? window.location : undefined;
+  return defaultServerUrl({ platform: Platform.OS, hostname: loc?.hostname, origin: loc?.origin });
+}
+
 /** Базовый адрес API или null, если ходить на сервер не нужно. */
 export function serverBase(s: Settings): string | null {
-  if (s.demoOnly || !s.serverUrl.trim()) return null;
-  return s.serverUrl.trim().replace(/\/+$/, '');
+  return resolveServerBase(s, currentDefaultServerUrl());
 }
