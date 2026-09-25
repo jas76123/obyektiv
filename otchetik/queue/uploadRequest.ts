@@ -7,7 +7,7 @@ export type PhotoPart = Blob | { uri: string; name: string; type: string };
 
 /**
  * Общая часть отправки фото: собирает multipart, шлёт POST, проверяет ответ по схеме.
- * Платформенные uploadShot.* добывают `photo` каждый по-своему и зовят это.
+ * Платформенные uploadShot.* добывают `photo` каждый по-своему и зовут это.
  * Имя файла несёт бригаду и наряд (lib/photoName.ts) — сервер хранит только его.
  */
 export async function postShot(base: string, r: ShotRecord, photo: PhotoPart, brigadeId?: string | null): Promise<{ server_id: string }> {
