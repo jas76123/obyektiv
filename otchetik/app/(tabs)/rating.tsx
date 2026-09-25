@@ -8,8 +8,9 @@ import { theme } from '../../lib/theme';
 import { useQueue } from '../../queue/useQueue';
 import { useOnline } from './today';
 
-// Ширины числовых колонок: «Принято», «Качество», «Баллы» — влезает в 360 px вместе с «Бригада №1» и ярлыком «мы».
-const COL = { rank: 24, accepted: 58, quality: 66, points: 52 };
+// Ширины числовых колонок: «Принято», «Кач-во», «Баллы». Считалось для 360 px: 328 на ряд минус
+// отступы 24, рамка 4 и четыре промежутка по 6 — названию остаётся ~108 px, «Бригада №1» (~92 px) помещается в одну строку.
+const COL = { rank: 20, accepted: 56, quality: 48, points: 44 };
 
 export default function Rating() {
   const { settings } = useSettings();
@@ -34,7 +35,7 @@ export default function Rating() {
               <Text style={[styles.headCell, { width: COL.rank }]}>№</Text>
               <Text style={[styles.headCell, { flex: 1 }]}>Бригада</Text>
               <Text style={[styles.headCell, styles.num, { width: COL.accepted }]}>Принято</Text>
-              <Text style={[styles.headCell, styles.num, { width: COL.quality }]}>Качество</Text>
+              <Text style={[styles.headCell, styles.num, { width: COL.quality }]}>Кач-во</Text>
               <Text style={[styles.headCell, styles.num, { width: COL.points }]}>Баллы</Text>
             </View>
           </View>
@@ -76,13 +77,13 @@ export default function Rating() {
 const styles = StyleSheet.create({
   screen: { flex: 1, backgroundColor: theme.bg },
   cap: { fontSize: 12, fontWeight: '700', color: theme.muted, letterSpacing: 0.6, marginBottom: 8 },
-  headRow: { flexDirection: 'row', alignItems: 'center', gap: 8, paddingHorizontal: 14, paddingBottom: 6 },
+  headRow: { flexDirection: 'row', alignItems: 'center', gap: 6, paddingHorizontal: 12, paddingBottom: 6 },
   headCell: { fontSize: 11, fontWeight: '700', color: theme.muted, letterSpacing: 0.4, textTransform: 'uppercase' },
   num: { textAlign: 'right' },
-  row: { flexDirection: 'row', alignItems: 'center', gap: 8, backgroundColor: theme.paper, borderWidth: 1, borderColor: theme.line, borderRadius: theme.radius, paddingVertical: 12, paddingHorizontal: 14, marginBottom: 8 },
+  row: { flexDirection: 'row', alignItems: 'center', gap: 6, backgroundColor: theme.paper, borderWidth: 1, borderColor: theme.line, borderRadius: theme.radius, paddingVertical: 12, paddingHorizontal: 12, marginBottom: 8 },
   mine: { borderColor: theme.accent, borderWidth: 2 },
   rank: { fontSize: 18, fontWeight: '800', color: theme.muted },
-  nameCell: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: 6, minWidth: 0 },
+  nameCell: { flex: 1, alignItems: 'flex-start', gap: 4, minWidth: 0 },
   name: { fontSize: 16, fontWeight: '700', color: theme.ink, flexShrink: 1 },
   me: { borderWidth: 1, borderColor: theme.accent, borderRadius: 999, paddingHorizontal: 8, paddingVertical: 2 },
   meText: { fontSize: 12, fontWeight: '700', color: theme.accent, textTransform: 'uppercase', letterSpacing: 0.3 },
