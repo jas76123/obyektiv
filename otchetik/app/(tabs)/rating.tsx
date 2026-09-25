@@ -37,7 +37,8 @@ export default function Rating() {
     () => buildLeaderboard(photos.list, brigadesOfObject, schedules, settings?.brigadeId ?? null),
     [photos.list, brigadesOfObject, schedules, settings?.brigadeId],
   );
-  const data = live ? computed : (lb.data?.data ?? EMPTY);
+  // До первого ответа /photos buildLeaderboard всё равно даёт по нулевой строке на бригаду — показываем пусто, а не нули.
+  const data = live ? (photos.at === null ? EMPTY : computed) : (lb.data?.data ?? EMPTY);
   const brigades = [...data.brigades].sort((a, b) => a.rank - b.rank);
   const others = data.others;
 
@@ -51,7 +52,8 @@ export default function Rating() {
   const [refreshing, setRefreshing] = useState(false);
   async function refresh() {
     setRefreshing(true);
-    try { await Promise.all([lb.refetch(), objects.refetch(), runMlCheckNow()]); } finally { setRefreshing(false); }
+    // useLeaderboard(live ? null : objectId) выключен через enabled, но refetch() в TanStack Query v5 его игнорирует — не дёргаем зря.
+    try { await Promise.all([...(live ? [] : [lb.refetch()]), objects.refetch(), runMlCheckNow()]); } finally { setRefreshing(false); }
   }
 
   const headerSource = live ? (photos.at ? 'server' : objects.data?.source) : lb.data?.source;
@@ -107,7 +109,8 @@ export default function Rating() {
             <Text style={styles.note}>Без фото и личных данных: соревнование, а не слежка.</Text>
           </View>
         }
-        ListEmptyComponent={<Text style={styles.meta}>{live ? (photos.at ? 'Рейтинга пока нет' : 'Ждём ответ сервера…') : lb.isLoading ? 'Загружаем…' : 'Рейтинга пока нет'}</Text>}
+        // «Ждём ответ сервера…» только пока /photos ни разу не ответил и опрос включён — иначе (mlCheck выключен) это было бы враньём.
+        ListEmptyComponent={<Text style={styles.meta}>{live ? (photos.at === null && settings?.mlCheck ? 'Ждём ответ сервера…' : 'Рейтинга пока нет') : lb.isLoading ? 'Загружаем…' : 'Рейтинга пока нет'}</Text>}
       />
     </View>
   );
