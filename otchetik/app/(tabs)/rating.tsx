@@ -32,11 +32,11 @@ export default function Rating() {
           <View>
             <Text style={styles.cap}>ПРИНЯТЫЕ РАБОТЫ · БАЛЛЫ</Text>
             <View style={styles.headRow} accessibilityRole="header">
-              <Text style={[styles.headCell, { width: COL.rank }]}>№</Text>
-              <Text style={[styles.headCell, { flex: 1 }]}>Бригада</Text>
-              <Text style={[styles.headCell, styles.num, { width: COL.accepted }]}>Принято</Text>
-              <Text style={[styles.headCell, styles.num, { width: COL.quality }]}>Кач-во</Text>
-              <Text style={[styles.headCell, styles.num, { width: COL.points }]}>Баллы</Text>
+              <Text style={[styles.headCell, { width: COL.rank }]} numberOfLines={1}>№</Text>
+              <Text style={[styles.headCell, { flex: 1 }]} numberOfLines={1}>Бригада</Text>
+              <Text style={[styles.headCell, styles.num, { width: COL.accepted }]} numberOfLines={1}>Принято</Text>
+              <Text style={[styles.headCell, styles.num, { width: COL.quality }]} numberOfLines={1}>Кач-во</Text>
+              <Text style={[styles.headCell, styles.num, { width: COL.points }]} numberOfLines={1}>Баллы</Text>
             </View>
           </View>
         }
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
   screen: { flex: 1, backgroundColor: theme.bg },
   cap: { fontSize: 12, fontWeight: '700', color: theme.muted, letterSpacing: 0.6, marginBottom: 8 },
   headRow: { flexDirection: 'row', alignItems: 'center', gap: 6, paddingHorizontal: 12, paddingBottom: 6 },
-  headCell: { fontSize: 11, fontWeight: '700', color: theme.muted, letterSpacing: 0.4, textTransform: 'uppercase' },
+  headCell: { fontSize: 11, fontWeight: '700', color: theme.muted }, // без капса и разрядки: в 56/48/44 px капс «ПРИНЯТО» переносится
   num: { textAlign: 'right' },
   row: { flexDirection: 'row', alignItems: 'center', gap: 6, backgroundColor: theme.paper, borderWidth: 1, borderColor: theme.line, borderRadius: theme.radius, paddingVertical: 12, paddingHorizontal: 12, marginBottom: 8 },
   mine: { borderColor: theme.accent, borderWidth: 2 },
