@@ -17,5 +17,6 @@
 - Статусы фото: `uploaded, processing, processed, under_review, accepted, partial, rework, rejected` (до `uploaded` живёт на телефоне).
 - `verdict` — исход проверки руководителем, дублирует `status` для accepted/partial/rework/rejected; необязателен.
 - `verdict_comment` для `rework` и `rejected`: текст руководителя, показывается прорабу.
+- На экранах приложения статусы сворачиваются в три слова: `rework`/`rejected` → «переснять», остальное → «в работе», без фото → «не начато». Дополнительно «переснять» ставится, если `GET /photos` (маршрут сервера вне этого контракта) вернул для фото пустой `detections`.
 - Даты и время в ISO 8601 с часовым поясом.
 - CORS: веб-версия ходит с `https://jas76123.github.io`, нужен `Access-Control-Allow-Origin`.
