@@ -1,6 +1,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { newRecord } from '../queue/types';
 import { postShot } from '../queue/uploadRequest';
+import { POST_TIMEOUT_MS } from '../lib/network';
 
 function rec() {
   return newRecord({ local_uuid: 'a', task_id: 't1', work_name: 'Двери', zone: 'Зона 2', taken_at: '2026-09-22T10:00:00+03:00', geo: null, file_path: 'a' });
@@ -62,7 +63,7 @@ describe('postShot', () => {
     }));
     vi.stubGlobal('fetch', mock);
     const pending = expect(postShot('http://x', rec(), new Blob(['x']))).rejects.toThrow();
-    await vi.advanceTimersByTimeAsync(20_000);
+    await vi.advanceTimersByTimeAsync(POST_TIMEOUT_MS);
     await pending;
     vi.useRealTimers();
   });

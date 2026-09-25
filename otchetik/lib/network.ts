@@ -12,7 +12,8 @@ export function timeoutSignal(ms: number): AbortSignal {
   return controller.signal;
 }
 
-/** Отправка фото (POST) может идти долго — большой multipart на медленной сети. */
-export const POST_TIMEOUT_MS = 20_000;
-/** Чтение списков/статусов (GET) — короче, чтобы источник быстрее падал в кэш/демо. */
-export const GET_TIMEOUT_MS = 8_000;
+/** Отправка фото (POST): большой multipart на медленной сети, плюс сервер Георгия однопоточный —
+ * пока считает чужой /photos (10–20 с, замер 25.09), не отвечает никому. */
+export const POST_TIMEOUT_MS = 45_000;
+/** Чтение списков/статусов (GET): тоже с запасом на занятый сервер, иначе шапка мигает «сервер не отвечает». */
+export const GET_TIMEOUT_MS = 25_000;

@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { z } from 'zod';
 import { cacheFrom, chooseSource, fetchJson, stampSource } from '../data/source';
+import { GET_TIMEOUT_MS } from '../lib/network';
 
 const demo = { tasks: ['demo'] };
 
@@ -110,7 +111,7 @@ describe('fetchJson', () => {
       init?.signal?.addEventListener('abort', () => reject(new Error('aborted')));
     });
     const pending = expect(fetchJson('http://x/api', schema, undefined, f as typeof fetch)).rejects.toThrow();
-    await vi.advanceTimersByTimeAsync(8_000);
+    await vi.advanceTimersByTimeAsync(GET_TIMEOUT_MS);
     await pending;
     vi.useRealTimers();
   });
