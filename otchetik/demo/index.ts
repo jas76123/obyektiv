@@ -1,9 +1,10 @@
 import leaderboard from './leaderboard.json';
 import objects from './objects.json';
+import photos from './photos.json';
 import schedule from './schedule.json';
 import shotsStatus from './shots-status.json';
 
-export const demo = { objects, schedule, shotsStatus, leaderboard };
+export const demo = { objects, schedule, shotsStatus, leaderboard, photos };
 
 /** `now` со сдвигом на `dayOffset` дней и заданным местным временем. */
 function atLocalTime(now: Date, hour: number, minute: number, dayOffset = 0): string {

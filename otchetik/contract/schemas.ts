@@ -53,8 +53,20 @@ export const LeaderboardResponse = z.object({
 });
 export type Leaderboard = z.infer<typeof LeaderboardResponse>;
 
-/** GET /photos у Георгия: нужны только id (= server_id из POST /api/foreman/shots) и детекции. */
+/** Одна запись GET /photos у Георгия: id (= server_id из POST /api/foreman/shots), имя файла
+ * (сервер хранит `{server_id}_{наше имя}`, см. lib/photoName.ts), время сервера, детекции. */
+export const PhotoItem = z.object({
+  id: z.string(),
+  file: z.string(),
+  timestamp: z.string(),
+  detections: z.array(z.unknown()),
+});
+export type PhotoItem = z.infer<typeof PhotoItem>;
+
+/** Список разбирается поэлементно: одна кривая запись не должна ронять результаты по остальным. */
 export const PhotosResponse = z.object({
-  photos: z.array(z.object({ id: z.string(), detections: z.array(z.unknown()) })),
+  photos: z.array(z.unknown()).transform((items) =>
+    items.map((i) => PhotoItem.safeParse(i)).flatMap((p) => (p.success ? [p.data] : [])),
+  ),
 });
 export type Photos = z.infer<typeof PhotosResponse>;

@@ -1,0 +1,23 @@
+{
+  "total": 2,
+  "photos": [
+    {
+      "id": "997c7740-90dd-445d-a7dc-d517b2c794ec",
+      "file": "997c7740-90dd-445d-a7dc-d517b2c794ec_t.jpg",
+      "image_url": "/uploads/997c7740-90dd-445d-a7dc-d517b2c794ec_t.jpg",
+      "timestamp": "2026-09-25T16:50:02.776265",
+      "object_id": null, "zone_id": null, "camera_id": null,
+      "detections": [],
+      "works_status": []
+    },
+    {
+      "id": "1790352918.505692",
+      "file": "1790352918.505692_1000_F_220676590_4zfuo3TKXbys7xkC4Nx0YYFcMzkCkHTf.jpg",
+      "image_url": "/uploads/1790352918.505692_1000_F_220676590_4zfuo3TKXbys7xkC4Nx0YYFcMzkCkHTf.jpg",
+      "timestamp": "2026-09-25T16:15:18.500233",
+      "object_id": null, "zone_id": null, "camera_id": null,
+      "detections": [{ "class": "Excavator", "confidence": 0.67, "bbox": [742.68, 382.13, 344.05, 355.09] }],
+      "works_status": []
+    }
+  ]
+}

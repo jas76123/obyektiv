@@ -2,10 +2,12 @@ import { PhotosResponse, type Photos } from '../contract/schemas';
 import { fetchJson } from '../data/source';
 import type { MlResultsStore } from '../lib/mlResults';
 import { timeoutSignal } from '../lib/network';
+import type { PhotosStore } from '../lib/photosCache';
 import type { ShotRecord } from './types';
 
 /**
- * Узнаём у сервера Георгия, нашла ли нейросеть что-то на фото прораба (спека 25.09 §3).
+ * Узнаём у сервера Георгия, нашла ли нейросеть что-то на фото прораба (спека 25.09 §3),
+ * и тем же ответом наполняем кэш списка фото для рейтинга (спека 26.09 §5.2).
  * `GET /photos` отдаёт все файлы с детекциями; id записи = server_id нашего фото.
  * Маршрут гоняет детектор по всем файлам на каждый запрос, поэтому: один запрос на
  * прогон закрывает все ждущие фото, не чаще раза в минуту, с длинным таймаутом.
@@ -36,13 +38,17 @@ export async function checkMlResults(deps: {
   base: string;
   records: ShotRecord[];
   results: MlResultsStore;
+  /** Кэш списка фото для рейтинга; наполняется тем же ответом. */
+  photos?: PhotosStore;
+  /** Экран рейтинга открыт: запрос нужен, даже если своих ждущих фото нет. */
+  wantPhotos?: boolean;
   fetchImpl?: typeof fetch;
   now?: () => number;
 }): Promise<MlCheckResult> {
   const now = deps.now ?? Date.now;
   await deps.results.load();
   const waiting = waitingRecords(deps.records, deps.results, now());
-  if (waiting.length === 0) return { checked: 0, skipped: 'nothing' };
+  if (waiting.length === 0 && !deps.wantPhotos) return { checked: 0, skipped: 'nothing' };
   if (inFlight) return { checked: 0, skipped: 'in_flight' };
   if (now() - lastRequestAt < ML_MIN_INTERVAL_MS) return { checked: 0, skipped: 'too_soon' };
   inFlight = true;
@@ -55,13 +61,18 @@ export async function checkMlResults(deps: {
     } catch {
       return { checked: 0, skipped: 'error' };
     }
+    const checkedAt = new Date(now()).toISOString();
+
+    if (deps.photos) {
+      await deps.photos.set(photos.map((p) => ({ id: p.id, file: p.file, timestamp: p.timestamp, count: p.detections.length })), checkedAt);
+    }
 
     const byId = new Map(photos.map((p) => [p.id, p]));
     let checked = 0;
     for (const r of waiting) {
       const item = byId.get(r.server_id);
       if (!item) continue; // ещё не в списке — спросим при следующем прогоне
-      await deps.results.set(r.local_uuid, { empty: item.detections.length === 0, count: item.detections.length, checked_at: new Date(now()).toISOString() });
+      await deps.results.set(r.local_uuid, { empty: item.detections.length === 0, count: item.detections.length, checked_at: checkedAt });
       checked++;
     }
     return { checked, skipped: null };

@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   LeaderboardResponse,
   ObjectsResponse,
+  PhotosResponse,
   ScheduleResponse,
   ShotsStatusResponse,
   UploadResponse,
@@ -54,5 +55,15 @@ describe('demo data matches contract', () => {
   });
   it('rejects wrong status', () => {
     expect(() => ShotsStatusResponse.parse({ shots: [{ local_uuid: 'a', status: 'done', updated_at: 'x' }] })).toThrow();
+  });
+  it('photos: реальный ответ /photos разбирается, file и timestamp есть', () => {
+    const r = PhotosResponse.parse(demo.photos);
+    expect(r.photos.length).toBe(2);
+    expect(r.photos[0]).toMatchObject({ id: '997c7740-90dd-445d-a7dc-d517b2c794ec', file: '997c7740-90dd-445d-a7dc-d517b2c794ec_t.jpg', timestamp: '2026-09-25T16:50:02.776265' });
+    expect(r.photos[1].detections.length).toBe(1);
+  });
+  it('photos: кривая запись пропускается, остальные остаются', () => {
+    const r = PhotosResponse.parse({ photos: [{ id: 1, detections: null }, { id: 'ok', file: 'x_a.b.c.jpg', timestamp: 't', detections: [] }] });
+    expect(r.photos.map((p) => p.id)).toEqual(['ok']);
   });
 });

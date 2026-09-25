@@ -1,5 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { createMlResults, type KeyValue } from '../lib/mlResults';
+import { createPhotosCache } from '../lib/photosCache';
 import { ML_MAX_AGE_MS, ML_MIN_INTERVAL_MS, checkMlResults, resetMlCheckClock, waitingRecords } from '../queue/mlCheck';
 import { newRecord, type ShotRecord } from '../queue/types';
 
@@ -9,8 +10,9 @@ function uploaded(uuid: string, server_id: string | null = `srv-${uuid}`): ShotR
 }
 // Параметры типизированы явно (но не используются) — иначе vi.fn выводит
 // пустой кортеж аргументов и `mock.calls[0][0]` не проходит проверку типов.
-function photosResponse(items: { id: string; detections: unknown[] }[]) {
-  return vi.fn(async (_url?: RequestInfo | URL, _init?: RequestInit) => new Response(JSON.stringify({ total: items.length, photos: items }), { status: 200 }));
+function photosResponse(items: { id: string; detections: unknown[]; file?: string; timestamp?: string }[]) {
+  const full = items.map((i, n) => ({ file: `${i.id}_x.jpg`, timestamp: `2026-09-25T10:00:0${n}`, ...i }));
+  return vi.fn(async (_url?: RequestInfo | URL, _init?: RequestInit) => new Response(JSON.stringify({ total: full.length, photos: full }), { status: 200 }));
 }
 
 describe('checkMlResults', () => {
@@ -91,6 +93,22 @@ describe('checkMlResults', () => {
     now += ML_MIN_INTERVAL_MS;
     await checkMlResults({ base: 'http://x', records: [uploaded('a')], results, fetchImpl, now: () => now });
     expect(fetchImpl).toHaveBeenCalledTimes(2);
+  });
+
+  it('список целиком складывается в кэш фото, даже если ждать нечего, но кэш просят (wantPhotos)', async () => {
+    const photos = createPhotosCache(memoryKv());
+    const fetchImpl = photosResponse([{ id: 'srv-z', detections: [{}] , file: 'srv-z_br-2.t-doors-0922.z.jpg' }]);
+    const r = await checkMlResults({ base: 'http://x', records: [], results: createMlResults(memoryKv()), photos, wantPhotos: true, fetchImpl, now: () => now });
+    expect(r).toEqual({ checked: 0, skipped: null });
+    expect(photos.get().list).toEqual([{ id: 'srv-z', file: 'srv-z_br-2.t-doors-0922.z.jpg', timestamp: '2026-09-25T10:00:00', count: 1 }]);
+    expect(photos.get().at).toBe(new Date(now).toISOString());
+  });
+
+  it('без wantPhotos и без ждущих фото запроса нет', async () => {
+    const fetchImpl = photosResponse([]);
+    const r = await checkMlResults({ base: 'http://x', records: [], results: createMlResults(memoryKv()), photos: createPhotosCache(memoryKv()), wantPhotos: false, fetchImpl, now: () => now });
+    expect(r.skipped).toBe('nothing');
+    expect(fetchImpl).not.toHaveBeenCalled();
   });
 });
 
