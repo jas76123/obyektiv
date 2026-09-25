@@ -8,6 +8,9 @@ import { theme } from '../../lib/theme';
 import { useQueue } from '../../queue/useQueue';
 import { useOnline } from './today';
 
+// Ширины числовых колонок: «Принято», «Качество», «Баллы» — влезает в 360 px вместе с «Бригада №1» и ярлыком «мы».
+const COL = { rank: 24, accepted: 58, quality: 66, points: 52 };
+
 export default function Rating() {
   const { settings } = useSettings();
   const online = useOnline();
@@ -24,17 +27,30 @@ export default function Rating() {
         keyExtractor={(b) => b.id}
         contentContainerStyle={{ padding: theme.pad }}
         refreshControl={<RefreshControl refreshing={lb.isFetching} onRefresh={() => lb.refetch()} />}
-        ListHeaderComponent={<Text style={styles.cap}>ПРИНЯТЫЕ РАБОТЫ · БАЛЛЫ</Text>}
+        ListHeaderComponent={
+          <View>
+            <Text style={styles.cap}>ПРИНЯТЫЕ РАБОТЫ · БАЛЛЫ</Text>
+            <View style={styles.headRow} accessibilityRole="header">
+              <Text style={[styles.headCell, { width: COL.rank }]}>№</Text>
+              <Text style={[styles.headCell, { flex: 1 }]}>Бригада</Text>
+              <Text style={[styles.headCell, styles.num, { width: COL.accepted }]}>Принято</Text>
+              <Text style={[styles.headCell, styles.num, { width: COL.quality }]}>Качество</Text>
+              <Text style={[styles.headCell, styles.num, { width: COL.points }]}>Баллы</Text>
+            </View>
+          </View>
+        }
         renderItem={({ item }) => {
           const mine = item.id === settings?.brigadeId;
           return (
-            <View style={[styles.row, mine && styles.mine]}>
-              <Text style={styles.rank}>{item.rank}</Text>
-              <View style={{ flex: 1 }}>
-                <Text style={styles.name}>{item.name}{mine ? ' (мы)' : ''}</Text>
-                <Text style={styles.meta}>принято {item.accepted} · качество {item.quality}%</Text>
+            <View style={[styles.row, mine && styles.mine]} accessibilityLabel={`${item.rank} место, ${item.name}${mine ? ', мы' : ''}: принято ${item.accepted}, качество ${item.quality}%, ${item.points} баллов`}>
+              <Text style={[styles.rank, { width: COL.rank }]}>{item.rank}</Text>
+              <View style={styles.nameCell}>
+                <Text style={styles.name} numberOfLines={1}>{item.name}</Text>
+                {mine && <View style={styles.me}><Text style={styles.meText}>мы</Text></View>}
               </View>
-              <Text style={styles.points}>{item.points}</Text>
+              <Text style={[styles.cell, styles.num, { width: COL.accepted }]}>{item.accepted}</Text>
+              <Text style={[styles.cell, styles.num, { width: COL.quality }]}>{item.quality}%</Text>
+              <Text style={[styles.points, styles.num, { width: COL.points }]}>{item.points}</Text>
             </View>
           );
         }}
@@ -43,7 +59,7 @@ export default function Rating() {
             <Text style={[styles.cap, { marginTop: 20 }]}>ЧТО СДЕЛАЛИ ДРУГИЕ БРИГАДЫ</Text>
             {others.length === 0 && <Text style={styles.meta}>Пока нет принятых работ</Text>}
             {others.map((o, i) => (
-              <View key={i} style={styles.other}>
+              <View key={`${o.brigade}-${o.work}-${o.zone}-${i}`} style={styles.other}>
                 <Text style={styles.meta}>{o.brigade} · {o.work} · {o.zone}</Text>
                 <StatusChip status={foldStatus(o.status)} />
               </View>
@@ -60,12 +76,19 @@ export default function Rating() {
 const styles = StyleSheet.create({
   screen: { flex: 1, backgroundColor: theme.bg },
   cap: { fontSize: 12, fontWeight: '700', color: theme.muted, letterSpacing: 0.6, marginBottom: 8 },
-  row: { flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: theme.paper, borderWidth: 1, borderColor: theme.line, borderRadius: theme.radius, padding: 14, marginBottom: 8 },
+  headRow: { flexDirection: 'row', alignItems: 'center', gap: 8, paddingHorizontal: 14, paddingBottom: 6 },
+  headCell: { fontSize: 11, fontWeight: '700', color: theme.muted, letterSpacing: 0.4, textTransform: 'uppercase' },
+  num: { textAlign: 'right' },
+  row: { flexDirection: 'row', alignItems: 'center', gap: 8, backgroundColor: theme.paper, borderWidth: 1, borderColor: theme.line, borderRadius: theme.radius, paddingVertical: 12, paddingHorizontal: 14, marginBottom: 8 },
   mine: { borderColor: theme.accent, borderWidth: 2 },
-  rank: { width: 24, fontSize: 18, fontWeight: '800', color: theme.muted },
-  name: { fontSize: 16, fontWeight: '700', color: theme.ink },
+  rank: { fontSize: 18, fontWeight: '800', color: theme.muted },
+  nameCell: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: 6, minWidth: 0 },
+  name: { fontSize: 16, fontWeight: '700', color: theme.ink, flexShrink: 1 },
+  me: { borderWidth: 1, borderColor: theme.accent, borderRadius: 999, paddingHorizontal: 8, paddingVertical: 2 },
+  meText: { fontSize: 12, fontWeight: '700', color: theme.accent, textTransform: 'uppercase', letterSpacing: 0.3 },
+  cell: { fontSize: 15, color: theme.ink },
+  points: { fontSize: 18, fontWeight: '800', color: theme.ink },
   meta: { fontSize: 13, color: theme.muted, marginTop: 2 },
-  points: { fontSize: 22, fontWeight: '800', color: theme.ink },
   other: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 8, paddingVertical: 8, borderBottomWidth: 1, borderBottomColor: theme.line },
   note: { fontSize: 12, color: theme.muted, marginTop: 12 },
 });
