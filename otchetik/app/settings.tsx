@@ -51,6 +51,11 @@ export default function Settings() {
         <Switch value={settings.demoOnly} onValueChange={async (v) => { try { await save({ demoOnly: v }); await queryClient.invalidateQueries(); } catch (err) { showAlert('Не получилось', err instanceof Error ? err.message : 'Не удалось сохранить настройку'); } }} />
       </View>
 
+      <View style={styles.rowBetween}>
+        <Text style={styles.label}>Проверять фото нейросетью</Text>
+        <Switch value={settings.mlCheck} onValueChange={async (v) => { try { await save({ mlCheck: v }); } catch (err) { showAlert('Не получилось', err instanceof Error ? err.message : 'Не удалось сохранить настройку'); } }} />
+      </View>
+
       <Text style={styles.h}>Очередь</Text>
       <Text style={styles.label}>в очереди {pending}: ждут {counts.queued}, отправляются {counts.uploading}, с ошибкой {counts.failed}; отправлено {counts.uploaded}</Text>
       <Pressable onPress={send} style={styles.btn}><Text style={styles.btnText}>Отправить очередь сейчас</Text></Pressable>

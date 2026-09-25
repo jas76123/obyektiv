@@ -3,6 +3,7 @@ import { AppState } from 'react-native';
 import { queryClient } from '../data/queryClient';
 import { loadSettings, serverBase } from '../data/settings';
 import { listsChangedByRun } from '../lib/poll';
+import { runMlCheckNow } from './mlRun';
 import { queueEvents } from './queueEvents';
 import { getStore, storeReady } from './store';
 import { uploadShot } from './uploadShot';
@@ -31,6 +32,9 @@ export async function runQueueNow(opts?: { force?: boolean }): Promise<RunResult
   // переспрашиваем наряды, объекты, рейтинг и статусы, чтобы шапка показала
   // (или сняла) строку проблемы сразу, а не после смены вкладки.
   if (listsChangedByRun(result)) queryClient.invalidateQueries().catch(() => {});
+  // Результат нейросети по уже ушедшим фото: один запрос, не чаще раза в минуту,
+  // ошибки глотаем — в шапку не выводим (спека 25.09 §3).
+  runMlCheckNow().catch(() => {});
   return result;
 }
 

@@ -4,6 +4,8 @@ import { useCallback, useEffect, useState } from 'react';
 export type Settings = {
   serverUrl: string;
   demoOnly: boolean;
+  /** Спрашивать у сервера результат нейросети по фото (GET /photos). Выключатель на демо. */
+  mlCheck: boolean;
   objectId: string | null;
   objectName: string | null;
   brigadeId: string | null;
@@ -13,6 +15,7 @@ export type Settings = {
 export const DEFAULT_SETTINGS: Settings = {
   serverUrl: '', // адрес сервера команды вписать сюда, когда появится
   demoOnly: false,
+  mlCheck: true,
   objectId: null,
   objectName: null,
   brigadeId: null,
