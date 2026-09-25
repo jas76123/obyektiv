@@ -1,9 +1,7 @@
 import { FlatList, RefreshControl, StyleSheet, Text, View } from 'react-native';
 import { Header } from '../../components/Header';
-import { StatusChip } from '../../components/StatusChip';
 import { useLeaderboard } from '../../data/queries';
 import { useSettings } from '../../data/settings';
-import { foldStatus } from '../../lib/status';
 import { theme } from '../../lib/theme';
 import { useQueue } from '../../queue/useQueue';
 import { useOnline } from './today';
@@ -60,9 +58,9 @@ export default function Rating() {
             <Text style={[styles.cap, { marginTop: 20 }]}>ЧТО СДЕЛАЛИ ДРУГИЕ БРИГАДЫ</Text>
             {others.length === 0 && <Text style={styles.meta}>Пока нет принятых работ</Text>}
             {others.map((o, i) => (
+              // Без чипа: раздел уже про принятые работы, а из трёх слов приложения ни одно этого не скажет (решение продакта 25.09).
               <View key={`${o.brigade}-${o.work}-${o.zone}-${i}`} style={styles.other}>
                 <Text style={styles.meta}>{o.brigade} · {o.work} · {o.zone}</Text>
-                <StatusChip status={foldStatus(o.status)} />
               </View>
             ))}
             <Text style={styles.note}>Без фото и личных данных: соревнование, а не слежка.</Text>
