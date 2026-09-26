@@ -9,11 +9,12 @@ import type { ShotRecord } from '../queue/types';
 import { showCaptureError } from './alerts';
 import { StatusChip } from './StatusChip';
 
-export function TaskCard({ task, shots, state, serverSet, verdicts }: {
+export function TaskCard({ task, shots, state, serverSet, online, verdicts }: {
   task: ScheduleTask;
   shots: ShotRecord[];                                        // реальные фото этого наряда за сегодня, новые сверху
   state: { status: ScreenStatus; latestUuid: string | null }; // статус работы и uuid свежего фото (lib/reports.taskState)
   serverSet: boolean;                                         // адрес сервера задан
+  online: boolean;                                            // есть сеть (useOnline): без неё причина неотправки не показывается
   verdicts: Record<string, PhotoVerdict>; // local_uuid → вердикт сверки (queue/mlResults.useMlVerdicts)
 }) {
   const [busy, setBusy] = useState(false);
@@ -41,7 +42,7 @@ export function TaskCard({ task, shots, state, serverSet, verdicts }: {
         <Text style={styles.name}>{task.name}</Text>
         <Text style={styles.meta}>{task.zone}{task.expected ? ` · ${task.expected}` : ''}</Text>
         <View style={styles.chipRow}><StatusChip status={state.status} /></View>
-        <Text style={styles.count}>снято: {shots.length}{last ? ` · ${photoWord(last.status, verdicts[last.local_uuid] ?? null, { serverSet })}` : ''}</Text>
+        <Text style={styles.count}>снято: {shots.length}{last ? ` · ${photoWord(last.status, verdicts[last.local_uuid] ?? null, { serverSet, online, lastError: last.last_error })}` : ''}</Text>
       </View>
       <Pressable onPress={onPhoto} disabled={busy} style={[styles.btn, busy && { opacity: 0.5 }]} accessibilityRole="button" accessibilityLabel={`${label}: ${task.name}`}>
         {busy ? <ActivityIndicator color={t.btnInk} /> : <Text style={styles.btnText}>{label}</Text>}

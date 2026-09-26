@@ -4,10 +4,11 @@ import { buildReport, liveRecords, taskState } from '../lib/reports';
 import { newRecord } from '../queue/types';
 
 const now = new Date('2026-09-22T15:00:00+03:00');
-function rec(uuid: string, task: string, taken: string, status: 'queued' | 'uploaded' = 'uploaded', retake_of: string | null = null) {
+function rec(uuid: string, task: string, taken: string, status: 'queued' | 'uploaded' | 'failed' = 'uploaded', retake_of: string | null = null, last_error: string | null = null) {
   return {
     ...newRecord({ local_uuid: uuid, task_id: task, work_name: task === 't-doors' ? 'Установка дверей' : 'Армирование', zone: task === 't-doors' ? 'Зона 2' : 'Зона A', taken_at: taken, geo: null, file_path: uuid, retake_of }),
     status,
+    last_error,
   };
 }
 
@@ -136,6 +137,14 @@ describe('buildReport', () => {
     const without = buildReport([rec('q', 't-doors', '2026-09-22T12:00:00+03:00', 'queued')], {}, {}, now, { serverSet: false });
     expect(withServer[0].works[0].photos[0].word).toBe('ждёт сети');
     expect(without[0].works[0].photos[0].word).toBe('ждёт сервера');
+  });
+
+  it('неотправленное фото показывает причину, пока есть сеть, и «ждёт сети» без неё', () => {
+    const failed = [rec('f', 't-doors', '2026-09-22T12:00:00+03:00', 'failed', null, 'HTTP 500')];
+    expect(buildReport(failed, {}, {}, now, { serverSet: true, online: true })[0].works[0].photos[0].word).toBe('сервер не отвечает');
+    expect(buildReport(failed, {}, {}, now, { serverSet: true, online: false })[0].works[0].photos[0].word).toBe('ждёт сети');
+    expect(buildReport(failed, {}, {}, now, { serverSet: true })[0].works[0].photos[0].word).toBe('сервер не отвечает');
+    expect(buildReport(failed, {}, {}, now, { serverSet: true, online: true })[0].works[0].status).toBe('in_work');
   });
 
   it('демо-лента на следующий день: два дня, наряд не дублируется, бетонирование в работе', () => {

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
-  FINAL_WORK_STATUS, SCREEN_LABEL, VERDICT_WORD, dayVerdict, foldStatus, normalizeWorkStatus, photoChip, photoVerdict, photoWord, workStatus,
+  FAIL_WORD, FINAL_WORK_STATUS, SCREEN_LABEL, VERDICT_WORD, dayVerdict, failReason, foldStatus, normalizeWorkStatus, photoChip, photoVerdict, photoWord, workStatus,
 } from '../lib/status';
 
 describe('normalizeWorkStatus', () => {
@@ -111,5 +111,38 @@ describe('слова', () => {
     expect(photoWord('uploaded', 'accepted')).toBe('принято');
     expect(photoWord('processed', 'retake')).toBe('переснять');
     expect(photoWord('rework', null)).toBe('отправлено');
+  });
+});
+
+describe('причина неотправки (решение продакта 26.09: коротко, без «повторим»)', () => {
+  it('четыре слова', () => {
+    expect(FAIL_WORD).toEqual({ server_down: 'сервер не отвечает', server_rejected: 'сервер отклонил фото', file_lost: 'файл потерян, переснимите', unknown: 'ошибка отправки' });
+  });
+  it('failReason по тексту last_error', () => {
+    expect(failReason(null)).toBeNull();
+    expect(failReason('')).toBeNull();
+    expect(failReason('HTTP 500')).toBe('server_down');
+    expect(failReason('HTTP 503')).toBe('server_down');
+    expect(failReason('The operation was aborted.')).toBe('server_down');
+    expect(failReason('Network request failed')).toBe('server_down');
+    expect(failReason('TypeError: Failed to fetch')).toBe('server_down');
+    expect(failReason('HTTP 413')).toBe('server_rejected');
+    expect(failReason('HTTP 404')).toBe('server_rejected');
+    expect(failReason('ответ сервера не по схеме: Required')).toBe('server_rejected');
+    expect(failReason('файл фото не найден')).toBe('file_lost');
+    expect(failReason("File 'file:///data/x.jpg' does not exist")).toBe('file_lost');
+    expect(failReason('ENOENT: no such file')).toBe('file_lost');
+    expect(failReason('что-то странное')).toBe('unknown');
+  });
+  it('слово причины — только у failed, при сети и заданном сервере', () => {
+    expect(photoChip('failed', { lastError: 'HTTP 500' })).toBe('сервер не отвечает');
+    expect(photoChip('failed', { lastError: 'HTTP 500', online: true })).toBe('сервер не отвечает');
+    expect(photoChip('failed', { lastError: 'файл фото не найден' })).toBe('файл потерян, переснимите');
+    expect(photoChip('failed', { lastError: 'HTTP 500', online: false })).toBe('ждёт сети');
+    expect(photoChip('failed', { lastError: 'HTTP 500', serverSet: false })).toBe('ждёт сервера');
+    expect(photoChip('failed', { lastError: null })).toBe('ждёт сети');
+    expect(photoChip('queued', { lastError: 'HTTP 500' })).toBe('ждёт сети');
+    expect(photoWord('failed', 'accepted', { lastError: 'HTTP 404' })).toBe('сервер отклонил фото');
+    expect(photoWord('uploaded', 'accepted', { lastError: 'HTTP 404' })).toBe('принято');
   });
 });

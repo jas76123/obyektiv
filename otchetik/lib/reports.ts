@@ -26,6 +26,8 @@ export type ReportOpts = {
   verdicts?: Record<string, PhotoVerdict>;
   /** Наряды прошедших дней (дата → работы) из кэша запросов: работа без фото за тот день — «не принято». */
   pastSchedules?: Record<string, TaskLite[]>;
+  /** Есть ли сеть (useOnline): без сети у неотправленного фото «ждёт сети», а не причина прошлой попытки. */
+  online?: boolean;
 };
 
 /** Фото, которое переснято, больше не считается: свежая версия (retake_of указывает на него) уже несёт актуальный статус. */
@@ -83,7 +85,7 @@ export function buildReport(
     const w = workFor(dayKey(r.taken_at), r.task_id, r.work_name, r.zone);
     const st = photoStatus(r, statuses);
     const verdict = opts.verdicts?.[r.local_uuid] ?? null;
-    w.photos.push({ uuid: r.local_uuid, taken_at: r.taken_at, word: photoWord(st, verdict, { serverSet: opts.serverSet }), record: r, status: st, verdict });
+    w.photos.push({ uuid: r.local_uuid, taken_at: r.taken_at, word: photoWord(st, verdict, { serverSet: opts.serverSet, online: opts.online, lastError: r.last_error }), record: r, status: st, verdict });
   }
 
   const out: ReportDay[] = [];

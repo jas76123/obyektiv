@@ -30,7 +30,7 @@ export default function Reports() {
   const verdicts = useMlVerdicts();
   const serverSet = settings ? serverBase(settings) !== null : true;
   const pastSchedules = usePastSchedules(settings?.objectId ?? null, settings?.brigadeId ?? null, date, { demoOnly: settings?.demoOnly ?? false, stamp: schedule.dataUpdatedAt });
-  const days = useMemo(() => buildReport(shown, byUuid, tasks, new Date(), { serverSet, verdicts, pastSchedules }), [shown, byUuid, tasks, serverSet, verdicts, pastSchedules]);
+  const days = useMemo(() => buildReport(shown, byUuid, tasks, new Date(), { serverSet, verdicts, pastSchedules, online }), [shown, byUuid, tasks, serverSet, verdicts, pastSchedules, online]);
   const sections = useMemo(() => days.map((d) => ({ title: d.label, data: d.works })), [days]);
 
   async function retake(task_id: string) {

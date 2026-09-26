@@ -55,6 +55,7 @@ export default function Today() {
             state={taskState(shown, byUuid, item.task_id, { verdicts })}
             verdicts={verdicts}
             serverSet={serverSet}
+            online={online}
           />
         )}
         ListEmptyComponent={
