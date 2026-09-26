@@ -44,9 +44,9 @@ export default function Today() {
       <Text style={styles.day}>{fmtDay(date).toUpperCase()} · {date.slice(8, 10)}.{date.slice(5, 7)}</Text>
       <FlatList
         data={tasks}
-        keyExtractor={(t) => t.task_id}
+        keyExtractor={(task) => task.task_id}
         contentContainerStyle={{ padding: t.pad }}
-        refreshControl={<RefreshControl refreshing={schedule.isFetching} onRefresh={() => { schedule.refetch(); refresh(); }} tintColor={t.accentText} colors={[t.accentText]} />}
+        refreshControl={<RefreshControl refreshing={schedule.isFetching} onRefresh={() => { schedule.refetch(); refresh(); }} tintColor={t.accentText} colors={[t.accentText]} progressBackgroundColor={t.paper} />}
         renderItem={({ item }) => (
           <TaskCard
             task={item}

@@ -70,7 +70,7 @@ export default function Rating() {
         data={brigades}
         keyExtractor={(b) => b.id}
         contentContainerStyle={{ padding: t.pad }}
-        refreshControl={<RefreshControl refreshing={refreshing || lb.isFetching} onRefresh={refresh} tintColor={t.accentText} colors={[t.accentText]} />}
+        refreshControl={<RefreshControl refreshing={refreshing || lb.isFetching} onRefresh={refresh} tintColor={t.accentText} colors={[t.accentText]} progressBackgroundColor={t.paper} />}
         ListHeaderComponent={
           <View>
             <Text style={styles.cap}>ПРИНЯТЫЕ РАБОТЫ · БАЛЛЫ</Text>

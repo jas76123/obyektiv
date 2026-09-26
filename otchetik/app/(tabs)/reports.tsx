@@ -26,7 +26,7 @@ export default function Reports() {
   const uploaded = useMemo(() => shown.filter((r) => r.status === 'uploaded').map((r) => r.local_uuid), [shown]);
   const statuses = useShotStatuses(uploaded);
   const byUuid = useMemo(() => Object.fromEntries((statuses.data?.data.shots ?? []).map((s) => [s.local_uuid, s])), [statuses.data]);
-  const tasks = useMemo(() => Object.fromEntries((schedule.data?.data.tasks ?? []).map((t) => [t.task_id, t])), [schedule.data]);
+  const tasks = useMemo(() => Object.fromEntries((schedule.data?.data.tasks ?? []).map((task) => [task.task_id, task])), [schedule.data]);
   const mlEmpty = useMlEmpty();
   const serverSet = settings ? serverBase(settings) !== null : true;
   const days = useMemo(() => buildReport(shown, byUuid, tasks, new Date(), { serverSet, mlEmpty }), [shown, byUuid, tasks, serverSet, mlEmpty]);

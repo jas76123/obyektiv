@@ -53,6 +53,7 @@ describe('resolveScheme', () => {
     ['auto', undefined, 'light'],
     ['auto', 'unspecified', 'light'],
     ['light', 'dark', 'light'],
+    ['light', 'light', 'light'],
     ['light', null, 'light'],
     ['dark', 'light', 'dark'],
     ['dark', null, 'dark'],
