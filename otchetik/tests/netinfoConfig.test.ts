@@ -113,8 +113,8 @@ describe('subscribeNet: подписка переживает NetInfo.configure(
     const { m } = await fresh();
     refresh.mockRejectedValueOnce(new Error('нет сети'));
     expect(() => m.refreshNet()).not.toThrow();
-    await Promise.resolve();
-    expect(refresh).toHaveBeenCalledTimes(1);
+    await vi.waitFor(() => expect(refresh).toHaveBeenCalledTimes(1));
+    await expect(refresh.mock.results[0].value).rejects.toThrow('нет сети'); // отказ уже проглочен обёрткой
   });
 });
 
