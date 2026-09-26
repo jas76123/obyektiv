@@ -11,14 +11,14 @@ paths:
         type: object_storage
         bucket: obyektiv-web
         object: index.html
-        service_account_id: SERVICE_ACCOUNT_ID
+        service_account_id: ajefqllmgqu6fb864a3j
   /obyektiv/:
     get:
       x-yc-apigateway-integration:
         type: object_storage
         bucket: obyektiv-web
         object: index.html
-        service_account_id: SERVICE_ACCOUNT_ID
+        service_account_id: ajefqllmgqu6fb864a3j
   /obyektiv/{file+}:
     get:
       parameters:
@@ -34,7 +34,7 @@ paths:
         # SPA-фолбэк: перезагрузка глубокой ссылки (например, /obyektiv/rating) просит
         # объект, которого нет в бакете (там только index.html и ассеты) — отдаём index.html.
         error_object: index.html
-        service_account_id: SERVICE_ACCOUNT_ID
+        service_account_id: ajefqllmgqu6fb864a3j
   /api/{path+}:
     x-yc-apigateway-any-method:
       parameters:
