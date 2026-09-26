@@ -66,4 +66,22 @@ describe('demo data matches contract', () => {
     const r = PhotosResponse.parse({ photos: [{ id: 1, detections: null }, { id: 'ok', file: 'x_a.b.c.jpg', timestamp: 't', detections: [] }] });
     expect(r.photos.map((p) => p.id)).toEqual(['ok']);
   });
+  it('photos: works_status разбирается, status строкой (не enum), null-поля допустимы, без поля — undefined', () => {
+    const r = PhotosResponse.parse({ photos: [
+      { id: 'a', file: 'a_x.jpg', timestamp: 't', detections: [], works_status: [{ work: 'Бетонирование', status: 'not confirmed', found: [] }] },
+      { id: 'b', file: 'b_x.jpg', timestamp: 't', detections: [], works_status: [{ work: null, status: null }] },
+      { id: 'c', file: 'c_x.jpg', timestamp: 't', detections: [] },
+      { id: 'd', file: 'd_x.jpg', timestamp: 't', detections: [], works_status: [] },
+    ] });
+    expect(r.photos[0].works_status?.[0].status).toBe('not confirmed');
+    expect(r.photos[1].works_status?.[0].status).toBeNull();
+    expect(r.photos[2].works_status).toBeUndefined();
+    expect(r.photos[3].works_status).toEqual([]);
+  });
+  it('photos: кривой works_status не роняет запись — поле отбрасывается, фото остаётся', () => {
+    const r = PhotosResponse.parse({ photos: [{ id: 'a', file: 'a_x.jpg', timestamp: 't', detections: [{}], works_status: 'oops' }] });
+    expect(r.photos.map((p) => p.id)).toEqual(['a']);
+    expect(r.photos[0].works_status).toBeUndefined();
+    expect(r.photos[0].detections.length).toBe(1);
+  });
 });

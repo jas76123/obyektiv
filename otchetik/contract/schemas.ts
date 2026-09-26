@@ -53,13 +53,24 @@ export const LeaderboardResponse = z.object({
 });
 export type Leaderboard = z.infer<typeof LeaderboardResponse>;
 
+/** Сверка фото с планом на сервере Георгия (26.09): `status` — confirmed | not_confirmed | review |
+ * unsure. Строка, а не enum: «not confirmed» с пробелом и новые слова не должны ронять запись. */
+export const WorkStatusItem = z.object({
+  work: z.string().nullable().optional(),
+  status: z.string().nullable().optional(),
+  found: z.array(z.unknown()).optional(),
+});
+export type WorkStatusItem = z.infer<typeof WorkStatusItem>;
+
 /** Одна запись GET /photos у Георгия: id (= server_id из POST /api/foreman/shots), имя файла
- * (сервер хранит `{server_id}_{наше имя}`, см. lib/photoName.ts), время сервера, детекции. */
+ * (сервер хранит `{server_id}_{наше имя}`, см. lib/photoName.ts), время сервера, детекции,
+ * сверка с планом (`works_status[0]`; кривое поле отбрасывается, фото остаётся). */
 export const PhotoItem = z.object({
   id: z.string(),
   file: z.string(),
   timestamp: z.string(),
   detections: z.array(z.unknown()),
+  works_status: z.array(WorkStatusItem).optional().catch(undefined),
 });
 export type PhotoItem = z.infer<typeof PhotoItem>;
 
