@@ -5,11 +5,11 @@ import { useEffect } from 'react';
 import { persister, queryClient, QUERY_CACHE_MAX_AGE_MS } from '../data/queryClient';
 import { useTheme } from '../data/theme';
 import { registerBackgroundTask } from '../queue/backgroundTask';
-import { configureNetInfoForWeb } from '../queue/netinfoConfig';
+import { configureNetInfo } from '../queue/netinfoConfig';
 import { installTriggers } from '../queue/triggers';
 
-// До первого подписчика NetInfo: иначе проверка сети уйдёт на корень сайта и вернёт «нет сети».
-configureNetInfoForWeb();
+// До первого подписчика NetInfo: иначе проверка сети уйдёт на корень сайта (веб) или к Google (телефон) и вернёт «нет сети».
+configureNetInfo();
 
 export default function RootLayout() {
   const t = useTheme();

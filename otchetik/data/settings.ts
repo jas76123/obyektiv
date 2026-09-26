@@ -32,6 +32,12 @@ const KEY = 'otchetik.settings.v1';
 let cache: Settings | null = null;
 const listeners = new Set<(s: Settings) => void>();
 
+/** Подписка на изменения настроек вне React (например, перенастройка проверки сети при смене адреса сервера). */
+export function onSettingsChange(listener: (s: Settings) => void): () => void {
+  listeners.add(listener);
+  return () => { listeners.delete(listener); };
+}
+
 export async function loadSettings(): Promise<Settings> {
   if (cache) return cache;
   let next: Settings;

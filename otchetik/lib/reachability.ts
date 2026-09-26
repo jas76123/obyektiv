@@ -10,3 +10,15 @@ export function reachabilityPath(pathOrBase: string): string {
   if (!first || first.endsWith('.html')) return '/';
   return `/${first}/`;
 }
+
+/**
+ * Адрес, по которому NetInfo на телефоне проверяет «есть ли интернет». Стандартно он
+ * доверяет системе Android, а та проверяет сеть по серверам Google: если до Google не
+ * достучаться (эмулятор без DNS, ограничения сети в России), шапка показывает «нет сети»
+ * и очередь не запускается, хотя сервер команды доступен. Поэтому проверяем по самому
+ * серверу команды дешёвым запросом. `null` — сервера нет («только демо»): проверять нечего.
+ */
+export function serverReachabilityUrl(base: string | null): string | null {
+  if (!base) return null;
+  return `${base.replace(/\/+$/, '')}/api/foreman/objects`;
+}
