@@ -27,6 +27,11 @@
 
     aws configure --profile yc      # Access Key = key_id, Secret = secret, region ru-central1, output json
 
+aws-cli с версии 2.23 по умолчанию шлёт CRC-контрольные суммы; если `npm run deploy:web`
+падает с ошибкой про checksum, в `~/.aws/config` в секцию `[profile yc]` добавить
+`request_checksum_calculation = when_required` и `response_checksum_validation = when_required`
+(на живом Yandex Object Storage не проверено).
+
 В `apigw.yaml` заменить `SERVICE_ACCOUNT_ID` на id из `yc iam service-account get otchetik-gw`
 (`otchetik-gw` — read-only, только для шлюза; ключ для `aws configure` — от `otchetik-deploy`).
 
@@ -37,6 +42,10 @@
     npm run deploy:web     # сборка + заливка dist/ в бакет
     npm run deploy:gw      # только если менялся apigw.yaml
 
+`deploy:web` отдельной командой перезаливает `index.html` с `--cache-control no-cache`:
+без этого браузер (Safari) может взять старый `index.html` из своего кэша, а он ссылается
+на JS-бандл с уже стёртым `--delete` именем — белый экран.
+
 Проверка: `curl -sI https://<id>.apigw.yandexcloud.net/obyektiv/` → 200, `text/html`;
 `curl -s https://<id>.apigw.yandexcloud.net/api/foreman/objects` → тот же JSON, что у сервера.
 
@@ -44,7 +53,7 @@
 - `curl -s 'https://<id>.apigw.yandexcloud.net/api/foreman/object/<object_id>/schedule?brigade_id=br-1&date=YYYY-MM-DD'`
   → расписание, не 422;
 - smoke-тест multipart POST (точные поля формы — `contract/README.md` или `lib/uploadRequest.ts`):
-  `curl -F photo=@x.jpg -F local_uuid=<uuid> -F task_id=<task_id> -F taken_at=<ISO> https://<id>.apigw.yandexcloud.net/api/foreman/shots`
+  `curl -F photo=@x.jpg -F local_uuid=<uuid> -F task_id=<task_id> -F taken_at=<ISO> -F geo= https://<id>.apigw.yandexcloud.net/api/foreman/shots`
   → тот же ответ, что при обращении напрямую на сервер;
 - `curl -sI https://<id>.apigw.yandexcloud.net/obyektiv/rating` → 200, `text/html` (проверка SPA-фолбэка).
 
