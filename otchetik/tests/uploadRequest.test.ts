@@ -19,6 +19,8 @@ describe('postShot', () => {
       const fd = init.body as FormData;
       expect(fd.get('local_uuid')).toBe('a');
       expect(fd.get('task_id')).toBe('t1');
+      expect(fd.get('work_name')).toBe('Двери');
+      expect(fd.get('zone')).toBe('Зона 2');
       expect(fd.get('taken_at')).toBe('2026-09-22T10:00:00+03:00');
       expect(fd.get('geo')).toBe('');
       const photo = fd.get('photo');

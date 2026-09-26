@@ -7,7 +7,7 @@
 |---|---|
 | `GET /api/foreman/objects` | `demo/objects.json` |
 | `GET /api/foreman/object/{object_id}/schedule?brigade_id=&date=YYYY-MM-DD` | `demo/schedule.json` |
-| `POST /api/foreman/shots` multipart: `photo` (jpeg), `local_uuid`, `task_id`, `taken_at` (ISO 8601), `geo` («lat,lon» или пусто), `retake_of` (необязательно) | `201 {"server_id": "...", "status": "uploaded"}` |
+| `POST /api/foreman/shots` multipart: `photo` (jpeg), `local_uuid`, `task_id`, `work_name` (название работы, как в наряде), `zone`, `taken_at` (ISO 8601), `geo` («lat,lon» или пусто), `retake_of` (необязательно) | `201 {"server_id": "...", "status": "uploaded"}` |
 | `GET /api/foreman/shots/status?uuids=a,b,c` | `demo/shots-status.json` |
 | `GET /api/foreman/leaderboard?object_id=` | `demo/leaderboard.json` |
 
