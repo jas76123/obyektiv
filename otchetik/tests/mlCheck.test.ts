@@ -59,10 +59,25 @@ describe('checkMlResults', () => {
       { id: 'srv-b', detections: [{}], works_status: [] },
     ]);
     const r = await checkMlResults({ base: 'http://x', records: [uploaded('a'), uploaded('b')], results, fetchImpl, now: () => now });
-    expect(r).toEqual({ checked: 2, skipped: null });
+    // У 'b' данные не изменились (count и work_status те же) — запись не переписывается, checked считает только 'a'.
+    expect(r).toEqual({ checked: 1, skipped: null });
     expect(results.get('a')).toMatchObject({ empty: false, count: 1, work_status: 'not_confirmed' });
     expect(results.get('b')).toMatchObject({ empty: false, count: 1 });
     expect(results.get('b')?.work_status).toBeUndefined();
+  });
+
+  it('повторный опрос с тем же ответом ничего не пишет и не оповещает', async () => {
+    const results = createMlResults(memoryKv());
+    let notified = 0;
+    results.on(() => { notified++; });
+    const fetchImpl = photosResponse([{ id: 'srv-a', detections: [{}], works_status: [{ work: 'x', status: 'unsure', found: [] }] }]);
+    const first = await checkMlResults({ base: 'http://x', records: [uploaded('a')], results, fetchImpl, now: () => now });
+    expect(first.checked).toBe(1);
+    expect(notified).toBe(1);
+    now += ML_MIN_INTERVAL_MS;
+    const second = await checkMlResults({ base: 'http://x', records: [uploaded('a')], results, fetchImpl, now: () => now });
+    expect(second.checked).toBe(0);
+    expect(notified).toBe(1);
   });
 
   it('не чаще одного запроса в 20 с (с учётом допуска ML_INTERVAL_SLACK_MS)', async () => {

@@ -92,7 +92,13 @@ export async function checkMlResults(deps: {
       const item = byId.get(r.server_id);
       if (!item) continue; // ещё не в списке — спросим при следующем прогоне
       const ws = workStatusOf(item);
-      await deps.results.set(r.local_uuid, { empty: item.detections.length === 0, count: item.detections.length, checked_at: checkedAt, ...(ws ? { work_status: ws } : {}) });
+      const empty = item.detections.length === 0;
+      const count = item.detections.length;
+      const prev = deps.results.get(r.local_uuid);
+      // unsure остаётся ждущим до окончательной сверки; без изменений не пишем — иначе
+      // каждый тик переписывал бы ml.v1 и дёргал экраны по разу на фото.
+      if (prev && prev.empty === empty && prev.count === count && (prev.work_status ?? null) === (ws ?? null)) continue;
+      await deps.results.set(r.local_uuid, { empty, count, checked_at: checkedAt, ...(ws ? { work_status: ws } : {}) });
       checked++;
     }
     return { checked, skipped: null };

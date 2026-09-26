@@ -12,7 +12,7 @@ function rec(uuid: string, task: string, taken: string, status: 'queued' | 'uplo
 }
 
 describe('buildReport', () => {
-  it('группирует по дням, новые сверху; статус работы = статус самого свежего фото', () => {
+  it('группирует по дням, новые сверху; сегодня — статус самого свежего фото, вчера — итог дня', () => {
     const days = buildReport(
       [rec('a', 't-doors', '2026-09-22T12:31:00+03:00'), rec('b', 't-doors', '2026-09-22T12:40:00+03:00'), rec('c', 't-rebar', '2026-09-21T10:00:00+03:00', 'queued')],
       { a: { local_uuid: 'a', status: 'accepted', updated_at: 'x' }, b: { local_uuid: 'b', status: 'rework', verdict_comment: 'нужен пересъём', updated_at: 'x' } },

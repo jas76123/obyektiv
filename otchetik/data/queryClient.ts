@@ -3,10 +3,12 @@ import { focusManager, QueryClient } from '@tanstack/react-query';
 import { createAsyncStoragePersister } from '@tanstack/query-async-storage-persister';
 import { AppState, Platform } from 'react-native';
 
+export const QUERY_CACHE_MAX_AGE_MS = 1000 * 60 * 60 * 24 * 7; // неделя: наряды прошлых дней для «не принято» (спека work_status §3.5)
+
 export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      gcTime: 1000 * 60 * 60 * 24 * 7, // неделя на диске
+      gcTime: QUERY_CACHE_MAX_AGE_MS, // неделя на диске
       staleTime: 1000 * 30,
       retry: 0, // повторы делает chooseSource через кэш и демо, а не react-query
       // chooseSource сам уходит в кэш/демо при сбое сети — react-query не должен

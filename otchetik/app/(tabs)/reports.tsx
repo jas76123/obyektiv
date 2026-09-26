@@ -29,7 +29,7 @@ export default function Reports() {
   const tasks = useMemo(() => Object.fromEntries((schedule.data?.data.tasks ?? []).map((task) => [task.task_id, task])), [schedule.data]);
   const verdicts = useMlVerdicts();
   const serverSet = settings ? serverBase(settings) !== null : true;
-  const pastSchedules = usePastSchedules(settings?.objectId ?? null, settings?.brigadeId ?? null, date, { source: schedule.data?.source, stamp: schedule.dataUpdatedAt });
+  const pastSchedules = usePastSchedules(settings?.objectId ?? null, settings?.brigadeId ?? null, date, { demoOnly: settings?.demoOnly ?? false, stamp: schedule.dataUpdatedAt });
   const days = useMemo(() => buildReport(shown, byUuid, tasks, new Date(), { serverSet, verdicts, pastSchedules }), [shown, byUuid, tasks, serverSet, verdicts, pastSchedules]);
   const sections = useMemo(() => days.map((d) => ({ title: d.label, data: d.works })), [days]);
 

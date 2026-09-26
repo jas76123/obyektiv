@@ -3,6 +3,7 @@ import { AppState } from 'react-native';
 import { queryClient } from '../data/queryClient';
 import { loadSettings, serverBase } from '../data/settings';
 import { listsChangedByRun } from '../lib/poll';
+import { ML_MIN_INTERVAL_MS } from './mlCheck';
 import { runMlCheckNow } from './mlRun';
 import { queueEvents } from './queueEvents';
 import { getStore, storeReady } from './store';
@@ -16,8 +17,8 @@ function isOnline(s: NetInfoState): boolean {
 
 /**
  * Прогон с настоящими зависимостями. Без адреса сервера (demoOnly) ничего не шлёт.
- * Пока телефон офлайн, тоже не запускается: иначе 60-секундный тик копит attempts
- * и уводит failed-записи на 120-секундный шаг, хотя сети всё равно нет.
+ * Пока телефон офлайн, тоже не запускается: иначе тик (раз в ML_MIN_INTERVAL_MS)
+ * копит attempts и уводит failed-записи на 120-секундный шаг, хотя сети всё равно нет.
  * `force` (сеть только что появилась) игнорирует `next_attempt_at`, чтобы фото не
  * ждали до двух минут после возврата сети.
  */
@@ -32,8 +33,8 @@ export async function runQueueNow(opts?: { force?: boolean }): Promise<RunResult
   // переспрашиваем наряды, объекты, рейтинг и статусы, чтобы шапка показала
   // (или сняла) строку проблемы сразу, а не после смены вкладки.
   if (listsChangedByRun(result)) queryClient.invalidateQueries().catch(() => {});
-  // Результат нейросети по уже ушедшим фото: один запрос, не чаще раза в минуту,
-  // ошибки глотаем — в шапку не выводим (спека 25.09 §3).
+  // Результат нейросети по уже ушедшим фото: один запрос, не чаще раза в 20 с
+  // (ML_MIN_INTERVAL_MS, согласовано с Георгием 26.09), ошибки глотаем — в шапку не выводим (спека 25.09 §3).
   runMlCheckNow().catch(() => {});
   return result;
 }
@@ -59,11 +60,11 @@ export function installTriggers(): () => void {
   const tick = setInterval(() => {
     hasPending().then((yes) => { if (yes) schedule(0); }).catch(() => {}); // подбирает failed, чьё время пришло
     // Проверка нейросети — безусловно, не только при непустой очереди отправки: иначе
-    // второе фото, снятое в течение минуты после первого, получит too_soon и не
+    // второе фото, снятое в течение 20 с после первого, получит too_soon и не
     // дождётся результата, пока очередь пуста. Сама дешёвая, если ждать нечего,
     // и сама ограничивает частоту (ML_MIN_INTERVAL_MS).
     runMlCheckNow().catch(() => {});
-  }, 60_000);
+  }, ML_MIN_INTERVAL_MS); // раз в 20 с (ML_MIN_INTERVAL_MS, согласовано с Георгием 26.09)
   schedule(1000);
   return () => { offQueue(); offNet(); sub.remove(); clearInterval(tick); if (timer) clearTimeout(timer); };
 }

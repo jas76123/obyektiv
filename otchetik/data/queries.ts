@@ -8,7 +8,7 @@ import { demo } from '../demo';
 import { problemPollInterval } from '../lib/poll';
 import { queryClient } from './queryClient';
 import { loadSettings, serverBase } from './settings';
-import { cacheFrom, chooseSource, fetchJson, stampSource, type SourceTag, type Sourced } from './source';
+import { cacheFrom, chooseSource, fetchJson, stampSource, type Sourced } from './source';
 
 async function load<T>(key: unknown[], path: string, schema: Parameters<typeof fetchJson>[1], demoData: T): Promise<Sourced<T>> {
   const s = await loadSettings();
@@ -115,25 +115,26 @@ export function useShotStatuses(uuids: string[]) {
  * Наряды прошедших дней из кэша запросов (persister держит их на диске неделю): дата → работы.
  * Нужны «Отчётам», чтобы поставить «не принято» работе, по которой в тот день не снимали
  * (спека 26.09 «work_status» §3.5). Кэш не реактивен, поэтому пересчёт привязан к штампу
- * сегодняшнего наряда (`current.stamp` = dataUpdatedAt) и к смене даты. Демо-наряды берём
- * только когда и сегодняшний наряд — демо: иначе демо-дни смешались бы с настоящими.
+ * сегодняшнего наряда (`current.stamp` = dataUpdatedAt) и к смене даты. Режим «только демо»
+ * (настройка приложения, не источник ответа) — свой список: в нём берём только демо-записи,
+ * иначе только настоящие (`server`/`cache`), чтобы демо-дни не смешивались с настоящими.
  */
 export function usePastSchedules(
   objectId: string | null,
   brigadeId: string | null,
   today: string,
-  current: { source?: SourceTag; stamp: number },
+  current: { demoOnly: boolean; stamp: number },
 ): Record<string, ScheduleTask[]> {
-  const { source, stamp } = current;
+  const { demoOnly, stamp } = current;
   return useMemo(() => {
     if (!objectId || !brigadeId) return {};
     const out: Record<string, ScheduleTask[]> = {};
     for (const [key, data] of queryClient.getQueriesData<Sourced<Schedule>>({ queryKey: ['schedule', objectId, brigadeId] })) {
       const date = key[3];
       if (typeof date !== 'string' || date >= today || !data) continue;
-      if (data.source === 'demo' && source !== 'demo') continue;
+      if (demoOnly ? data.source !== 'demo' : data.source === 'demo') continue;
       out[date] = data.data.tasks;
     }
     return out;
-  }, [objectId, brigadeId, today, source, stamp]);
+  }, [objectId, brigadeId, today, demoOnly, stamp]);
 }

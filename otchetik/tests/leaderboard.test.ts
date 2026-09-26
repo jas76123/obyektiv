@@ -32,7 +32,7 @@ describe('buildLeaderboard', () => {
     ]);
   });
 
-  it('со сверкой «принято» = confirmed: unsure и not_confirmed с детекциями не считаются; без сверки — по детекциям', () => {
+  it('со сверкой «принято» = confirmed; not_confirmed и review не считаются; unsure и без сверки — по детекциям', () => {
     const photos = [
       photo('s1', 'br-1', 't-doors-0922', 'a', 1, '2026-09-26T10:00:00', 'confirmed'),
       photo('s2', 'br-1', 't-doors-0922', 'b', 2, '2026-09-26T10:05:00', 'unsure'),
@@ -42,7 +42,7 @@ describe('buildLeaderboard', () => {
       photo('s6', 'br-2', 't-floor-0922', 'f', 0, '2026-09-26T10:30:00'),
     ];
     const lb = buildLeaderboard(photos, brigades, tasks, null);
-    expect(lb.brigades.find((b) => b.id === 'br-1')).toMatchObject({ points: 10, accepted: 1, quality: 25 });
+    expect(lb.brigades.find((b) => b.id === 'br-1')).toMatchObject({ points: 20, accepted: 2, quality: 50 });
     expect(lb.brigades.find((b) => b.id === 'br-2')).toMatchObject({ points: 10, accepted: 1, quality: 50 });
     // «Что сделали другие» по-прежнему по детекциям: unsure с техникой — тоже «сделали»
     expect(lb.others.map((o) => o.brigade)).toEqual(['Бригада №2', 'Бригада №1', 'Бригада №1']);

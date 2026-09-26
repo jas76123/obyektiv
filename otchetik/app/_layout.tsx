@@ -2,7 +2,7 @@ import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
-import { persister, queryClient } from '../data/queryClient';
+import { persister, queryClient, QUERY_CACHE_MAX_AGE_MS } from '../data/queryClient';
 import { useTheme } from '../data/theme';
 import { registerBackgroundTask } from '../queue/backgroundTask';
 import { configureNetInfoForWeb } from '../queue/netinfoConfig';
@@ -19,7 +19,9 @@ export default function RootLayout() {
   }, []);
 
   return (
-    <PersistQueryClientProvider client={queryClient} persistOptions={{ persister }}>
+    // По умолчанию persister выбрасывает кэш через 24 ч (maxAge) — наряды прошлых дней
+    // должны жить неделю (usePastSchedules, спека work_status §3.5).
+    <PersistQueryClientProvider client={queryClient} persistOptions={{ persister, maxAge: QUERY_CACHE_MAX_AGE_MS }}>
       {/* Светлые значки статус-бара на тёмной теме и наоборот */}
       <StatusBar style={t.scheme === 'dark' ? 'light' : 'dark'} />
       {/* contentStyle: фон между экранами тоже из темы, без белой вспышки при переходах */}
