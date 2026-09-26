@@ -2,7 +2,9 @@
 
 Один шлюз API Gateway `otchetik` раздаёт веб-версию из бакета `obyektiv-web` и пересылает
 `/api/*` и `/photos` на сервер команды `http://217.18.63.89:8000`. Описание: `apigw.yaml`.
-Адрес шлюза: `https://<id>.apigw.yandexcloud.net/obyektiv/` (id печатает `yc` при создании).
+Адрес шлюза: `https://d5dc419712534nq4eqch.sax5b7yq.apigw.yandexcloud.net/obyektiv/`
+(домен печатает `yc` при создании; шлюз `d5dc419712534nq4eqch`, каталог `objectiv`).
+`yc` на Mac лежит в `~/yandex-cloud/bin` — добавить в PATH или звать по полному пути.
 
 ## Разовая настройка (один раз на машину и облако)
 
@@ -46,7 +48,8 @@ aws-cli с версии 2.23 по умолчанию шлёт CRC-контрол
 без этого браузер (Safari) может взять старый `index.html` из своего кэша, а он ссылается
 на JS-бандл с уже стёртым `--delete` именем — белый экран.
 
-Проверка: `curl -sI https://<id>.apigw.yandexcloud.net/obyektiv/` → 200, `text/html`;
+Проверка (именно GET: в `apigw.yaml` описан только `get`, на `curl -I`/HEAD шлюз отвечает 405):
+`curl -s -o /dev/null -w '%{http_code} %{content_type}\n' https://<id>.apigw.yandexcloud.net/obyektiv/` → 200, `text/html`;
 `curl -s https://<id>.apigw.yandexcloud.net/api/foreman/objects` → тот же JSON, что у сервера.
 
 После выкладки шлюза дополнительно:
@@ -55,7 +58,7 @@ aws-cli с версии 2.23 по умолчанию шлёт CRC-контрол
 - smoke-тест multipart POST (точные поля формы — `contract/README.md` или `lib/uploadRequest.ts`):
   `curl -F photo=@x.jpg -F local_uuid=<uuid> -F task_id=<task_id> -F taken_at=<ISO> -F geo= https://<id>.apigw.yandexcloud.net/api/foreman/shots`
   → тот же ответ, что при обращении напрямую на сервер;
-- `curl -sI https://<id>.apigw.yandexcloud.net/obyektiv/rating` → 200, `text/html` (проверка SPA-фолбэка).
+- `curl -s -o /dev/null -w '%{http_code}\n' https://<id>.apigw.yandexcloud.net/obyektiv/rating` → 200 (проверка SPA-фолбэка).
 
 ## Если параметры запроса не доходят до сервера
 

@@ -8,9 +8,9 @@
 
 - Android: APK — ссылка появится здесь после сборки в EAS (`npm run build:apk`). При
   установке разрешить установку из файла. Приложение ходит на сервер команды по http напрямую.
-- iPhone и любой браузер: `https://<id>.apigw.yandexcloud.net/obyektiv/` (адрес появится
-  после выкладки, см. `deploy/README.md`). Страница и сервер на одном адресе, поэтому
-  камера и координаты работают.
+- iPhone и любой браузер: https://d5dc419712534nq4eqch.sax5b7yq.apigw.yandexcloud.net/obyektiv/
+  (шлюз Yandex API Gateway, см. `deploy/README.md`). Страница и сервер на одном адресе,
+  поэтому камера и координаты работают; VPN не нужен.
 - Демо без сервера: https://jas76123.github.io/obyektiv/ (GitHub Pages, только https, до
   сервера по http не достаёт; в России открывается с перебоями).
 
