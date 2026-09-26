@@ -19,6 +19,14 @@ export function configureNetInfoForWeb(): void {
 let configuredUrl: string | null | undefined;
 
 /**
+ * Пауза между проверками, пока сервер «не отвечает» (по умолчанию у NetInfo 5 с). Сервер команды
+ * однопоточный: пока он считает чужой /photos, лишний GET раз в 5 с только мешает отправке фото.
+ * 30 с достаточно: очередь и так перезапускается по событию «сеть появилась», а не по таймеру.
+ * Пока сервер отвечает, NetInfo проверяет раз в 60 с (умолчание, не трогаем).
+ */
+export const REACHABILITY_RETRY_MS = 30_000;
+
+/**
  * На телефоне NetInfo по умолчанию доверяет системе Android, а та проверяет интернет по
  * серверам Google. Если до Google не достучаться, шапка показывает «нет сети» и очередь
  * стоит, хотя сервер команды доступен (эмулятор 26.09; в России такое возможно и на
@@ -36,6 +44,7 @@ export function applyNativeReachability(s: Settings): void {
       reachabilityMethod: 'GET',
       reachabilityTest: (r) => Promise.resolve(r.status === 200),
       reachabilityRequestTimeout: GET_TIMEOUT_MS,
+      reachabilityShortTimeout: REACHABILITY_RETRY_MS,
       useNativeReachability: false,
     });
   } else {
