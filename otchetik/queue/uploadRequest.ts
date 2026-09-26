@@ -3,7 +3,14 @@ import { POST_TIMEOUT_MS, timeoutSignal } from '../lib/network';
 import { photoFileName } from '../lib/photoName';
 import type { ShotRecord } from './types';
 
-export type PhotoPart = Blob | { uri: string; name: string; type: string };
+/**
+ * Файл фото для multipart: в браузере — Blob из IndexedDB; на телефоне — объект с `bytes()`.
+ * Старый RN-вариант `{ uri }` не подходит: с Expo SDK 57 глобальный fetch — это expo/fetch
+ * (expo/src/winter/runtime.native.ts), а он принимает только Blob или объект с `bytes()`
+ * («Unsupported FormDataPart implementation», найдено на эмуляторе 26.09). Blob из байтов
+ * в React Native не собрать (BlobManager: ArrayBuffer не поддерживается), поэтому объект.
+ */
+export type PhotoPart = Blob | { bytes: () => Promise<Uint8Array>; name: string; type: string };
 
 /**
  * Общая часть отправки фото: собирает multipart, шлёт POST, проверяет ответ по схеме.

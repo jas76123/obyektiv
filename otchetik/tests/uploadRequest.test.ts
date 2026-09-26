@@ -44,6 +44,24 @@ describe('postShot', () => {
     expect(mock).toHaveBeenCalledTimes(1);
   });
 
+  it('на телефоне файл уходит объектом с bytes(): expo/fetch не принимает {uri}, а Blob из байтов в RN не собрать', async () => {
+    // Минимальный FormData: запоминает, что положили, без приведения к строке (как делает FormData Node)
+    class FakeFormData { parts: [string, unknown][] = []; append(k: string, v: unknown) { this.parts.push([k, v]); } }
+    vi.stubGlobal('FormData', FakeFormData);
+    const bytes = vi.fn(async () => new Uint8Array([1, 2, 3]));
+    const mock = vi.fn(async (_url, init) => {
+      const photo = (init.body as unknown as FakeFormData).parts.find(([k]) => k === 'photo')![1] as { name: string; type: string; bytes: () => Promise<Uint8Array> };
+      expect(photo.name).toBe('br-1.t1.a.jpg');
+      expect(photo.type).toBe('image/jpeg');
+      expect(await photo.bytes()).toEqual(new Uint8Array([1, 2, 3]));
+      return new Response(JSON.stringify({ server_id: 'srv-n', status: 'uploaded' }), { status: 201 });
+    });
+    vi.stubGlobal('fetch', mock);
+    const r = await postShot('http://x', rec(), { bytes, name: 'a.jpg', type: 'image/jpeg' }, 'br-1');
+    expect(r).toEqual({ server_id: 'srv-n' });
+    expect(mock).toHaveBeenCalledTimes(1);
+  });
+
   it('includes retake_of field when present', async () => {
     const mock = vi.fn(async (_url, init) => {
       const fd = init.body as FormData;

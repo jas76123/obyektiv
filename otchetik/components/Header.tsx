@@ -1,6 +1,7 @@
 import { useRouter } from 'expo-router';
 import { useMemo } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useSettings } from '../data/settings';
 import type { SourceTag } from '../data/source';
 import { useTheme } from '../data/theme';
@@ -16,6 +17,8 @@ export function Header({ title, queueCount, online, source, at, problem }: {
   const t = useTheme();
   const styles = useMemo(() => makeStyles(t), [t]);
   const pref = settings?.theme ?? 'auto';
+  // Android рисует экран под строкой состояния (edge-to-edge): без отступа «онлайн» налезает на часы (эмулятор 26.09). На вебе inset = 0.
+  const insets = useSafeAreaInsets();
 
   // Кнопка темы в шапке (спека 26.09 §9): по кругу авто → светлая → тёмная.
   async function switchTheme() {
@@ -27,7 +30,7 @@ export function Header({ title, queueCount, online, source, at, problem }: {
   }
 
   return (
-    <View style={styles.wrap}>
+    <View style={[styles.wrap, { paddingTop: 8 + insets.top }]}>
       <View style={styles.row}>
         <Text style={styles.net}>{online ? 'онлайн' : 'нет сети, фото сохранены, отправятся позже'}</Text>
         <Text style={styles.queue}>в очереди: {queueCount}</Text>
@@ -51,7 +54,7 @@ export function Header({ title, queueCount, online, source, at, problem }: {
 }
 
 const makeStyles = (t: Theme) => StyleSheet.create({
-  wrap: { paddingHorizontal: t.pad, paddingTop: 8, paddingBottom: 12, backgroundColor: t.paper, borderBottomWidth: 1, borderBottomColor: t.line },
+  wrap: { paddingHorizontal: t.pad, paddingBottom: 12, backgroundColor: t.paper, borderBottomWidth: 1, borderBottomColor: t.line },
   // flexWrap: длинное «нет сети…» и кнопка темы не должны выталкивать друг друга за экран
   row: { flexDirection: 'row', flexWrap: 'wrap', gap: 12, alignItems: 'center' },
   net: { fontSize: 12, color: t.muted },
