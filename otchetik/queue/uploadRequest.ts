@@ -20,7 +20,7 @@ export async function postShot(base: string, r: ShotRecord, photo: PhotoPart, br
   }
   fd.append('local_uuid', r.local_uuid);
   fd.append('task_id', r.task_id);
-  // Человеческое название и зона: сервер сравнивает фото с планом по названию работы (просьба Георгия 26.09)
+  // Человеческое название и зона: сервер сравнивает фото с планом по названию работы (просьба ML-инженера 26.09)
   fd.append('work_name', r.work_name);
   fd.append('zone', r.zone);
   fd.append('taken_at', r.taken_at);

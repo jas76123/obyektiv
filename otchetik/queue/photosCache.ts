@@ -7,7 +7,7 @@ export const photosCache = createPhotosCache(AsyncStorage);
 
 // Пока экран рейтинга на виду, /photos спрашивается по тику и без своих ждущих фото —
 // иначе рейтинг других бригад не обновится. С закрытым рейтингом лишних запросов нет:
-// маршрут тяжёлый для сервера Георгия (спека 26.09 §9).
+// маршрут тяжёлый для сервера команды (спека 26.09 §9).
 let wanted = false;
 export function setPhotosWanted(v: boolean): void { wanted = v; }
 export function photosWanted(): boolean { return wanted; }

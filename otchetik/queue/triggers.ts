@@ -34,7 +34,7 @@ export async function runQueueNow(opts?: { force?: boolean }): Promise<RunResult
   // (или сняла) строку проблемы сразу, а не после смены вкладки.
   if (listsChangedByRun(result)) queryClient.invalidateQueries().catch(() => {});
   // Результат нейросети по уже ушедшим фото: один запрос, не чаще раза в 20 с
-  // (ML_MIN_INTERVAL_MS, согласовано с Георгием 26.09), ошибки глотаем — в шапку не выводим (спека 25.09 §3).
+  // (ML_MIN_INTERVAL_MS, согласовано с ML-инженером 26.09), ошибки глотаем — в шапку не выводим (спека 25.09 §3).
   runMlCheckNow().catch(() => {});
   return result;
 }
@@ -64,7 +64,7 @@ export function installTriggers(): () => void {
     // дождётся результата, пока очередь пуста. Сама дешёвая, если ждать нечего,
     // и сама ограничивает частоту (ML_MIN_INTERVAL_MS).
     runMlCheckNow().catch(() => {});
-  }, ML_MIN_INTERVAL_MS); // раз в 20 с (ML_MIN_INTERVAL_MS, согласовано с Георгием 26.09)
+  }, ML_MIN_INTERVAL_MS); // раз в 20 с (ML_MIN_INTERVAL_MS, согласовано с ML-инженером 26.09)
   schedule(1000);
   return () => { offQueue(); offNet(); sub.remove(); clearInterval(tick); if (timer) clearTimeout(timer); };
 }

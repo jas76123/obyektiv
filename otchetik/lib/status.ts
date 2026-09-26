@@ -4,7 +4,7 @@ export type LocalStatus = 'queued' | 'uploading' | 'failed' | 'uploaded';
 export type AnyShotStatus = ServerShotStatus | LocalStatus;
 
 /**
- * Вердикт сверки фото с планом (спека 26.09 «work_status» §2.1). Сервер Георгия отдаёт в
+ * Вердикт сверки фото с планом (спека 26.09 «work_status» §2.1). Сервер команды отдаёт в
  * GET /photos `works_status[0].status`: confirmed (нашлась ожидаемая техника), not_confirmed
  * (детекции есть, но не те), review (детекций нет), unsure (работа не нашлась в таблице).
  * «Принято» — слово фото (событие), а не работы за день (процесс): решение продакта 26.09.
@@ -14,7 +14,7 @@ export const VERDICT_WORD: Record<Exclude<PhotoVerdict, null>, string> = { accep
 /** Окончательные значения сверки: по ним /photos больше не перезапрашивается (queue/mlCheck). */
 export const FINAL_WORK_STATUS: ReadonlySet<string> = new Set(['confirmed', 'not_confirmed', 'review']);
 
-/** «not confirmed» (письмо Георгия) и «not_confirmed» (его код) — одно значение; пусто → null. */
+/** «not confirmed» (письмо ML-инженера) и «not_confirmed» (его код) — одно значение; пусто → null. */
 export function normalizeWorkStatus(s: string | null | undefined): string | null {
   const v = (s ?? '').trim().toLowerCase().replace(/\s+/g, '_');
   return v || null;

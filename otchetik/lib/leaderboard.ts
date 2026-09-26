@@ -4,7 +4,7 @@ import type { PhotoEntry } from './photosCache';
 import { FINAL_WORK_STATUS } from './status';
 
 /**
- * Рейтинг бригад на телефоне из списка GET /photos (спека 26.09 §5.3). Формула Татьяны §11
+ * Рейтинг бригад на телефоне из списка GET /photos (спека 26.09 §5.3). Формула из FOREMAN_APP.md §11
  * `points = accepted × 10 + quality_bonus − rework × 5` без членов, которых в цепочке нет:
  * вердиктов руководителя и оценки качества от нейросети. «Принято» = окончательная сверка
  * `confirmed` (спека 26.09 «work_status» §3.4); `not_confirmed` и `review` — тоже окончательные,
