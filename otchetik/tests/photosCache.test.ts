@@ -31,4 +31,10 @@ describe('photosCache', () => {
     kv.data[PHOTOS_KEY] = '{oops';
     expect(await createPhotosCache(kv).load()).toEqual({ at: null, list: [] });
   });
+  it('кривой элемент списка отсеивается, нормальный остаётся', async () => {
+    const kv = memoryKv();
+    const good = { id: 'a', file: 'a_br-1.t.u.jpg', timestamp: '2026-09-26T10:00:00', count: 1 };
+    kv.data[PHOTOS_KEY] = JSON.stringify({ at: '2026-09-26T10:00:05.000Z', list: [{ id: 'x' }, good] });
+    expect(await createPhotosCache(kv).load()).toEqual({ at: '2026-09-26T10:00:05.000Z', list: [good] });
+  });
 });

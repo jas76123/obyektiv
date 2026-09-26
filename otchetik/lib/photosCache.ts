@@ -22,13 +22,21 @@ export function createPhotosCache(kv: KeyValue, key: string = PHOTOS_KEY): Photo
   let cache: PhotosSnapshot | null = null;
   const listeners = new Set<() => void>();
 
+  // Кривая запись (например, обрезанная запись из старой версии формата) не должна
+  // ронять рендер рейтинга — отсеиваем всё, что не похоже на PhotoEntry.
+  function isPhotoEntry(x: unknown): x is PhotoEntry {
+    if (!x || typeof x !== 'object') return false;
+    const p = x as Record<string, unknown>;
+    return typeof p.id === 'string' && typeof p.file === 'string' && typeof p.timestamp === 'string' && typeof p.count === 'number';
+  }
+
   async function load(): Promise<PhotosSnapshot> {
     if (cache) return cache;
     try {
       const raw = await kv.getItem(key);
       const parsed = raw ? JSON.parse(raw) : null;
       cache = parsed && typeof parsed === 'object' && Array.isArray(parsed.list)
-        ? { at: typeof parsed.at === 'string' ? parsed.at : null, list: parsed.list as PhotoEntry[] }
+        ? { at: typeof parsed.at === 'string' ? parsed.at : null, list: (parsed.list as unknown[]).filter(isPhotoEntry) }
         : { ...EMPTY };
     } catch {
       cache = { ...EMPTY };

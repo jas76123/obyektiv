@@ -51,7 +51,9 @@ describe('buildLeaderboard', () => {
   });
 
   it('при равных баллах порядок по имени; без фото все по нулям и в таблице', () => {
-    const lb = buildLeaderboard([], brigades, tasks, null);
+    // Бригады поданы не по алфавиту — иначе тест не проверял бы саму пересортировку.
+    const shuffled = [brigades[2], brigades[0], brigades[1]];
+    const lb = buildLeaderboard([], shuffled, tasks, null);
     expect(lb.brigades.map((b) => [b.rank, b.name])).toEqual([[1, 'Бригада №1'], [2, 'Бригада №2'], [3, 'Бригада №3']]);
     expect(lb.others).toEqual([]);
   });
