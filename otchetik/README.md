@@ -15,9 +15,9 @@
 
 ## Как поставить на Android
 
-1. Скачать APK сборки 26.09.2026 (EAS Build, профиль preview, ~108 МБ):
-   https://expo.dev/artifacts/eas/Ys9sQrAA-LstqcJxfPaViBojzMF-bJJ4fPub0QF8ONw.apk
-   Файл этой же сборки: `otchetik-2026-09-26.apk`. Ссылки EAS живут ограниченное время;
+1. Скачать APK сборки 27.09.2026 (EAS Build, профиль preview, ~108 МБ):
+   https://expo.dev/artifacts/eas/vH48orAXe5XthC5ULw-Z9aC8PHaTIWjdgd3lajJWr-Y.apk
+   Файл этой же сборки: `otchetik-2026-09-27.apk`. Ссылки EAS живут ограниченное время;
    свежая сборка — `npm run build:apk` (нужен вход `npx eas-cli login`), готовый файл
    скачивается со страницы сборки в expo.dev.
 2. Открыть файл на телефоне и разрешить установку из этого источника (Chrome, «Файлы»

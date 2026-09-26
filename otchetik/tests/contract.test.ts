@@ -14,9 +14,9 @@ describe('demo data matches contract', () => {
     const r = ObjectsResponse.parse(demo.objects);
     expect(r.objects[0].brigades.length).toBe(3);
   });
-  it('schedule: two tasks for brigade 1 — doors removed 26.09 (ML-инженер: модель двери не распознаёт, дообучать к демо рискованно)', () => {
+  it('schedule: three tasks for brigade 1 — doors removed 26.09 (модель двери не распознаёт), «Котлован» добавлен ML-инженером 27.09 как копия наряда на сервере', () => {
     const r = ScheduleResponse.parse(demo.schedule);
-    expect(r.tasks.map((t) => t.name)).toEqual(['Бетонирование', 'Армирование']);
+    expect(r.tasks.map((t) => t.name)).toEqual(['Бетонирование', 'Армирование', 'Котлован']);
   });
   it('shots status covers all verdict kinds', () => {
     const r = ShotsStatusResponse.parse(demo.shotsStatus);
