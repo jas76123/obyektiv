@@ -10,7 +10,7 @@ import { useTheme } from '../../data/theme';
 import { taskState } from '../../lib/reports';
 import type { Theme } from '../../lib/theme';
 import { dayKey, fmtDay, todayIso } from '../../lib/time';
-import { useMlEmpty } from '../../queue/mlResults';
+import { useMlVerdicts } from '../../queue/mlResults';
 import { useShownRecords } from '../../queue/useShownRecords';
 
 export function useOnline(): boolean {
@@ -34,7 +34,7 @@ export default function Today() {
   const uploaded = useMemo(() => shown.filter((r) => r.status === 'uploaded').map((r) => r.local_uuid), [shown]);
   const statuses = useShotStatuses(uploaded);
   const byUuid = useMemo(() => Object.fromEntries((statuses.data?.data.shots ?? []).map((s) => [s.local_uuid, s])), [statuses.data]);
-  const mlEmpty = useMlEmpty();
+  const verdicts = useMlVerdicts();
   const serverSet = settings ? serverBase(settings) !== null : true;
 
   const tasks = schedule.data?.data.tasks ?? [];
@@ -51,7 +51,8 @@ export default function Today() {
           <TaskCard
             task={item}
             shots={todays.filter((r) => r.task_id === item.task_id)}
-            state={taskState(shown, byUuid, item.task_id, { mlEmpty })}
+            state={taskState(shown, byUuid, item.task_id, { verdicts })}
+            verdicts={verdicts}
             serverSet={serverSet}
           />
         )}

@@ -17,8 +17,6 @@ export interface MlResultsStore {
   load(): Promise<Record<string, MlResult>>;
   get(uuid: string): MlResult | undefined;
   set(uuid: string, r: MlResult): Promise<void>;
-  /** local_uuid → empty, в форме, которую ждут lib/reports (ReportOpts.mlEmpty). Уходит в задаче 5. */
-  emptyMap(): Record<string, boolean>;
   /** local_uuid → вердикт фото (lib/status.photoVerdict) для taskState/buildReport. */
   verdicts(): Record<string, PhotoVerdict>;
   on(l: () => void): () => void;
@@ -51,7 +49,6 @@ export function createMlResults(kv: KeyValue, key: string = ML_RESULTS_KEY): MlR
       await kv.setItem(key, JSON.stringify(next));
       listeners.forEach((l) => l());
     },
-    emptyMap: () => Object.fromEntries(Object.entries(cache ?? {}).map(([u, r]) => [u, r.empty])),
     verdicts: () => Object.fromEntries(Object.entries(cache ?? {}).map(([u, r]) => [u, photoVerdict(r)])),
     on(l) { listeners.add(l); return () => { listeners.delete(l); }; },
   };

@@ -2,18 +2,19 @@ import { useMemo, useState } from 'react';
 import { ActivityIndicator, Pressable, StyleSheet, Text, View } from 'react-native';
 import type { ScheduleTask } from '../contract/schemas';
 import { useTheme } from '../data/theme';
-import { photoChip, type ScreenStatus } from '../lib/status';
+import { photoWord, type PhotoVerdict, type ScreenStatus } from '../lib/status';
 import type { Theme } from '../lib/theme';
 import { captureForTask } from '../queue/capture';
 import type { ShotRecord } from '../queue/types';
 import { showCaptureError } from './alerts';
 import { StatusChip } from './StatusChip';
 
-export function TaskCard({ task, shots, state, serverSet }: {
+export function TaskCard({ task, shots, state, serverSet, verdicts }: {
   task: ScheduleTask;
   shots: ShotRecord[];                                        // реальные фото этого наряда за сегодня, новые сверху
   state: { status: ScreenStatus; latestUuid: string | null }; // статус работы и uuid свежего фото (lib/reports.taskState)
   serverSet: boolean;                                         // адрес сервера задан
+  verdicts: Record<string, PhotoVerdict>; // local_uuid → вердикт сверки (queue/mlResults.useMlVerdicts)
 }) {
   const [busy, setBusy] = useState(false);
   const t = useTheme();
@@ -40,7 +41,7 @@ export function TaskCard({ task, shots, state, serverSet }: {
         <Text style={styles.name}>{task.name}</Text>
         <Text style={styles.meta}>{task.zone}{task.expected ? ` · ${task.expected}` : ''}</Text>
         <View style={styles.chipRow}><StatusChip status={state.status} /></View>
-        <Text style={styles.count}>снято: {shots.length}{last ? ` · ${photoChip(last.status, { serverSet })}` : ''}</Text>
+        <Text style={styles.count}>снято: {shots.length}{last ? ` · ${photoWord(last.status, verdicts[last.local_uuid] ?? null, { serverSet })}` : ''}</Text>
       </View>
       <Pressable onPress={onPhoto} disabled={busy} style={[styles.btn, busy && { opacity: 0.5 }]} accessibilityRole="button" accessibilityLabel={`${label}: ${task.name}`}>
         {busy ? <ActivityIndicator color={t.btnInk} /> : <Text style={styles.btnText}>{label}</Text>}

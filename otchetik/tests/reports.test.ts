@@ -27,7 +27,8 @@ describe('buildReport', () => {
     expect(doors.comment).toBe('нужен пересъём');
     expect(doors.time).toBe('2026-09-22T12:40:00+03:00');
     expect(doors.photos.length).toBe(2);
-    expect(days[1].works[0].status).toBe('in_work');
+    // Вчера — прошедший день: итог по dayVerdict, а не статус самого свежего фото.
+    expect(days[1].works[0].status).toBe('accepted');
   });
 
   it('свежее фото «в работе» снимает «переснять» со старого', () => {
@@ -63,16 +64,71 @@ describe('buildReport', () => {
     expect(doors.comment).toBeNull();
   });
 
-  it('пустые детекции нейросети дают «переснять» без слова от сервера', () => {
+  it('вердикт «переснять» даёт «переснять» без слова от сервера; слово фото — вердикт', () => {
     const days = buildReport(
       [rec('a', 't-doors', '2026-09-22T12:00:00+03:00', 'uploaded')],
       { a: { local_uuid: 'a', status: 'uploaded', updated_at: 'x' } },
       {},
       now,
-      { mlEmpty: { a: true } },
+      { verdicts: { a: 'retake' } },
     );
     expect(days[0].works[0].status).toBe('retake');
     expect(days[0].works[0].comment).toBeNull();
+    expect(days[0].works[0].photos[0].word).toBe('переснять');
+    expect(days[0].works[0].photos[0].verdict).toBe('retake');
+  });
+
+  it('«принято» у свежего фото: чип за сегодня «в работе», слово фото «принято», у недоставленного — слово доставки', () => {
+    const days = buildReport(
+      [rec('a', 't-doors', '2026-09-22T12:00:00+03:00', 'uploaded'), rec('q', 't-doors', '2026-09-22T12:30:00+03:00', 'queued')],
+      {},
+      {},
+      now,
+      { verdicts: { a: 'accepted', q: 'accepted' }, serverSet: true },
+    );
+    const doors = days[0].works[0];
+    expect(doors.status).toBe('in_work');
+    expect(doors.photos.map((p) => p.word)).toEqual(['ждёт сети', 'принято']);
+  });
+
+  it('прошедший день: итог «принято», если есть фото не «переснять», иначе «не принято»; кнопки нет', () => {
+    const days = buildReport(
+      [
+        rec('y1', 't-doors', '2026-09-21T09:02:00+03:00'), rec('y2', 't-doors', '2026-09-21T10:36:00+03:00'),
+        rec('r1', 't-rebar', '2026-09-21T11:00:00+03:00'),
+      ],
+      { r1: { local_uuid: 'r1', status: 'rework', verdict_comment: 'мало', updated_at: 'x' } },
+      {},
+      now,
+      { verdicts: { y1: 'accepted', y2: 'retake' } },
+    );
+    expect(days[0].label).toBe('Вчера');
+    const doors = days[0].works.find((w) => w.task_id === 't-doors')!;
+    const rebar = days[0].works.find((w) => w.task_id === 't-rebar')!;
+    expect(doors.status).toBe('accepted');
+    expect(doors.label).toBe('принято');
+    expect(doors.photos.map((p) => p.word)).toEqual(['переснять', 'принято']);
+    expect(rebar.status).toBe('not_accepted');
+    expect(rebar.label).toBe('не принято');
+    expect(rebar.comment).toBe('мало');
+  });
+
+  it('прошедший день: работы из сохранённого наряда без фото — «не принято»; сегодняшний наряд из pastSchedules не берётся', () => {
+    const task = (task_id: string, name: string) => ({ task_id, work_id: 'w', name, zone: 'Зона 1' });
+    const days = buildReport(
+      [rec('a', 't-doors', '2026-09-21T12:00:00+03:00')],
+      {},
+      { 't-doors': task('t-doors', 'Установка дверей') },
+      now,
+      { verdicts: { a: 'accepted' }, pastSchedules: { '2026-09-21': [task('t-doors', 'Установка дверей'), task('t-concrete', 'Бетонирование')], '2026-09-22': [task('t-x', 'Лишняя')], '2026-09-20': [] } },
+    );
+    expect(days.map((d) => d.label)).toEqual(['Сегодня', 'Вчера']);
+    expect(days[0].works.map((w) => w.task_id)).toEqual(['t-doors']);
+    expect(days[0].works[0].status).toBe('not_started');
+    const yesterday = days[1].works;
+    expect(yesterday.map((w) => [w.task_id, w.status])).toEqual([['t-doors', 'accepted'], ['t-concrete', 'not_accepted']]);
+    expect(yesterday[1].photos).toEqual([]);
+    expect(yesterday[1].time).toBeNull();
   });
 
   it('слово доставки у фото зависит от serverSet', () => {
@@ -113,8 +169,9 @@ describe('taskState', () => {
     const st = taskState(withRetake, { new: { local_uuid: 'new', status: 'rework', updated_at: 'x' } }, 't-doors');
     expect(st).toEqual({ status: 'in_work', latestUuid: 'newer' });
   });
-  it('пустые детекции — переснять', () => {
-    expect(taskState(records, {}, 't-rebar', { mlEmpty: { r: true } }).status).toBe('retake');
+  it('вердикт «переснять» — переснять; «принято» — в работе', () => {
+    expect(taskState(records, {}, 't-rebar', { verdicts: { r: 'retake' } }).status).toBe('retake');
+    expect(taskState(records, {}, 't-rebar', { verdicts: { r: 'accepted' } }).status).toBe('in_work');
   });
 });
 

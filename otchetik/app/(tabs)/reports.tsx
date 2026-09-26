@@ -3,14 +3,14 @@ import { SectionList, StyleSheet, Text, View } from 'react-native';
 import { Header } from '../../components/Header';
 import { ReportRow } from '../../components/ReportRow';
 import { showAlert, showCaptureError } from '../../components/alerts';
-import { useSchedule, useShotStatuses } from '../../data/queries';
+import { usePastSchedules, useSchedule, useShotStatuses } from '../../data/queries';
 import { serverBase, useSettings } from '../../data/settings';
 import { useTheme } from '../../data/theme';
 import { buildReport, taskState } from '../../lib/reports';
 import type { Theme } from '../../lib/theme';
 import { todayIso } from '../../lib/time';
 import { captureForTask } from '../../queue/capture';
-import { useMlEmpty } from '../../queue/mlResults';
+import { useMlVerdicts } from '../../queue/mlResults';
 import { useShownRecords } from '../../queue/useShownRecords';
 import { useOnline } from './today';
 
@@ -27,16 +27,17 @@ export default function Reports() {
   const statuses = useShotStatuses(uploaded);
   const byUuid = useMemo(() => Object.fromEntries((statuses.data?.data.shots ?? []).map((s) => [s.local_uuid, s])), [statuses.data]);
   const tasks = useMemo(() => Object.fromEntries((schedule.data?.data.tasks ?? []).map((task) => [task.task_id, task])), [schedule.data]);
-  const mlEmpty = useMlEmpty();
+  const verdicts = useMlVerdicts();
   const serverSet = settings ? serverBase(settings) !== null : true;
-  const days = useMemo(() => buildReport(shown, byUuid, tasks, new Date(), { serverSet, mlEmpty }), [shown, byUuid, tasks, serverSet, mlEmpty]);
+  const pastSchedules = usePastSchedules(settings?.objectId ?? null, settings?.brigadeId ?? null, date, { source: schedule.data?.source, stamp: schedule.dataUpdatedAt });
+  const days = useMemo(() => buildReport(shown, byUuid, tasks, new Date(), { serverSet, verdicts, pastSchedules }), [shown, byUuid, tasks, serverSet, verdicts, pastSchedules]);
   const sections = useMemo(() => days.map((d) => ({ title: d.label, data: d.works })), [days]);
 
   async function retake(task_id: string) {
     const task = tasks[task_id];
     if (!task) { showAlert('Работа не в сегодняшнем наряде', 'Снять можно с экрана «Сегодня»'); return; }
     // То же фото, что определяет статус на карточке «Сегодня».
-    const { latestUuid } = taskState(shown, byUuid, task_id, { mlEmpty });
+    const { latestUuid } = taskState(shown, byUuid, task_id, { verdicts });
     try {
       await captureForTask(task, latestUuid ? { retakeOf: latestUuid } : undefined);
     } catch (e) {

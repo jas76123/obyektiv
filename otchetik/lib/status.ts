@@ -58,13 +58,10 @@ const FINAL: ReadonlySet<AnyShotStatus> = new Set(['accepted', 'partial', 'rewor
 /**
  * Статус одного фото за сегодня. Итог сервера главнее вердикта сверки. «Принято» у фото не
  * делает работу принятой: день ещё идёт.
- * `mlEmpty` — псевдоним старого правила по детекциям, живёт до перевода lib/reports на
- * вердикты (задача 5 плана); новый код передаёт `verdict`.
  */
-export function foldStatus(s: AnyShotStatus, opts?: { verdict?: PhotoVerdict; mlEmpty?: boolean }): TodayStatus {
+export function foldStatus(s: AnyShotStatus, opts?: { verdict?: PhotoVerdict }): TodayStatus {
   if (FINAL.has(s)) return s === 'rework' || s === 'rejected' ? 'retake' : 'in_work';
-  const verdict = opts?.verdict ?? (opts?.mlEmpty ? 'retake' : null);
-  return verdict === 'retake' ? 'retake' : 'in_work';
+  return opts?.verdict === 'retake' ? 'retake' : 'in_work';
 }
 
 /** Статус работы за сегодня = статус самого свежего фото. Список приходит новыми сверху. */
@@ -81,6 +78,8 @@ export function dayVerdict(folded: TodayStatus[]): 'accepted' | 'not_accepted' {
   return folded.some((f) => f !== 'retake') ? 'accepted' : 'not_accepted';
 }
 
+const DELIVERED = 'отправлено';
+
 /**
  * Слово доставки у отдельного фото. `serverSet: false` — адрес сервера не задан, очередь
  * ждёт не сети, а сервера.
@@ -94,11 +93,9 @@ export function photoChip(s: AnyShotStatus, opts?: { serverSet?: boolean }): str
     case 'uploading':
       return 'отправляется';
     default:
-      return 'отправлено';
+      return DELIVERED;
   }
 }
-
-const DELIVERED = 'отправлено';
 
 /**
  * Слово фото на экранах: строка «снято: N · …» на «Сегодня» и раскрытая строка «Отчётов».

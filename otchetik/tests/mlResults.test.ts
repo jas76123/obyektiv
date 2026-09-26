@@ -11,7 +11,6 @@ describe('createMlResults', () => {
     const s = createMlResults(memoryKv());
     expect(await s.load()).toEqual({});
     expect(s.get('a')).toBeUndefined();
-    expect(s.emptyMap()).toEqual({});
   });
   it('set сохраняет в хранилище и оповещает подписчиков', async () => {
     const kv = memoryKv();
@@ -25,7 +24,6 @@ describe('createMlResults', () => {
     off();
     await s.set('b', { empty: false, count: 2, checked_at: '2026-09-25T10:01:00Z', work_status: 'confirmed' });
     expect(calls).toBe(1);
-    expect(s.emptyMap()).toEqual({ a: true, b: false });
     expect(JSON.parse(kv.data[ML_RESULTS_KEY]).b.work_status).toBe('confirmed');
   });
   it('verdicts: сверка → вердикт, без сверки — по детекциям; старые записи без work_status читаются', async () => {
