@@ -1,0 +1,56 @@
+openapi: 3.0.0
+info:
+  title: otchetik
+  version: 1.0.0
+# Один адрес для веб-версии и сервера Георгия (спека 26.09 §2): страница из бакета,
+# /api/* и /photos пересылаются на http-сервер команды. CORS не нужен: тот же origin.
+paths:
+  /obyektiv:
+    get:
+      x-yc-apigateway-integration:
+        type: object_storage
+        bucket: obyektiv-web
+        object: index.html
+        service_account_id: SERVICE_ACCOUNT_ID
+  /obyektiv/:
+    get:
+      x-yc-apigateway-integration:
+        type: object_storage
+        bucket: obyektiv-web
+        object: index.html
+        service_account_id: SERVICE_ACCOUNT_ID
+  /obyektiv/{file+}:
+    get:
+      parameters:
+        - name: file
+          in: path
+          required: true
+          schema:
+            type: string
+      x-yc-apigateway-integration:
+        type: object_storage
+        bucket: obyektiv-web
+        object: '{file}'
+        service_account_id: SERVICE_ACCOUNT_ID
+  /api/{path+}:
+    x-yc-apigateway-any-method:
+      parameters:
+        - name: path
+          in: path
+          required: true
+          schema:
+            type: string
+      x-yc-apigateway-integration:
+        type: http
+        url: 'http://217.18.63.89:8000/api/{path}'
+        timeouts:
+          connect: 10
+          read: 120
+  /photos:
+    get:
+      x-yc-apigateway-integration:
+        type: http
+        url: 'http://217.18.63.89:8000/photos'
+        timeouts:
+          connect: 10
+          read: 120
