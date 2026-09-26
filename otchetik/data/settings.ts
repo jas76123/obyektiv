@@ -2,12 +2,15 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useCallback, useEffect, useState } from 'react';
 import { Platform } from 'react-native';
 import { defaultServerUrl, resolveServerBase } from '../lib/serverDefault';
+import type { ThemePref } from '../lib/theme';
 
 export type Settings = {
   serverUrl: string;
   demoOnly: boolean;
   /** Спрашивать у сервера результат нейросети по фото (GET /photos). Выключатель на демо. */
   mlCheck: boolean;
+  /** Тема экранов: «авто» = как в телефоне или браузере (спека 26.09 §3). */
+  theme: ThemePref;
   objectId: string | null;
   objectName: string | null;
   brigadeId: string | null;
@@ -18,6 +21,7 @@ export const DEFAULT_SETTINGS: Settings = {
   serverUrl: '', // пусто = адрес по умолчанию (lib/serverDefault.ts); скрытая настройка перекрывает
   demoOnly: false,
   mlCheck: true,
+  theme: 'auto',
   objectId: null,
   objectName: null,
   brigadeId: null,

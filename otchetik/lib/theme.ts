@@ -86,8 +86,8 @@ const light: Theme = {
 
 export const themes: Record<Scheme, Theme> = { light, dark };
 
-/** Настройка сильнее системы; когда система ничего не сообщила — светлая. */
-export function resolveScheme(pref: ThemePref, system: Scheme | null | undefined): Scheme {
+/** Настройка сильнее системы; всё, что не «dark» (в том числе 'unspecified' RN 0.86, null) — светлая. */
+export function resolveScheme(pref: ThemePref, system: string | null | undefined): Scheme {
   if (pref !== 'auto') return pref;
   return system === 'dark' ? 'dark' : 'light';
 }
