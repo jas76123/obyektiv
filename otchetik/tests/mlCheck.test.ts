@@ -115,6 +115,18 @@ describe('checkMlResults', () => {
     expect(fetchImpl).toHaveBeenCalledTimes(2);
   });
 
+  it('падение записи кэша фото (photos.set) не роняет результаты своих фото', async () => {
+    const results = createMlResults(memoryKv());
+    const fetchImpl = photosResponse([{ id: 'srv-a', detections: [] }]);
+    const photos = { load: vi.fn(), get: vi.fn(), set: vi.fn(async () => { throw new Error('quota'); }), on: vi.fn() };
+    const r = await checkMlResults({ base: 'http://x', records: [uploaded('a')], results, photos, fetchImpl, now: () => now });
+    expect(r).toEqual({ checked: 1, skipped: null });
+    expect(results.get('a')).toMatchObject({ empty: true, count: 0 });
+    now += ML_MIN_INTERVAL_MS;
+    const second = await checkMlResults({ base: 'http://x', records: [uploaded('a')], results, photos, fetchImpl, now: () => now });
+    expect(second.skipped).not.toBe('in_flight');
+  });
+
   it('список целиком складывается в кэш фото, даже если ждать нечего, но кэш просят (wantPhotos)', async () => {
     const photos = createPhotosCache(memoryKv());
     const fetchImpl = photosResponse([{ id: 'srv-z', detections: [{}] , file: 'srv-z_br-2.t-doors-0922.z.jpg' }]);

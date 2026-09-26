@@ -37,4 +37,23 @@ describe('photosCache', () => {
     kv.data[PHOTOS_KEY] = JSON.stringify({ at: '2026-09-26T10:00:05.000Z', list: [{ id: 'x' }, good] });
     expect(await createPhotosCache(kv).load()).toEqual({ at: '2026-09-26T10:00:05.000Z', list: [good] });
   });
+  it('set() успевший отработать во время висящего load() не затирается старым ответом getItem', async () => {
+    let resolveGetItem!: (v: string | null) => void;
+    const pending = new Promise<string | null>((resolve) => { resolveGetItem = resolve; });
+    const old = { at: '2026-09-26T09:00:00.000Z', list: [{ id: 'old', file: 'old.jpg', timestamp: '2026-09-26T09:00:00', count: 1 }] };
+    const data: Record<string, string> = {};
+    const kv: KeyValue = {
+      async getItem() { return pending; },
+      async setItem(k, v) { data[k] = v; },
+    };
+    const c = createPhotosCache(kv);
+
+    const loadPromise = c.load(); // не ждём — getItem ещё висит
+    const fresh = [{ id: 'new', file: 'new.jpg', timestamp: '2026-09-26T10:00:00', count: 2 }];
+    await c.set(fresh, '2026-09-26T10:00:05.000Z'); // set() успевает отработать раньше resolve
+    resolveGetItem(JSON.stringify(old)); // старый ответ getItem приходит уже после set()
+    await loadPromise;
+
+    expect(c.get().list).toEqual(fresh);
+  });
 });

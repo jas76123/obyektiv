@@ -34,6 +34,9 @@ export function createPhotosCache(kv: KeyValue, key: string = PHOTOS_KEY): Photo
     if (cache) return cache;
     try {
       const raw = await kv.getItem(key);
+      // Пока getItem висел, set() мог успеть отработать и положить свежий список —
+      // не затираем его устаревшим ответом getItem.
+      if (cache) return cache;
       const parsed = raw ? JSON.parse(raw) : null;
       cache = parsed && typeof parsed === 'object' && Array.isArray(parsed.list)
         ? { at: typeof parsed.at === 'string' ? parsed.at : null, list: (parsed.list as unknown[]).filter(isPhotoEntry) }

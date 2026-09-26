@@ -69,7 +69,12 @@ export async function checkMlResults(deps: {
     const checkedAt = new Date(now()).toISOString();
 
     if (deps.photos) {
-      await deps.photos.set(photos.map((p) => ({ id: p.id, file: p.file, timestamp: p.timestamp, count: p.detections.length })), checkedAt);
+      try {
+        await deps.photos.set(photos.map((p) => ({ id: p.id, file: p.file, timestamp: p.timestamp, count: p.detections.length })), checkedAt);
+      } catch {
+        // Ошибка записи кэша списка (например, переполнение localStorage на вебе) не должна
+        // мешать результатам по своим фото — их всё равно нужно записать ниже.
+      }
     }
 
     const byId = new Map(photos.map((p) => [p.id, p]));
