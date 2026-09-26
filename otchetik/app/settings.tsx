@@ -1,16 +1,26 @@
 import { useRouter } from 'expo-router';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Switch, Text, TextInput, View } from 'react-native';
 import { showAlert } from '../components/alerts';
 import { queryClient } from '../data/queryClient';
 import { currentDefaultServerUrl, useSettings } from '../data/settings';
-import { theme } from '../lib/theme';
+import { useTheme } from '../data/theme';
+import type { Theme, ThemePref } from '../lib/theme';
 import { useQueue } from '../queue/useQueue';
+
+/** Три варианта темы; порядок и слова — спека 26.09 §3. */
+const THEME_PREFS: { value: ThemePref; label: string }[] = [
+  { value: 'auto', label: 'авто' },
+  { value: 'light', label: 'светлая' },
+  { value: 'dark', label: 'тёмная' },
+];
 
 export default function Settings() {
   const { settings, save } = useSettings();
   const { counts, pending, runNow } = useQueue();
   const router = useRouter();
+  const t = useTheme();
+  const styles = useMemo(() => makeStyles(t), [t]);
   const [url, setUrl] = useState('');
   // Зависим только от serverUrl, чтобы не сбрасывать введённый адрес при других изменениях в settings
   useEffect(() => { if (settings) setUrl(settings.serverUrl); }, [settings?.serverUrl]);
@@ -40,23 +50,40 @@ export default function Settings() {
       showAlert('Не получилось', err instanceof Error ? err.message : 'Не удалось отправить очередь');
     }
   }
+  async function pickTheme(theme: ThemePref) {
+    try {
+      await save({ theme });
+    } catch (err) {
+      showAlert('Не получилось', err instanceof Error ? err.message : 'Не удалось сохранить настройку');
+    }
+  }
 
   return (
-    <ScrollView style={styles.screen} contentContainerStyle={{ padding: theme.pad }}>
+    <ScrollView style={styles.screen} contentContainerStyle={{ padding: t.pad }}>
       <Text style={styles.h}>Адрес сервера</Text>
-      <TextInput value={url} onChangeText={setUrl} placeholder="http://192.168.0.10:8000" autoCapitalize="none" autoCorrect={false} keyboardType="url" style={styles.input} />
+      <TextInput value={url} onChangeText={setUrl} placeholder="http://192.168.0.10:8000" placeholderTextColor={t.faint} autoCapitalize="none" autoCorrect={false} keyboardType="url" style={styles.input} />
       <Text style={styles.hint}>по умолчанию: {fallback || 'нет, демо-данные'}</Text>
       <Pressable onPress={apply} style={styles.btn}><Text style={styles.btnText}>Сохранить адрес</Text></Pressable>
 
       <View style={styles.rowBetween}>
         <Text style={styles.label}>Только демо-данные</Text>
-        <Switch value={settings.demoOnly} onValueChange={async (v) => { try { await save({ demoOnly: v }); await queryClient.invalidateQueries(); } catch (err) { showAlert('Не получилось', err instanceof Error ? err.message : 'Не удалось сохранить настройку'); } }} />
+        <Switch value={settings.demoOnly} trackColor={{ true: t.accent }} onValueChange={async (v) => { try { await save({ demoOnly: v }); await queryClient.invalidateQueries(); } catch (err) { showAlert('Не получилось', err instanceof Error ? err.message : 'Не удалось сохранить настройку'); } }} />
       </View>
 
       <View style={styles.rowBetween}>
         <Text style={styles.label}>Проверять фото нейросетью</Text>
-        <Switch value={settings.mlCheck} onValueChange={async (v) => { try { await save({ mlCheck: v }); } catch (err) { showAlert('Не получилось', err instanceof Error ? err.message : 'Не удалось сохранить настройку'); } }} />
+        <Switch value={settings.mlCheck} trackColor={{ true: t.accent }} onValueChange={async (v) => { try { await save({ mlCheck: v }); } catch (err) { showAlert('Не получилось', err instanceof Error ? err.message : 'Не удалось сохранить настройку'); } }} />
       </View>
+
+      <Text style={styles.h}>Тема</Text>
+      <View style={styles.segments}>
+        {THEME_PREFS.map((p) => (
+          <Pressable key={p.value} onPress={() => pickTheme(p.value)} style={[styles.seg, settings.theme === p.value && styles.segOn]} accessibilityRole="radio" accessibilityState={{ selected: settings.theme === p.value }}>
+            <Text style={styles.segText}>{p.label}</Text>
+          </Pressable>
+        ))}
+      </View>
+      <Text style={styles.hint}>авто — как в телефоне</Text>
 
       <Text style={styles.h}>Очередь</Text>
       <Text style={styles.label}>в очереди {pending}: ждут {counts.queued}, отправляются {counts.uploading}, с ошибкой {counts.failed}; отправлено {counts.uploaded}</Text>
@@ -65,20 +92,25 @@ export default function Settings() {
       <Text style={styles.h}>Бригада</Text>
       <Text style={styles.label}>{settings.objectName ?? '—'} · {settings.brigadeName ?? '—'}</Text>
       <Pressable onPress={async () => { try { await save({ objectId: null, objectName: null, brigadeId: null, brigadeName: null }); router.replace('/login'); } catch (err) { showAlert('Не получилось', err instanceof Error ? err.message : 'Не удалось сохранить настройку'); } }} style={[styles.btn, styles.btnGhost]}>
-        <Text style={[styles.btnText, { color: theme.accent }]}>Сбросить выбор бригады</Text>
+        <Text style={[styles.btnText, styles.btnGhostText]}>Сбросить выбор бригады</Text>
       </Pressable>
     </ScrollView>
   );
 }
 
-const styles = StyleSheet.create({
-  screen: { flex: 1, backgroundColor: theme.bg },
-  h: { fontSize: 13, fontWeight: '700', color: theme.muted, textTransform: 'uppercase', marginTop: 20, marginBottom: 8 },
-  input: { backgroundColor: theme.paper, borderWidth: 1, borderColor: theme.line, borderRadius: theme.radius, padding: 12, fontSize: 16, color: theme.ink },
-  btn: { marginTop: 12, backgroundColor: theme.accent, borderRadius: theme.radius, padding: 14, alignItems: 'center' },
-  btnGhost: { backgroundColor: 'transparent', borderWidth: 1, borderColor: theme.accent },
-  btnText: { color: theme.accentInk, fontSize: 16, fontWeight: '700' },
+const makeStyles = (t: Theme) => StyleSheet.create({
+  screen: { flex: 1, backgroundColor: t.bg },
+  h: { fontSize: 13, fontWeight: '700', color: t.faint, textTransform: 'uppercase', marginTop: 20, marginBottom: 8 },
+  input: { backgroundColor: t.paper, borderWidth: 1, borderColor: t.lineStrong, borderRadius: t.radius, padding: 12, fontSize: 16, color: t.ink },
+  btn: { marginTop: 12, backgroundColor: t.btn, borderRadius: t.radius, padding: 14, alignItems: 'center' },
+  btnGhost: { backgroundColor: 'transparent', borderWidth: 1, borderColor: t.accent },
+  btnText: { color: t.btnInk, fontSize: 16, fontWeight: '700' },
+  btnGhostText: { color: t.accentText },
   rowBetween: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: 20 },
-  label: { fontSize: 15, color: theme.ink },
-  hint: { fontSize: 12, color: theme.muted, marginTop: 6 },
+  label: { fontSize: 15, color: t.ink },
+  hint: { fontSize: 12, color: t.faint, marginTop: 6 },
+  segments: { flexDirection: 'row', gap: 8 },
+  seg: { flex: 1, borderWidth: 1, borderColor: t.lineStrong, borderRadius: t.radius, paddingVertical: 10, alignItems: 'center', backgroundColor: t.paper },
+  segOn: { borderColor: t.accent, borderWidth: 2 },
+  segText: { fontSize: 15, color: t.ink },
 });

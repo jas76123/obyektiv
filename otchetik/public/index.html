@@ -5,6 +5,7 @@
     <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover" />
     <title>%WEB_TITLE%</title>
+    <meta name="color-scheme" content="light dark" />
     <!-- The `react-native-web` recommended style reset: https://necolas.github.io/react-native-web/docs/setup/#root-element -->
     <style id="expo-reset">
       /* These styles make the body full-height */
@@ -21,6 +22,13 @@
       /* These styles disable body scrolling if you are using <ScrollView> */
       body {
         overflow: hidden;
+        /* Фон до загрузки JS — как в теме браузера (палитра дашборда, спека 26.09 §5) */
+        background: #F0F5FC;
+      }
+      @media (prefers-color-scheme: dark) {
+        body {
+          background: #0B1120;
+        }
       }
       /* These styles make the root element full-height */
       #root {

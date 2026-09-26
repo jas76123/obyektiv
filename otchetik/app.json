@@ -6,7 +6,7 @@
     "icon": "./assets/icon.png",
     "orientation": "portrait",
     "scheme": "otchetik",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "android": {
       "package": "ru.obyektiv.otchetik",

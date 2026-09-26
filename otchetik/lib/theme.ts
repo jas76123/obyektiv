@@ -91,20 +91,3 @@ export function resolveScheme(pref: ThemePref, system: string | null | undefined
   if (pref !== 'auto') return pref;
   return system === 'dark' ? 'dark' : 'light';
 }
-
-/** Старая статичная палитра. Удаляется в задаче 5 плана, когда все экраны перейдут на useTheme(). */
-export const theme = {
-  bg: '#F5F4F0',
-  paper: '#FFFFFF',
-  ink: '#1E262E',
-  muted: '#66717C',
-  line: '#DCDFE3',
-  accent: '#D9551F',
-  accentInk: '#FFFFFF',
-  warnBg: '#FFF6D6',
-  warnInk: '#6B5200',
-  okBg: '#E9F2E7',
-  error: '#AC3529',
-  radius: 10,
-  pad: 16,
-};
