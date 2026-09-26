@@ -6,9 +6,10 @@ import { Header } from '../../components/Header';
 import { TaskCard } from '../../components/TaskCard';
 import { useSchedule, useShotStatuses } from '../../data/queries';
 import { serverBase, useSettings } from '../../data/settings';
+import { useTheme } from '../../data/theme';
 import { taskState } from '../../lib/reports';
+import type { Theme } from '../../lib/theme';
 import { dayKey, fmtDay, todayIso } from '../../lib/time';
-import { theme } from '../../lib/theme';
 import { useMlEmpty } from '../../queue/mlResults';
 import { useShownRecords } from '../../queue/useShownRecords';
 
@@ -22,6 +23,8 @@ export default function Today() {
   const { settings } = useSettings();
   const date = todayIso();
   const online = useOnline();
+  const t = useTheme();
+  const styles = useMemo(() => makeStyles(t), [t]);
   // Спрашиваем разрешение на геолокацию заранее: quickGeo при съёмке ждёт координаты
   // не дольше секунды, и системный диалог разрешения в это окно не должен успеть встать.
   useEffect(() => { Location.requestForegroundPermissionsAsync().catch(() => {}); }, []);
@@ -42,8 +45,8 @@ export default function Today() {
       <FlatList
         data={tasks}
         keyExtractor={(t) => t.task_id}
-        contentContainerStyle={{ padding: theme.pad }}
-        refreshControl={<RefreshControl refreshing={schedule.isFetching} onRefresh={() => { schedule.refetch(); refresh(); }} />}
+        contentContainerStyle={{ padding: t.pad }}
+        refreshControl={<RefreshControl refreshing={schedule.isFetching} onRefresh={() => { schedule.refetch(); refresh(); }} tintColor={t.accentText} colors={[t.accentText]} />}
         renderItem={({ item }) => (
           <TaskCard
             task={item}
@@ -60,8 +63,8 @@ export default function Today() {
   );
 }
 
-const styles = StyleSheet.create({
-  screen: { flex: 1, backgroundColor: theme.bg },
-  day: { paddingHorizontal: theme.pad, paddingTop: 12, fontSize: 12, fontWeight: '700', color: theme.muted, letterSpacing: 0.6 },
-  empty: { color: theme.muted, textAlign: 'center', marginTop: 24 },
+const makeStyles = (t: Theme) => StyleSheet.create({
+  screen: { flex: 1, backgroundColor: t.bg },
+  day: { paddingHorizontal: t.pad, paddingTop: 12, fontSize: 12, fontWeight: '700', color: t.faint, letterSpacing: 0.6 },
+  empty: { color: t.muted, textAlign: 'center', marginTop: 24 },
 });

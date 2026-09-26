@@ -1,15 +1,18 @@
 import Constants from 'expo-constants';
 import { useRouter } from 'expo-router';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useObjects } from '../data/queries';
 import { useSettings } from '../data/settings';
-import { theme } from '../lib/theme';
+import { useTheme } from '../data/theme';
+import type { Theme } from '../lib/theme';
 
 export default function Login() {
   const { settings, save } = useSettings();
   const { data, isLoading, error } = useObjects();
   const router = useRouter();
+  const t = useTheme();
+  const styles = useMemo(() => makeStyles(t), [t]);
   const [objectId, setObjectId] = useState<string | null>(settings?.objectId ?? null);
   const [brigadeId, setBrigadeId] = useState<string | null>(settings?.brigadeId ?? null);
 
@@ -24,7 +27,7 @@ export default function Login() {
   }
 
   return (
-    <ScrollView style={styles.screen} contentContainerStyle={{ padding: theme.pad, paddingTop: 48 }}>
+    <ScrollView style={styles.screen} contentContainerStyle={{ padding: t.pad, paddingTop: 48 }}>
       <Text style={styles.title}>Отчётик</Text>
       <Text style={styles.lead}>Выберите объект и бригаду. Это запомнится на телефоне.</Text>
       {data?.source === 'demo' && <Text style={styles.demo}>демо-данные</Text>}
@@ -51,24 +54,25 @@ export default function Login() {
       </Pressable>
 
       <Pressable onLongPress={() => router.push('/settings')} delayLongPress={800} style={{ marginTop: 40, alignSelf: 'center' }} accessibilityRole="button" accessibilityLabel="Настройки сервера">
-        <Text style={styles.muted}>версия {Constants.expoConfig?.version ?? '0.1.0'}</Text>
+        <Text style={styles.version}>версия {Constants.expoConfig?.version ?? '0.1.0'}</Text>
       </Pressable>
     </ScrollView>
   );
 }
 
-const styles = StyleSheet.create({
-  screen: { flex: 1, backgroundColor: theme.bg },
-  title: { fontSize: 32, fontWeight: '800', color: theme.ink },
-  lead: { fontSize: 15, color: theme.muted, marginTop: 6 },
-  demo: { alignSelf: 'flex-start', marginTop: 8, fontSize: 12, color: theme.warnInk, backgroundColor: theme.warnBg, paddingHorizontal: 6, borderRadius: 4 },
-  muted: { color: theme.muted, marginTop: 12 },
-  err: { color: theme.error, marginTop: 12 },
-  h: { fontSize: 13, fontWeight: '700', color: theme.muted, textTransform: 'uppercase', marginTop: 24, marginBottom: 8 },
-  opt: { backgroundColor: theme.paper, borderWidth: 1, borderColor: theme.line, borderRadius: theme.radius, padding: 14, marginBottom: 8 },
-  optOn: { borderColor: theme.accent, borderWidth: 2 },
-  optText: { fontSize: 16, color: theme.ink },
-  btn: { marginTop: 28, backgroundColor: theme.accent, borderRadius: theme.radius, padding: 16, alignItems: 'center' },
+const makeStyles = (t: Theme) => StyleSheet.create({
+  screen: { flex: 1, backgroundColor: t.bg },
+  title: { fontSize: 32, fontWeight: '800', color: t.ink },
+  lead: { fontSize: 15, color: t.muted, marginTop: 6 },
+  demo: { alignSelf: 'flex-start', marginTop: 8, fontSize: 12, color: t.warnInk, backgroundColor: t.warnBg, paddingHorizontal: 6, borderRadius: 6 },
+  muted: { color: t.muted, marginTop: 12 },
+  version: { color: t.faint, marginTop: 12 },
+  err: { color: t.error, marginTop: 12 },
+  h: { fontSize: 13, fontWeight: '700', color: t.faint, textTransform: 'uppercase', marginTop: 24, marginBottom: 8 },
+  opt: { backgroundColor: t.paper, borderWidth: 1, borderColor: t.line, borderRadius: t.radiusLg, padding: 14, marginBottom: 8 },
+  optOn: { borderColor: t.accent, borderWidth: 2 },
+  optText: { fontSize: 16, color: t.ink },
+  btn: { marginTop: 28, backgroundColor: t.btn, borderRadius: t.radius, padding: 16, alignItems: 'center' },
   btnOff: { opacity: 0.4 },
-  btnText: { color: theme.accentInk, fontSize: 17, fontWeight: '700' },
+  btnText: { color: t.btnInk, fontSize: 17, fontWeight: '700' },
 });

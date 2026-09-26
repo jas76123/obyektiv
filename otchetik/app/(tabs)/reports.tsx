@@ -5,8 +5,9 @@ import { ReportRow } from '../../components/ReportRow';
 import { showAlert, showCaptureError } from '../../components/alerts';
 import { useSchedule, useShotStatuses } from '../../data/queries';
 import { serverBase, useSettings } from '../../data/settings';
+import { useTheme } from '../../data/theme';
 import { buildReport, taskState } from '../../lib/reports';
-import { theme } from '../../lib/theme';
+import type { Theme } from '../../lib/theme';
 import { todayIso } from '../../lib/time';
 import { captureForTask } from '../../queue/capture';
 import { useMlEmpty } from '../../queue/mlResults';
@@ -16,6 +17,8 @@ import { useOnline } from './today';
 export default function Reports() {
   const { settings } = useSettings();
   const online = useOnline();
+  const t = useTheme();
+  const styles = useMemo(() => makeStyles(t), [t]);
   const date = todayIso();
   const schedule = useSchedule(settings?.objectId ?? null, settings?.brigadeId ?? null, date);
   const { shown, pending } = useShownRecords(schedule.data?.source === 'demo');
@@ -48,7 +51,7 @@ export default function Reports() {
       <SectionList
         sections={sections}
         keyExtractor={(w, i) => w.task_id + i}
-        contentContainerStyle={{ padding: theme.pad }}
+        contentContainerStyle={{ padding: t.pad }}
         renderSectionHeader={({ section }) => <Text style={styles.day}>{section.title}</Text>}
         renderItem={({ item }) => <ReportRow work={item} onRetake={retake} />}
         ListEmptyComponent={<Text style={styles.empty}>Пока нет фото. Снимите работу на экране «Сегодня».</Text>}
@@ -57,9 +60,9 @@ export default function Reports() {
   );
 }
 
-const styles = StyleSheet.create({
-  screen: { flex: 1, backgroundColor: theme.bg },
-  cap: { paddingHorizontal: theme.pad, paddingTop: 12, fontSize: 12, fontWeight: '700', color: theme.muted, letterSpacing: 0.6 },
-  day: { fontSize: 15, fontWeight: '700', color: theme.ink, marginTop: 8, marginBottom: 8 },
-  empty: { color: theme.muted, textAlign: 'center', marginTop: 24 },
+const makeStyles = (t: Theme) => StyleSheet.create({
+  screen: { flex: 1, backgroundColor: t.bg },
+  cap: { paddingHorizontal: t.pad, paddingTop: 12, fontSize: 12, fontWeight: '700', color: t.faint, letterSpacing: 0.6 },
+  day: { fontSize: 15, fontWeight: '700', color: t.ink, marginTop: 8, marginBottom: 8 },
+  empty: { color: t.muted, textAlign: 'center', marginTop: 24 },
 });

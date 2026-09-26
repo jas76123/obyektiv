@@ -5,8 +5,9 @@ import { Header } from '../../components/Header';
 import type { Leaderboard } from '../../contract/schemas';
 import { useLeaderboard, useObjects, useSchedules } from '../../data/queries';
 import { serverBase, useSettings } from '../../data/settings';
+import { useTheme } from '../../data/theme';
 import { POINTS_PER_ACCEPTED, buildLeaderboard } from '../../lib/leaderboard';
-import { theme } from '../../lib/theme';
+import type { Theme } from '../../lib/theme';
 import { todayIso } from '../../lib/time';
 import { runMlCheckNow } from '../../queue/mlRun';
 import { setPhotosWanted, usePhotos } from '../../queue/photosCache';
@@ -22,6 +23,8 @@ export default function Rating() {
   const { settings } = useSettings();
   const online = useOnline();
   const { pending } = useQueue();
+  const t = useTheme();
+  const styles = useMemo(() => makeStyles(t), [t]);
   const objectId = settings?.objectId ?? null;
   // Живой сервер: рейтинг считаем сами из /photos (спека 26.09 §5); демо — файл demo/leaderboard.json.
   const live = settings ? serverBase(settings) !== null : false;
@@ -66,8 +69,8 @@ export default function Rating() {
       <FlatList
         data={brigades}
         keyExtractor={(b) => b.id}
-        contentContainerStyle={{ padding: theme.pad }}
-        refreshControl={<RefreshControl refreshing={refreshing || lb.isFetching} onRefresh={refresh} />}
+        contentContainerStyle={{ padding: t.pad }}
+        refreshControl={<RefreshControl refreshing={refreshing || lb.isFetching} onRefresh={refresh} tintColor={t.accentText} colors={[t.accentText]} />}
         ListHeaderComponent={
           <View>
             <Text style={styles.cap}>ПРИНЯТЫЕ РАБОТЫ · БАЛЛЫ</Text>
@@ -116,22 +119,22 @@ export default function Rating() {
   );
 }
 
-const styles = StyleSheet.create({
-  screen: { flex: 1, backgroundColor: theme.bg },
-  cap: { fontSize: 12, fontWeight: '700', color: theme.muted, letterSpacing: 0.6, marginBottom: 8 },
+const makeStyles = (t: Theme) => StyleSheet.create({
+  screen: { flex: 1, backgroundColor: t.bg },
+  cap: { fontSize: 12, fontWeight: '700', color: t.faint, letterSpacing: 0.6, marginBottom: 8 },
   headRow: { flexDirection: 'row', alignItems: 'center', gap: 6, paddingHorizontal: 12, paddingBottom: 6 },
-  headCell: { fontSize: 11, fontWeight: '700', color: theme.muted }, // без капса и разрядки: в 56/48/44 px капс «ПРИНЯТО» переносится
+  headCell: { fontSize: 11, fontWeight: '700', color: t.faint }, // без капса и разрядки: в 56/48/44 px капс «ПРИНЯТО» переносится
   num: { textAlign: 'right' },
-  row: { flexDirection: 'row', alignItems: 'center', gap: 6, backgroundColor: theme.paper, borderWidth: 1, borderColor: theme.line, borderRadius: theme.radius, paddingVertical: 12, paddingHorizontal: 12, marginBottom: 8 },
-  mine: { borderColor: theme.accent, borderWidth: 2 },
-  rank: { fontSize: 18, fontWeight: '800', color: theme.muted },
+  row: { flexDirection: 'row', alignItems: 'center', gap: 6, backgroundColor: t.paper, borderWidth: 1, borderColor: t.line, borderRadius: t.radiusLg, paddingVertical: 12, paddingHorizontal: 12, marginBottom: 8 },
+  mine: { borderColor: t.accent, borderWidth: 2 },
+  rank: { fontSize: 18, fontWeight: '800', color: t.faint },
   nameCell: { flex: 1, alignItems: 'flex-start', gap: 4, minWidth: 0 },
-  name: { fontSize: 16, fontWeight: '700', color: theme.ink, flexShrink: 1 },
-  me: { borderWidth: 1, borderColor: theme.accent, borderRadius: 999, paddingHorizontal: 8, paddingVertical: 2 },
-  meText: { fontSize: 12, fontWeight: '700', color: theme.accent, textTransform: 'uppercase', letterSpacing: 0.3 },
-  cell: { fontSize: 15, color: theme.ink },
-  points: { fontSize: 18, fontWeight: '800', color: theme.ink },
-  meta: { fontSize: 13, color: theme.muted, marginTop: 2 },
-  other: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 8, paddingVertical: 8, borderBottomWidth: 1, borderBottomColor: theme.line },
-  note: { fontSize: 12, color: theme.muted, marginTop: 12 },
+  name: { fontSize: 16, fontWeight: '700', color: t.ink, flexShrink: 1 },
+  me: { borderWidth: 1, borderColor: t.accent, borderRadius: 999, paddingHorizontal: 8, paddingVertical: 2 },
+  meText: { fontSize: 12, fontWeight: '700', color: t.accentText, textTransform: 'uppercase', letterSpacing: 0.3 },
+  cell: { fontSize: 15, color: t.ink },
+  points: { fontSize: 18, fontWeight: '800', color: t.ink },
+  meta: { fontSize: 13, color: t.muted, marginTop: 2 },
+  other: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 8, paddingVertical: 8, borderBottomWidth: 1, borderBottomColor: t.line },
+  note: { fontSize: 12, color: t.muted, marginTop: 12 },
 });
