@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { resolveScheme, themes, type Theme } from '../lib/theme';
+import { LIGHT_FROM_HOUR, LIGHT_UNTIL_HOUR, THEME_PREF_LABEL, nextThemePref, resolveScheme, themes, type Theme } from '../lib/theme';
 
 const HEX = /^#[0-9A-F]{6}([0-9A-F]{2})?$/;
 
@@ -46,19 +46,33 @@ describe('themes', () => {
 });
 
 describe('resolveScheme', () => {
+  it('дневные часы 07:00–19:00', () => {
+    expect([LIGHT_FROM_HOUR, LIGHT_UNTIL_HOUR]).toEqual([7, 19]);
+  });
   it.each([
-    ['auto', 'dark', 'dark'],
-    ['auto', 'light', 'light'],
-    ['auto', null, 'light'],
-    ['auto', undefined, 'light'],
-    ['auto', 'unspecified', 'light'],
-    ['light', 'dark', 'light'],
-    ['light', 'light', 'light'],
-    ['light', null, 'light'],
-    ['dark', 'light', 'dark'],
-    ['dark', null, 'dark'],
-    ['dark', 'dark', 'dark'],
-  ] as const)('pref=%s system=%s → %s', (pref, system, want) => {
-    expect(resolveScheme(pref, system)).toBe(want);
+    ['auto', 7, 'light'],
+    ['auto', 12, 'light'],
+    ['auto', 18, 'light'],
+    ['auto', 19, 'dark'],
+    ['auto', 23, 'dark'],
+    ['auto', 0, 'dark'],
+    ['auto', 6, 'dark'],
+    ['light', 23, 'light'],
+    ['light', 12, 'light'],
+    ['dark', 12, 'dark'],
+    ['dark', 23, 'dark'],
+  ] as const)('pref=%s hour=%s → %s', (pref, hour, want) => {
+    expect(resolveScheme(pref, hour)).toBe(want);
+  });
+});
+
+describe('переключение кнопкой в шапке', () => {
+  it('по кругу: авто → светлая → тёмная → авто', () => {
+    expect(nextThemePref('auto')).toBe('light');
+    expect(nextThemePref('light')).toBe('dark');
+    expect(nextThemePref('dark')).toBe('auto');
+  });
+  it('подписи', () => {
+    expect(THEME_PREF_LABEL).toEqual({ auto: 'авто', light: 'светлая', dark: 'тёмная' });
   });
 });

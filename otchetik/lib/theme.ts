@@ -86,8 +86,23 @@ const light: Theme = {
 
 export const themes: Record<Scheme, Theme> = { light, dark };
 
-/** Настройка сильнее системы; всё, что не «dark» (в том числе 'unspecified' RN 0.86, null) — светлая. */
-export function resolveScheme(pref: ThemePref, system: string | null | undefined): Scheme {
+/** «Авто»: светлая с LIGHT_FROM_HOUR до LIGHT_UNTIL_HOUR по времени телефона, иначе тёмная (решение продакта 26.09). */
+export const LIGHT_FROM_HOUR = 7;
+export const LIGHT_UNTIL_HOUR = 19;
+
+/** Настройка сильнее времени; в «авто» светлая только в часы [LIGHT_FROM_HOUR, LIGHT_UNTIL_HOUR). `hour` — 0–23. */
+export function resolveScheme(pref: ThemePref, hour: number): Scheme {
   if (pref !== 'auto') return pref;
-  return system === 'dark' ? 'dark' : 'light';
+  return hour >= LIGHT_FROM_HOUR && hour < LIGHT_UNTIL_HOUR ? 'light' : 'dark';
+}
+
+/** Порядок переключения кнопкой в шапке: авто → светлая → тёмная → авто. */
+const THEME_PREF_ORDER: readonly ThemePref[] = ['auto', 'light', 'dark'];
+
+/** Подпись на кнопке в шапке. */
+export const THEME_PREF_LABEL: Record<ThemePref, string> = { auto: 'авто', light: 'светлая', dark: 'тёмная' };
+
+export function nextThemePref(pref: ThemePref): ThemePref {
+  const i = THEME_PREF_ORDER.indexOf(pref);
+  return THEME_PREF_ORDER[(i + 1) % THEME_PREF_ORDER.length];
 }

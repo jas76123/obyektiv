@@ -5,15 +5,8 @@ import { showAlert } from '../components/alerts';
 import { queryClient } from '../data/queryClient';
 import { currentDefaultServerUrl, useSettings } from '../data/settings';
 import { useTheme } from '../data/theme';
-import type { Theme, ThemePref } from '../lib/theme';
+import type { Theme } from '../lib/theme';
 import { useQueue } from '../queue/useQueue';
-
-/** Три варианта темы; порядок и слова — спека 26.09 §3. */
-const THEME_PREFS: { value: ThemePref; label: string }[] = [
-  { value: 'auto', label: 'авто' },
-  { value: 'light', label: 'светлая' },
-  { value: 'dark', label: 'тёмная' },
-];
 
 export default function Settings() {
   const { settings, save } = useSettings();
@@ -56,14 +49,6 @@ export default function Settings() {
       showAlert('Не получилось', err instanceof Error ? err.message : 'Не удалось отправить очередь');
     }
   }
-  async function pickTheme(theme: ThemePref) {
-    try {
-      await save({ theme });
-    } catch (err) {
-      showAlert('Не получилось', err instanceof Error ? err.message : 'Не удалось сохранить настройку');
-    }
-  }
-
   return (
     <ScrollView style={styles.screen} contentContainerStyle={{ padding: t.pad }}>
       <Text style={styles.h}>Адрес сервера</Text>
@@ -80,16 +65,6 @@ export default function Settings() {
         <Text style={styles.label}>Проверять фото нейросетью</Text>
         <Switch value={settings.mlCheck} {...switchColors} onValueChange={async (v) => { try { await save({ mlCheck: v }); } catch (err) { showAlert('Не получилось', err instanceof Error ? err.message : 'Не удалось сохранить настройку'); } }} />
       </View>
-
-      <Text style={styles.h}>Тема</Text>
-      <View style={styles.segments}>
-        {THEME_PREFS.map((p) => (
-          <Pressable key={p.value} onPress={() => pickTheme(p.value)} style={[styles.seg, settings.theme === p.value && styles.segOn]} accessibilityRole="radio" accessibilityState={{ selected: settings.theme === p.value }}>
-            <Text style={styles.segText}>{p.label}</Text>
-          </Pressable>
-        ))}
-      </View>
-      <Text style={styles.hint}>авто — как в телефоне</Text>
 
       <Text style={styles.h}>Очередь</Text>
       <Text style={styles.label}>в очереди {pending}: ждут {counts.queued}, отправляются {counts.uploading}, с ошибкой {counts.failed}; отправлено {counts.uploaded}</Text>
@@ -115,8 +90,4 @@ const makeStyles = (t: Theme) => StyleSheet.create({
   rowBetween: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: 20 },
   label: { fontSize: 15, color: t.ink },
   hint: { fontSize: 12, color: t.faint, marginTop: 6 },
-  segments: { flexDirection: 'row', gap: 8 },
-  seg: { flex: 1, borderWidth: 1, borderColor: t.lineStrong, borderRadius: t.radius, paddingVertical: 10, alignItems: 'center', backgroundColor: t.paper },
-  segOn: { borderColor: t.accent, borderWidth: 2 },
-  segText: { fontSize: 15, color: t.ink },
 });
