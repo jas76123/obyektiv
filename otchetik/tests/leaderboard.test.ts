@@ -10,8 +10,8 @@ const tasks: Record<string, ScheduleTask[]> = {
   'br-2': [task('t-doors-0922', 'Установка дверей', 'Зона 4'), task('t-floor-0922', 'Стяжка пола', 'Секция B')],
   'br-3': [],
 };
-function photo(server: string, brigade: string, taskId: string, uuid: string, count: number, timestamp: string): PhotoEntry {
-  return { id: server, file: `${server}_${brigade}.${taskId}.${uuid}.jpg`, timestamp, count };
+function photo(server: string, brigade: string, taskId: string, uuid: string, count: number, timestamp: string, work_status?: string): PhotoEntry {
+  return { id: server, file: `${server}_${brigade}.${taskId}.${uuid}.jpg`, timestamp, count, ...(work_status ? { work_status } : {}) };
 }
 
 describe('buildLeaderboard', () => {
@@ -30,6 +30,22 @@ describe('buildLeaderboard', () => {
       { id: 'br-1', name: 'Бригада №1', rank: 2, points: 10, accepted: 1, quality: 50 },
       { id: 'br-3', name: 'Бригада №3', rank: 3, points: 0, accepted: 0, quality: 0 },
     ]);
+  });
+
+  it('со сверкой «принято» = confirmed: unsure и not_confirmed с детекциями не считаются; без сверки — по детекциям', () => {
+    const photos = [
+      photo('s1', 'br-1', 't-doors-0922', 'a', 1, '2026-09-26T10:00:00', 'confirmed'),
+      photo('s2', 'br-1', 't-doors-0922', 'b', 2, '2026-09-26T10:05:00', 'unsure'),
+      photo('s3', 'br-1', 't-doors-0922', 'c', 2, '2026-09-26T10:06:00', 'not_confirmed'),
+      photo('s4', 'br-1', 't-doors-0922', 'd', 0, '2026-09-26T10:07:00', 'review'),
+      photo('s5', 'br-2', 't-floor-0922', 'e', 1, '2026-09-26T10:20:00'),
+      photo('s6', 'br-2', 't-floor-0922', 'f', 0, '2026-09-26T10:30:00'),
+    ];
+    const lb = buildLeaderboard(photos, brigades, tasks, null);
+    expect(lb.brigades.find((b) => b.id === 'br-1')).toMatchObject({ points: 10, accepted: 1, quality: 25 });
+    expect(lb.brigades.find((b) => b.id === 'br-2')).toMatchObject({ points: 10, accepted: 1, quality: 50 });
+    // «Что сделали другие» по-прежнему по детекциям: unsure с техникой — тоже «сделали»
+    expect(lb.others.map((o) => o.brigade)).toEqual(['Бригада №2', 'Бригада №1', 'Бригада №1']);
   });
 
   it('others: три последних чужих фото с детекциями, имена из расписаний, запасной вариант — task_id', () => {

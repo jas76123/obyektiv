@@ -5,8 +5,9 @@ import type { PhotoEntry } from './photosCache';
 /**
  * Рейтинг бригад на телефоне из списка GET /photos (спека 26.09 §5.3). Формула Татьяны §11
  * `points = accepted × 10 + quality_bonus − rework × 5` без членов, которых в цепочке нет:
- * вердиктов руководителя и оценки качества от нейросети. Возвращает тот же тип, что
- * серверный /api/foreman/leaderboard, чтобы экран рисовал его без изменений.
+ * вердиктов руководителя и оценки качества от нейросети. «Принято» = сверка с планом
+ * `confirmed` (спека 26.09 «work_status» §3.4); если сверки в ответе нет — фото с детекциями.
+ * Возвращает тот же тип, что серверный /api/foreman/leaderboard, чтобы экран рисовал его без изменений.
  */
 export const POINTS_PER_ACCEPTED = 10;
 export const OTHERS_LIMIT = 3;
@@ -22,6 +23,11 @@ function parseAll(photos: PhotoEntry[]): Parsed[] {
   });
 }
 
+/** Фото засчитано бригаде: сверка confirmed, а без сверки — есть детекции. */
+function isAccepted(p: PhotoEntry): boolean {
+  return p.work_status ? p.work_status === 'confirmed' : p.count > 0;
+}
+
 export function buildLeaderboard(
   photos: PhotoEntry[],
   brigades: BrigadeRef[],
@@ -33,7 +39,7 @@ export function buildLeaderboard(
   const rows = brigades
     .map((b) => {
       const mine = parsed.filter((p) => p.brigade_id === b.id);
-      const accepted = mine.filter((p) => p.count > 0).length;
+      const accepted = mine.filter(isAccepted).length;
       const quality = mine.length ? Math.round((100 * accepted) / mine.length) : 0;
       return { id: b.id, name: b.name, rank: 0, points: accepted * POINTS_PER_ACCEPTED, accepted, quality };
     })
