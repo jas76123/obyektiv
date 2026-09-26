@@ -1,5 +1,41 @@
 import { describe, expect, it } from 'vitest';
-import { SCREEN_LABEL, foldStatus, photoChip, workStatus } from '../lib/status';
+import {
+  FINAL_WORK_STATUS, SCREEN_LABEL, VERDICT_WORD, dayVerdict, foldStatus, normalizeWorkStatus, photoChip, photoVerdict, photoWord, workStatus,
+} from '../lib/status';
+
+describe('normalizeWorkStatus', () => {
+  it('пробел и подчёркивание — одно значение, регистр и края не важны', () => {
+    expect(normalizeWorkStatus('not confirmed')).toBe('not_confirmed');
+    expect(normalizeWorkStatus('not_confirmed')).toBe('not_confirmed');
+    expect(normalizeWorkStatus('  Confirmed ')).toBe('confirmed');
+    expect(normalizeWorkStatus('')).toBeNull();
+    expect(normalizeWorkStatus(null)).toBeNull();
+    expect(normalizeWorkStatus(undefined)).toBeNull();
+  });
+  it('окончательные значения сверки', () => {
+    expect([...FINAL_WORK_STATUS].sort()).toEqual(['confirmed', 'not_confirmed', 'review']);
+  });
+});
+
+describe('photoVerdict', () => {
+  it('confirmed → принято; review и not confirmed → переснять', () => {
+    expect(photoVerdict({ work_status: 'confirmed' })).toBe('accepted');
+    expect(photoVerdict({ work_status: 'review' })).toBe('retake');
+    expect(photoVerdict({ work_status: 'not confirmed' })).toBe('retake');
+    expect(photoVerdict({ work_status: 'not_confirmed' })).toBe('retake');
+  });
+  it('unsure, неизвестное слово и отсутствие сверки — откат на детекции', () => {
+    expect(photoVerdict({ work_status: 'unsure', empty: true })).toBe('retake');
+    expect(photoVerdict({ work_status: 'unsure', empty: false })).toBeNull();
+    expect(photoVerdict({ work_status: 'maybe', empty: true })).toBe('retake');
+    expect(photoVerdict({ empty: true })).toBe('retake');
+    expect(photoVerdict({ empty: false })).toBeNull();
+    expect(photoVerdict()).toBeNull();
+  });
+  it('сверка главнее детекций: confirmed с пустыми детекциями — принято', () => {
+    expect(photoVerdict({ work_status: 'confirmed', empty: true })).toBe('accepted');
+  });
+});
 
 describe('foldStatus', () => {
   it('всё, что не вернули на пересъём, — в работе', () => {
@@ -11,15 +47,16 @@ describe('foldStatus', () => {
     expect(foldStatus('rework')).toBe('retake');
     expect(foldStatus('rejected')).toBe('retake');
   });
-  it('пустые детекции нейросети — переснять, пока сервер не вынес итог', () => {
-    expect(foldStatus('uploaded', { mlEmpty: true })).toBe('retake');
-    // итог сервера главнее правила по детекциям: «принято» остаётся «в работе», «доработка» — «переснять»
-    expect(foldStatus('accepted', { mlEmpty: true })).toBe('in_work');
-    expect(foldStatus('partial', { mlEmpty: true })).toBe('in_work');
-    expect(foldStatus('rework', { mlEmpty: false })).toBe('retake');
-    expect(foldStatus('processed', { mlEmpty: true })).toBe('retake');
-    expect(foldStatus('under_review', { mlEmpty: true })).toBe('retake');
-    expect(foldStatus('uploaded', { mlEmpty: false })).toBe('in_work');
+  it('вердикт «переснять» — переснять, пока сервер не вынес итог; «принято» у фото не делает работу принятой', () => {
+    expect(foldStatus('uploaded', { verdict: 'retake' })).toBe('retake');
+    expect(foldStatus('processed', { verdict: 'retake' })).toBe('retake');
+    expect(foldStatus('under_review', { verdict: 'retake' })).toBe('retake');
+    expect(foldStatus('uploaded', { verdict: 'accepted' })).toBe('in_work');
+    expect(foldStatus('uploaded', { verdict: null })).toBe('in_work');
+    // итог сервера главнее вердикта
+    expect(foldStatus('accepted', { verdict: 'retake' })).toBe('in_work');
+    expect(foldStatus('partial', { verdict: 'retake' })).toBe('in_work');
+    expect(foldStatus('rework', { verdict: 'accepted' })).toBe('retake');
   });
 });
 
@@ -33,9 +70,23 @@ describe('workStatus', () => {
   });
 });
 
-describe('слова и цвета', () => {
-  it('три слова', () => {
-    expect(SCREEN_LABEL).toEqual({ not_started: 'не начато', in_work: 'в работе', retake: 'переснять' });
+describe('dayVerdict', () => {
+  it.each([
+    [[], 'not_accepted'],
+    [['retake'], 'not_accepted'],
+    [['retake', 'retake'], 'not_accepted'],
+    [['in_work'], 'accepted'],
+    [['retake', 'in_work'], 'accepted'],
+    [['in_work', 'retake', 'retake'], 'accepted'],
+  ] as const)('%j → %s', (folded, want) => {
+    expect(dayVerdict([...folded])).toBe(want);
+  });
+});
+
+describe('слова', () => {
+  it('пять слов чипа и два слова вердикта', () => {
+    expect(SCREEN_LABEL).toEqual({ not_started: 'не начато', in_work: 'в работе', retake: 'переснять', accepted: 'принято', not_accepted: 'не принято' });
+    expect(VERDICT_WORD).toEqual({ accepted: 'принято', retake: 'переснять' });
   });
   it('photoChip — только доставка', () => {
     expect(photoChip('queued')).toBe('ждёт сети');
@@ -51,5 +102,14 @@ describe('слова и цвета', () => {
     expect(photoChip('draft', { serverSet: false })).toBe('ждёт сервера');
     expect(photoChip('uploading', { serverSet: false })).toBe('отправляется');
     expect(photoChip('queued', { serverSet: true })).toBe('ждёт сети');
+  });
+  it('photoWord: до доставки — слово доставки, после — вердикт, без вердикта — «отправлено»', () => {
+    expect(photoWord('queued', 'accepted')).toBe('ждёт сети');
+    expect(photoWord('queued', 'accepted', { serverSet: false })).toBe('ждёт сервера');
+    expect(photoWord('uploading', 'retake')).toBe('отправляется');
+    expect(photoWord('uploaded', null)).toBe('отправлено');
+    expect(photoWord('uploaded', 'accepted')).toBe('принято');
+    expect(photoWord('processed', 'retake')).toBe('переснять');
+    expect(photoWord('rework', null)).toBe('отправлено');
   });
 });

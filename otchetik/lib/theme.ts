@@ -22,8 +22,8 @@ export type Theme = {
   accentText: string;  // текст-акцент, активная вкладка, спиннер обновления
   btn: string;         // фон основной кнопки
   btnInk: string;      // текст на основной кнопке
-  ok: string;          // зарезервирован под «принято»
-  okText: string;      // зарезервирован под «принято»
+  ok: string;          // зелёный дашборда (зарезервирован)
+  okText: string;      // текст «принято» (чип, слово фото)
   warn: string;        // зарезервирован
   warnInk: string;     // текст бейджей «демо», «из кэша», предупреждения об очереди
   warnBg: string;      // их фон (жёлтый с прозрачностью 15 %)
@@ -56,7 +56,7 @@ const dark: Theme = {
   warnInk: '#FBBF24',
   warnBg: '#FBBF2426',
   error: '#EF4444',
-  status: { not_started: '#94A3B8', in_work: '#38BDF8', retake: '#EF4444' },
+  status: { not_started: '#94A3B8', in_work: '#38BDF8', retake: '#EF4444', accepted: '#34D399', not_accepted: '#EF4444' },
   ...sizes,
 };
 
@@ -80,7 +80,7 @@ const light: Theme = {
   warnInk: '#B45309',
   warnBg: '#FBBF2426',
   error: '#B91C1C',
-  status: { not_started: '#263252', in_work: '#0369A1', retake: '#B91C1C' },
+  status: { not_started: '#263252', in_work: '#0369A1', retake: '#B91C1C', accepted: '#047857', not_accepted: '#B91C1C' },
   ...sizes,
 };
 

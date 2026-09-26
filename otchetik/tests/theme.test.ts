@@ -30,6 +30,8 @@ describe('themes', () => {
       expect(t.status.not_started).toBe(t.muted);
       expect(t.status.in_work).toBe(t.accentText);
       expect(t.status.retake).toBe(t.error);
+      expect(t.status.accepted).toBe(t.okText);
+      expect(t.status.not_accepted).toBe(t.error);
     }
   });
   it('текст не сливается с фоном', () => {
