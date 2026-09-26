@@ -13,6 +13,11 @@ import type { ShotRecord } from './types';
  * прогон закрывает все ждущие фото, не чаще раза в минуту, с длинным таймаутом.
  */
 export const ML_MIN_INTERVAL_MS = 60_000;
+/** Допуск для ограничителя частоты: `lastRequestAt` ставится после нескольких await
+ * (loadSettings, storeReady, list, results.load), поэтому очередной тик, пришедший
+ * ровно через 60 с после предыдущего, может оказаться на несколько секунд раньше
+ * порога — без допуска такой тик уходит в too_soon через раз. */
+export const ML_INTERVAL_SLACK_MS = 2_000;
 export const ML_TIMEOUT_MS = 90_000;
 export const ML_LIMIT = 500;
 /** Старше — не спрашиваем: сервер сменился, файлы стёрли, ушли за лимит /photos —
@@ -50,7 +55,7 @@ export async function checkMlResults(deps: {
   const waiting = waitingRecords(deps.records, deps.results, now());
   if (waiting.length === 0 && !deps.wantPhotos) return { checked: 0, skipped: 'nothing' };
   if (inFlight) return { checked: 0, skipped: 'in_flight' };
-  if (now() - lastRequestAt < ML_MIN_INTERVAL_MS) return { checked: 0, skipped: 'too_soon' };
+  if (now() - lastRequestAt < ML_MIN_INTERVAL_MS - ML_INTERVAL_SLACK_MS) return { checked: 0, skipped: 'too_soon' };
   inFlight = true;
   lastRequestAt = now();
 

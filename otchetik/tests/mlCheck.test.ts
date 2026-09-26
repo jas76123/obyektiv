@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { createMlResults, type KeyValue } from '../lib/mlResults';
 import { createPhotosCache } from '../lib/photosCache';
-import { ML_MAX_AGE_MS, ML_MIN_INTERVAL_MS, checkMlResults, resetMlCheckClock, waitingRecords } from '../queue/mlCheck';
+import { ML_INTERVAL_SLACK_MS, ML_MAX_AGE_MS, ML_MIN_INTERVAL_MS, checkMlResults, resetMlCheckClock, waitingRecords } from '../queue/mlCheck';
 import { newRecord, type ShotRecord } from '../queue/types';
 
 function memoryKv(): KeyValue { const d: Record<string, string> = {}; return { async getItem(k) { return d[k] ?? null; }, async setItem(k, v) { d[k] = v; } }; }
@@ -48,16 +48,36 @@ describe('checkMlResults', () => {
     expect(fetchImpl).not.toHaveBeenCalled();
   });
 
-  it('не чаще одного запроса в минуту', async () => {
+  it('не чаще одного запроса в минуту (с учётом допуска ML_INTERVAL_SLACK_MS)', async () => {
     const fetchImpl = photosResponse([]);
     const results = createMlResults(memoryKv());
     await checkMlResults({ base: 'http://x', records: [uploaded('a')], results, fetchImpl, now: () => now });
-    now += ML_MIN_INTERVAL_MS - 1;
+    now += ML_MIN_INTERVAL_MS - ML_INTERVAL_SLACK_MS - 1;
     const second = await checkMlResults({ base: 'http://x', records: [uploaded('a')], results, fetchImpl, now: () => now });
     expect(second.skipped).toBe('too_soon');
-    now += 1;
+    now += ML_INTERVAL_SLACK_MS + 1;
     await checkMlResults({ base: 'http://x', records: [uploaded('a')], results, fetchImpl, now: () => now });
     expect(fetchImpl).toHaveBeenCalledTimes(2);
+  });
+
+  it('тик пришёл на несколько секунд раньше 60 с из-за await — допуск пропускает запрос', async () => {
+    const fetchImpl = photosResponse([]);
+    const results = createMlResults(memoryKv());
+    await checkMlResults({ base: 'http://x', records: [uploaded('a')], results, fetchImpl, now: () => now });
+    now += ML_MIN_INTERVAL_MS - 5;
+    const second = await checkMlResults({ base: 'http://x', records: [uploaded('a')], results, fetchImpl, now: () => now });
+    expect(second.skipped).not.toBe('too_soon');
+    expect(fetchImpl).toHaveBeenCalledTimes(2);
+  });
+
+  it('раньше границы допуска — всё ещё too_soon', async () => {
+    const fetchImpl = photosResponse([]);
+    const results = createMlResults(memoryKv());
+    await checkMlResults({ base: 'http://x', records: [uploaded('a')], results, fetchImpl, now: () => now });
+    now += ML_MIN_INTERVAL_MS - ML_INTERVAL_SLACK_MS - 5;
+    const second = await checkMlResults({ base: 'http://x', records: [uploaded('a')], results, fetchImpl, now: () => now });
+    expect(second.skipped).toBe('too_soon');
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
   });
 
   it('ошибка сети или ответ не по схеме — результата нет, исключения нет', async () => {
