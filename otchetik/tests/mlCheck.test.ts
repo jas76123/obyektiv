@@ -10,7 +10,7 @@ function uploaded(uuid: string, server_id: string | null = `srv-${uuid}`): ShotR
 }
 // Параметры типизированы явно (но не используются) — иначе vi.fn выводит
 // пустой кортеж аргументов и `mock.calls[0][0]` не проходит проверку типов.
-function photosResponse(items: { id: string; detections: unknown[]; file?: string; timestamp?: string }[]) {
+function photosResponse(items: { id: string; detections: unknown[]; file?: string; timestamp?: string; works_status?: unknown[] }[]) {
   const full = items.map((i, n) => ({ file: `${i.id}_x.jpg`, timestamp: `2026-09-25T10:00:0${n}`, ...i }));
   return vi.fn(async (_url?: RequestInfo | URL, _init?: RequestInit) => new Response(JSON.stringify({ total: full.length, photos: full }), { status: 200 }));
 }
@@ -39,16 +39,34 @@ describe('checkMlResults', () => {
     expect(results.get('c')).toBeUndefined(); // ещё нет в списке — спросим в следующий раз
   });
 
-  it('уже проверенные фото не спрашиваются снова', async () => {
+  it('фото с окончательной сверкой не спрашиваются снова', async () => {
     const results = createMlResults(memoryKv());
-    await results.set('a', { empty: false, count: 1, checked_at: 'x' });
+    await results.set('a', { empty: false, count: 1, checked_at: 'x', work_status: 'confirmed' });
+    await results.set('b', { empty: true, count: 0, checked_at: 'x', work_status: 'review' });
+    await results.set('c', { empty: false, count: 1, checked_at: 'x', work_status: 'not_confirmed' });
     const fetchImpl = photosResponse([]);
-    const r = await checkMlResults({ base: 'http://x', records: [uploaded('a')], results, fetchImpl, now: () => now });
+    const r = await checkMlResults({ base: 'http://x', records: [uploaded('a'), uploaded('b'), uploaded('c')], results, fetchImpl, now: () => now });
     expect(r.skipped).toBe('nothing');
     expect(fetchImpl).not.toHaveBeenCalled();
   });
 
-  it('не чаще одного запроса в минуту (с учётом допуска ML_INTERVAL_SLACK_MS)', async () => {
+  it('unsure и результат без сверки перезапрашиваются и перезаписываются, work_status нормализуется', async () => {
+    const results = createMlResults(memoryKv());
+    await results.set('a', { empty: false, count: 1, checked_at: 'x', work_status: 'unsure' });
+    await results.set('b', { empty: false, count: 1, checked_at: 'x' });
+    const fetchImpl = photosResponse([
+      { id: 'srv-a', detections: [{}], works_status: [{ work: 'Бетонирование', status: 'Not Confirmed', found: [] }] },
+      { id: 'srv-b', detections: [{}], works_status: [] },
+    ]);
+    const r = await checkMlResults({ base: 'http://x', records: [uploaded('a'), uploaded('b')], results, fetchImpl, now: () => now });
+    expect(r).toEqual({ checked: 2, skipped: null });
+    expect(results.get('a')).toMatchObject({ empty: false, count: 1, work_status: 'not_confirmed' });
+    expect(results.get('b')).toMatchObject({ empty: false, count: 1 });
+    expect(results.get('b')?.work_status).toBeUndefined();
+  });
+
+  it('не чаще одного запроса в 20 с (с учётом допуска ML_INTERVAL_SLACK_MS)', async () => {
+    expect(ML_MIN_INTERVAL_MS).toBe(20_000);
     const fetchImpl = photosResponse([]);
     const results = createMlResults(memoryKv());
     await checkMlResults({ base: 'http://x', records: [uploaded('a')], results, fetchImpl, now: () => now });
@@ -60,7 +78,7 @@ describe('checkMlResults', () => {
     expect(fetchImpl).toHaveBeenCalledTimes(2);
   });
 
-  it('тик пришёл на несколько секунд раньше 60 с из-за await — допуск пропускает запрос', async () => {
+  it('тик пришёл на несколько секунд раньше 20 с из-за await — допуск пропускает запрос', async () => {
     const fetchImpl = photosResponse([]);
     const results = createMlResults(memoryKv());
     await checkMlResults({ base: 'http://x', records: [uploaded('a')], results, fetchImpl, now: () => now });
@@ -142,6 +160,19 @@ describe('checkMlResults', () => {
     expect(r.skipped).toBe('nothing');
     expect(fetchImpl).not.toHaveBeenCalled();
   });
+
+  it('кэш фото получает work_status нормализованным, без сверки — без поля', async () => {
+    const photos = createPhotosCache(memoryKv());
+    const fetchImpl = photosResponse([
+      { id: 'srv-z', detections: [{}], file: 'srv-z_br-2.t-doors-0922.z.jpg', works_status: [{ work: 'x', status: 'confirmed', found: [] }] },
+      { id: 'srv-y', detections: [], file: 'srv-y_br-2.t-doors-0922.y.jpg' },
+    ]);
+    await checkMlResults({ base: 'http://x', records: [], results: createMlResults(memoryKv()), photos, wantPhotos: true, fetchImpl, now: () => now });
+    expect(photos.get().list).toEqual([
+      { id: 'srv-z', file: 'srv-z_br-2.t-doors-0922.z.jpg', timestamp: '2026-09-25T10:00:00', count: 1, work_status: 'confirmed' },
+      { id: 'srv-y', file: 'srv-y_br-2.t-doors-0922.y.jpg', timestamp: '2026-09-25T10:00:01', count: 0 },
+    ]);
+  });
 });
 
 describe('waitingRecords', () => {
@@ -154,5 +185,15 @@ describe('waitingRecords', () => {
     const noServer = { ...uploaded('no-server', null), taken_at: new Date(now - 1000).toISOString() };
     const r = waitingRecords([fresh, old, noServer], results, now);
     expect(r.map((x) => x.local_uuid)).toEqual(['fresh']);
+  });
+
+  it('запись с unsure или без сверки — снова ждущая, с окончательной сверкой — нет', async () => {
+    const results = createMlResults(memoryKv());
+    await results.set('unsure', { empty: false, count: 1, checked_at: 'x', work_status: 'unsure' });
+    await results.set('none', { empty: false, count: 1, checked_at: 'x' });
+    await results.set('done', { empty: false, count: 1, checked_at: 'x', work_status: 'confirmed' });
+    const at = new Date(now - 1000).toISOString();
+    const r = waitingRecords([{ ...uploaded('unsure'), taken_at: at }, { ...uploaded('none'), taken_at: at }, { ...uploaded('done'), taken_at: at }], results, now);
+    expect(r.map((x) => x.local_uuid)).toEqual(['unsure', 'none']);
   });
 });

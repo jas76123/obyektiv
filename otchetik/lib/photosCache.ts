@@ -5,7 +5,7 @@ import type { KeyValue } from './mlResults';
  * бригад. Хранилище передаётся снаружи (AsyncStorage в приложении, память в тестах),
  * как у lib/mlResults.ts.
  */
-export type PhotoEntry = { id: string; file: string; timestamp: string; count: number };
+export type PhotoEntry = { id: string; file: string; timestamp: string; count: number; work_status?: string };
 export type PhotosSnapshot = { at: string | null; list: PhotoEntry[] };
 
 export interface PhotosStore {
@@ -27,7 +27,8 @@ export function createPhotosCache(kv: KeyValue, key: string = PHOTOS_KEY): Photo
   function isPhotoEntry(x: unknown): x is PhotoEntry {
     if (!x || typeof x !== 'object') return false;
     const p = x as Record<string, unknown>;
-    return typeof p.id === 'string' && typeof p.file === 'string' && typeof p.timestamp === 'string' && typeof p.count === 'number';
+    return typeof p.id === 'string' && typeof p.file === 'string' && typeof p.timestamp === 'string' && typeof p.count === 'number'
+      && (p.work_status === undefined || typeof p.work_status === 'string');
   }
 
   async function load(): Promise<PhotosSnapshot> {

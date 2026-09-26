@@ -56,4 +56,16 @@ describe('photosCache', () => {
 
     expect(c.get().list).toEqual(fresh);
   });
+  it('work_status хранится, отсутствие допустимо, не-строка отсеивает запись', async () => {
+    const kv = memoryKv();
+    const c = createPhotosCache(kv);
+    await c.set([
+      { id: 'a', file: 'a_br-1.t.u.jpg', timestamp: '2026-09-26T10:00:00', count: 1, work_status: 'confirmed' },
+      { id: 'b', file: 'b_br-1.t.v.jpg', timestamp: '2026-09-26T10:01:00', count: 0 },
+    ], '2026-09-26T10:00:05.000Z');
+    const again = createPhotosCache(kv);
+    expect((await again.load()).list.map((p) => p.work_status)).toEqual(['confirmed', undefined]);
+    kv.data[PHOTOS_KEY] = JSON.stringify({ at: 'x', list: [{ id: 'z', file: 'z.jpg', timestamp: 't', count: 1, work_status: 7 }] });
+    expect((await createPhotosCache(kv).load()).list).toEqual([]);
+  });
 });

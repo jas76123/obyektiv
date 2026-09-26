@@ -1,9 +1,12 @@
+import { photoVerdict, type PhotoVerdict } from './status';
+
 /**
- * Результат нейросети по фото прораба: нашла ли что-то на снимке.
+ * Результат нейросети по фото прораба: нашла ли что-то на снимке и сверка с планом
+ * (`work_status`, нормализованный — см. lib/status.normalizeWorkStatus; нет — сверки не было).
  * Хранится отдельно от очереди (у SQLite нет миграций), словарь local_uuid → результат.
  * Хранилище передаётся снаружи: в приложении AsyncStorage, в тестах память.
  */
-export type MlResult = { empty: boolean; count: number; checked_at: string };
+export type MlResult = { empty: boolean; count: number; checked_at: string; work_status?: string };
 
 export interface KeyValue {
   getItem(k: string): Promise<string | null>;
@@ -14,8 +17,10 @@ export interface MlResultsStore {
   load(): Promise<Record<string, MlResult>>;
   get(uuid: string): MlResult | undefined;
   set(uuid: string, r: MlResult): Promise<void>;
-  /** local_uuid → empty, в форме, которую ждут lib/reports (ReportOpts.mlEmpty). */
+  /** local_uuid → empty, в форме, которую ждут lib/reports (ReportOpts.mlEmpty). Уходит в задаче 5. */
   emptyMap(): Record<string, boolean>;
+  /** local_uuid → вердикт фото (lib/status.photoVerdict) для taskState/buildReport. */
+  verdicts(): Record<string, PhotoVerdict>;
   on(l: () => void): () => void;
 }
 
@@ -47,6 +52,7 @@ export function createMlResults(kv: KeyValue, key: string = ML_RESULTS_KEY): MlR
       listeners.forEach((l) => l());
     },
     emptyMap: () => Object.fromEntries(Object.entries(cache ?? {}).map(([u, r]) => [u, r.empty])),
+    verdicts: () => Object.fromEntries(Object.entries(cache ?? {}).map(([u, r]) => [u, photoVerdict(r)])),
     on(l) { listeners.add(l); return () => { listeners.delete(l); }; },
   };
 }

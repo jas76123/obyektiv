@@ -3,19 +3,20 @@ import { fetchJson } from '../data/source';
 import type { MlResultsStore } from '../lib/mlResults';
 import { timeoutSignal } from '../lib/network';
 import type { PhotosStore } from '../lib/photosCache';
+import { FINAL_WORK_STATUS, normalizeWorkStatus } from '../lib/status';
 import type { ShotRecord } from './types';
 
 /**
- * Узнаём у сервера Георгия, нашла ли нейросеть что-то на фото прораба (спека 25.09 §3),
- * и тем же ответом наполняем кэш списка фото для рейтинга (спека 26.09 §5.2).
- * `GET /photos` отдаёт все файлы с детекциями; id записи = server_id нашего фото.
- * Маршрут гоняет детектор по всем файлам на каждый запрос, поэтому: один запрос на
- * прогон закрывает все ждущие фото, не чаще раза в минуту, с длинным таймаутом.
+ * Узнаём у сервера Георгия результат по фото прораба: детекции (спека 25.09 §3) и сверку с
+ * планом `works_status[0].status` (спека 26.09 «work_status» §3.3), и тем же ответом наполняем
+ * кэш списка фото для рейтинга (спека 26.09 §5.2). `GET /photos` отдаёт все файлы; id записи =
+ * server_id нашего фото. С 26.09 список отдаётся мгновенно, интервал 20 с согласован с
+ * Георгием. Один запрос на прогон закрывает все ждущие фото.
  */
-export const ML_MIN_INTERVAL_MS = 60_000;
+export const ML_MIN_INTERVAL_MS = 20_000;
 /** Допуск для ограничителя частоты: `lastRequestAt` ставится после нескольких await
  * (loadSettings, storeReady, list, results.load), поэтому очередной тик, пришедший
- * ровно через 60 с после предыдущего, может оказаться на несколько секунд раньше
+ * ровно через 20 с после предыдущего, может оказаться на несколько секунд раньше
  * порога — без допуска такой тик уходит в too_soon через раз. */
 export const ML_INTERVAL_SLACK_MS = 2_000;
 export const ML_TIMEOUT_MS = 90_000;
@@ -31,11 +32,13 @@ export function resetMlCheckClock(): void { lastRequestAt = -Infinity; inFlight 
 
 export type MlCheckResult = { checked: number; skipped: 'nothing' | 'too_soon' | 'in_flight' | 'error' | null };
 
-/** «Ждущие» записи: загружены, есть server_id, результата ещё нет, и не старше ML_MAX_AGE_MS. */
+/** «Ждущие» записи: загружены, есть server_id, не старше ML_MAX_AGE_MS, и сверка ещё не
+ * окончательная (результата нет, `unsure` или без `work_status` — сервер мог дозреть). */
 export function waitingRecords(records: ShotRecord[], results: MlResultsStore, now: number): Array<ShotRecord & { server_id: string }> {
   const hasServerId = (r: ShotRecord): r is ShotRecord & { server_id: string } => !!r.server_id;
+  const settled = (uuid: string) => FINAL_WORK_STATUS.has(results.get(uuid)?.work_status ?? '');
   return records.filter(hasServerId).filter((r) =>
-    r.status === 'uploaded' && !results.get(r.local_uuid) && now - Date.parse(r.taken_at) <= ML_MAX_AGE_MS,
+    r.status === 'uploaded' && !settled(r.local_uuid) && now - Date.parse(r.taken_at) <= ML_MAX_AGE_MS,
   );
 }
 
@@ -68,9 +71,15 @@ export async function checkMlResults(deps: {
     }
     const checkedAt = new Date(now()).toISOString();
 
+    /** Сверка фото: первый элемент works_status, нормализованный; нет — undefined. */
+    const workStatusOf = (p: Photos['photos'][number]) => normalizeWorkStatus(p.works_status?.[0]?.status) ?? undefined;
+
     if (deps.photos) {
       try {
-        await deps.photos.set(photos.map((p) => ({ id: p.id, file: p.file, timestamp: p.timestamp, count: p.detections.length })), checkedAt);
+        await deps.photos.set(photos.map((p) => {
+          const ws = workStatusOf(p);
+          return { id: p.id, file: p.file, timestamp: p.timestamp, count: p.detections.length, ...(ws ? { work_status: ws } : {}) };
+        }), checkedAt);
       } catch {
         // Ошибка записи кэша списка (например, переполнение localStorage на вебе) не должна
         // мешать результатам по своим фото — их всё равно нужно записать ниже.
@@ -82,7 +91,8 @@ export async function checkMlResults(deps: {
     for (const r of waiting) {
       const item = byId.get(r.server_id);
       if (!item) continue; // ещё не в списке — спросим при следующем прогоне
-      await deps.results.set(r.local_uuid, { empty: item.detections.length === 0, count: item.detections.length, checked_at: checkedAt });
+      const ws = workStatusOf(item);
+      await deps.results.set(r.local_uuid, { empty: item.detections.length === 0, count: item.detections.length, checked_at: checkedAt, ...(ws ? { work_status: ws } : {}) });
       checked++;
     }
     return { checked, skipped: null };
