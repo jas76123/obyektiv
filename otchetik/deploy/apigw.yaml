@@ -31,6 +31,9 @@ paths:
         type: object_storage
         bucket: obyektiv-web
         object: '{file}'
+        # SPA-фолбэк: перезагрузка глубокой ссылки (например, /obyektiv/rating) просит
+        # объект, которого нет в бакете (там только index.html и ассеты) — отдаём index.html.
+        error_object: index.html
         service_account_id: SERVICE_ACCOUNT_ID
   /api/{path+}:
     x-yc-apigateway-any-method:
@@ -46,6 +49,11 @@ paths:
         timeouts:
           connect: 10
           read: 120
+        # Без этого query и Content-Type multipart (boundary) не доходят до сервера.
+        headers:
+          '*': '*'
+        query:
+          '*': '*'
   /photos:
     get:
       x-yc-apigateway-integration:
@@ -54,3 +62,8 @@ paths:
         timeouts:
           connect: 10
           read: 120
+        # Без этого query и Content-Type multipart (boundary) не доходят до сервера.
+        headers:
+          '*': '*'
+        query:
+          '*': '*'

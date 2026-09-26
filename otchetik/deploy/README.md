@@ -11,14 +11,24 @@
     yc init                                                                       # вход через браузер, выбор облака и каталога
 
     yc storage bucket create --name obyektiv-web
+
+Два сервисных аккаунта: шлюз только читает бакет, заливка — читает и пишет. Один и
+тот же ключ с правом записи в интеграции API Gateway был бы лишним риском, поэтому
+права разведены.
+
     yc iam service-account create --name otchetik-gw
     yc resource-manager folder add-access-binding "$(yc config get folder-id)" \
       --role storage.viewer --subject "serviceAccount:$(yc iam service-account get otchetik-gw --format json | python3 -c 'import json,sys;print(json.load(sys.stdin)["id"])')"
-    yc iam access-key create --service-account-name otchetik-gw     # key_id и secret — в aws configure
+
+    yc iam service-account create --name otchetik-deploy
+    yc resource-manager folder add-access-binding "$(yc config get folder-id)" \
+      --role storage.editor --subject "serviceAccount:$(yc iam service-account get otchetik-deploy --format json | python3 -c 'import json,sys;print(json.load(sys.stdin)["id"])')"
+    yc iam access-key create --service-account-name otchetik-deploy     # key_id и secret — в aws configure
 
     aws configure --profile yc      # Access Key = key_id, Secret = secret, region ru-central1, output json
 
-В `apigw.yaml` заменить `SERVICE_ACCOUNT_ID` на id из `yc iam service-account get otchetik-gw`.
+В `apigw.yaml` заменить `SERVICE_ACCOUNT_ID` на id из `yc iam service-account get otchetik-gw`
+(`otchetik-gw` — read-only, только для шлюза; ключ для `aws configure` — от `otchetik-deploy`).
 
     yc serverless api-gateway create --name otchetik --spec deploy/apigw.yaml   # печатает domain
 
@@ -30,17 +40,18 @@
 Проверка: `curl -sI https://<id>.apigw.yandexcloud.net/obyektiv/` → 200, `text/html`;
 `curl -s https://<id>.apigw.yandexcloud.net/api/foreman/objects` → тот же JSON, что у сервера.
 
+После выкладки шлюза дополнительно:
+- `curl -s 'https://<id>.apigw.yandexcloud.net/api/foreman/object/<object_id>/schedule?brigade_id=br-1&date=YYYY-MM-DD'`
+  → расписание, не 422;
+- smoke-тест multipart POST (точные поля формы — `contract/README.md` или `lib/uploadRequest.ts`):
+  `curl -F photo=@x.jpg -F local_uuid=<uuid> -F task_id=<task_id> -F taken_at=<ISO> https://<id>.apigw.yandexcloud.net/api/foreman/shots`
+  → тот же ответ, что при обращении напрямую на сервер;
+- `curl -sI https://<id>.apigw.yandexcloud.net/obyektiv/rating` → 200, `text/html` (проверка SPA-фолбэка).
+
 ## Если параметры запроса не доходят до сервера
 
-`GET /api/foreman/object/…/schedule?brigade_id=&date=` должен вернуть расписание. Если
-шлюз отдаёт 422/400, значит query-параметры не пересылаются: в `apigw.yaml` у маршрута
-`/api/{path+}` добавить
-
-    parameters:
-      - { name: brigade_id, in: query, required: false, schema: { type: string } }
-      - { name: date, in: query, required: false, schema: { type: string } }
-      - { name: object_id, in: query, required: false, schema: { type: string } }
-      - { name: uuids, in: query, required: false, schema: { type: string } }
-
-и в интеграцию `query: { brigade_id: '{brigade_id}', date: '{date}', object_id: '{object_id}', uuids: '{uuids}' }`;
-у `/photos` — параметры `limit`, `offset` тем же способом.
+`GET /api/foreman/object/…/schedule?brigade_id=&date=` должен вернуть расписание. В `apigw.yaml`
+у обеих http-интеграций (`/api/{path+}` и `/photos`) уже стоит `headers: {'*': '*'}` и
+`query: {'*': '*'}` — этого достаточно, чтобы query-параметры и `Content-Type` multipart-загрузки
+(с boundary) доходили до сервера без перечисления параметров по одному. Если шлюз всё равно
+отдаёт 422/400 — смотреть проверки выше после очередной выкладки `apigw.yaml`.
