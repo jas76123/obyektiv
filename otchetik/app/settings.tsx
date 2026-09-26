@@ -1,6 +1,6 @@
 import { useRouter } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, Switch, Text, TextInput, View } from 'react-native';
+import { Platform, Pressable, ScrollView, StyleSheet, Switch, Text, TextInput, View } from 'react-native';
 import { showAlert } from '../components/alerts';
 import { queryClient } from '../data/queryClient';
 import { currentDefaultServerUrl, useSettings } from '../data/settings';
@@ -21,6 +21,12 @@ export default function Settings() {
   const router = useRouter();
   const t = useTheme();
   const styles = useMemo(() => makeStyles(t), [t]);
+  // Веб: react-native-web красит включённый бегунок в свой зелёный, если не задать activeThumbColor (в типах RN его нет)
+  const switchColors = {
+    trackColor: { false: t.lineStrong, true: t.accent },
+    thumbColor: t.btnInk,
+    ...(Platform.OS === 'web' ? ({ activeThumbColor: t.btnInk } as object) : {}),
+  };
   const [url, setUrl] = useState('');
   // Зависим только от serverUrl, чтобы не сбрасывать введённый адрес при других изменениях в settings
   useEffect(() => { if (settings) setUrl(settings.serverUrl); }, [settings?.serverUrl]);
@@ -67,12 +73,12 @@ export default function Settings() {
 
       <View style={styles.rowBetween}>
         <Text style={styles.label}>Только демо-данные</Text>
-        <Switch value={settings.demoOnly} trackColor={{ true: t.accent }} onValueChange={async (v) => { try { await save({ demoOnly: v }); await queryClient.invalidateQueries(); } catch (err) { showAlert('Не получилось', err instanceof Error ? err.message : 'Не удалось сохранить настройку'); } }} />
+        <Switch value={settings.demoOnly} {...switchColors} onValueChange={async (v) => { try { await save({ demoOnly: v }); await queryClient.invalidateQueries(); } catch (err) { showAlert('Не получилось', err instanceof Error ? err.message : 'Не удалось сохранить настройку'); } }} />
       </View>
 
       <View style={styles.rowBetween}>
         <Text style={styles.label}>Проверять фото нейросетью</Text>
-        <Switch value={settings.mlCheck} trackColor={{ true: t.accent }} onValueChange={async (v) => { try { await save({ mlCheck: v }); } catch (err) { showAlert('Не получилось', err instanceof Error ? err.message : 'Не удалось сохранить настройку'); } }} />
+        <Switch value={settings.mlCheck} {...switchColors} onValueChange={async (v) => { try { await save({ mlCheck: v }); } catch (err) { showAlert('Не получилось', err instanceof Error ? err.message : 'Не удалось сохранить настройку'); } }} />
       </View>
 
       <Text style={styles.h}>Тема</Text>
