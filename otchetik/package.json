@@ -10,6 +10,7 @@
     "@tanstack/react-query-persist-client": "^5.103.2",
     "expo": "~57.0.24",
     "expo-background-task": "~57.0.19",
+    "expo-build-properties": "~57.0.22",
     "expo-constants": "~57.0.19",
     "expo-crypto": "~57.0.3",
     "expo-file-system": "~57.0.7",

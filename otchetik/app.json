@@ -42,6 +42,14 @@
         {
           "locationWhenInUsePermission": "Координаты добавляются к фото работы"
         }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "usesCleartextTraffic": true
+          }
+        }
       ]
     ],
     "experiments": {
