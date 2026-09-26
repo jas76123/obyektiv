@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
+import { useTheme } from '../data/theme';
 import type { ReportWork } from '../lib/reports';
-import { theme } from '../lib/theme';
+import type { Theme } from '../lib/theme';
 import { fmtTime } from '../lib/time';
 import { photoUri } from '../queue/photoFile';
 import { StatusChip } from './StatusChip';
@@ -9,6 +10,8 @@ import { StatusChip } from './StatusChip';
 export function ReportRow({ work, onRetake }: { work: ReportWork; onRetake: (task_id: string) => void }) {
   const [open, setOpen] = useState(false);
   const [uris, setUris] = useState<Record<string, string>>({});
+  const t = useTheme();
+  const styles = useMemo(() => makeStyles(t), [t]);
   useEffect(() => {
     if (!open) return;
     Promise.all(work.photos.map(async (p) => [p.uuid, p.record ? await photoUri(p.record) : ''] as const))
@@ -34,7 +37,7 @@ export function ReportRow({ work, onRetake }: { work: ReportWork; onRetake: (tas
       )}
       {open && work.photos.map((p) => (
         <View key={p.uuid} style={styles.photo}>
-          {uris[p.uuid] ? <Image source={{ uri: uris[p.uuid] }} style={styles.thumb} /> : <View style={[styles.thumb, { backgroundColor: theme.line }]} />}
+          {uris[p.uuid] ? <Image source={{ uri: uris[p.uuid] }} style={styles.thumb} /> : <View style={[styles.thumb, { backgroundColor: t.surface2 }]} />}
           <Text style={styles.meta}>{fmtTime(p.taken_at)} · {p.word}</Text>
         </View>
       ))}
@@ -42,13 +45,13 @@ export function ReportRow({ work, onRetake }: { work: ReportWork; onRetake: (tas
   );
 }
 
-const styles = StyleSheet.create({
-  row: { backgroundColor: theme.paper, borderWidth: 1, borderColor: theme.line, borderRadius: theme.radius, padding: 14, marginBottom: 10 },
+const makeStyles = (t: Theme) => StyleSheet.create({
+  row: { backgroundColor: t.paper, borderWidth: 1, borderColor: t.line, borderRadius: t.radiusLg, padding: 14, marginBottom: 10 },
   head: { flexDirection: 'row', alignItems: 'center', gap: 10 },
-  name: { fontSize: 16, fontWeight: '700', color: theme.ink },
-  meta: { fontSize: 13, color: theme.muted, marginTop: 2 },
-  retake: { marginTop: 10, borderWidth: 1, borderColor: theme.accent, borderRadius: theme.radius, padding: 10, alignItems: 'center' },
-  retakeText: { color: theme.accent, fontWeight: '700' },
+  name: { fontSize: 16, fontWeight: '700', color: t.ink },
+  meta: { fontSize: 13, color: t.muted, marginTop: 2 },
+  retake: { marginTop: 10, borderWidth: 1, borderColor: t.accent, borderRadius: t.radius, padding: 10, alignItems: 'center' },
+  retakeText: { color: t.accentText, fontWeight: '700' },
   photo: { flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: 10 },
   thumb: { width: 56, height: 56, borderRadius: 6 },
 });

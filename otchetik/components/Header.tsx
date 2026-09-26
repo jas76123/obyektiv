@@ -1,15 +1,19 @@
 import { useRouter } from 'expo-router';
+import { useMemo } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { useSettings } from '../data/settings';
 import type { SourceTag } from '../data/source';
+import { useTheme } from '../data/theme';
+import type { Theme } from '../lib/theme';
 import { fmtTime } from '../lib/time';
-import { theme } from '../lib/theme';
 
 export function Header({ title, queueCount, online, source, at, problem }: {
   title: string; queueCount: number; online: boolean; source?: SourceTag; at?: string; problem?: string;
 }) {
   const { settings } = useSettings();
   const router = useRouter();
+  const t = useTheme();
+  const styles = useMemo(() => makeStyles(t), [t]);
   return (
     <View style={styles.wrap}>
       <View style={styles.row}>
@@ -31,15 +35,15 @@ export function Header({ title, queueCount, online, source, at, problem }: {
   );
 }
 
-const styles = StyleSheet.create({
-  wrap: { paddingHorizontal: theme.pad, paddingTop: 8, paddingBottom: 12, backgroundColor: theme.paper, borderBottomWidth: 1, borderBottomColor: theme.line },
+const makeStyles = (t: Theme) => StyleSheet.create({
+  wrap: { paddingHorizontal: t.pad, paddingTop: 8, paddingBottom: 12, backgroundColor: t.paper, borderBottomWidth: 1, borderBottomColor: t.line },
   row: { flexDirection: 'row', gap: 12, alignItems: 'center' },
-  net: { fontSize: 12, color: theme.muted },
-  queue: { fontSize: 12, color: theme.muted },
-  demo: { fontSize: 12, color: theme.warnInk, backgroundColor: theme.warnBg, paddingHorizontal: 6, borderRadius: 4 },
-  problem: { fontSize: 12, color: theme.error },
-  title: { fontSize: 24, fontWeight: '800', color: theme.ink, marginTop: 6 },
-  sub: { fontSize: 14, color: theme.muted, marginTop: 2 },
-  warn: { marginTop: 10, backgroundColor: theme.warnBg, padding: 10, borderRadius: theme.radius },
-  warnText: { color: theme.warnInk, fontSize: 14 },
+  net: { fontSize: 12, color: t.muted },
+  queue: { fontSize: 12, color: t.muted },
+  demo: { fontSize: 12, color: t.warnInk, backgroundColor: t.warnBg, paddingHorizontal: 6, borderRadius: 6 },
+  problem: { fontSize: 12, color: t.error },
+  title: { fontSize: 24, fontWeight: '800', color: t.ink, marginTop: 6 },
+  sub: { fontSize: 14, color: t.muted, marginTop: 2 },
+  warn: { marginTop: 10, backgroundColor: t.warnBg, padding: 10, borderRadius: t.radius },
+  warnText: { color: t.warnInk, fontSize: 14 },
 });

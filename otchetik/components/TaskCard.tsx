@@ -1,11 +1,12 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { ActivityIndicator, Pressable, StyleSheet, Text, View } from 'react-native';
 import type { ScheduleTask } from '../contract/schemas';
-import { showCaptureError } from './alerts';
+import { useTheme } from '../data/theme';
 import { photoChip, type ScreenStatus } from '../lib/status';
-import { theme } from '../lib/theme';
+import type { Theme } from '../lib/theme';
 import { captureForTask } from '../queue/capture';
 import type { ShotRecord } from '../queue/types';
+import { showCaptureError } from './alerts';
 import { StatusChip } from './StatusChip';
 
 export function TaskCard({ task, shots, state, serverSet }: {
@@ -15,6 +16,8 @@ export function TaskCard({ task, shots, state, serverSet }: {
   serverSet: boolean;                                         // адрес сервера задан
 }) {
   const [busy, setBusy] = useState(false);
+  const t = useTheme();
+  const styles = useMemo(() => makeStyles(t), [t]);
   const last = shots[0];
   const retake = state.status === 'retake';
 
@@ -40,18 +43,18 @@ export function TaskCard({ task, shots, state, serverSet }: {
         <Text style={styles.count}>снято: {shots.length}{last ? ` · ${photoChip(last.status, { serverSet })}` : ''}</Text>
       </View>
       <Pressable onPress={onPhoto} disabled={busy} style={[styles.btn, busy && { opacity: 0.5 }]} accessibilityRole="button" accessibilityLabel={`${label}: ${task.name}`}>
-        {busy ? <ActivityIndicator color={theme.accentInk} /> : <Text style={styles.btnText}>{label}</Text>}
+        {busy ? <ActivityIndicator color={t.btnInk} /> : <Text style={styles.btnText}>{label}</Text>}
       </Pressable>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  card: { flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: theme.paper, borderWidth: 1, borderColor: theme.line, borderRadius: theme.radius, padding: 14, marginBottom: 10 },
-  name: { fontSize: 17, fontWeight: '700', color: theme.ink },
-  meta: { fontSize: 14, color: theme.muted, marginTop: 2 },
+const makeStyles = (t: Theme) => StyleSheet.create({
+  card: { flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: t.paper, borderWidth: 1, borderColor: t.line, borderRadius: t.radiusLg, padding: 14, marginBottom: 10 },
+  name: { fontSize: 17, fontWeight: '700', color: t.ink },
+  meta: { fontSize: 14, color: t.muted, marginTop: 2 },
   chipRow: { marginTop: 8 },
-  count: { fontSize: 13, color: theme.muted, marginTop: 6 },
-  btn: { backgroundColor: theme.accent, borderRadius: theme.radius, paddingVertical: 14, paddingHorizontal: 20, minWidth: 88, alignItems: 'center' },
-  btnText: { color: theme.accentInk, fontSize: 16, fontWeight: '700' },
+  count: { fontSize: 13, color: t.muted, marginTop: 6 },
+  btn: { backgroundColor: t.btn, borderRadius: t.radius, paddingVertical: 14, paddingHorizontal: 20, minWidth: 88, alignItems: 'center' },
+  btnText: { color: t.btnInk, fontSize: 16, fontWeight: '700' },
 });

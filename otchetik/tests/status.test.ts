@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { SCREEN_COLOR, SCREEN_LABEL, foldStatus, photoChip, workStatus } from '../lib/status';
+import { SCREEN_LABEL, foldStatus, photoChip, workStatus } from '../lib/status';
 
 describe('foldStatus', () => {
   it('всё, что не вернули на пересъём, — в работе', () => {
@@ -36,9 +36,6 @@ describe('workStatus', () => {
 describe('слова и цвета', () => {
   it('три слова', () => {
     expect(SCREEN_LABEL).toEqual({ not_started: 'не начато', in_work: 'в работе', retake: 'переснять' });
-  });
-  it('три цвета из прежней палитры', () => {
-    expect(SCREEN_COLOR).toEqual({ not_started: '#7C8079', in_work: '#1B5C8A', retake: '#AC3529' });
   });
   it('photoChip — только доставка', () => {
     expect(photoChip('queued')).toBe('ждёт сети');

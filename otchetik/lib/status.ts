@@ -15,13 +15,6 @@ export const SCREEN_LABEL: Record<ScreenStatus, string> = {
   retake: 'переснять',
 };
 
-/** Цвета чипов; слово обязательно, цвет вторичен. */
-export const SCREEN_COLOR: Record<ScreenStatus, string> = {
-  not_started: '#7C8079',
-  in_work: '#1B5C8A',
-  retake: '#AC3529',
-};
-
 /** Сервер уже вынес итог (сам или руководитель): наше правило по детекциям больше не нужно. */
 const FINAL: ReadonlySet<AnyShotStatus> = new Set(['accepted', 'partial', 'rework', 'rejected']);
 

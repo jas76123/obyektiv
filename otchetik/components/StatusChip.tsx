@@ -1,8 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { SCREEN_COLOR, SCREEN_LABEL, type ScreenStatus } from '../lib/status';
+import { useTheme } from '../data/theme';
+import { SCREEN_LABEL, type ScreenStatus } from '../lib/status';
 
+/** Слово обязательно, цвет вторичен: цвет берётся из темы (спека 26.09 §2). */
 export function StatusChip({ status, label }: { status: ScreenStatus; label?: string }) {
-  const color = SCREEN_COLOR[status];
+  const color = useTheme().status[status];
   return (
     <View style={[styles.chip, { borderColor: color }]} accessibilityLabel={label ?? SCREEN_LABEL[status]}>
       <View style={[styles.dot, { backgroundColor: color }]} />
@@ -11,6 +13,7 @@ export function StatusChip({ status, label }: { status: ScreenStatus; label?: st
   );
 }
 
+// Геометрия от темы не зависит — статичные стили.
 const styles = StyleSheet.create({
   chip: { flexDirection: 'row', alignItems: 'center', gap: 6, borderWidth: 1, borderRadius: 999, paddingHorizontal: 10, paddingVertical: 4, alignSelf: 'flex-start' },
   dot: { width: 8, height: 8, borderRadius: 4 },
