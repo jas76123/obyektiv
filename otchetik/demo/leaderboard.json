@@ -5,7 +5,7 @@
     { "id": "br-3", "name": "Бригада №3", "rank": 3, "points": 104, "accepted": 9, "quality": 75 }
   ],
   "others": [
-    { "brigade": "Бригада №2", "work": "Установка дверей", "zone": "зона 4", "status": "accepted" },
+    { "brigade": "Бригада №2", "work": "Котлован", "zone": "зона 4", "status": "accepted" },
     { "brigade": "Бригада №2", "work": "Стяжка пола", "zone": "секция B", "status": "accepted" },
     { "brigade": "Бригада №3", "work": "Армирование", "zone": "зона C", "status": "under_review" }
   ]
