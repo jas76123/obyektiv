@@ -62,7 +62,7 @@ paths:
         timeouts:
           connect: 10
           read: 120
-        # Без этого query и Content-Type multipart (boundary) не доходят до сервера.
+        # Без этого query-параметры limit и offset не доходят до сервера.
         headers:
           '*': '*'
         query:
