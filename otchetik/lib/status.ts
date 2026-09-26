@@ -22,10 +22,18 @@ export const SCREEN_COLOR: Record<ScreenStatus, string> = {
   retake: '#AC3529',
 };
 
-/** Статус одного фото. `mlEmpty` — нейросеть на этом фото ничего не нашла. */
+/** Сервер уже вынес итог (сам или руководитель): наше правило по детекциям больше не нужно. */
+const FINAL: ReadonlySet<AnyShotStatus> = new Set(['accepted', 'partial', 'rework', 'rejected']);
+
+/**
+ * Статус одного фото. `mlEmpty` — нейросеть на этом фото ничего не нашла.
+ * Правило «пусто → переснять» временное (спека 25.09 §3): оно действует, пока сервер
+ * не поставил итоговый статус. С 26.09 сервер сам сравнивает фото с нарядом, и его
+ * «принято» не должно перебиваться нашим «переснять».
+ */
 export function foldStatus(s: AnyShotStatus, opts?: { mlEmpty?: boolean }): ScreenStatus {
-  if (opts?.mlEmpty) return 'retake';
-  return s === 'rework' || s === 'rejected' ? 'retake' : 'in_work';
+  if (FINAL.has(s)) return s === 'rework' || s === 'rejected' ? 'retake' : 'in_work';
+  return opts?.mlEmpty ? 'retake' : 'in_work';
 }
 
 /** Статус работы = статус самого свежего фото. Список приходит новыми сверху. */

@@ -11,9 +11,14 @@ describe('foldStatus', () => {
     expect(foldStatus('rework')).toBe('retake');
     expect(foldStatus('rejected')).toBe('retake');
   });
-  it('пустые детекции нейросети — переснять, каким бы ни был статус', () => {
+  it('пустые детекции нейросети — переснять, пока сервер не вынес итог', () => {
     expect(foldStatus('uploaded', { mlEmpty: true })).toBe('retake');
-    expect(foldStatus('accepted', { mlEmpty: true })).toBe('retake');
+    // итог сервера главнее правила по детекциям: «принято» остаётся «в работе», «доработка» — «переснять»
+    expect(foldStatus('accepted', { mlEmpty: true })).toBe('in_work');
+    expect(foldStatus('partial', { mlEmpty: true })).toBe('in_work');
+    expect(foldStatus('rework', { mlEmpty: false })).toBe('retake');
+    expect(foldStatus('processed', { mlEmpty: true })).toBe('retake');
+    expect(foldStatus('under_review', { mlEmpty: true })).toBe('retake');
     expect(foldStatus('uploaded', { mlEmpty: false })).toBe('in_work');
   });
 });
