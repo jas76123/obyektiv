@@ -57,7 +57,7 @@ export async function saveSettings(patch: Partial<Settings>): Promise<Settings> 
   await AsyncStorage.setItem(KEY, JSON.stringify(next));
   // Ошибка одного слушателя (например, перенастройки NetInfo) не должна ломать сохранение
   // настроек и остальных подписчиков: смена темы не зависит от проверки сети.
-  listeners.forEach((l) => { try { l(next); } catch {} });
+  listeners.forEach((l) => { try { l(next); } catch (e) { console.warn('слушатель настроек упал', e); } });
   return next;
 }
 

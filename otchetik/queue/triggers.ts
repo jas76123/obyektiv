@@ -5,6 +5,7 @@ import { loadSettings, serverBase } from '../data/settings';
 import { listsChangedByRun } from '../lib/poll';
 import { ML_MIN_INTERVAL_MS } from './mlCheck';
 import { runMlCheckNow } from './mlRun';
+import { refreshNet, subscribeNet } from './netinfoConfig';
 import { queueEvents } from './queueEvents';
 import { getStore, storeReady } from './store';
 import { uploadShot } from './uploadShot';
@@ -55,8 +56,10 @@ async function hasPending(): Promise<boolean> {
 /** Четыре триггера из спеки §4.4: после съёмки, сеть появилась, приложение на переднем плане, вручную (runQueueNow). */
 export function installTriggers(): () => void {
   const offQueue = queueEvents.on(() => schedule(300));
-  const offNet = NetInfo.addEventListener((s) => { if (isOnline(s)) schedule(500, { force: true }); });
-  const sub = AppState.addEventListener('change', (st) => { if (st === 'active') schedule(500); });
+  // subscribeNet, а не NetInfo.addEventListener: подписка должна пережить NetInfo.configure() (queue/netinfoConfig.ts).
+  const offNet = subscribeNet((s) => { if (isOnline(s)) schedule(500, { force: true }); });
+  // На переднем плане — сразу перепроверить сеть, не ждать паузы опроса (REACHABILITY_RETRY_MS).
+  const sub = AppState.addEventListener('change', (st) => { if (st === 'active') { refreshNet(); schedule(500); } });
   const tick = setInterval(() => {
     hasPending().then((yes) => { if (yes) schedule(0); }).catch(() => {}); // подбирает failed, чьё время пришло
     // Проверка нейросети — безусловно, не только при непустой очереди отправки: иначе

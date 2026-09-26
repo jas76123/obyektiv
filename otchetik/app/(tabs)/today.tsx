@@ -1,4 +1,3 @@
-import NetInfo from '@react-native-community/netinfo';
 import * as Location from 'expo-location';
 import { useEffect, useMemo, useState } from 'react';
 import { FlatList, RefreshControl, StyleSheet, Text, View } from 'react-native';
@@ -11,11 +10,13 @@ import { taskState } from '../../lib/reports';
 import type { Theme } from '../../lib/theme';
 import { dayKey, fmtDay, todayIso } from '../../lib/time';
 import { useMlVerdicts } from '../../queue/mlResults';
+import { subscribeNet } from '../../queue/netinfoConfig';
 import { useShownRecords } from '../../queue/useShownRecords';
 
 export function useOnline(): boolean {
   const [online, setOnline] = useState(true);
-  useEffect(() => NetInfo.addEventListener((s) => setOnline(!!s.isConnected && s.isInternetReachable !== false)), []);
+  // subscribeNet, а не NetInfo.addEventListener: подписка должна пережить NetInfo.configure() (queue/netinfoConfig.ts).
+  useEffect(() => subscribeNet((s) => setOnline(!!s.isConnected && s.isInternetReachable !== false)), []);
   return online;
 }
 
