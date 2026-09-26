@@ -93,18 +93,20 @@ export const FAIL_WORD: Record<FailReason, string> = {
 
 /**
  * Класс причины по тексту ошибки. Тексты — из нашего кода (`HTTP <код>`, «ответ сервера не по
- * схеме», «файл фото не найден») и из платформы (expo/fetch: «The operation was aborted.» при
- * таймауте, «Network request failed», браузер: «Failed to fetch», expo-file-system: «does not exist»).
- * Файл проверяется раньше сетевых слов: «файл фото не найден» тоже содержит «не найден».
+ * схеме», «файл фото не найден») и из платформы: expo/fetch в SDK 57 заворачивает любую ошибку
+ * транспорта как «fetch failed: <сообщение>» (FetchErrors.ts) — таймаут «The operation was
+ * aborted.», «Failed to connect to …», «Unable to resolve host …»; браузер даёт «Failed to fetch»;
+ * ошибка чтения файла из bytes() тоже приходит завёрнутой («fetch failed: File … does not exist»),
+ * поэтому файл проверяется раньше сетевых слов.
  */
 export function failReason(lastError: string | null | undefined): FailReason | null {
   const e = (lastError ?? '').trim();
   if (!e) return null;
-  const m = /HTTP (\d)\d\d/.exec(e);
+  const m = /HTTP (\d)\d\d/i.exec(e);
   if (m) return m[1] === '4' ? 'server_rejected' : 'server_down';
   if (/не по схеме/i.test(e)) return 'server_rejected';
   if (/файл|file|exist|ENOENT/i.test(e)) return 'file_lost';
-  if (/abort|network request failed|failed to fetch|timed? ?out/i.test(e)) return 'server_down';
+  if (/fetch failed|failed to fetch|network request failed|abort|timed? ?out|connect|resolve host|unreachable|refused|reset|socket/i.test(e)) return 'server_down';
   return 'unknown';
 }
 

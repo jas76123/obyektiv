@@ -38,7 +38,8 @@ export function ReportRow({ work, onRetake }: { work: ReportWork; onRetake: (tas
       {open && work.photos.map((p) => (
         <View key={p.uuid} style={styles.photo}>
           {uris[p.uuid] ? <Image source={{ uri: uris[p.uuid] }} style={styles.thumb} /> : <View style={[styles.thumb, { backgroundColor: t.surface2 }]} />}
-          <Text style={styles.meta}>{fmtTime(p.taken_at)} · {p.word}</Text>
+          {/* flex: 1 — длинное слово причины («файл потерян, переснимите») переносится, а не вылезает за карточку */}
+          <Text style={[styles.meta, { flex: 1 }]}>{fmtTime(p.taken_at)} · {p.word}</Text>
         </View>
       ))}
     </View>

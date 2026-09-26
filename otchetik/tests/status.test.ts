@@ -126,6 +126,13 @@ describe('причина неотправки (решение продакта 2
     expect(failReason('The operation was aborted.')).toBe('server_down');
     expect(failReason('Network request failed')).toBe('server_down');
     expect(failReason('TypeError: Failed to fetch')).toBe('server_down');
+    expect(failReason('http 502')).toBe('server_down'); // регистр не важен
+    // expo/fetch (SDK 57) заворачивает ошибки транспорта: «fetch failed: <сообщение>»
+    expect(failReason('fetch failed: The operation was aborted.')).toBe('server_down');
+    expect(failReason('fetch failed: Failed to connect to /217.18.63.89:8000')).toBe('server_down');
+    expect(failReason('fetch failed: Unable to resolve host "example.org"')).toBe('server_down');
+    expect(failReason('fetch failed: что-то неизвестное')).toBe('server_down');
+    expect(failReason("fetch failed: File 'file:///data/x.jpg' does not exist")).toBe('file_lost');
     expect(failReason('HTTP 413')).toBe('server_rejected');
     expect(failReason('HTTP 404')).toBe('server_rejected');
     expect(failReason('ответ сервера не по схеме: Required')).toBe('server_rejected');
